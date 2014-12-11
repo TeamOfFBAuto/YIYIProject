@@ -39,11 +39,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-WeChatSDK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>18E79D263C0EBB46B7552D71</key>
+		<key>016F8D9256C65DE86C0FB917</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>567DE6D4AF5DBBB8552C457E</key>
+		<key>0A6FEDE7591823950CD097A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>589369D72A4BCB2C1B4027E9</key>
+		<key>1EE31C0E5FD462D2170055A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5DA3F20FF3AEC6766893FFA6</key>
+		<key>29A58604E90B5DCC867609AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>77D2C64B047B6E274411AE4A</key>
+		<key>3FBFD541C7ABDED554C7882C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7CC206D53FF7471544E3100D</key>
+		<key>56DF21C2AF7F8908FD1DECA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7CDADA0C4D44AE28142122FE</key>
+		<key>8E76C46EFBAAC9CFA9698683</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F6F623D61BC859BE675F349</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EB7F2686C62690EC06AA42C3</key>
+		<key>9C7DF76DB863DDDCBB53A460</key>
 		<dict>
 			<key>primary</key>
 			<true/>

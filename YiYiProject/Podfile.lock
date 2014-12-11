@@ -28,7 +28,6 @@ PODS:
   - SDWebImage/Core (3.7.1)
   - UMeng (2.2.1)
   - UMengFeedback (1.4.2.1)
-  - WeChatSDK (0.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
@@ -38,7 +37,6 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7.1)
   - UMeng (~> 2.2.1)
   - UMengFeedback (~> 1.4.1)
-  - WeChatSDK (~> 0.0.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
@@ -48,6 +46,5 @@ SPEC CHECKSUMS:
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   UMeng: e5b6c6a06215aeba33cb59159341ab3d6d292935
   UMengFeedback: a57656e8441ea05cf6c812927eb4d3cdb21a25ef
-  WeChatSDK: e9dd2b6d48d825f26221669a3a1300fe0bef58e0
 
 COCOAPODS: 0.34.4

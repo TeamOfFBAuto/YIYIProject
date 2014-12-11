@@ -7,12 +7,26 @@
 //
 
 #import "MineViewController.h"
+#import "LoginViewController.h"
 
 @interface MineViewController ()
 
 @end
 
 @implementation MineViewController
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ([LTools cacheBoolForKey:USER_LONGIN] == NO) {
+        
+        LoginViewController *login = [[LoginViewController alloc]init];
+        
+        [self presentViewController:login animated:YES completion:nil];
+        
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

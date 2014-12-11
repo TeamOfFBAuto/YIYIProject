@@ -92,9 +92,3 @@
 // Please contact the author.
 // Version: 1.4.2.1.
 
-// WeChatSDK
-#define COCOAPODS_POD_AVAILABLE_WeChatSDK
-#define COCOAPODS_VERSION_MAJOR_WeChatSDK 0
-#define COCOAPODS_VERSION_MINOR_WeChatSDK 0
-#define COCOAPODS_VERSION_PATCH_WeChatSDK 1
-
