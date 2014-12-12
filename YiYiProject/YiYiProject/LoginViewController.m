@@ -105,7 +105,7 @@
 
 - (void)loginToServer:(NSString *)otherUserId
              nickName:(NSString *)nickName icon:(NSString *)icon platName:(NSString *)platName{
-    NSString *url = nil;
+    NSString *url = [NSString stringWithFormat:@"http://182.92.158.32/index.php?d=api&c=user_api&m=login"];
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
     [tool requestSpecialCompletion:^(NSDictionary *result, NSError *erro) {
         

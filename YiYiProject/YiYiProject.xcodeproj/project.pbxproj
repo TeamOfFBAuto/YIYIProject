@@ -60,6 +60,9 @@
 		13A389BB1A38974F00ABBACB /* LTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A389AC1A38974F00ABBACB /* LTools.m */; };
 		13A389BC1A38974F00ABBACB /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A389AF1A38974F00ABBACB /* NSString+Emoji.m */; };
 		13A389BD1A38974F00ABBACB /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A389B11A38974F00ABBACB /* RefreshTableView.m */; };
+		13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D1D1A3B2682002AF7D6 /* HomeBuyController.m */; };
+		13EA3D211A3B2DC1002AF7D6 /* HomeClothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D201A3B2DC1002AF7D6 /* HomeClothController.m */; };
+		13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */; };
 		AB9102ED706793EE205C4D50 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F47272E4C36CD60C81CD9A79 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +170,12 @@
 		13A389AF1A38974F00ABBACB /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		13A389B01A38974F00ABBACB /* RefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshTableView.h; sourceTree = "<group>"; };
 		13A389B11A38974F00ABBACB /* RefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableView.m; sourceTree = "<group>"; };
+		13EA3D1C1A3B2682002AF7D6 /* HomeBuyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBuyController.h; sourceTree = "<group>"; };
+		13EA3D1D1A3B2682002AF7D6 /* HomeBuyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBuyController.m; sourceTree = "<group>"; };
+		13EA3D1F1A3B2DC1002AF7D6 /* HomeClothController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeClothController.h; sourceTree = "<group>"; };
+		13EA3D201A3B2DC1002AF7D6 /* HomeClothController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeClothController.m; sourceTree = "<group>"; };
+		13EA3D221A3B2E13002AF7D6 /* HomeMatchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMatchController.h; sourceTree = "<group>"; };
+		13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMatchController.m; sourceTree = "<group>"; };
 		316989CEF30908957578BF60 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		454167C7D51D19BFE1D2B4D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F47272E4C36CD60C81CD9A79 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -468,6 +477,12 @@
 				13A389881A38937600ABBACB /* HomeViewController.h */,
 				13A389891A38937600ABBACB /* HomeViewController.m */,
 				13A3898A1A38937600ABBACB /* HomeViewController.xib */,
+				13EA3D1C1A3B2682002AF7D6 /* HomeBuyController.h */,
+				13EA3D1D1A3B2682002AF7D6 /* HomeBuyController.m */,
+				13EA3D1F1A3B2DC1002AF7D6 /* HomeClothController.h */,
+				13EA3D201A3B2DC1002AF7D6 /* HomeClothController.m */,
+				13EA3D221A3B2E13002AF7D6 /* HomeMatchController.h */,
+				13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -725,6 +740,9 @@
 				13A389BB1A38974F00ABBACB /* LTools.m in Sources */,
 				13A389871A387A8800ABBACB /* UIView+Frame.m in Sources */,
 				13A389961A3893D000ABBACB /* TTaiViewController.m in Sources */,
+				13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */,
+				13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */,
+				13EA3D211A3B2DC1002AF7D6 /* HomeClothController.m in Sources */,
 				138C2C181A39E5DA00EA59F5 /* LoginViewController.m in Sources */,
 				13A389A21A38942D00ABBACB /* MineViewController.m in Sources */,
 				13A389861A387A8800ABBACB /* UIColor+ConvertColor.m in Sources */,
