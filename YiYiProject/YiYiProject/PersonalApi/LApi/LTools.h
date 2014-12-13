@@ -11,7 +11,9 @@
 
 #import "MBProgressHUD.h"
 
-#define ERROR_INFO @"ERRO_INFO" //错误信息
+#define RESULT_INFO @"msg" //错误信息
+
+#define RESULT_CODE @"errorcode" //错误code
 
 typedef void(^ urlRequestBlock)(NSDictionary *result,NSError *erro);
 

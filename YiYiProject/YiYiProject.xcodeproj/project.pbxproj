@@ -40,9 +40,12 @@
 		138C2C101A39E3FF00EA59F5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C2C0F1A39E3FF00EA59F5 /* CoreTelephony.framework */; };
 		138C2C121A39E45E00EA59F5 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C2C111A39E45E00EA59F5 /* libstdc++.dylib */; };
 		138C2C141A39E46B00EA59F5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C2C131A39E46B00EA59F5 /* libz.dylib */; };
-		138C2C181A39E5DA00EA59F5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138C2C161A39E5DA00EA59F5 /* LoginViewController.m */; };
-		138C2C191A39E5DA00EA59F5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138C2C171A39E5DA00EA59F5 /* LoginViewController.xib */; };
 		138C2C1D1A39E77300EA59F5 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 138C2C1C1A39E77300EA59F5 /* BaseModel.m */; };
+		139562C31A3BF41B007BB183 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C11A3BF41B007BB183 /* LoginViewController.m */; };
+		139562C41A3BF41B007BB183 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139562C21A3BF41B007BB183 /* LoginViewController.xib */; };
+		139562C71A3BF42E007BB183 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C61A3BF42E007BB183 /* UserInfo.m */; };
+		139562CB1A3C11EC007BB183 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C91A3C11EC007BB183 /* RegisterViewController.m */; };
+		139562CC1A3C11EC007BB183 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139562CA1A3C11EC007BB183 /* RegisterViewController.xib */; };
 		13A3897E1A3878FE00ABBACB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3897D1A3878FE00ABBACB /* MyViewController.m */; };
 		13A389861A387A8800ABBACB /* UIColor+ConvertColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A389821A387A8800ABBACB /* UIColor+ConvertColor.m */; };
 		13A389871A387A8800ABBACB /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A389851A387A8800ABBACB /* UIView+Frame.m */; };
@@ -68,10 +71,6 @@
 		E3700C221A3BE69A002FA77E /* Gmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C211A3BE69A002FA77E /* Gmodel.m */; };
 		E3700C251A3BE6A8002FA77E /* GMAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C241A3BE6A8002FA77E /* GMAPI.m */; };
 		E3700C281A3BE6BB002FA77E /* Gview.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C271A3BE6BB002FA77E /* Gview.m */; };
-		E3700C2B1A3BEE0B002FA77E /* GTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C2A1A3BEE0B002FA77E /* GTableViewCell.m */; };
-		E3700C311A3BF85C002FA77E /* GcustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C2F1A3BF85C002FA77E /* GcustomActionSheet.m */; };
-		E3700C341A3C130C002FA77E /* MLImageCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C331A3C130C002FA77E /* MLImageCrop.m */; };
-		E3700C371A3C3F06002FA77E /* GeditUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C361A3C3F06002FA77E /* GeditUserInfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,12 +141,17 @@
 		138C2C0F1A39E3FF00EA59F5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		138C2C111A39E45E00EA59F5 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		138C2C131A39E46B00EA59F5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		138C2C151A39E5DA00EA59F5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		138C2C161A39E5DA00EA59F5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		138C2C171A39E5DA00EA59F5 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		138C2C1A1A39E68900EA59F5 /* ApiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiHeader.h; sourceTree = "<group>"; };
 		138C2C1B1A39E77300EA59F5 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		138C2C1C1A39E77300EA59F5 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		139562C01A3BF41B007BB183 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		139562C11A3BF41B007BB183 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		139562C21A3BF41B007BB183 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		139562C51A3BF42E007BB183 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		139562C61A3BF42E007BB183 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		139562C81A3C11EC007BB183 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		139562C91A3C11EC007BB183 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		139562CA1A3C11EC007BB183 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		13A3897C1A3878FE00ABBACB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		13A3897D1A3878FE00ABBACB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		13A3897F1A38796D00ABBACB /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -194,14 +198,6 @@
 		E3700C241A3BE6A8002FA77E /* GMAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAPI.m; sourceTree = "<group>"; };
 		E3700C261A3BE6BB002FA77E /* Gview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gview.h; sourceTree = "<group>"; };
 		E3700C271A3BE6BB002FA77E /* Gview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gview.m; sourceTree = "<group>"; };
-		E3700C291A3BEE0B002FA77E /* GTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTableViewCell.h; sourceTree = "<group>"; };
-		E3700C2A1A3BEE0B002FA77E /* GTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTableViewCell.m; sourceTree = "<group>"; };
-		E3700C2F1A3BF85C002FA77E /* GcustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcustomActionSheet.m; sourceTree = "<group>"; };
-		E3700C301A3BF85C002FA77E /* GcustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcustomActionSheet.h; sourceTree = "<group>"; };
-		E3700C321A3C130C002FA77E /* MLImageCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLImageCrop.h; sourceTree = "<group>"; };
-		E3700C331A3C130C002FA77E /* MLImageCrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLImageCrop.m; sourceTree = "<group>"; };
-		E3700C351A3C3F06002FA77E /* GeditUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeditUserInfoViewController.h; sourceTree = "<group>"; };
-		E3700C361A3C3F06002FA77E /* GeditUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeditUserInfoViewController.m; sourceTree = "<group>"; };
 		F47272E4C36CD60C81CD9A79 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -289,9 +285,6 @@
 				13684A6D1A37583E00A508FB /* AppDelegate.m */,
 				13684A8E1A37585200A508FB /* RootViewController.h */,
 				13684A8F1A37585200A508FB /* RootViewController.m */,
-				138C2C151A39E5DA00EA59F5 /* LoginViewController.h */,
-				138C2C161A39E5DA00EA59F5 /* LoginViewController.m */,
-				138C2C171A39E5DA00EA59F5 /* LoginViewController.xib */,
 				13684A721A37583E00A508FB /* Main.storyboard */,
 				13684A751A37583E00A508FB /* Images.xcassets */,
 				13684A771A37583E00A508FB /* LaunchScreen.xib */,
@@ -423,6 +416,37 @@
 			path = Wechat;
 			sourceTree = "<group>";
 		};
+		139562B81A3BF3B8007BB183 /* 其他 */ = {
+			isa = PBXGroup;
+			children = (
+				139562BE1A3BF41B007BB183 /* Models */,
+				139562BF1A3BF41B007BB183 /* ViewControllers */,
+			);
+			path = "其他";
+			sourceTree = "<group>";
+		};
+		139562BE1A3BF41B007BB183 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				139562C51A3BF42E007BB183 /* UserInfo.h */,
+				139562C61A3BF42E007BB183 /* UserInfo.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		139562BF1A3BF41B007BB183 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				139562C01A3BF41B007BB183 /* LoginViewController.h */,
+				139562C11A3BF41B007BB183 /* LoginViewController.m */,
+				139562C21A3BF41B007BB183 /* LoginViewController.xib */,
+				139562C81A3C11EC007BB183 /* RegisterViewController.h */,
+				139562C91A3C11EC007BB183 /* RegisterViewController.m */,
+				139562CA1A3C11EC007BB183 /* RegisterViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		13A3894E1A38768400ABBACB /* AllImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +457,7 @@
 		13A3894F1A38768400ABBACB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				139562B81A3BF3B8007BB183 /* 其他 */,
 				13A389A41A38972300ABBACB /* 发布 */,
 				13A389771A3877C800ABBACB /* 首页 */,
 				13A389781A3877C800ABBACB /* 我的 */,
@@ -556,8 +581,6 @@
 				13A3899F1A38942D00ABBACB /* MineViewController.h */,
 				13A389A01A38942D00ABBACB /* MineViewController.m */,
 				13A389A11A38942D00ABBACB /* MineViewController.xib */,
-				E3700C351A3C3F06002FA77E /* GeditUserInfoViewController.h */,
-				E3700C361A3C3F06002FA77E /* GeditUserInfoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -636,10 +659,6 @@
 		E3700C1B1A3BE66A002FA77E /* Gutils */ = {
 			isa = PBXGroup;
 			children = (
-				E3700C321A3C130C002FA77E /* MLImageCrop.h */,
-				E3700C331A3C130C002FA77E /* MLImageCrop.m */,
-				E3700C301A3BF85C002FA77E /* GcustomActionSheet.h */,
-				E3700C2F1A3BF85C002FA77E /* GcustomActionSheet.m */,
 				E3700C231A3BE6A8002FA77E /* GMAPI.h */,
 				E3700C241A3BE6A8002FA77E /* GMAPI.m */,
 			);
@@ -651,8 +670,6 @@
 			children = (
 				E3700C261A3BE6BB002FA77E /* Gview.h */,
 				E3700C271A3BE6BB002FA77E /* Gview.m */,
-				E3700C291A3BEE0B002FA77E /* GTableViewCell.h */,
-				E3700C2A1A3BEE0B002FA77E /* GTableViewCell.m */,
 			);
 			path = Gviews;
 			sourceTree = "<group>";
@@ -745,12 +762,13 @@
 				13684A741A37583E00A508FB /* Main.storyboard in Resources */,
 				13A389A31A38942D00ABBACB /* MineViewController.xib in Resources */,
 				138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */,
-				138C2C191A39E5DA00EA59F5 /* LoginViewController.xib in Resources */,
+				139562C41A3BF41B007BB183 /* LoginViewController.xib in Resources */,
 				13684A791A37583E00A508FB /* LaunchScreen.xib in Resources */,
 				138C2BFA1A39E09200EA59F5 /* UMShareEditViewControlleriPad.xib in Resources */,
 				138C2BF61A39E09200EA59F5 /* UMSCommentDetailController.xib in Resources */,
 				138C2C021A39E09200EA59F5 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				13A3899D1A3893FC00ABBACB /* MessageViewController.xib in Resources */,
+				139562CC1A3C11EC007BB183 /* RegisterViewController.xib in Resources */,
 				138C2BFB1A39E09200EA59F5 /* UMSLoginViewController.xib in Resources */,
 				138C2BF71A39E09200EA59F5 /* UMSCommentInputController.xib in Resources */,
 				13A389971A3893D000ABBACB /* TTaiViewController.xib in Resources */,
@@ -814,31 +832,29 @@
 				13684A711A37583E00A508FB /* ViewController.m in Sources */,
 				13684A6E1A37583E00A508FB /* AppDelegate.m in Sources */,
 				138C2C1D1A39E77300EA59F5 /* BaseModel.m in Sources */,
+				139562C71A3BF42E007BB183 /* UserInfo.m in Sources */,
 				E3700C251A3BE6A8002FA77E /* GMAPI.m in Sources */,
 				13A389BC1A38974F00ABBACB /* NSString+Emoji.m in Sources */,
 				13A389BD1A38974F00ABBACB /* RefreshTableView.m in Sources */,
-				E3700C311A3BF85C002FA77E /* GcustomActionSheet.m in Sources */,
 				13684A901A37585200A508FB /* RootViewController.m in Sources */,
 				13A389BB1A38974F00ABBACB /* LTools.m in Sources */,
+				139562CB1A3C11EC007BB183 /* RegisterViewController.m in Sources */,
+				139562C31A3BF41B007BB183 /* LoginViewController.m in Sources */,
 				13A389871A387A8800ABBACB /* UIView+Frame.m in Sources */,
 				13A389961A3893D000ABBACB /* TTaiViewController.m in Sources */,
 				13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */,
 				13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */,
-				E3700C2B1A3BEE0B002FA77E /* GTableViewCell.m in Sources */,
 				E3700C281A3BE6BB002FA77E /* Gview.m in Sources */,
 				13EA3D211A3B2DC1002AF7D6 /* HomeClothController.m in Sources */,
-				138C2C181A39E5DA00EA59F5 /* LoginViewController.m in Sources */,
 				13A389A21A38942D00ABBACB /* MineViewController.m in Sources */,
 				E3700C1F1A3BE67E002FA77E /* GViewController.m in Sources */,
 				13A389861A387A8800ABBACB /* UIColor+ConvertColor.m in Sources */,
 				13A3899C1A3893FC00ABBACB /* MessageViewController.m in Sources */,
 				E3700C221A3BE69A002FA77E /* Gmodel.m in Sources */,
 				13684A6B1A37583E00A508FB /* main.m in Sources */,
-				E3700C371A3C3F06002FA77E /* GeditUserInfoViewController.m in Sources */,
 				13A3897E1A3878FE00ABBACB /* MyViewController.m in Sources */,
 				13A3898B1A38937600ABBACB /* HomeViewController.m in Sources */,
 				13A389BA1A38974F00ABBACB /* LRefreshTableHeaderView.m in Sources */,
-				E3700C341A3C130C002FA77E /* MLImageCrop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

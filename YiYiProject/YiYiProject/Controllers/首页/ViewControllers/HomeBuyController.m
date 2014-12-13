@@ -7,6 +7,8 @@
 //
 
 #import "HomeBuyController.h"
+#import "LoginViewController.h"
+#import "RegisterViewController.h"
 
 @interface HomeBuyController ()
 
@@ -20,17 +22,21 @@
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(100, 100, 50, 30);
-    [btn setTitle:@"push" forState:UIControlStateNormal];
+    [btn setTitle:@"登录" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(clickToPush:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 }
 
 - (void)clickToPush:(UIButton *)sender
 {
-    UIViewController *vv = [[UIViewController alloc]init];
-    vv.view.backgroundColor = [UIColor whiteColor];
-    [self.rootViewController.navigationController pushViewController:vv animated:YES];
+    LoginViewController *login = [[LoginViewController alloc]init];
+    
+    UINavigationController *unvc = [[UINavigationController alloc]initWithRootViewController:login];
+    
+    [self.rootViewController presentViewController:unvc animated:YES completion:nil];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

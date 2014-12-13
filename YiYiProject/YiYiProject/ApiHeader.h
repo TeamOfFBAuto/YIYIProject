@@ -20,13 +20,13 @@ alpha:(a)]
 #define ALL_FRAME_WIDTH ALL_FRAME.size.width
 //高
 #define ALL_FRAME_HEIGHT ALL_FRAME.size.height
-//代码屏幕适配（设计图为320*568）
-#define GscreenRatio_320 DEVICE_WIDTH/320.00
 
 //版本判断相关
 #define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
 
 //保存用户信息设备信息相关
+
+#define USER_INFO @"userInfo"//用户信息
 #define USER_FACE @"userface"
 #define USER_NAME @"username"
 #define USER_PWD @"userPw"
@@ -39,16 +39,50 @@ alpha:(a)]
 #define USRR_AUTHKEY @"authkey"
 #define USER_DEVICE_TOKEN @"DEVICE_TOKEN"
 
-//是否上传本地用户banner 头像
-#define ISUPUSERBANNER @"gIsUpBanner"
-#define ISUPUSERFACE @"gIsUpFace"
 
+#define LOGIN_SUCCESS @"login_success"//登录状态
+
+//通知 信息相关
+
+#define NOTIFICATION_LOGIN @"loginin_success" //登录成功通知
+#define NOTIFICATION_LOGOUT @"logout_success" //退出登录通知
+
+
+//登录类型 normal为正常手机登陆，sweibo、qq、weixin分别代表新浪微博、qq、微信登陆
+typedef enum{
+    Login_Normal = 0,
+    Login_Sweibo,
+    Login_QQ,
+    Login_Weixin
+}Login_Type;
+
+//性别
+typedef enum{
+    Gender_Girl = 1,
+    Gender_Boy
+}Gender;
+
+//注册类型，1=》手机注册 2=》邮箱注册，默认为手机注册
+typedef enum{
+    Register_Phone = 1,
+    Register_Email
+}Register_Type;
+
+//验证码用途 1=》注册 2=》商店短信验证 3=》找回密码 4⇒申请成为搭配师获取验证码 默认为1) int
+typedef enum{
+    SecurityCode_Register = 1,
+    SecurityCode_Shop,
+    SecurityCode_FindPWD,
+    SecurityCode_Match
+}SecurityCode_Type;
 
 //接口地址
 
 //登录
-
-#define LOGIN_ACTION @"http://182.92.158.32/index.php?d=api&c=user_api&m=login&type=%@&password=%@&thirdid=%@&nickname=%@&thirdphoto=%@&gender=%d&devicetoken=%@"
-
+#define USER_LOGIN_ACTION @"http://182.92.158.32/index.php?d=api&c=user_api&m=login&type=%@&password=%@&thirdid=%@&nickname=%@&thirdphoto=%@&gender=%d&devicetoken=%@&mobile=%@"
+//注册
+#define USER_REGISTER_ACTION @"http://182.92.158.32/index.php?d=api&c=user_api&m=register&username=%@&password=%@&gender=%d&type=%d&code=%d&mobile=%@"
+//获取验证码
+#define USER_GET_SECURITY_CODE @"http://182.92.158.32/index.php?d=api&c=user_api&m=get_code&mobile=%@&type=%d"
 
 #endif

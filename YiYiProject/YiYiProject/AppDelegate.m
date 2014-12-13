@@ -10,6 +10,7 @@
 #import "RootViewController.h"
 
 #import "UMSocial.h"
+#import "MobClick.h"
 
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
@@ -39,6 +40,10 @@
 //密码:mobile2014
 //android的key: 548bafc0fd98c5997a000b0b
 //umeng的key
+
+//微博开放平台账号
+//szkyaojiayou@163.com
+//密码：mobile2014
 
 @interface AppDelegate ()
 
@@ -80,7 +85,6 @@
     RootViewController *root = [[RootViewController alloc]init];
     
     self.window.rootViewController = root;
-    self.window.backgroundColor = [UIColor whiteColor];
     
     return YES;
 }
@@ -125,6 +129,9 @@
 - (void)umengShare
 {
     [UMSocialData setAppKey:UmengAppkey];
+    
+    //使用友盟统计
+    [MobClick startWithAppkey:UmengAppkey];
     
     //打开调试log的开关
     [UMSocialData openLog:YES];
