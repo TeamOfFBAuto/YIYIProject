@@ -52,6 +52,7 @@ alpha:(a)]
 #define ALERT_ERRO_PHONE @"请输入有效手机号"
 #define ALERT_ERRO_PASSWORD @"密码格式有误,请输入6~15位英文字母或数字"
 #define ALERT_ERRO_SECURITYCODE @"验证码格式有误,请输入6位数字"
+#define ALERT_ERRO_FINDPWD @"两次密码不一致"
 
 //登录类型 normal为正常手机登陆，sweibo、qq、weixin分别代表新浪微博、qq、微信登陆
 typedef enum{
@@ -89,5 +90,7 @@ typedef enum{
 #define USER_REGISTER_ACTION @"http://182.92.158.32/index.php?d=api&c=user_api&m=register&username=%@&password=%@&gender=%d&type=%d&code=%d&mobile=%@"
 //获取验证码
 #define USER_GET_SECURITY_CODE @"http://182.92.158.32/index.php?d=api&c=user_api&m=get_code&mobile=%@&type=%d"
+//找回密码
+#define USER_GETBACK_PASSWORD @"http://182.92.158.32/index.php?d=api&c=user_api&m=get_back_password&mobile=%@&code=%d&new_password=%@"
 
 #endif
