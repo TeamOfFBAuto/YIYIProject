@@ -10,6 +10,7 @@
 /**
  *  值得买
  */
+
 @interface HomeBuyController : UIViewController
 
 @property(nonatomic,assign)UIViewController *rootViewController;

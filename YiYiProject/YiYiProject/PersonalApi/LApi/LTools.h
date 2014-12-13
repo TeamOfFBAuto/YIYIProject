@@ -36,6 +36,8 @@ typedef void(^versionBlock)(BOOL isNewVersion,NSString *updateUrl,NSString *upda
 
 + (id)shareInstance;
 
+//@property(nonatomic,retain)
+
 /**
  *  网络请求
  */
