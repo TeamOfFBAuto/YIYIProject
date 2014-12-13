@@ -9,21 +9,22 @@
 #ifndef YiYiProject_ApiHeader_h
 #define YiYiProject_ApiHeader_h
 
-//常用宏
-
+//颜色相关
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 #define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f \
 alpha:(a)]
 
-
-//整屏幕的Frame
+//屏幕尺寸相关
 #define ALL_FRAME [UIScreen mainScreen].applicationFrame
 //宽
 #define ALL_FRAME_WIDTH ALL_FRAME.size.width
 //高
 #define ALL_FRAME_HEIGHT ALL_FRAME.size.height
 
-//保存用户信息的常量key
+//版本判断相关
+#define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
+
+//保存用户信息设备信息相关
 #define USER_FACE @"userface"
 #define USER_NAME @"username"
 #define USER_PWD @"userPw"
@@ -35,6 +36,8 @@ alpha:(a)]
 #define USER_AUTHKEY_OHTER @"otherKey"//第三方key
 #define USRR_AUTHKEY @"authkey"
 #define USER_DEVICE_TOKEN @"DEVICE_TOKEN"
+
+
 
 //接口地址
 

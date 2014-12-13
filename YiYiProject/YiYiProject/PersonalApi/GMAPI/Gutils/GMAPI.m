@@ -14,7 +14,7 @@
 
 +(NSString *)getDeviceToken{
     
-    NSString *str_devicetoken=[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:DEVICETOKEN]];
+    NSString *str_devicetoken=[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:USER_DEVICE_TOKEN]];
     return str_devicetoken;
     
     
@@ -52,7 +52,7 @@
 
 //获取用户密码
 +(NSString *)getUserPassWord{
-    NSString *str_password = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:USER_PW]];
+    NSString *str_password = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:USER_PWD]];
     return str_password;
 }
 

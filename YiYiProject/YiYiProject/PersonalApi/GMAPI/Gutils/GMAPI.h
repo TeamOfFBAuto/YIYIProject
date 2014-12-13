@@ -9,14 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-#define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
-//保存用户信息的常量key
-#define USER_FACE @"userface"
-#define USER_NAME @"username"
-#define USER_PW @"userPw"
-#define USER_UID @"useruid"
-#define USER_IN @"user_in" //0是未登陆  1是已登陆
-#define DEVICETOKEN @"pushdevicetoken"
+
+
 
 @interface GMAPI : NSObject
 
