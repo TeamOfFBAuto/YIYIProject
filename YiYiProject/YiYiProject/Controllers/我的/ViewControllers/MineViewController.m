@@ -219,16 +219,26 @@ typedef enum{
 ///隐藏或显示tabbar
 -(void)gHideTabBar:(BOOL)hidden{
     
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.5];
-    if (hidden) {
-        NSLog(@"加等 %f",self.tabBarController.tabBar.top);
-        self.tabBarController.tabBar.top+=49;
-    }else{
-        NSLog(@"减等 %f",self.tabBarController.tabBar.top);
-        self.tabBarController.tabBar.top-=49;
-    }
-    [UIView commitAnimations];
+//    [UIView beginAnimations:nil context:NULL];
+//    [UIView setAnimationDuration:0.5];
+    
+    
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        if (hidden) {
+            NSLog(@"加等 %f",self.tabBarController.tabBar.top);
+            
+            self.tabBarController.tabBar.top = DEVICE_HEIGHT;
+        }else{
+            NSLog(@"减等 %f",self.tabBarController.tabBar.top);
+            self.tabBarController.tabBar.top = DEVICE_HEIGHT-49;
+        }
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+    
+//    [UIView commitAnimations];
     
     
     //    self.tabBarController.tabBar.hidden = hidden;//无动画
