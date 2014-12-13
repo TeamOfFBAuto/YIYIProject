@@ -22,6 +22,8 @@
 
 #import "ApiHeader.h" //存放接口
 
+#import "GMAPI.h"
+
 
 #pragma mark - 自定义的宏，方便调动
 ///颜色

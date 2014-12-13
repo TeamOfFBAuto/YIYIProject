@@ -10,4 +10,7 @@
 
 @interface MineViewController : MyViewController
 
+@property(nonatomic,strong)UIImageView *userBannerImv;//banner
+@property(nonatomic,strong)UIImageView *userFaceImv;//头像
+
 @end

@@ -39,14 +39,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+///创建用户头像banner的view
+-(UIView *)creatTableViewHeaderView{
+    //底层view
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 240.00/320*DEVICE_WIDTH)];
+    backView.backgroundColor = RGBCOLOR_ONE;
+    
+    
+    
+    return backView;
 }
-*/
 
 @end
