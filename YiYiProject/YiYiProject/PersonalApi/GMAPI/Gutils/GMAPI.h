@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
+//是否上传本地用户banner 头像
+#define ISUPUSERBANNER @"gIsUpBanner"
+#define ISUPUSERFACE @"gIsUpFace"
+//代码屏幕适配（设计图为320*568）
+#define GscreenRatio_320 DEVICE_WIDTH/320.00
 
 
 
@@ -58,6 +61,15 @@
 
 //清除banner和头像
 +(BOOL)cleanUserFaceAndBanner;
+
+//在userdefaul里设置是否上传banner标志位为yes
++(void)setUpUserBannerYes;
+//在userdefaul里设置是否上传banner标志位为no
++(void)setUpUserBannerNo;
+//在userdefaul里设置是否上传头像标志位为yes
++(void)setUpUserFaceYes;
+//在userdefaul里设置是否上传头像标志位为no
++(void)setUpUserFaceNo;
 
 
 
