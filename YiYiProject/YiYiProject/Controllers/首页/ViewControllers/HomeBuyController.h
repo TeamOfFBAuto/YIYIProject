@@ -12,4 +12,6 @@
  */
 @interface HomeBuyController : UIViewController
 
+@property(nonatomic,assign)UIViewController *rootViewController;
+
 @end

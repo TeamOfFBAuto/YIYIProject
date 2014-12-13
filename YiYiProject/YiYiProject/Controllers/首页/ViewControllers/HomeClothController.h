@@ -13,4 +13,6 @@
  */
 @interface HomeClothController : UIViewController
 
+@property(nonatomic,assign)UIViewController *rootViewController;
+
 @end

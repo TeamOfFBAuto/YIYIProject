@@ -17,6 +17,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 100, 50, 30);
+    [btn setTitle:@"push" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(clickToPush:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+}
+
+- (void)clickToPush:(UIButton *)sender
+{
+    UIViewController *vv = [[UIViewController alloc]init];
+    vv.view.backgroundColor = [UIColor whiteColor];
+    vv.navigationController.navigationBarHidden = NO;
+    [self.rootViewController.navigationController pushViewController:vv animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -85,6 +85,7 @@
             {
                 buy_viewcontroller = [[HomeBuyController alloc]init];
                 buy_viewcontroller.view.frame = CGRectMake(0, aFrameY, self.view.frame.size.width, self.view.frame.size.height - menu_view.height);
+                buy_viewcontroller.rootViewController = self;
                 [self.view addSubview:buy_viewcontroller.view];
             }
             
@@ -104,6 +105,7 @@
             {
                 cloth_viewcontroller = [[HomeClothController alloc]init];
                 cloth_viewcontroller.view.frame = CGRectMake(0, aFrameY, self.view.frame.size.width, self.view.frame.size.height-35);
+                cloth_viewcontroller.rootViewController = self;
                 [self.view addSubview:cloth_viewcontroller.view];
             }
             
@@ -123,6 +125,7 @@
             {
                 match_viewcontroller = [[HomeMatchController alloc]init];
                 match_viewcontroller.view.frame = CGRectMake(0, aFrameY, self.view.frame.size.width, self.view.frame.size.height  -35);
+                match_viewcontroller.rootViewController = self;
                 [self.view addSubview:match_viewcontroller.view];
             }
             
