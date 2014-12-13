@@ -25,6 +25,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)clickToClose:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)createLoginView
 {
@@ -63,8 +67,8 @@
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:snsPlatName];
             NSLog(@"username is %@, uid is %@, token is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken);
             
-            [weakSelf loginToServer:snsAccount.usid nickName:snsAccount.userName icon:snsAccount.iconURL platName:snsPlatName];
-            
+//            [weakSelf loginToServer:snsAccount.usid nickName:snsAccount.userName icon:snsAccount.iconURL platName:snsPlatName];
+//            
         }
         
     });
@@ -103,16 +107,63 @@
 
 #pragma mark - 网络请求
 
-- (void)loginToServer:(NSString *)otherUserId
-             nickName:(NSString *)nickName icon:(NSString *)icon platName:(NSString *)platName{
+/**
+ *  @param type       (登录方式，normal为正常手机登陆，sweibo、qq、weixin分别代表新浪微博、qq、微信登陆) string
+ *  @param thirdId    (第三方id，若为第三方登陆需要该参数)
+ *  @param nickName   (第三方昵称，若为第三方登陆需要该参数)
+ *  @param thirdphoto (第三方头像，若为第三方登陆需要该参数)
+ *  @param gender     (性别，若第三方登录可填写，也可不填写，1=》男 2=》女 默认为女) int
+ */
+
+- (void)loginType:(Login_Type)loginType
+          thirdId:(NSString *)thirdId
+             nickName:(NSString *)nickName
+       thirdphoto:(NSString *)thirdphoto
+           gender:(int)gender
+{
+    NSString *type = @"normal";
+    switch (loginType) {
+        case Login_Normal:
+        {
+            
+        }
+            break;
+//        case Login_Normal:
+//        {
+//            
+//        }
+//            break;
+//        case Login_Normal:
+//        {
+//            
+//        }
+//            break;
+//        case Login_Normal:
+//        {
+//            
+//        }
+//            break;
+//        case Login_Normal:
+//        {
+//            
+//        }
+//            break;
+            
+        default:
+            break;
+    }
+    
     NSString *url = [NSString stringWithFormat:@"http://182.92.158.32/index.php?d=api&c=user_api&m=login"];
+    
+    NSString *params = [NSString stringWithFormat:@"&type=%@&password=%@&thirdid=%@&nickname=%@&thirdphoto=%@&gender=%@&devicetoken=%@"];
+    
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
     [tool requestSpecialCompletion:^(NSDictionary *result, NSError *erro) {
         
         NSLog(@"result %@ erro %@",result,erro);
         
             
-            if ([platName isEqualToString:UMShareToQQ]) {
+            if ([type isEqualToString:UMShareToQQ]) {
                 
 //                [self autoShareToQQ];
             }else
