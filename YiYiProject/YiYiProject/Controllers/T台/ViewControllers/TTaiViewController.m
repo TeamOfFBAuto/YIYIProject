@@ -7,6 +7,7 @@
 //
 
 #import "TTaiViewController.h"
+#import "LoginViewController.h"
 
 @interface TTaiViewController ()
 
@@ -18,6 +19,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.myTitleLabel.text = @"T台";
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 100, 50, 30);
+    [btn setTitle:@"登录" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(clickToPush:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+}
+
+- (void)clickToPush:(UIButton *)sender
+{
+    LoginViewController *login = [[LoginViewController alloc]init];
+    
+    UINavigationController *unvc = [[UINavigationController alloc]initWithRootViewController:login];
+    
+    [self presentViewController:unvc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
