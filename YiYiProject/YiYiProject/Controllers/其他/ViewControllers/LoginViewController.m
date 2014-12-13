@@ -55,13 +55,13 @@
     
     if (![LTools isValidateMobile:self.phoneTF.text]) {
         
-        [LTools alertText:@"请输入有效手机号"];
+        [LTools alertText:ALERT_ERRO_PHONE];
         return;
     }
     
     if (![LTools isValidatePwd:self.pwdTF.text]) {
         
-        [LTools alertText:@"密码格式有误,请输入6~15位英文字母或数字"];
+        [LTools alertText:ALERT_ERRO_PASSWORD];
         return;
     }
     

@@ -50,7 +50,7 @@
     
     if (![LTools isValidateMobile:mobile]) {
         
-        [LTools alertText:@"请输入有效手机号"];
+        [LTools alertText:ALERT_ERRO_PHONE];
         return;
     }
     
@@ -95,18 +95,18 @@
     
     if (![LTools isValidateMobile:mobile]) {
         
-        [LTools alertText:@"请输入有效手机号"];
+        [LTools alertText:ALERT_ERRO_PHONE];
         return;
     }
     
     if (![LTools isValidatePwd:password]) {
         
-        [LTools alertText:@"密码格式有误,请输入6~15位英文字母或数字"];
+        [LTools alertText:ALERT_ERRO_PASSWORD];
         return;
     }
     if (self.securityTF.text.length != 6) {
         
-        [LTools alertText:@"验证码格式有误,请输入6位数字"];
+        [LTools alertText:ALERT_ERRO_SECURITYCODE];
         return;
     }
     

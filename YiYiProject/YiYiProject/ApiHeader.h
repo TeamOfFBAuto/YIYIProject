@@ -47,6 +47,11 @@ alpha:(a)]
 #define NOTIFICATION_LOGIN @"loginin_success" //登录成功通知
 #define NOTIFICATION_LOGOUT @"logout_success" //退出登录通知
 
+//错误提示信息 
+
+#define ALERT_ERRO_PHONE @"请输入有效手机号"
+#define ALERT_ERRO_PASSWORD @"密码格式有误,请输入6~15位英文字母或数字"
+#define ALERT_ERRO_SECURITYCODE @"验证码格式有误,请输入6位数字"
 
 //登录类型 normal为正常手机登陆，sweibo、qq、weixin分别代表新浪微博、qq、微信登陆
 typedef enum{
