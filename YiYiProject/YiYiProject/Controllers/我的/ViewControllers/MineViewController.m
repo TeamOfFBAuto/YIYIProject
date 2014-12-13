@@ -8,30 +8,9 @@
 
 #import "MineViewController.h"
 #import "LoginViewController.h"
-#import "GTableViewCell.h"
-#import "MLImageCrop.h"
-#import "GcustomActionSheet.h"
-#import "AFNetworking.h"
-#import "GeditUserInfoViewController.h"
 
-typedef enum{
-    USERFACE = 0,//头像
-    USERBANNER,//banner
-    USERIMAGENULL,
-}CHANGEIMAGETYPE;
+@interface MineViewController ()
 
-#define CROPIMAGERATIO_USERBANNER 3.0/2//banner 图片裁剪框宽高比
-#define CROPIMAGERATIO_USERFACE 1.0//头像 图片裁剪框宽高比例
-
-#define UPIMAGECGSIZE_USERBANNER CGSizeMake(320,240)//需要上传的banner的分辨率
-#define UPIMAGECGSIZE_USERFACE CGSizeMake(200,200)//需要上传的头像的分辨率
-
-@interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,GcustomActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,MLImageCropDelegate>
-{
-    UITableView *_tableView;//主tableview
-    CHANGEIMAGETYPE _changeImageType;
-    NSArray *_tabelViewCellTitleArray;
-}
 @end
 
 @implementation MineViewController
@@ -46,7 +25,6 @@ typedef enum{
     // Do any additional setup after loading the view from its nib.
     self.myTitleLabel.text = @"我的";
     
-    //判断是否登录
     if ([LTools cacheBoolForKey:USER_LONGIN] == NO) {
         
         LoginViewController *login = [[LoginViewController alloc]init];
@@ -54,23 +32,6 @@ typedef enum{
         [self presentViewController:login animated:YES completion:nil];
         
     }
-    
-    
-    //初始化相关
-    _changeImageType = USERIMAGENULL;
-    
-    _tabelViewCellTitleArray = @[@"我的主页",@"我的收藏",@"我的搭配",@"我的衣橱",@"我的体型",@"穿衣日记",@"我的关注",@"我是店主,申请衣+衣小店",@"邀请好友"];
-    
-    
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-49-64)];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.tableHeaderView = [self creatTableViewHeaderView];
-    [self.view addSubview:_tableView];
-    
-    NSLog(@"%@",NSStringFromCGRect(_tableView.frame));
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,64 +42,15 @@ typedef enum{
 ///创建用户头像banner的view
 -(UIView *)creatTableViewHeaderView{
     //底层view
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 150.00)];
-    backView.backgroundColor = [UIColor whiteColor];
-    
-    //banner
-    self.userBannerImv = [[UIImageView alloc]initWithFrame:backView.frame];
-    self.userBannerImv.backgroundColor = RGBCOLOR_ONE;
-    //模糊效果
-    self.userBannerImv.layer.masksToBounds = NO;
-    self.userBannerImv.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.userBannerImv.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
-    self.userBannerImv.layer.shadowOpacity = 0.5f;//阴影透明度，默认0
-    self.userBannerImv.layer.shadowRadius = 4;//阴影半径，默认3
-    
-    //头像
-    self.userFaceImv = [[UIImageView alloc]initWithFrame:CGRectMake(40*GscreenRatio_320, 70.00*GscreenRatio_320, 60, 60)];
-    self.userFaceImv.backgroundColor = RGBCOLOR_ONE;
-    self.userFaceImv.layer.cornerRadius = 30*GscreenRatio_320;
-    self.userFaceImv.layer.masksToBounds = YES;
-    
-    //昵称
-    self.userNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.userFaceImv.frame)+5, self.userFaceImv.frame.origin.y+10, 120*GscreenRatio_320, 17)];
-    self.userNameLabel.text = @"昵称";
-    self.userNameLabel.backgroundColor = [UIColor lightGrayColor];
-    
-    //积分
-    self.userScoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.userNameLabel.frame.origin.x, CGRectGetMaxY(self.userNameLabel.frame)+10, self.userNameLabel.frame.size.width, self.userNameLabel.frame.size.height)];
-    self.userScoreLabel.text = @"积分：2000";
-    self.userScoreLabel.backgroundColor = [UIColor orangeColor];
-    
-    //编辑按钮
-    UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [editBtn setFrame:CGRectMake(CGRectGetMaxX(self.userNameLabel.frame)+25, self.userFaceImv.frame.origin.y+5, 50, 30)];
-    editBtn.backgroundColor = [UIColor purpleColor];
-    editBtn.layer.cornerRadius = 8;
-    [editBtn addTarget:self action:@selector(goToEdit) forControlEvents:UIControlEventTouchUpInside];
-    [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 240.00/320*DEVICE_WIDTH)];
+    backView.backgroundColor = RGBCOLOR_ONE;
     
     
-    
-    //手势
-    UITapGestureRecognizer *ddd = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(userBannerClicked)];
-    self.userBannerImv.userInteractionEnabled = YES;
-    [self.userBannerImv addGestureRecognizer:ddd];
-    UITapGestureRecognizer *eee = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(userFaceClicked)];
-    self.userFaceImv.userInteractionEnabled = YES;
-    [self.userFaceImv addGestureRecognizer:eee];
-    
-    
-    //添加视图
-    [backView addSubview:self.userBannerImv];
-    [backView addSubview:self.userFaceImv];
-    [backView addSubview:self.userNameLabel];
-    [backView addSubview:self.userScoreLabel];
-    [backView addSubview:editBtn];
     
     return backView;
 }
 
+<<<<<<< HEAD
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 
@@ -405,4 +317,6 @@ typedef enum{
 
 
 
+=======
+>>>>>>> FETCH_HEAD
 @end

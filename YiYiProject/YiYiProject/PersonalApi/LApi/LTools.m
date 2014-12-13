@@ -151,7 +151,7 @@
                     break;
             }
             
-            NSDictionary *failDic = @{ERROR_INFO: errInfo};
+            NSDictionary *failDic = @{RESULT_INFO: errInfo};
             
             NSLog(@"version erro %@",failDic);
             
@@ -188,15 +188,13 @@
         
         if ([dic isKindOfClass:[NSDictionary class]]) {
             
-            int erroCode = [[dic objectForKey:@"errcode"]intValue];
-            NSString *erroInfo = [dic objectForKey:@"errinfo"];
-            
-            
+            int erroCode = [[dic objectForKey:RESULT_CODE]intValue];
+            NSString *erroInfo = [dic objectForKey:RESULT_INFO];
             
             if (erroCode != 0) { //0代表无错误,  && erroCode != 1 1代表无结果
                 
                 
-                NSDictionary *failDic = @{ERROR_INFO:erroInfo,@"errcode":[NSString stringWithFormat:@"%d",erroCode]};
+                NSDictionary *failDic = @{RESULT_INFO:erroInfo,RESULT_CODE:[NSString stringWithFormat:@"%d",erroCode]};
                 failBlock(failDic,0);
                 
                 return ;
@@ -204,8 +202,15 @@
             {
                 successBlock(dic,0);//传递的已经是没有错误的结果
             }
+        }else
+        {
+            NSLog(@"-----------解析数据为空");
         }
         
+    }else
+    {
+        
+        NSLog(@"-----------请求数据为空");
     }
     
     
@@ -231,7 +236,7 @@
             break;
     }
     
-    NSDictionary *failDic = @{ERROR_INFO: errInfo};
+    NSDictionary *failDic = @{RESULT_INFO: errInfo};
     failBlock(failDic,error);
     
 }
@@ -272,15 +277,15 @@
             
             if ([dic isKindOfClass:[NSDictionary class]]) {
                 
-                int erroCode = [[dic objectForKey:@"errcode"]intValue];
-                NSString *erroInfo = [dic objectForKey:@"errinfo"];
+                int erroCode = [[dic objectForKey:RESULT_CODE]intValue];
+                NSString *erroInfo = [dic objectForKey:RESULT_INFO];
                 
 
 
                 if (erroCode != 0) { //0代表无错误,  && erroCode != 1 1代表无结果
 
 
-                    NSDictionary *failDic = @{ERROR_INFO:erroInfo,@"errcode":[NSString stringWithFormat:@"%d",erroCode]};
+                    NSDictionary *failDic = @{RESULT_INFO:erroInfo,RESULT_CODE:[NSString stringWithFormat:@"%d",erroCode]};
                     failBlock(failDic,connectionError);
                     
                     return ;
@@ -308,7 +313,7 @@
                     break;
             }
             
-            NSDictionary *failDic = @{ERROR_INFO: errInfo};
+            NSDictionary *failDic = @{RESULT_INFO: errInfo};
             failBlock(failDic,connectionError);
             
         }
@@ -510,6 +515,7 @@
     return [emailTest evaluateWithObject:userName];
 }
 
+//数字和字母 和 _
 + (BOOL)isValidatePwd:(NSString *)pwdString
 {
     NSString * emailRegex = @"^[a-zA-Z0-9_]{6,20}$";
