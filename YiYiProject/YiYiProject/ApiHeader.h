@@ -20,6 +20,8 @@ alpha:(a)]
 #define ALL_FRAME_WIDTH ALL_FRAME.size.width
 //高
 #define ALL_FRAME_HEIGHT ALL_FRAME.size.height
+//代码屏幕适配（设计图为320*568）
+#define GscreenRatio_320 DEVICE_WIDTH/320.00
 
 //版本判断相关
 #define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
@@ -37,6 +39,9 @@ alpha:(a)]
 #define USRR_AUTHKEY @"authkey"
 #define USER_DEVICE_TOKEN @"DEVICE_TOKEN"
 
+//是否上传本地用户banner 头像
+#define ISUPUSERBANNER @"gIsUpBanner"
+#define ISUPUSERFACE @"gIsUpFace"
 
 
 //接口地址

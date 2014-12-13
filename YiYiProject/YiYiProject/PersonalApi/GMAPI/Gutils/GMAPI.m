@@ -179,6 +179,24 @@
 }
 
 
++(void)setUpUserBannerYes{
+    NSString *str = @"yes";
+    [[NSUserDefaults standardUserDefaults]setObject:str forKey:ISUPUSERBANNER];
+}
+
++(void)setUpUserBannerNo{
+    NSString *str = @"no";
+    [[NSUserDefaults standardUserDefaults]setObject:str forKey:ISUPUSERBANNER];
+}
+
++(void)setUpUserFaceYes{
+    NSString *str = @"yes";
+    [[NSUserDefaults standardUserDefaults]setObject:str forKey:ISUPUSERFACE];
+}
++(void)setUpUserFaceNo{
+    NSString *str = @"no";
+    [[NSUserDefaults standardUserDefaults]setObject:str forKey:ISUPUSERFACE];
+}
 
 
 #pragma mark - NSUserDefault缓存

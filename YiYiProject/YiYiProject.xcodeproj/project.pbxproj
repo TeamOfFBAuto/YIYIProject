@@ -68,6 +68,10 @@
 		E3700C221A3BE69A002FA77E /* Gmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C211A3BE69A002FA77E /* Gmodel.m */; };
 		E3700C251A3BE6A8002FA77E /* GMAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C241A3BE6A8002FA77E /* GMAPI.m */; };
 		E3700C281A3BE6BB002FA77E /* Gview.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C271A3BE6BB002FA77E /* Gview.m */; };
+		E3700C2B1A3BEE0B002FA77E /* GTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C2A1A3BEE0B002FA77E /* GTableViewCell.m */; };
+		E3700C311A3BF85C002FA77E /* GcustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C2F1A3BF85C002FA77E /* GcustomActionSheet.m */; };
+		E3700C341A3C130C002FA77E /* MLImageCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C331A3C130C002FA77E /* MLImageCrop.m */; };
+		E3700C371A3C3F06002FA77E /* GeditUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3700C361A3C3F06002FA77E /* GeditUserInfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +194,14 @@
 		E3700C241A3BE6A8002FA77E /* GMAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAPI.m; sourceTree = "<group>"; };
 		E3700C261A3BE6BB002FA77E /* Gview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gview.h; sourceTree = "<group>"; };
 		E3700C271A3BE6BB002FA77E /* Gview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gview.m; sourceTree = "<group>"; };
+		E3700C291A3BEE0B002FA77E /* GTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTableViewCell.h; sourceTree = "<group>"; };
+		E3700C2A1A3BEE0B002FA77E /* GTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTableViewCell.m; sourceTree = "<group>"; };
+		E3700C2F1A3BF85C002FA77E /* GcustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcustomActionSheet.m; sourceTree = "<group>"; };
+		E3700C301A3BF85C002FA77E /* GcustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcustomActionSheet.h; sourceTree = "<group>"; };
+		E3700C321A3C130C002FA77E /* MLImageCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLImageCrop.h; sourceTree = "<group>"; };
+		E3700C331A3C130C002FA77E /* MLImageCrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLImageCrop.m; sourceTree = "<group>"; };
+		E3700C351A3C3F06002FA77E /* GeditUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeditUserInfoViewController.h; sourceTree = "<group>"; };
+		E3700C361A3C3F06002FA77E /* GeditUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeditUserInfoViewController.m; sourceTree = "<group>"; };
 		F47272E4C36CD60C81CD9A79 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -544,6 +556,8 @@
 				13A3899F1A38942D00ABBACB /* MineViewController.h */,
 				13A389A01A38942D00ABBACB /* MineViewController.m */,
 				13A389A11A38942D00ABBACB /* MineViewController.xib */,
+				E3700C351A3C3F06002FA77E /* GeditUserInfoViewController.h */,
+				E3700C361A3C3F06002FA77E /* GeditUserInfoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -622,6 +636,10 @@
 		E3700C1B1A3BE66A002FA77E /* Gutils */ = {
 			isa = PBXGroup;
 			children = (
+				E3700C321A3C130C002FA77E /* MLImageCrop.h */,
+				E3700C331A3C130C002FA77E /* MLImageCrop.m */,
+				E3700C301A3BF85C002FA77E /* GcustomActionSheet.h */,
+				E3700C2F1A3BF85C002FA77E /* GcustomActionSheet.m */,
 				E3700C231A3BE6A8002FA77E /* GMAPI.h */,
 				E3700C241A3BE6A8002FA77E /* GMAPI.m */,
 			);
@@ -633,6 +651,8 @@
 			children = (
 				E3700C261A3BE6BB002FA77E /* Gview.h */,
 				E3700C271A3BE6BB002FA77E /* Gview.m */,
+				E3700C291A3BEE0B002FA77E /* GTableViewCell.h */,
+				E3700C2A1A3BEE0B002FA77E /* GTableViewCell.m */,
 			);
 			path = Gviews;
 			sourceTree = "<group>";
@@ -797,12 +817,14 @@
 				E3700C251A3BE6A8002FA77E /* GMAPI.m in Sources */,
 				13A389BC1A38974F00ABBACB /* NSString+Emoji.m in Sources */,
 				13A389BD1A38974F00ABBACB /* RefreshTableView.m in Sources */,
+				E3700C311A3BF85C002FA77E /* GcustomActionSheet.m in Sources */,
 				13684A901A37585200A508FB /* RootViewController.m in Sources */,
 				13A389BB1A38974F00ABBACB /* LTools.m in Sources */,
 				13A389871A387A8800ABBACB /* UIView+Frame.m in Sources */,
 				13A389961A3893D000ABBACB /* TTaiViewController.m in Sources */,
 				13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */,
 				13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */,
+				E3700C2B1A3BEE0B002FA77E /* GTableViewCell.m in Sources */,
 				E3700C281A3BE6BB002FA77E /* Gview.m in Sources */,
 				13EA3D211A3B2DC1002AF7D6 /* HomeClothController.m in Sources */,
 				138C2C181A39E5DA00EA59F5 /* LoginViewController.m in Sources */,
@@ -812,9 +834,11 @@
 				13A3899C1A3893FC00ABBACB /* MessageViewController.m in Sources */,
 				E3700C221A3BE69A002FA77E /* Gmodel.m in Sources */,
 				13684A6B1A37583E00A508FB /* main.m in Sources */,
+				E3700C371A3C3F06002FA77E /* GeditUserInfoViewController.m in Sources */,
 				13A3897E1A3878FE00ABBACB /* MyViewController.m in Sources */,
 				13A3898B1A38937600ABBACB /* HomeViewController.m in Sources */,
 				13A389BA1A38974F00ABBACB /* LRefreshTableHeaderView.m in Sources */,
+				E3700C341A3C130C002FA77E /* MLImageCrop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
