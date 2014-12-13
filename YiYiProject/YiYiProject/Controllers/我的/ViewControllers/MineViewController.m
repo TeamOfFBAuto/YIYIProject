@@ -13,6 +13,7 @@
 #import "GcustomActionSheet.h"
 #import "AFNetworking.h"
 #import "GeditUserInfoViewController.h"
+#import "GMapViewController.h"//测试地图vc
 
 typedef enum{
     USERFACE = 0,//头像
@@ -20,10 +21,10 @@ typedef enum{
     USERIMAGENULL,
 }CHANGEIMAGETYPE;
 
-#define CROPIMAGERATIO_USERBANNER 3.0/2//banner 图片裁剪框宽高比
+#define CROPIMAGERATIO_USERBANNER 0.618//banner 图片裁剪框宽高比
 #define CROPIMAGERATIO_USERFACE 1.0//头像 图片裁剪框宽高比例
 
-#define UPIMAGECGSIZE_USERBANNER CGSizeMake(320,240)//需要上传的banner的分辨率
+#define UPIMAGECGSIZE_USERBANNER CGSizeMake(1080,1080*0.618)//需要上传的banner的分辨率
 #define UPIMAGECGSIZE_USERFACE CGSizeMake(200,200)//需要上传的头像的分辨率
 
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,GcustomActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,MLImageCropDelegate>
@@ -112,7 +113,7 @@ typedef enum{
     
     //编辑按钮
     UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [editBtn setFrame:CGRectMake(CGRectGetMaxX(self.userNameLabel.frame)+25, self.userFaceImv.frame.origin.y+5, 50, 30)];
+    [editBtn setFrame:CGRectMake(CGRectGetMaxX(self.userNameLabel.frame)+25, self.userFaceImv.frame.origin.y+5, 55, 44)];
     editBtn.backgroundColor = [UIColor purpleColor];
     editBtn.layer.cornerRadius = 8;
     [editBtn addTarget:self action:@selector(goToEdit) forControlEvents:UIControlEventTouchUpInside];
@@ -173,7 +174,9 @@ typedef enum{
 
 
 -(void)goToEdit{
-    [self.navigationController pushViewController:[[GeditUserInfoViewController alloc]init] animated:YES];
+    GMapViewController *ggg = [[GMapViewController alloc]init];
+    ggg.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:ggg animated:YES];
 }
 
 
@@ -306,7 +309,7 @@ typedef enum{
         UIImage *originImage = [info objectForKey:UIImagePickerControllerOriginalImage];
         
         //按比例缩放
-        UIImage *scaleImage = [self scaleImage:originImage toScale:0.5];
+        UIImage *scaleImage = [self scaleImage:originImage toScale:0.3];
         
         
         //将图片传递给截取界面进行截取并设置回调方法（协议）
@@ -332,7 +335,7 @@ typedef enum{
     if (_changeImageType == USERBANNER) {
         UIImage *doneImage = [self scaleToSize:cropImage size:UPIMAGECGSIZE_USERBANNER];//按像素缩放
         self.userBanner = doneImage;
-        self.userUploadImagedata = UIImagePNGRepresentation(self.userBanner);
+        self.userUploadImagedata = UIImageJPEGRepresentation(self.userBanner, 0.8);
         [GMAPI setUserBannerImageWithData:self.userUploadImagedata];//存储到本地
         [self.userBannerImv setImage:[GMAPI getUserBannerImage]];//及时更新banner
         [GMAPI setUpUserBannerYes];//设置是否上传标志位
@@ -356,10 +359,11 @@ typedef enum{
 //上传
 -(void)upLoadImage{
     
+    //上传的url
     NSString *uploadImageUrlStr = @"";
     
     if (_changeImageType == USERBANNER) {//banner
-        uploadImageUrlStr = @"123";
+        uploadImageUrlStr = PERSON_CHANGEUSERBANNER;
     }else if (_changeImageType == USERFACE){//头像
         uploadImageUrlStr = @"456";
     }
@@ -368,15 +372,18 @@ typedef enum{
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     AFHTTPRequestOperation  * o2= [manager
-                                   POST:@"https://upload.api.weibo.com/2/statuses/upload.json"
-                                   parameters:@{@"uid":@"3720138052",
-                                                @"access_token":@"2.00eq_lDEJAyrCD6bfcb76e8d0UMOMK",
-                                                @"status":@"测试"}
+                                   POST:uploadImageUrlStr
+                                   parameters:@{
+                                                @"authcode":[GMAPI getAuthkey]
+                                                }
                                    constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
                                    {
                                        //开始拼接表单
                                        //获取图片的二进制形式
                                        NSData * data= self.userUploadImagedata;
+                                       
+                                       NSLog(@"%ld",(unsigned long)data.length);
+                                       
                                        //将得到的二进制图片拼接到表单中
                                        /**
                                         *  data,指定上传的二进制流
@@ -384,12 +391,23 @@ typedef enum{
                                         *  fileName,指定文件名
                                         *  mimeType,指定文件格式
                                         */
-                                       [formData appendPartWithFileData:data name:@"pic" fileName:@"icon.png" mimeType:@"image/png"];
+                                       [formData appendPartWithFileData:data name:@"pic" fileName:@"icon.jpg" mimeType:@"image/jpg"];
                                        //多用途互联网邮件扩展（MIME，Multipurpose Internet Mail Extensions）
                                    }
                                    success:^(AFHTTPRequestOperation *operation, id responseObject)
                                    {
+                                       
+                                       
+                                       
                                        NSLog(@"%@",responseObject);
+                                       
+                                       NSError * myerr;
+                                       
+                                       NSDictionary *mydic=[NSJSONSerialization JSONObjectWithData:(NSData *)responseObject options:NSJSONReadingAllowFragments error:&myerr];
+                                       
+                                       
+                                       NSLog(@"%@",mydic);
+                                       
                                        if (_changeImageType == USERBANNER) {
                                            [GMAPI setUpUserBannerNo];
                                        }else if (_changeImageType == USERFACE){
@@ -398,6 +416,12 @@ typedef enum{
                                        
                                    }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       
+                                       
+                                       
+                                       NSLog(@"%@",error);
+                                       
+                                       
                                        if (_changeImageType == USERBANNER) {
                                            [GMAPI setUpUserBannerYes];
                                        }else if (_changeImageType == USERFACE){

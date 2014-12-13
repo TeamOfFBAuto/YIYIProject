@@ -90,4 +90,7 @@ typedef enum{
 //获取验证码
 #define USER_GET_SECURITY_CODE @"http://182.92.158.32/index.php?d=api&c=user_api&m=get_code&mobile=%@&type=%d"
 
+//个人信息相关
+#define PERSON_CHANGEUSERBANNER @"http://182.92.158.32/index.php?d=api&c=user_api&m=update_user_banner"
+
 #endif
