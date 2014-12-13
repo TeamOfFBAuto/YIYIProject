@@ -16,6 +16,11 @@ typedef enum{
     Login_Weixin
 }Login_Type;
 
+typedef enum{
+    Gender_Girl = 0,
+    Gender_Boy
+}Gender;
+
 @interface LoginViewController : UIViewController
 - (IBAction)clickToSina:(id)sender;
 - (IBAction)clickToQQ:(id)sender;

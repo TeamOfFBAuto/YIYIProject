@@ -32,6 +32,14 @@
 
 #define RedirectUrl @"http://sns.whalecloud.com/sina2/callback" //回调地址
 
+
+//================正式
+
+//umeng后台：mobile@jiruijia.com
+//密码:mobile2014
+//android的key: 548bafc0fd98c5997a000b0b
+//umeng的key
+
 @interface AppDelegate ()
 
 @end

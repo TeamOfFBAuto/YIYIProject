@@ -18,6 +18,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    self.myTitleLabel.text = @"我的";
     
     if ([LTools cacheBoolForKey:USER_LONGIN] == NO) {
         
@@ -26,12 +32,6 @@
         [self presentViewController:login animated:YES completion:nil];
         
     }
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.myTitleLabel.text = @"我的";
 }
 
 - (void)didReceiveMemoryWarning {

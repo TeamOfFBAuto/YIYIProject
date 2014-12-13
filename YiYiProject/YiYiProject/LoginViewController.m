@@ -49,6 +49,8 @@
     //微信
     
     NSLog(@"微信");
+    
+    [self loginToPlat:UMShareToWechatSession];
 }
 
 
@@ -67,8 +69,16 @@
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:snsPlatName];
             NSLog(@"username is %@, uid is %@, token is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken);
             
-//            [weakSelf loginToServer:snsAccount.usid nickName:snsAccount.userName icon:snsAccount.iconURL platName:snsPlatName];
-//            
+            Login_Type type;
+            if ([snsPlatName isEqualToString:UMShareToSina]) {
+                type = Login_Sweibo;
+            }else if ([snsPlatName isEqualToString:UMShareToQQ]) {
+                type = Login_QQ;
+            }else if ([snsPlatName isEqualToString:UMShareToSina]) {
+                type = Login_Sweibo;
+            }
+
+//            weakSelf loginType:<#(Login_Type)#> thirdId:<#(NSString *)#> nickName:<#(NSString *)#> thirdphoto:<#(NSString *)#> gender:<#(Gender)#> password:<#(NSString *)#>
         }
         
     });
@@ -119,43 +129,37 @@
           thirdId:(NSString *)thirdId
              nickName:(NSString *)nickName
        thirdphoto:(NSString *)thirdphoto
-           gender:(int)gender
+           gender:(Gender)gender
+         password:(NSString *)password
 {
-    NSString *type = @"normal";
+    NSString *type;
     switch (loginType) {
         case Login_Normal:
         {
-            
+            type = @"normal";
         }
             break;
-//        case Login_Normal:
-//        {
-//            
-//        }
-//            break;
-//        case Login_Normal:
-//        {
-//            
-//        }
-//            break;
-//        case Login_Normal:
-//        {
-//            
-//        }
-//            break;
-//        case Login_Normal:
-//        {
-//            
-//        }
-//            break;
+        case Login_Sweibo:
+        {
+            type = @"sweibo";
+        }
+            break;
+        case Login_QQ:
+        {
+            type = @"qq";
+        }
+            break;
+        case Login_Weixin:
+        {
+           type = @"weixin";
+        }
+            break;
             
         default:
             break;
     }
     
-    NSString *url = [NSString stringWithFormat:@"http://182.92.158.32/index.php?d=api&c=user_api&m=login"];
-    
-    NSString *params = [NSString stringWithFormat:@"&type=%@&password=%@&thirdid=%@&nickname=%@&thirdphoto=%@&gender=%@&devicetoken=%@"];
+    NSString *url = [NSString stringWithFormat:LOGIN_ACTION,type,password,thirdId,nickName,thirdphoto,gender,@"test"];
     
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
     [tool requestSpecialCompletion:^(NSDictionary *result, NSError *erro) {

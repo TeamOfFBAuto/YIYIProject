@@ -29,7 +29,6 @@
 {
     UIViewController *vv = [[UIViewController alloc]init];
     vv.view.backgroundColor = [UIColor whiteColor];
-    vv.navigationController.navigationBarHidden = NO;
     [self.rootViewController.navigationController pushViewController:vv animated:YES];
 }
 

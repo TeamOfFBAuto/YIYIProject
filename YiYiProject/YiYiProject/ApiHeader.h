@@ -41,5 +41,9 @@ alpha:(a)]
 
 //接口地址
 
+//登录
+
+#define LOGIN_ACTION @"http://182.92.158.32/index.php?d=api&c=user_api&m=login&type=%@&password=%@&thirdid=%@&nickname=%@&thirdphoto=%@&gender=%d&devicetoken=%@"
+
 
 #endif
