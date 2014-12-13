@@ -46,6 +46,8 @@
 		139562C71A3BF42E007BB183 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C61A3BF42E007BB183 /* UserInfo.m */; };
 		139562CB1A3C11EC007BB183 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C91A3C11EC007BB183 /* RegisterViewController.m */; };
 		139562CC1A3C11EC007BB183 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139562CA1A3C11EC007BB183 /* RegisterViewController.xib */; };
+		139562D31A3C45A0007BB183 /* ForgetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562D11A3C45A0007BB183 /* ForgetPasswordController.m */; };
+		139562D41A3C45A0007BB183 /* ForgetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139562D21A3C45A0007BB183 /* ForgetPasswordController.xib */; };
 		13A3897E1A3878FE00ABBACB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3897D1A3878FE00ABBACB /* MyViewController.m */; };
 		13A389861A387A8800ABBACB /* UIColor+ConvertColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A389821A387A8800ABBACB /* UIColor+ConvertColor.m */; };
 		13A389871A387A8800ABBACB /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A389851A387A8800ABBACB /* UIView+Frame.m */; };
@@ -152,6 +154,9 @@
 		139562C81A3C11EC007BB183 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		139562C91A3C11EC007BB183 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		139562CA1A3C11EC007BB183 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		139562D01A3C45A0007BB183 /* ForgetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordController.h; sourceTree = "<group>"; };
+		139562D11A3C45A0007BB183 /* ForgetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordController.m; sourceTree = "<group>"; };
+		139562D21A3C45A0007BB183 /* ForgetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordController.xib; sourceTree = "<group>"; };
 		13A3897C1A3878FE00ABBACB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		13A3897D1A3878FE00ABBACB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		13A3897F1A38796D00ABBACB /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -443,6 +448,9 @@
 				139562C81A3C11EC007BB183 /* RegisterViewController.h */,
 				139562C91A3C11EC007BB183 /* RegisterViewController.m */,
 				139562CA1A3C11EC007BB183 /* RegisterViewController.xib */,
+				139562D01A3C45A0007BB183 /* ForgetPasswordController.h */,
+				139562D11A3C45A0007BB183 /* ForgetPasswordController.m */,
+				139562D21A3C45A0007BB183 /* ForgetPasswordController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -762,6 +770,7 @@
 				13684A741A37583E00A508FB /* Main.storyboard in Resources */,
 				13A389A31A38942D00ABBACB /* MineViewController.xib in Resources */,
 				138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */,
+				139562D41A3C45A0007BB183 /* ForgetPasswordController.xib in Resources */,
 				139562C41A3BF41B007BB183 /* LoginViewController.xib in Resources */,
 				13684A791A37583E00A508FB /* LaunchScreen.xib in Resources */,
 				138C2BFA1A39E09200EA59F5 /* UMShareEditViewControlleriPad.xib in Resources */,
@@ -849,6 +858,7 @@
 				13A389A21A38942D00ABBACB /* MineViewController.m in Sources */,
 				E3700C1F1A3BE67E002FA77E /* GViewController.m in Sources */,
 				13A389861A387A8800ABBACB /* UIColor+ConvertColor.m in Sources */,
+				139562D31A3C45A0007BB183 /* ForgetPasswordController.m in Sources */,
 				13A3899C1A3893FC00ABBACB /* MessageViewController.m in Sources */,
 				E3700C221A3BE69A002FA77E /* Gmodel.m in Sources */,
 				13684A6B1A37583E00A508FB /* main.m in Sources */,

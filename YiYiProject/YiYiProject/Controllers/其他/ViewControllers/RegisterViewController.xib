@@ -134,10 +134,10 @@
                     <exclude reference="ACn-P9-9I6"/>
                     <exclude reference="RcJ-WJ-huK"/>
                     <exclude reference="Ub5-Dg-tf6"/>
-                    <exclude reference="2JW-Ql-otv"/>
-                    <exclude reference="xUF-kI-efD"/>
                     <exclude reference="6vu-qP-l42"/>
                     <exclude reference="x5b-hM-msa"/>
+                    <exclude reference="2JW-Ql-otv"/>
+                    <exclude reference="xUF-kI-efD"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -164,10 +164,10 @@
                     <include reference="ACn-P9-9I6"/>
                     <include reference="RcJ-WJ-huK"/>
                     <include reference="Ub5-Dg-tf6"/>
-                    <include reference="2JW-Ql-otv"/>
-                    <include reference="xUF-kI-efD"/>
                     <include reference="6vu-qP-l42"/>
                     <include reference="x5b-hM-msa"/>
+                    <include reference="2JW-Ql-otv"/>
+                    <include reference="xUF-kI-efD"/>
                 </mask>
             </variation>
             <connections>

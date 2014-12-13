@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "ForgetPasswordController.h"
 #import "UMSocial.h"
 #import "UserInfo.h"
 
@@ -35,6 +36,8 @@
  */
 - (IBAction)clickToForgetPwd:(id)sender {
     
+    ForgetPasswordController *forget = [[ForgetPasswordController alloc]init];
+    [self.navigationController pushViewController:forget animated:YES];
 }
 
 /**
