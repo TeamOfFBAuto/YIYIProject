@@ -115,5 +115,7 @@ typedef enum{
 
 
 
+//个人信息相关
+#define PERSON_CHANGEUSERBANNER @"http://182.92.158.32/index.php?d=api&c=user_api&m=update_user_banner"
 
 #endif

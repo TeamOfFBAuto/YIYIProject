@@ -16,6 +16,8 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaHandler.h"
 //#import "UMSocialTencentWeiboHandler.h"
+#import "BMapKit.h"
+
 
 #define UmengAppkey @"5423e48cfd98c58eed00664f"
 /**
@@ -45,8 +47,12 @@
 //szkyaojiayou@163.com
 //密码：mobile2014
 
-@interface AppDelegate ()
+@interface AppDelegate ()<BMKGeneralDelegate>
+{
+    BMKMapManager* _mapManager;
+    CLLocationManager *_locationManager;
 
+}
 @end
 
 @implementation AppDelegate
@@ -83,6 +89,26 @@
     [self umengShare];
     
     RootViewController *root = [[RootViewController alloc]init];
+    
+    
+    
+    
+    
+    if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=8.0)) {
+        _locationManager = [[CLLocationManager alloc] init];
+        [_locationManager requestAlwaysAuthorization];
+        [_locationManager startUpdatingLocation];
+    }
+#pragma mark - 百度地图相关
+    // 要使用百度地图，请先启动BaiduMapManager
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:@"9PuBXw0V1mKYjsfaZtMVTzF3"  generalDelegate:self];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+    
+    
     
     self.window.rootViewController = root;
     self.window.backgroundColor = [UIColor whiteColor];
