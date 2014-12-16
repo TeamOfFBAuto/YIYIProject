@@ -15,9 +15,30 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 
+#import "ProductModel.h"
+
+typedef enum {
+    
+    Sort_Sex_No = 0,//0 不按照性别 默认为0
+    Sort_Sex_Women,//女
+    Sort_Sex_Man  //男
+    
+}SORT_SEX_TYPE; //排序方式
+
+typedef enum {
+    
+    Sort_Discount_No = 0,// discount 折扣排序 1 是 0 否 默认为0
+    Sort_Discount_Yes
+    
+}SORT_Discount_TYPE; //排序方式
+
 @interface HomeBuyController ()<TMQuiltViewDataSource,WaterFlowDelegate>
 {
     LWaterflowView *waterFlow;
+    
+    SORT_SEX_TYPE sex_type;
+    SORT_Discount_TYPE discount_type;
+    NSArray *dataArray;
 }
 
 @property (nonatomic, retain) NSMutableArray *images;
@@ -30,9 +51,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    waterFlow = [[LWaterflowView alloc]initWithFrame:CGRectMake(0, 0, ALL_FRAME_WIDTH, ALL_FRAME_HEIGHT - 49 - 30) waterDelegate:nil waterDataSource:nil];
-    waterFlow.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = RGBCOLOR(200, 200, 200);
+    
+    waterFlow = [[LWaterflowView alloc]initWithFrame:CGRectMake(0, 0, ALL_FRAME_WIDTH, ALL_FRAME_HEIGHT - 49 - 44) waterDelegate:self waterDataSource:self];
+    waterFlow.backgroundColor = RGBCOLOR(200, 200, 200);
     [self.view addSubview:waterFlow];
+    
+    [self deserveBuyForSex:sex_type discount:discount_type];
     
 }
 
@@ -42,6 +67,109 @@
 }
 
 #pragma mark 事件处理
+
+/**
+ *  long 经度 非空
+ lat 维度 非空
+ sex 性别 1 女士 2男士 0 不按照性别 默认为0
+ discount 折扣排序 1 是 0 否 默认为0
+ */
+- (void)deserveBuyForSex:(SORT_SEX_TYPE)sortType
+                discount:(SORT_Discount_TYPE)discountType
+{
+    NSString *longtitud = @"116.42111721";
+    NSString *latitude = @"39.90304099";
+    NSString *url = [NSString stringWithFormat:HOME_DESERVE_BUY,longtitud,latitude,sortType,discountType];
+    LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
+    [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSMutableArray *arr;
+        if ([result isKindOfClass:[NSDictionary class]]) {
+            
+            NSArray *list = result[@"list"];
+            arr = [NSMutableArray arrayWithCapacity:list.count];
+            if ([list isKindOfClass:[NSArray class]]) {
+                
+                for (NSDictionary *aDic in list) {
+                    
+                    ProductModel *aModel = [[ProductModel alloc]initWithDictionary:aDic];
+                    
+                    [arr addObject:aModel];
+                }
+                
+            }
+            
+        }
+        
+        dataArray = [NSArray arrayWithArray:arr];
+        
+        [waterFlow reloadData];
+        
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        
+        NSLog(@"failBlock == %@",failDic[RESULT_INFO]);
+        
+    }];
+}
+
+
+#pragma mark - WaterFlowDelegate
+
+- (void)loadNewData
+{
+    [self deserveBuyForSex:sex_type discount:discount_type];
+}
+- (void)loadMoreData
+{
+    
+}
+- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ProductModel *aMode = dataArray[indexPath.row];
+    
+    [LTools alertText:aMode.product_name];
+    
+}
+
+- (CGFloat)waterHeightForCellIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat aHeight = 0.f;
+    ProductModel *aMode = dataArray[indexPath.row];
+    if (aMode.imagelist.count >= 1) {
+        
+        NSDictionary *imageDic = aMode.imagelist[0];
+        NSDictionary *middleImage = imageDic[@"504Middle"];
+//        CGFloat aWidth = [middleImage[@"width"]floatValue];
+        aHeight = [middleImage[@"height"]floatValue];
+    }
+    
+    return aHeight / 2.f + 50;
+}
+- (CGFloat)waterViewNumberOfColumns
+{
+    
+    return 2;
+}
+
+#pragma mark - TMQuiltViewDataSource
+
+- (NSInteger)quiltViewNumberOfCells:(TMQuiltView *)TMQuiltView {
+    return [dataArray count];
+}
+
+- (TMQuiltViewCell *)quiltView:(TMQuiltView *)quiltView cellAtIndexPath:(NSIndexPath *)indexPath {
+    TMPhotoQuiltViewCell *cell = (TMPhotoQuiltViewCell *)[quiltView dequeueReusableCellWithReuseIdentifier:@"PhotoCell"];
+    if (!cell) {
+        cell = [[TMPhotoQuiltViewCell alloc] initWithReuseIdentifier:@"PhotoCell"];
+    }
+    
+    ProductModel *aMode = dataArray[indexPath.row];
+    [cell setCellWithModel:aMode];
+    
+    
+    return cell;
+}
 
 
 @end

@@ -19,7 +19,7 @@
 - (void)loadNewData;
 - (void)loadMoreData;
 - (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (CGFloat)heightForCellIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)waterHeightForCellIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)waterViewNumberOfColumns;
 
 @end
@@ -44,5 +44,7 @@
 -(instancetype)initWithFrame:(CGRect)frame
                waterDelegate:(id<WaterFlowDelegate>)waterDelegate
              waterDataSource:(id<TMQuiltViewDataSource>)waterDatasource;
+
+- (void)reloadData;
 
 @end

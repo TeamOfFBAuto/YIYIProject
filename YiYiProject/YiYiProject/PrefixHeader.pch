@@ -24,6 +24,8 @@
 
 #import "GMAPI.h"
 
+#import "UIImageView+WebCache.h"
+
 
 #pragma mark - 自定义的宏，方便调动
 ///颜色

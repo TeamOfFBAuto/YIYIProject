@@ -10,6 +10,11 @@
 
 @implementation LWaterflowView
 
+- (void)reloadData
+{
+    [qtmquitView reloadData];
+}
+
 -(instancetype)initWithFrame:(CGRect)frame
                waterDelegate:(id<WaterFlowDelegate>)waterDelegate
              waterDataSource:(id<TMQuiltViewDataSource>)waterDatasource
@@ -19,14 +24,14 @@
         
         qtmquitView = [[TMQuiltView alloc] initWithFrame:frame];
         qtmquitView.delegate = self;
-        qtmquitView.dataSource = waterDatasource ? waterDatasource : self;
+        qtmquitView.dataSource = waterDatasource;
         self.waterDelegate = waterDelegate;
         
         [self addSubview:qtmquitView];
                 
-        [qtmquitView reloadData];
+//        [qtmquitView reloadData];
         [self createHeaderView];
-        [self performSelector:@selector(testFinishedLoadData) withObject:nil afterDelay:0.0f];
+//        [self performSelector:@selector(testFinishedLoadData) withObject:nil afterDelay:0.0f];
     }
     return self;
 }
@@ -287,12 +292,13 @@
 
 - (CGFloat)quiltView:(TMQuiltView *)quiltView heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(heightForCellAtIndexPath:)]) {
+    CGFloat aHeight = 0.f;
+    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(waterHeightForCellIndexPath:)]) {
         
-        return [_waterDelegate heightForCellIndexPath:indexPath];
+        aHeight = [_waterDelegate waterHeightForCellIndexPath:indexPath];
     }
     
-    return [self imageAtIndexPath:indexPath].size.height / [self quiltViewNumberOfColumns:quiltView];
+    return aHeight;
 }
 
 - (void)quiltView:(TMQuiltView *)quiltView didSelectCellAtIndexPath:(NSIndexPath *)indexPath

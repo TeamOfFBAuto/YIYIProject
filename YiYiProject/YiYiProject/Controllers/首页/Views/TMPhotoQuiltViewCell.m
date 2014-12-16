@@ -38,19 +38,83 @@ const CGFloat kTMPhotoQuiltViewMargin = 0;
     self = [super initWithReuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+        
+//        @property(nonatomic,retain)UIView *titleView;//存放 店铺名、距离
+//        @property(nonatomic,retain)UILabel *dianPuName_Label;//店铺名
+//        @property(nonatomic,retain)UILabel *distance_label;//距离
+//        
+//        @property(nonatomic,retain)UIView *infoView;//存放 价格 打折 收藏
+//        @property(nonatomic,retain)UILabel *price_label;//价格
+//        @property(nonatomic,retain)UILabel *discount_label;//打折
+//        @property(nonatomic,retain)UIButton *like_btn;//喜欢标识
+//        @property(nonatomic,retain)UILabel *like_label;//喜欢数量
+        
+        self.photoView = [[UIImageView alloc] init];
+        _photoView.contentMode = UIViewContentModeScaleAspectFill;
+        _photoView.clipsToBounds = YES;
+        [self addSubview:_photoView];
+        
+        //存放 店铺名、距离
+        
+        self.titleView = [[UIView alloc]init];
+        _titleView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        [self addSubview:_titleView];
+        
+        //店铺名
+        
+        self.dianPuName_Label = [[UILabel alloc] init];
+        _dianPuName_Label.backgroundColor = [UIColor clearColor];
+        _dianPuName_Label.textColor = [UIColor whiteColor];
+        _dianPuName_Label.textAlignment = NSTextAlignmentLeft;
+        _dianPuName_Label.font = [UIFont systemFontOfSize:14.f];
+        [_titleView addSubview:_dianPuName_Label];
+        
+        //距离
+        
+        self.distance_label = [[UILabel alloc] init];
+        _distance_label.backgroundColor = [UIColor clearColor];
+        _distance_label.font = [UIFont systemFontOfSize:12.f];
+        _distance_label.textColor = [UIColor whiteColor];
+        _distance_label.textAlignment = NSTextAlignmentRight;
+        [_titleView addSubview:_distance_label];
+        
+        //存放 价格 打折 收藏
+        
+        self.infoView = [[UIView alloc]init];
+        _infoView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:_infoView];
+        
+        //价格
+        self.price_label = [UIButton buttonWithType:UIButtonTypeCustom];
+        _price_label.backgroundColor = [UIColor grayColor];
+        _price_label.titleLabel.font = [UIFont systemFontOfSize:12];
+        [_infoView addSubview:_price_label];
+        
+        //折扣
+        self.discount_label = [UIButton buttonWithType:UIButtonTypeCustom];
+        _discount_label.backgroundColor = [UIColor grayColor];
+        _discount_label.titleLabel.font = [UIFont systemFontOfSize:12];
+        [_infoView addSubview:_discount_label];
+        
+        self.like_label = [[UILabel alloc]init];
+        _like_label.backgroundColor = [UIColor clearColor];
+        _like_label.font = [UIFont systemFontOfSize:12];
+        _like_label.textAlignment = NSTextAlignmentRight;
+        [_infoView addSubview:_like_label];
+        
     }
     return self;
 }
 
-- (UIImageView *)photoView {
-    if (!_photoView) {
-        _photoView = [[UIImageView alloc] init];
-        _photoView.contentMode = UIViewContentModeScaleAspectFill;
-        _photoView.clipsToBounds = YES;
-        [self addSubview:_photoView];
-    }
-    return _photoView;
-}
+//- (UIImageView *)photoView {
+//    if (!_photoView) {
+//        _photoView = [[UIImageView alloc] init];
+//        _photoView.contentMode = UIViewContentModeScaleAspectFill;
+//        _photoView.clipsToBounds = YES;
+//        [self addSubview:_photoView];
+//    }
+//    return _photoView;
+//}
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
@@ -62,11 +126,51 @@ const CGFloat kTMPhotoQuiltViewMargin = 0;
     }
     return _titleLabel;
 }
+
     
 - (void)layoutSubviews {
-    self.photoView.frame = CGRectInset(self.bounds, kTMPhotoQuiltViewMargin, kTMPhotoQuiltViewMargin);
-    self.titleLabel.frame = CGRectMake(kTMPhotoQuiltViewMargin, self.bounds.size.height - 20 - kTMPhotoQuiltViewMargin,
-                                       self.bounds.size.width - 2 * kTMPhotoQuiltViewMargin, 20);
+    
+    CGRect aBound = self.bounds;
+    aBound.size.height -= 50;
+    self.photoView.frame = CGRectInset(aBound, kTMPhotoQuiltViewMargin, kTMPhotoQuiltViewMargin);
+    
+    self.titleView.frame = CGRectMake(0, _photoView.bottom - 30, _photoView.width, 30);
+    self.dianPuName_Label.frame = CGRectMake(5, 0, _titleView.width * 2/3.f, _titleView.height);
+    self.distance_label.frame = CGRectMake(_dianPuName_Label.right, 0, _titleView.width/3.f - 5, _titleView.height);
+    
+    self.infoView.frame = CGRectMake(0, _photoView.bottom, _photoView.width, 50);
+    self.price_label.frame = CGRectMake(5, 0, 40, 20);
+    _price_label.center = CGPointMake(_price_label.center.x, _infoView.height / 2.f);
+    
+    self.discount_label.frame = CGRectMake(_price_label.right + 5, _price_label.top, 40, 20);
+    
+    self.like_label.frame = CGRectMake(_infoView.width - 5 - 40, _discount_label.top, 40, 20);
+
+}
+
+- (void)setCellWithModel:(ProductModel *)aModel
+{
+    NSString *imageurl;
+    if (aModel.imagelist.count >= 1) {
+        
+        NSDictionary *imageDic = aModel.imagelist[0];
+        NSDictionary *middleImage = imageDic[@"504Middle"];
+        imageurl = middleImage[@"src"];
+    }
+
+    [self.photoView sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:nil];
+    self.dianPuName_Label.text = aModel.mall_name;
+    self.distance_label.text = [NSString stringWithFormat:@"%@m",aModel.distance];
+    
+    NSString *price = [NSString stringWithFormat:@"%.1f",[aModel.product_price floatValue]];
+    [self.price_label setTitle:price forState:UIControlStateNormal];
+    self.price_label.layer.cornerRadius = 10;
+    
+    NSString *discount = [NSString stringWithFormat:@"%@折",aModel.dicount_num];
+    [self.discount_label setTitle:discount forState:UIControlStateNormal];
+    self.discount_label.layer.cornerRadius = 10;
+    
+    self.like_label.text = aModel.product_like_num;
 }
 
 @end

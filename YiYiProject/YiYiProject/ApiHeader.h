@@ -93,4 +93,27 @@ typedef enum{
 //找回密码
 #define USER_GETBACK_PASSWORD @"http://182.92.158.32/index.php?d=api&c=user_api&m=get_back_password&mobile=%@&code=%d&new_password=%@"
 
+//首页--值得买
+#define HOME_DESERVE_BUY @"http://182.92.158.32/?d=api&c=products&m=listWorthBuy&long=%@&lat=%@&sex=%d&discount=%d"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #endif

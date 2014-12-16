@@ -19,10 +19,22 @@
 
 #import <UIKit/UIKit.h>
 #import "TMQuiltViewCell.h"
-
+#import "ProductModel.h"
 @interface TMPhotoQuiltViewCell : TMQuiltViewCell
 
 @property (nonatomic, retain) UIImageView *photoView;
 @property (nonatomic, retain) UILabel *titleLabel;
+
+@property(nonatomic,retain)UIView *titleView;//存放 店铺名、距离
+@property(nonatomic,retain)UILabel *dianPuName_Label;//店铺名
+@property(nonatomic,retain)UILabel *distance_label;//距离
+
+@property(nonatomic,retain)UIView *infoView;//存放 价格 打折 收藏
+@property(nonatomic,retain)UIButton *price_label;//价格
+@property(nonatomic,retain)UIButton *discount_label;//打折
+@property(nonatomic,retain)UIButton *like_btn;//喜欢标识
+@property(nonatomic,retain)UILabel *like_label;//喜欢数量
+
+- (void)setCellWithModel:(ProductModel *)aModel;
 
 @end

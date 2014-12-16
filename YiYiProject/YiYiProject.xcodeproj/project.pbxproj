@@ -41,6 +41,7 @@
 		138C2C121A39E45E00EA59F5 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C2C111A39E45E00EA59F5 /* libstdc++.dylib */; };
 		138C2C141A39E46B00EA59F5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C2C131A39E46B00EA59F5 /* libz.dylib */; };
 		138C2C1D1A39E77300EA59F5 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 138C2C1C1A39E77300EA59F5 /* BaseModel.m */; };
+		139558D61A40781C00CABC9E /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 139558D51A40781C00CABC9E /* ProductModel.m */; };
 		139562C31A3BF41B007BB183 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C11A3BF41B007BB183 /* LoginViewController.m */; };
 		139562C41A3BF41B007BB183 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139562C21A3BF41B007BB183 /* LoginViewController.xib */; };
 		139562C71A3BF42E007BB183 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C61A3BF42E007BB183 /* UserInfo.m */; };
@@ -167,6 +168,8 @@
 		138C2C1A1A39E68900EA59F5 /* ApiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiHeader.h; sourceTree = "<group>"; };
 		138C2C1B1A39E77300EA59F5 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		138C2C1C1A39E77300EA59F5 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		139558D41A40781C00CABC9E /* ProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductModel.h; sourceTree = "<group>"; };
+		139558D51A40781C00CABC9E /* ProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductModel.m; sourceTree = "<group>"; };
 		139562C01A3BF41B007BB183 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		139562C11A3BF41B007BB183 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		139562C21A3BF41B007BB183 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -476,6 +479,15 @@
 			path = Wechat;
 			sourceTree = "<group>";
 		};
+		139558D31A40781000CABC9E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				139558D41A40781C00CABC9E /* ProductModel.h */,
+				139558D51A40781C00CABC9E /* ProductModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		139562B81A3BF3B8007BB183 /* 其他 */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +569,7 @@
 		13A389771A3877C800ABBACB /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				139558D31A40781000CABC9E /* Models */,
 				13CD364B1A3C6BD10068C12A /* Views */,
 				13A3897B1A3878C000ABBACB /* ViewControllers */,
 			);
@@ -981,6 +994,7 @@
 				13A389BC1A38974F00ABBACB /* NSString+Emoji.m in Sources */,
 				E3FC8DE01A3C494A0025525D /* GcustomActionSheet.m in Sources */,
 				E3FC8DDF1A3C494A0025525D /* Gmodel.m in Sources */,
+				139558D61A40781C00CABC9E /* ProductModel.m in Sources */,
 				13A389BD1A38974F00ABBACB /* RefreshTableView.m in Sources */,
 				13684A901A37585200A508FB /* RootViewController.m in Sources */,
 				13CD36361A3C51BE0068C12A /* ForgetPwdController.m in Sources */,
