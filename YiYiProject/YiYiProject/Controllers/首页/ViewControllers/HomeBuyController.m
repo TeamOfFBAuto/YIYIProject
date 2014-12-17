@@ -106,6 +106,7 @@ typedef enum {
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
         
         NSLog(@"failBlock == %@",failDic[RESULT_INFO]);
+        [waterFlow loadFail];
         
     }];
 }

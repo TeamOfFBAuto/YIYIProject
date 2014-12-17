@@ -21,7 +21,7 @@
 @property(nonatomic,retain)NSString *product_name;
 
 @property(nonatomic,retain)NSString *product_price;
-@property(nonatomic,retain)NSString *dicount_num;
+@property(nonatomic,assign)CGFloat discount_num;
 @property(nonatomic,retain)NSString *product_gender;
 
 @property(nonatomic,retain)NSString *product_like_num;

@@ -165,8 +165,8 @@ const CGFloat kTMPhotoQuiltViewMargin = 0;
     NSString *price = [NSString stringWithFormat:@"%.1f",[aModel.product_price floatValue]];
     [self.price_label setTitle:price forState:UIControlStateNormal];
     self.price_label.layer.cornerRadius = 10;
-    
-    NSString *discount = [NSString stringWithFormat:@"%@折",aModel.dicount_num];
+        
+    NSString *discount = [NSString stringWithFormat:@"%.1f折",aModel.discount_num * 10];
     [self.discount_label setTitle:discount forState:UIControlStateNormal];
     self.discount_label.layer.cornerRadius = 10;
     

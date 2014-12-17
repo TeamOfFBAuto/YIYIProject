@@ -54,7 +54,7 @@ alpha:(a)]
 #define ALERT_ERRO_SECURITYCODE @"验证码格式有误,请输入6位数字"
 #define ALERT_ERRO_FINDPWD @"两次密码不一致"
 
-#define L_PAGE_SIZE 5
+#define L_PAGE_SIZE 20
 
 //登录类型 normal为正常手机登陆，sweibo、qq、weixin分别代表新浪微博、qq、微信登陆
 typedef enum{
