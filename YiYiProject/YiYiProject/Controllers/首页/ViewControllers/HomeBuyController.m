@@ -38,10 +38,8 @@ typedef enum {
     
     SORT_SEX_TYPE sex_type;
     SORT_Discount_TYPE discount_type;
-    NSArray *dataArray;
+//    NSArray *dataArray;
 }
-
-@property (nonatomic, retain) NSMutableArray *images;
 
 @end
 
@@ -54,10 +52,10 @@ typedef enum {
     self.view.backgroundColor = RGBCOLOR(200, 200, 200);
     
     waterFlow = [[LWaterflowView alloc]initWithFrame:CGRectMake(0, 0, ALL_FRAME_WIDTH, ALL_FRAME_HEIGHT - 49 - 44) waterDelegate:self waterDataSource:self];
-    waterFlow.backgroundColor = RGBCOLOR(200, 200, 200);
+    waterFlow.backgroundColor = RGBCOLOR(240, 230, 235);
     [self.view addSubview:waterFlow];
-    
-    [self deserveBuyForSex:sex_type discount:discount_type];
+        
+    [waterFlow showRefreshHeader:YES];
     
 }
 
@@ -76,10 +74,11 @@ typedef enum {
  */
 - (void)deserveBuyForSex:(SORT_SEX_TYPE)sortType
                 discount:(SORT_Discount_TYPE)discountType
+                    page:(int)pageNum
 {
     NSString *longtitud = @"116.42111721";
     NSString *latitude = @"39.90304099";
-    NSString *url = [NSString stringWithFormat:HOME_DESERVE_BUY,longtitud,latitude,sortType,discountType];
+    NSString *url = [NSString stringWithFormat:HOME_DESERVE_BUY,longtitud,latitude,sortType,discountType,pageNum,L_PAGE_SIZE];
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
     [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
         
@@ -100,10 +99,8 @@ typedef enum {
             }
             
         }
-        
-        dataArray = [NSArray arrayWithArray:arr];
-        
-        [waterFlow reloadData];
+                
+        [waterFlow reloadData:arr total:100];
         
         
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
@@ -118,15 +115,16 @@ typedef enum {
 
 - (void)loadNewData
 {
-    [self deserveBuyForSex:sex_type discount:discount_type];
+    [self deserveBuyForSex:sex_type discount:discount_type page:waterFlow.pageNum];
 }
 - (void)loadMoreData
 {
-    
+    [self deserveBuyForSex:sex_type discount:discount_type page:waterFlow.pageNum];
 }
+
 - (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ProductModel *aMode = dataArray[indexPath.row];
+    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
     
     [LTools alertText:aMode.product_name];
     
@@ -135,7 +133,7 @@ typedef enum {
 - (CGFloat)waterHeightForCellIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat aHeight = 0.f;
-    ProductModel *aMode = dataArray[indexPath.row];
+    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
     if (aMode.imagelist.count >= 1) {
         
         NSDictionary *imageDic = aMode.imagelist[0];
@@ -155,7 +153,7 @@ typedef enum {
 #pragma mark - TMQuiltViewDataSource
 
 - (NSInteger)quiltViewNumberOfCells:(TMQuiltView *)TMQuiltView {
-    return [dataArray count];
+    return [waterFlow.dataArray count];
 }
 
 - (TMQuiltViewCell *)quiltView:(TMQuiltView *)quiltView cellAtIndexPath:(NSIndexPath *)indexPath {
@@ -164,7 +162,7 @@ typedef enum {
         cell = [[TMPhotoQuiltViewCell alloc] initWithReuseIdentifier:@"PhotoCell"];
     }
     
-    ProductModel *aMode = dataArray[indexPath.row];
+    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
     [cell setCellWithModel:aMode];
     
     
