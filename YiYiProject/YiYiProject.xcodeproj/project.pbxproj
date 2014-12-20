@@ -95,6 +95,8 @@
 		13EA3D211A3B2DC1002AF7D6 /* HomeClothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D201A3B2DC1002AF7D6 /* HomeClothController.m */; };
 		13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */; };
 		AB9102ED706793EE205C4D50 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F47272E4C36CD60C81CD9A79 /* libPods.a */; };
+		E3B2DC6B1A45209400607B11 /* gpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B2DC6A1A45209400607B11 /* gpin@2x.png */; };
+		E3B37D7A1A45659E009835A5 /* GStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37D791A45659E009835A5 /* GStarsView.m */; };
 		E3E3E8451A3C6724001A1DD6 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8431A3C6724001A1DD6 /* libbaidumapapi.a */; };
 		E3E3E8461A3C6724001A1DD6 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3E3E8441A3C6724001A1DD6 /* mapapi.bundle */; };
 		E3E3E8481A3C6772001A1DD6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8471A3C6772001A1DD6 /* CoreLocation.framework */; };
@@ -267,6 +269,9 @@
 		13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMatchController.m; sourceTree = "<group>"; };
 		316989CEF30908957578BF60 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		454167C7D51D19BFE1D2B4D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E3B2DC6A1A45209400607B11 /* gpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gpin@2x.png"; sourceTree = "<group>"; };
+		E3B37D781A45659E009835A5 /* GStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GStarsView.h; sourceTree = "<group>"; };
+		E3B37D791A45659E009835A5 /* GStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GStarsView.m; sourceTree = "<group>"; };
 		E3E3E8061A3C6724001A1DD6 /* BMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMapKit.h; sourceTree = "<group>"; };
 		E3E3E8071A3C6724001A1DD6 /* BMKActionPaopaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKActionPaopaoView.h; sourceTree = "<group>"; };
 		E3E3E8081A3C6724001A1DD6 /* BMKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKAnnotation.h; sourceTree = "<group>"; };
@@ -987,6 +992,7 @@
 		E3FC8DCF1A3C494A0025525D /* Gmodels */ = {
 			isa = PBXGroup;
 			children = (
+				E3B2DC6A1A45209400607B11 /* gpin@2x.png */,
 				E3FC8DD01A3C494A0025525D /* Gmodel.h */,
 				E3FC8DD11A3C494A0025525D /* Gmodel.m */,
 			);
@@ -1003,6 +1009,8 @@
 				E3FC8DD61A3C494A0025525D /* GMAPI.m */,
 				E3FC8DD71A3C494A0025525D /* MLImageCrop.h */,
 				E3FC8DD81A3C494A0025525D /* MLImageCrop.m */,
+				E3B37D781A45659E009835A5 /* GStarsView.h */,
+				E3B37D791A45659E009835A5 /* GStarsView.m */,
 			);
 			path = Gutils;
 			sourceTree = "<group>";
@@ -1115,6 +1123,7 @@
 				13684A741A37583E00A508FB /* Main.storyboard in Resources */,
 				13A389A31A38942D00ABBACB /* MineViewController.xib in Resources */,
 				138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */,
+				E3B2DC6B1A45209400607B11 /* gpin@2x.png in Resources */,
 				139562C41A3BF41B007BB183 /* LoginViewController.xib in Resources */,
 				13681C811A453B3200671D07 /* share_QQ@2x.png in Resources */,
 				13684A791A37583E00A508FB /* LaunchScreen.xib in Resources */,
@@ -1215,6 +1224,7 @@
 				13A389871A387A8800ABBACB /* UIView+Frame.m in Sources */,
 				13CD364E1A3C6BD90068C12A /* TMPhotoQuiltViewCell.m in Sources */,
 				E3FC8DE31A3C494A0025525D /* GTableViewCell.m in Sources */,
+				E3B37D7A1A45659E009835A5 /* GStarsView.m in Sources */,
 				13A389961A3893D000ABBACB /* TTaiViewController.m in Sources */,
 				13CD36401A3C69860068C12A /* TMQuiltView.m in Sources */,
 				13CD36411A3C69860068C12A /* TMQuiltViewCell.m in Sources */,
