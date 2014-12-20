@@ -10,14 +10,33 @@
 
 @interface GShowStarsView : UIView
 
+
+///下列属性都需要设置
+
 ///星星的个数
 @property(nonatomic,assign)float startNum;
 
 ///最多几个星星
 @property(nonatomic,assign)int maxStartNum;
 
+///星星的宽度
+@property(nonatomic,assign)float starWidth;
+
+///整颗星的图片名字
+@property(nonatomic,strong)NSString *starNameStr;
+
+///半颗星的图片名字
+@property(nonatomic,strong)NSString *star_halfNameStr;
+
+
+
+
+
+
+
+
 //初始化方法
--(GShowStarsView*)initWithStartNum:(int)num Frame:(CGRect)theFrame;
+-(GShowStarsView*)initWithStartNum:(int)num Frame:(CGRect)theFrame starBackName:(NSString *)theBackStarNameStr starWidth:(CGFloat)theStarWidth;
 
 
 //填充数据

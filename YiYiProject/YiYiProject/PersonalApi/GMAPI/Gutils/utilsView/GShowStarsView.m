@@ -10,15 +10,19 @@
 
 @implementation GShowStarsView
 
--(GShowStarsView*)initWithStartNum:(int)num Frame:(CGRect)theFrame{
+-(GShowStarsView*)initWithStartNum:(int)num Frame:(CGRect)theFrame starBackName:(NSString *)theBackStarNameStr starWidth:(CGFloat)theStarWidth{
     self = [super initWithFrame:theFrame];
     if (self) {
         
-        CGFloat kuan = 12;
+        CGFloat kuan = theStarWidth;
         
         for (int i = 0; i<num; i++) {
             UIImageView *imv = [[UIImageView alloc]initWithFrame:CGRectMake(0+i*kuan, 0, kuan, theFrame.size.height)];
-            [imv setImage:[UIImage imageNamed:@"gstart.png"]];
+            
+            //设置底层星星的image
+            [imv setImage:[UIImage imageNamed:theBackStarNameStr]];
+            
+            NSLog(@"%@",NSStringFromCGRect(imv.frame));
             [self addSubview:imv];
         }
     }
@@ -28,27 +32,30 @@
 
 
 -(void)updateStartNum{
-    for (UIView *view in self.subviews) {
-        [view removeFromSuperview];
-    }
+//    for (UIView *view in self.subviews) {
+//        [view removeFromSuperview];
+//    }
     
     self.startNum = self.startNum>self.maxStartNum ? self.maxStartNum : self.startNum;
     
     int nnn_int = (int)self.startNum;
     
-    CGFloat kuan = 12;
+    CGFloat kuan = self.starWidth;
     
     if (nnn_int<self.startNum) {//有半颗星
         
         for (int i = 0; i<nnn_int; i++) {
             NSLog(@"%d",i);
             UIImageView *imv = [[UIImageView alloc]initWithFrame:CGRectMake(0+i*kuan, 0, kuan, self.frame.size.height)];
-            [imv setImage:[UIImage imageNamed:@"gstart.png"]];
+            
+            //整颗星的image
+            [imv setImage:[UIImage imageNamed:self.starNameStr]];
             [self addSubview:imv];
             
             if ((i+1)>=nnn_int) {
                 UIImageView *imv = [[UIImageView alloc]initWithFrame:CGRectMake(0+(i+1)*kuan, 0, kuan, self.frame.size.height)];
-                [imv setImage:[UIImage imageNamed:@"gstart_half.png"]];
+                //半颗星的image
+                [imv setImage:[UIImage imageNamed:self.star_halfNameStr]];
                 [self addSubview:imv];
             }
         }
@@ -56,7 +63,8 @@
     }else{//没有半颗星
         for (int i = 0; i<self.startNum; i++) {
             UIImageView *imv = [[UIImageView alloc]initWithFrame:CGRectMake(0+i*kuan, 0, kuan, self.frame.size.height)];
-            [imv setImage:[UIImage imageNamed:@"gstart.png"]];
+            
+            [imv setImage:[UIImage imageNamed:self.starNameStr]];
             [self addSubview:imv];
         }
     }

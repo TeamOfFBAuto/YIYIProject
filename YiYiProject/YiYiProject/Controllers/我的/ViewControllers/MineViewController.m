@@ -15,6 +15,8 @@
 #import "GeditUserInfoViewController.h"
 #import "GMapViewController.h"//测试地图vc
 
+#import "GmyMainViewController.h"//我的主页
+
 typedef enum{
     USERFACE = 0,//头像
     USERBANNER,//banner
@@ -168,6 +170,14 @@ typedef enum{
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row == 0) {
+        GmyMainViewController *dd = [[GmyMainViewController alloc]init];
+        dd.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:dd animated:YES];
+        
+    }
+    
     NSLog(@"在这里进行跳转");
 }
 
