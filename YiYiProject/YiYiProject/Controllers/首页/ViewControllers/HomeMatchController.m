@@ -16,6 +16,7 @@
 {
     MBProgressHUD * hud;
     UIView * section_view;
+    NSInteger current_page;
 }
 
 ///我的搭配师数据容器
@@ -105,37 +106,46 @@
     section_view = [[UIView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,430)];
     section_view.backgroundColor = [UIColor whiteColor];
     
-    if (self.hotMatch_array.count)
+    CGFloat height = 0;
+    
+    if (self.myMatch_array.count)
     {
         HomeMatchView * my_view = [[HomeMatchView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,165)];
-        [my_view setupWithArray:_hotMatch_array WithTitle:@"我的搭配师" WithShowApplyView:YES WithMyBlock:^(int index) {
+        [my_view setupWithArray:_myMatch_array WithTitle:@"我的搭配师" WithShowApplyView:YES WithMyBlock:^(int index) {
             
         }];
         [section_view addSubview:my_view];
+        
+        height += 165;
     }else
     {
         
     }
     
     if (self.hotMatch_array.count) {
-        HomeMatchView * hot_view = [[HomeMatchView alloc] initWithFrame:CGRectMake(0,165,DEVICE_WIDTH,165)];
+        HomeMatchView * hot_view = [[HomeMatchView alloc] initWithFrame:CGRectMake(0,height,DEVICE_WIDTH,165)];
         [hot_view setupWithArray:_hotMatch_array WithTitle:@"人气搭配师" WithShowApplyView:NO WithMyBlock:^(int index) {
             
         }];
         [section_view addSubview:hot_view];
+        height += 165;
+    }else
+    {
+        
     }
     
+    height+=20;
+    UIImageView * line_imageView = [[UIImageView alloc] initWithFrame:CGRectMake(12,height,DEVICE_WIDTH-24,9)];
+    line_imageView.image = [UIImage imageNamed:@"match_line_image"];
+    [section_view addSubview:line_imageView];
     
-    UIImageView * line_imageView = [[UIImageView alloc] initWithFrame:CGRectMake(12,326,DEVICE_WIDTH-24,9)];
     
-    
-    
-    
+    height += 20+9;
     NSArray * title_array = [NSArray arrayWithObjects:@"职业",@"时尚",@"休闲",@"运动",nil];
     for (int i = 0;i < 4;i++)
     {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(15 + (50+12)*i,345,50,25);
+        button.frame = CGRectMake(15 + (50+12)*i,height,50,25);
         button.tag = 100+i;
         button.titleLabel.font = [UIFont systemFontOfSize:15];
         [button setTitle:[title_array objectAtIndex:i] forState:UIControlStateNormal];
@@ -147,6 +157,36 @@
         [section_view addSubview:button];
     }
     
+    height = height + 25 + 20;
+    
+    for (int i = 0;i < 2;i++) {
+        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(12+(DEVICE_WIDTH-24)/2*i,height,(DEVICE_WIDTH-24)/2,34);
+        button.tag = 1000 + i;
+        button.layer.masksToBounds = YES;
+        button.layer.cornerRadius = 8;
+        button.layer.borderColor = RGBCOLOR(235,77,104).CGColor;
+        button.layer.borderWidth = 1;
+        [button addTarget:self action:@selector(clickForChange:) forControlEvents:UIControlEventTouchUpInside];
+        [section_view addSubview:button];
+        
+        if (i == 0)
+        {
+            [button setTitle:@"话题" forState:UIControlStateNormal];
+            [button setTitleColor:RGBCOLOR(235,77,104) forState:UIControlStateSelected];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            button.selected = YES;
+        }else
+        {
+            [button setTitle:@"搭配" forState:UIControlStateNormal];
+            [button setTitleColor:RGBCOLOR(235,77,104) forState:UIControlStateSelected];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            button.selected = NO;
+        }
+    }
+    
+    
+    section_view.height = height + 34 + 20;
     _myTableView.tableHeaderView = section_view;
 }
 
@@ -154,6 +194,29 @@
 -(void)buttonTap:(UIButton *)button
 {
     
+}
+
+#pragma mark - 点击按钮切换搭配、话题
+-(void)clickForChange:(UIButton *)button
+{
+    if (button.tag == current_page) {
+        return;
+    }
+    
+    for (int i = 0;i<2;i++)
+    {
+        UIButton * aButton = (UIButton *)[section_view viewWithTag:i+1000];
+        
+        if (aButton.tag == button.tag)
+        {
+            button.selected = YES;
+        }else
+        {
+            aButton.selected = NO;
+        }
+    }
+    
+    current_page = button.tag;
 }
 
 #pragma mark - UITabelView

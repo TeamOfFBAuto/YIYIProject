@@ -7,6 +7,7 @@
 //
 
 #import "HomeMatchView.h"
+#import "GStarsView.h"
 
 @implementation HomeMatchView
 
@@ -49,9 +50,13 @@
         [content_view addSubview:user_name_label];
         
         
-        UIView * stars_view = [[UIView alloc] initWithFrame:CGRectMake(5,header_imageView.height+28,70,15)];
-        stars_view.backgroundColor = [UIColor redColor];
-        [content_view addSubview:stars_view];
+//        GStarsView * view = [[GStarsView alloc] initWithFrame:CGRectMake(5,header_imageView.height+28,70,15)];
+//        stars_view.backgroundColor = [UIColor redColor];
+//        [content_view addSubview:stars_view];
+        
+        
+        GStarsView * start_view = [[GStarsView alloc] initWithFrame:CGRectMake(5,header_imageView.height+28,70,15) numberOfStar:5];
+        [content_view addSubview:start_view];
     }
     
     
