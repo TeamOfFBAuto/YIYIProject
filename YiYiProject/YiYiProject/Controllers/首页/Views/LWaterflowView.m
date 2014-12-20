@@ -8,7 +8,17 @@
 
 #import "LWaterflowView.h"
 
+#define NORMAL_TEXT @"上拉加载更多"
+#define NOMORE_TEXT @"没有更多数据"
+
+#define TABLEFOOTER_HEIGHT 50.f
+
 @implementation LWaterflowView
+
+- (void)reloadData
+{
+    [qtmquitView reloadData];
+}
 
 -(instancetype)initWithFrame:(CGRect)frame
                waterDelegate:(id<WaterFlowDelegate>)waterDelegate
@@ -17,38 +27,55 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.pageNum = 1;
+        self.dataArray = [NSMutableArray array];
+        
         qtmquitView = [[TMQuiltView alloc] initWithFrame:frame];
         qtmquitView.delegate = self;
-        qtmquitView.dataSource = waterDatasource ? waterDatasource : self;
+        qtmquitView.dataSource = waterDatasource;
         self.waterDelegate = waterDelegate;
         
         [self addSubview:qtmquitView];
                 
-        [qtmquitView reloadData];
+//        [qtmquitView reloadData];
         [self createHeaderView];
-        [self performSelector:@selector(testFinishedLoadData) withObject:nil afterDelay:0.0f];
+//        [self performSelector:@selector(testFinishedLoadData) withObject:nil afterDelay:0.0f];
     }
     return self;
 }
 
-- (NSMutableArray *)images
+
+//成功加载
+- (void)reloadData:(NSArray *)data total:(int)totalPage
 {
-    if (!_images)
+    if (self.pageNum < totalPage) {
+        
+        self.isHaveMoreData = YES;
+    }else
     {
-        NSMutableArray *imageNames = [NSMutableArray array];
-        for(int i = 0; i < 10; i++) {
-            [imageNames addObject:[NSString stringWithFormat:@"%d.jpeg", i % 10 + 1]];
-        }
-        _images = [NSMutableArray arrayWithArray:imageNames];
+        self.isHaveMoreData = NO;
     }
-    return _images;
+    
+    if (self.isReloadData) {
+        
+        [self.dataArray removeAllObjects];
+        
+    }
+    [self.dataArray addObjectsFromArray:data];
+    
+    [self performSelector:@selector(testFinishedLoadData) withObject:nil afterDelay:0];
 }
 
+//请求数据失败
 
-- (UIImage *)imageAtIndexPath:(NSIndexPath *)indexPath {
-    return [UIImage imageNamed:[self.images objectAtIndex:indexPath.row]];
+- (void)loadFail
+{
+    if (self.isLoadMoreData) {
+        self.pageNum --;
+    }
+    [self performSelector:@selector(testFinishedLoadData) withObject:nil afterDelay:1.0];
+    
 }
-
 
 //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 //初始化刷新视图
@@ -67,7 +94,17 @@
     
     [qtmquitView addSubview:_refreshHeaderView];
     
+    _refreshHeaderView.backgroundColor = [UIColor clearColor];
+    
     [_refreshHeaderView refreshLastUpdatedDate];
+}
+
+-(void)removeHeaderView
+{
+    if (_refreshHeaderView && [_refreshHeaderView superview]) {
+        [_refreshHeaderView removeFromSuperview];
+    }
+    _refreshHeaderView = Nil;
 }
 
 -(void)testFinishedLoadData{
@@ -86,6 +123,8 @@
     
     if (_refreshHeaderView) {
         [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:qtmquitView];
+        
+        self.isReloadData = NO;
     }
     
     if (_refreshFooterView) {
@@ -94,6 +133,7 @@
     }
     
     // overide, the actula reloading tableView operation and reseting position operation is done in the subclass
+    [qtmquitView reloadData];
 }
 
 -(void)setFooterView{
@@ -117,6 +157,8 @@
         [qtmquitView addSubview:_refreshFooterView];
     }
     
+    _refreshFooterView.backgroundColor = [UIColor clearColor];
+    
     if (_refreshFooterView)
     {
         [_refreshFooterView refreshLastUpdatedDate];
@@ -133,6 +175,27 @@
     _refreshFooterView = nil;
 }
 
+//代码触发刷新
+-(void)showRefreshHeader:(BOOL)animated
+{
+    if (animated)
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.3];
+        qtmquitView.contentInset = UIEdgeInsetsMake(65.0f, 0.0f, 0.0f, 0.0f);
+        [qtmquitView scrollRectToVisible:CGRectMake(0, 0.0f, 1, 1) animated:NO];
+        [UIView commitAnimations];
+    }
+    else
+    {
+        qtmquitView.contentInset = UIEdgeInsetsMake(65.0f, 0.0f, 0.0f, 0.0f);
+        [qtmquitView scrollRectToVisible:CGRectMake(0, 0.0f, 1, 1) animated:NO];
+    }
+    
+    [_refreshHeaderView setState:EGOOPullRefreshLoading];
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:qtmquitView];
+}
+
 //===============
 //刷新delegate
 #pragma mark -
@@ -145,7 +208,7 @@
     
     if (aRefreshPos == EGORefreshHeader)
     {
-        
+        _isReloadData = YES;
         self.pageNum = 1;
         // pull down to refresh data
         [self performSelector:@selector(refreshView) withObject:nil afterDelay:2.0];
@@ -168,8 +231,8 @@
         [_waterDelegate loadNewData];
     }
     
-    NSLog(@"刷新完成");
-    [self testFinishedLoadData];
+//    NSLog(@"刷新完成");
+//    [self testFinishedLoadData];
     
 }
 //加载调用的方法
@@ -178,16 +241,9 @@
     if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(loadMoreData)]) {
         [_waterDelegate loadMoreData];
         
-        
-        return;
     }
     
-    for(int i = 0; i < 10; i++) {
-        [_images addObject:[NSString stringWithFormat:@"%d.jpeg", i % 10 + 1]];
-    }
-    [qtmquitView reloadData];
-    
-    [self testFinishedLoadData];
+//    [self testFinishedLoadData];
 }
 
 #pragma mark -
@@ -231,7 +287,6 @@
 - (BOOL)egoRefreshTableDataSourceIsLoading:(UIView*)view{
     
     return _reloading; // should return if data source model is reloading
-    
 }
 
 
@@ -251,7 +306,7 @@
 #pragma mark - TMQuiltViewDataSource
 
 - (NSInteger)quiltViewNumberOfCells:(TMQuiltView *)TMQuiltView {
-    return [self.images count];
+    return [self.dataArray count];
 }
 
 - (TMQuiltViewCell *)quiltView:(TMQuiltView *)quiltView cellAtIndexPath:(NSIndexPath *)indexPath {
@@ -260,7 +315,6 @@
         cell = [[TMPhotoQuiltViewCell alloc] initWithReuseIdentifier:@"PhotoCell"];
     }
     
-    cell.photoView.image = [self imageAtIndexPath:indexPath];
     cell.titleLabel.text = [NSString stringWithFormat:@"%d", (int)indexPath.row];
     return cell;
 }
@@ -287,12 +341,13 @@
 
 - (CGFloat)quiltView:(TMQuiltView *)quiltView heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(heightForCellAtIndexPath:)]) {
+    CGFloat aHeight = 0.f;
+    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(waterHeightForCellIndexPath:)]) {
         
-        return [_waterDelegate heightForCellIndexPath:indexPath];
+        aHeight = [_waterDelegate waterHeightForCellIndexPath:indexPath];
     }
     
-    return [self imageAtIndexPath:indexPath].size.height / [self quiltViewNumberOfColumns:quiltView];
+    return aHeight;
 }
 
 - (void)quiltView:(TMQuiltView *)quiltView didSelectCellAtIndexPath:(NSIndexPath *)indexPath

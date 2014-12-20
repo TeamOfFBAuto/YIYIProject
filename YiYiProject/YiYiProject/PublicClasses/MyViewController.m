@@ -47,17 +47,6 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
-    if (_isAddGestureRecognizer) {
-        panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGestures:)];
-        panGestureRecognizer.minimumNumberOfTouches = 1;
-        panGestureRecognizer.maximumNumberOfTouches = 1;
-        [self.view addGestureRecognizer:panGestureRecognizer];
-        
-        
-        swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeOnAirImageView:)];
-        swipe.direction = UISwipeGestureRecognizerDirectionRight;
-        [self.view addGestureRecognizer:swipe];
-    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -83,10 +72,13 @@
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:MY_MACRO_NAME?IOS7DAOHANGLANBEIJING_PUSH:IOS6DAOHANGLANBEIJING] forBarMetrics: UIBarMetricsDefault];
     }
     
+    
+//    [self.navigationController.navigationBar setBarTintColor:RGBCOLOR(255, 79, 106)];
+    
     _myTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,100,44)];
     _myTitleLabel.textAlignment = NSTextAlignmentCenter;
     _myTitleLabel.text = _myTitle;
-    _myTitleLabel.textColor = [UIColor blackColor];
+    _myTitleLabel.textColor = [UIColor whiteColor];
     _myTitleLabel.font = [UIFont systemFontOfSize:17];
     self.navigationItem.titleView = _myTitleLabel;
     
@@ -146,6 +138,7 @@
         
         [left_button setTitleColor:RGBCOLOR(91,138,59) forState:UIControlStateNormal];
         
+        
         [left_button addTarget:self action:@selector(leftButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         
         self.navigationItem.leftBarButtonItems = @[spaceButton,[[UIBarButtonItem alloc] initWithCustomView:left_button]];
@@ -194,7 +187,8 @@
         
         _my_right_button.titleLabel.font = [UIFont systemFontOfSize:15];
         
-        [_my_right_button setTitleColor:RGBCOLOR(91,138,59) forState:UIControlStateNormal];
+        [_my_right_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
         
         [_my_right_button addTarget:self action:@selector(rightButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         

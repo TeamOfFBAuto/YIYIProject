@@ -50,8 +50,8 @@
 
 - (void)createMemuView
 {
-    menu_view = [[UIView alloc]initWithFrame:CGRectMake(0, 20, ALL_FRAME_WIDTH, 30)];
-    menu_view.backgroundColor = [UIColor orangeColor];
+    menu_view = [[UIView alloc]initWithFrame:CGRectMake(0, 20, ALL_FRAME_WIDTH, 44)];
+    menu_view.backgroundColor = [UIColor redColor];
     [self.view addSubview:menu_view];
     NSArray *titles = @[@"值得买",@"衣+衣",@"搭配师"];
     

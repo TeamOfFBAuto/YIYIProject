@@ -10,7 +10,9 @@
 /**
  *  忘记密码
  */
-@interface ForgetPwdController : UIViewController
+
+#import "MyViewController.h"
+@interface ForgetPwdController : MyViewController
 @property (strong, nonatomic) IBOutlet UITextField *phoneTF;
 @property (strong, nonatomic) IBOutlet UITextField *securityTF;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTF;

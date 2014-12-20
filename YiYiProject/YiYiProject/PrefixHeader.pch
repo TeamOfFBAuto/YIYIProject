@@ -26,6 +26,9 @@
 #import "UIImageView+WebCache.h"
 #import "JSONKit.h"
 
+#import "UIImageView+WebCache.h"
+
+
 #pragma mark - 自定义的宏，方便调动
 ///颜色
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
@@ -51,11 +54,11 @@ alpha:(a)]
 #define isHaveNetWork [[LTools checkNetWork ]isEqualToString:@"NONetWork"]?YES:NO
 #define MY_MACRO_NAME ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 #define IOS7DAOHANGLANBEIJING @"sliderBBSNavigationBarImage_ios7.png"
-#define IOS7DAOHANGLANBEIJING_PUSH @"navgationBar_background_image.png"
+#define IOS7DAOHANGLANBEIJING_PUSH @"navigationBarBackground"
 #define IOS6DAOHANGLANBEIJING @"sliderBBSNavigationBarImage_ios6.png"
 #define TheNavigationBarBackgroundImg MY_MACRO_NAME?[UIImage imageNamed:IOS7DAOHANGLANBEIJING]:[UIImage imageNamed:@"ios7eva320_44.png"]
 
-#define BACK_DEFAULT_IMAGE [UIImage imageNamed:@"fanhui_image"]
+#define BACK_DEFAULT_IMAGE [UIImage imageNamed:@"back"]
 #define HEADER_DEFAULT_IMAGE @"default_touxiang"
 #define WRITE_DEFAULT_IMAGE @"default_write_pen_image.png"
 #define NAVIGATION_MENU_IMAGE_NAME @"navigaiton_menu_image"

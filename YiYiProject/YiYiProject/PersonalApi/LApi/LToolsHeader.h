@@ -19,7 +19,7 @@
 
 #define COLOR_SEARCHBAR [UIColor colorWithRed:229/255.F green:231/255.F blue:230/255.F alpha:1.0]//teleview分割线颜色
 
-#define L_PAGE_SIZE 10 //每页条数
+#define L_PAGE_SIZE 5 //每页条数
 
 
 #define LOADING_TITLE @"努力加载中..." //加载提示文字

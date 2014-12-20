@@ -40,11 +40,11 @@
 
 //umeng后台：mobile@jiruijia.com
 //密码:mobile2014
-//android的key: 548bafc0fd98c5997a000b0b
-//umeng的key
-
-//微博开放平台账号
-//szkyaojiayou@163.com
+//微博开放平台账号szkyaojiayou@163.com
+//密码：mobile2014
+//微信开放平台账号：mobile@jiruijia.com
+//密码：mobile2014
+//腾讯开放平台：2451479286
 //密码：mobile2014
 
 @interface AppDelegate ()<BMKGeneralDelegate>

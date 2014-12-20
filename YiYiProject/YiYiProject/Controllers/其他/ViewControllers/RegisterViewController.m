@@ -8,7 +8,12 @@
 
 #import "RegisterViewController.h"
 
+static int seconds = 60;//计时60s
+
 @interface RegisterViewController ()
+{
+    NSTimer *timer;
+}
 
 @end
 
@@ -17,6 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.myTitleLabel.text = @"注册";
+    
+    [self setMyViewControllerLeftButtonType:MyViewControllerLeftbuttonTypeBack WithRightButtonType:MyViewControllerRightbuttonTypeNull];
+}
+
+- (void)dealloc
+{
+    [timer invalidate];
+    timer = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,6 +43,43 @@
 
 #pragma mark - 事件处理 
 
+- (void)startTimer
+{
+    [self.codeButton setTitle:@"" forState:UIControlStateNormal];
+    
+    self.codeLabel.hidden = NO;
+    
+    seconds = 60;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(calculateTime) userInfo:Nil repeats:YES];
+    _codeButton.userInteractionEnabled = NO;
+}
+
+//计算时间
+- (void)calculateTime
+{
+    NSString *title = [NSString stringWithFormat:@"%d秒",seconds];
+    
+    self.codeLabel.text = title;
+    
+    if (seconds != 0) {
+        seconds --;
+    }else
+    {
+        [self renewTimer];
+    }
+    
+}
+//计时器归零
+- (void)renewTimer
+{
+    [timer invalidate];//计时器停止
+    _codeButton.userInteractionEnabled = YES;
+    [_codeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+    _codeLabel.hidden = YES;
+    seconds = 60;
+}
+
 - (IBAction)clickToClose:(id)sender {
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -37,7 +89,7 @@
 /**
  *  获取验证码
  */
-- (IBAction)clickToSecurityCode:(id)sender {
+- (IBAction)clickToSecurityCode:(UIButton *)sender {
     
 //url:http://182.92.158.32/index.php?d=api&c=user_api&m=get_code
 //    get方式调取
@@ -47,14 +99,19 @@
 //    返回:
 //    {“errorcode”:0,“msg”:“\u5e97\u94fa\u521b\u5efa\u6210\u529f”,'code':123456} errorcode 0 成功 1失败 msg为失败或成功文案
     
+    
     SecurityCode_Type type;//默认注册
     NSString *mobile = self.phoneTF.text;
     
     if (![LTools isValidateMobile:mobile]) {
         
-        [LTools alertText:ALERT_ERRO_PHONE];
+        [LTools alertText:ALERT_ERRO_PHONE viewController:self];
         return;
     }
+    
+     [self startTimer];
+    
+    __weak typeof(self)weakSelf = self;
     
     NSString *url = [NSString stringWithFormat:USER_GET_SECURITY_CODE,mobile,type];
     
@@ -70,6 +127,8 @@
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
         
         NSLog(@"failDic %@ erro %@",failDic,erro);
+        
+        [weakSelf renewTimer];
         
         [LTools showMBProgressWithText:failDic[RESULT_INFO] addToView:self.view];
     }];
@@ -100,18 +159,18 @@
     
     if (![LTools isValidateMobile:mobile]) {
         
-        [LTools alertText:ALERT_ERRO_PHONE];
+        [LTools alertText:ALERT_ERRO_PHONE viewController:self];
         return;
     }
     
     if (![LTools isValidatePwd:password]) {
         
-        [LTools alertText:ALERT_ERRO_PASSWORD];
+        [LTools alertText:ALERT_ERRO_PASSWORD viewController:self];
         return;
     }
     if (self.securityTF.text.length != 6) {
         
-        [LTools alertText:ALERT_ERRO_SECURITYCODE];
+        [LTools alertText:ALERT_ERRO_SECURITYCODE viewController:self];
         return;
     }
     

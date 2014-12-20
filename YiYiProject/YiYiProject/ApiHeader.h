@@ -54,6 +54,8 @@ alpha:(a)]
 #define ALERT_ERRO_SECURITYCODE @"验证码格式有误,请输入6位数字"
 #define ALERT_ERRO_FINDPWD @"两次密码不一致"
 
+#define L_PAGE_SIZE 20
+
 //登录类型 normal为正常手机登陆，sweibo、qq、weixin分别代表新浪微博、qq、微信登陆
 typedef enum{
     Login_Normal = 0,
@@ -92,6 +94,28 @@ typedef enum{
 #define USER_GET_SECURITY_CODE @"http://182.92.158.32/index.php?d=api&c=user_api&m=get_code&mobile=%@&type=%d"
 //找回密码
 #define USER_GETBACK_PASSWORD @"http://182.92.158.32/index.php?d=api&c=user_api&m=get_back_password&mobile=%@&code=%d&new_password=%@"
+
+//首页--值得买
+#define HOME_DESERVE_BUY @"http://182.92.158.32/?d=api&c=products&m=listWorthBuy&long=%@&lat=%@&sex=%d&discount=%d&page=%d&count=%d"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //个人信息相关
 #define PERSON_CHANGEUSERBANNER @"http://182.92.158.32/index.php?d=api&c=user_api&m=update_user_banner"
