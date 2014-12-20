@@ -19,7 +19,6 @@
 
 - (void)dealloc {
     
-    
     if (_mapView) {
         _mapView = nil;
     }
@@ -38,8 +37,14 @@
     }
     
     
+    //初始化按钮
     [self setForBtn];
-    [self setMapAndLocationService];
+    
+    //初始化地图
+    [self setGMap];
+    
+    //初始化定位服务
+    [self setGLocationService];
     
     
 }
@@ -66,15 +71,17 @@
 
 
 
-#pragma mark - 初始化地图和定位服务
--(void)setMapAndLocationService{
+#pragma mark - 初始化地图
+-(void)setGMap{
     _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 44, DEVICE_WIDTH, DEVICE_HEIGHT-44)];
     _mapView.delegate = self;
-    
+    [self.view addSubview:_mapView];
+}
+
+#pragma mark - 初始化定位服务
+-(void)setGLocationService{
     _locService = [[BMKLocationService alloc]init];
     _locService.delegate = self;
-    
-    [self.view addSubview:_mapView];
 }
 
 

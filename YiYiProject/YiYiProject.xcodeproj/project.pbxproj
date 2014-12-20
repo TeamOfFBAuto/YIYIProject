@@ -100,6 +100,7 @@
 		E3B2DC6B1A45209400607B11 /* gpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B2DC6A1A45209400607B11 /* gpin@2x.png */; };
 		E3B37D811A4569CA009835A5 /* GcustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37D7E1A4569CA009835A5 /* GcustomActionSheet.m */; };
 		E3B37D821A4569CA009835A5 /* GStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37D801A4569CA009835A5 /* GStarsView.m */; };
+		E3B37D881A457888009835A5 /* GShowStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37D871A457888009835A5 /* GShowStarsView.m */; };
 		E3E3E8451A3C6724001A1DD6 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8431A3C6724001A1DD6 /* libbaidumapapi.a */; };
 		E3E3E8461A3C6724001A1DD6 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3E3E8441A3C6724001A1DD6 /* mapapi.bundle */; };
 		E3E3E8481A3C6772001A1DD6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8471A3C6772001A1DD6 /* CoreLocation.framework */; };
@@ -280,6 +281,8 @@
 		E3B37D7E1A4569CA009835A5 /* GcustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcustomActionSheet.m; sourceTree = "<group>"; };
 		E3B37D7F1A4569CA009835A5 /* GStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GStarsView.h; sourceTree = "<group>"; };
 		E3B37D801A4569CA009835A5 /* GStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GStarsView.m; sourceTree = "<group>"; };
+		E3B37D861A457888009835A5 /* GShowStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GShowStarsView.h; sourceTree = "<group>"; };
+		E3B37D871A457888009835A5 /* GShowStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GShowStarsView.m; sourceTree = "<group>"; };
 		E3E3E8061A3C6724001A1DD6 /* BMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMapKit.h; sourceTree = "<group>"; };
 		E3E3E8071A3C6724001A1DD6 /* BMKActionPaopaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKActionPaopaoView.h; sourceTree = "<group>"; };
 		E3E3E8081A3C6724001A1DD6 /* BMKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKAnnotation.h; sourceTree = "<group>"; };
@@ -914,6 +917,8 @@
 				E3B37D7E1A4569CA009835A5 /* GcustomActionSheet.m */,
 				E3B37D7F1A4569CA009835A5 /* GStarsView.h */,
 				E3B37D801A4569CA009835A5 /* GStarsView.m */,
+				E3B37D861A457888009835A5 /* GShowStarsView.h */,
+				E3B37D871A457888009835A5 /* GShowStarsView.m */,
 			);
 			path = utilsView;
 			sourceTree = "<group>";
@@ -1235,6 +1240,7 @@
 				E3FC8DDE1A3C494A0025525D /* GViewController.mm in Sources */,
 				E3FC8DE11A3C494A0025525D /* GMAPI.m in Sources */,
 				138C2C1D1A39E77300EA59F5 /* BaseModel.m in Sources */,
+				E3B37D881A457888009835A5 /* GShowStarsView.m in Sources */,
 				139562C71A3BF42E007BB183 /* UserInfo.m in Sources */,
 				13CD36421A3C69860068C12A /* TMQuiltViewController.m in Sources */,
 				13A389BC1A38974F00ABBACB /* NSString+Emoji.m in Sources */,
