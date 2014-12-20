@@ -7,8 +7,12 @@
 //
 
 #import "ProductDetailController.h"
+#import "ProductModel.h"
 
 @interface ProductDetailController ()
+{
+    ProductModel *aModel;
+}
 
 @end
 
@@ -63,6 +67,13 @@
         
         NSLog(@"result %@",result);
         
+        if ([result isKindOfClass:[NSDictionary class]]) {
+            
+            NSDictionary *dic = result[@"pinfo"];
+            
+            aModel = [[ProductModel alloc]initWithDictionary:dic];
+        }
+        
         
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
         
@@ -75,11 +86,21 @@
 #pragma mark - 事件处理
 
 - (IBAction)clickToDaPeiShi:(id)sender {
+    
 }
 
 - (IBAction)clickToContact:(id)sender {
+    
 }
+
 - (IBAction)clickToBuy:(id)sender {
+    
+    
+}
+
+- (void)prepareViewWithModel:(ProductModel *)aModel
+{
+    
 }
 
 

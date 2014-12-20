@@ -36,5 +36,17 @@
 @property(nonatomic,retain)NSString *product_add_time;
 @property(nonatomic,retain)NSArray *imagelist;//图片数组
 
+@property(nonatomic,retain)NSString *product_mall_id;
+@property(nonatomic,retain)NSString *product_shop_id;
+@property(nonatomic,retain)NSString *product_tag;
+@property(nonatomic,retain)NSString *product_status;
+@property(nonatomic,retain)NSString *product_hotsale;
+@property(nonatomic,assign)NSInteger is_favor;
+
+@property(nonatomic,assign)NSInteger is_like;
+
+@property(nonatomic,retain)NSDictionary *brand_info;
+@property(nonatomic,retain)NSDictionary *mall_info;
+
 
 @end
