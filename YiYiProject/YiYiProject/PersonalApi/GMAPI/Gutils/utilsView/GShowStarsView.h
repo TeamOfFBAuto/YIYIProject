@@ -18,7 +18,6 @@
 
 ///星星的宽度
 @property(nonatomic,assign)float starWidth;
-
 ///最多几个星星
 @property(nonatomic,assign)int maxStartNum;
 
@@ -41,7 +40,7 @@
 
 
 
-///初始化方法  num:底层星星总个数   theBackStarNameStr:底层星星图片名  theStarWidth:星星宽度
+///初始化方法  num:底层星星总个数 最大星星个数   theBackStarNameStr:底层星星图片名  theStarWidth:星星宽度 theFrame:整个view的frame 星星的高度为frame的高度
 -(GShowStarsView*)initWithStartNum:(int)num Frame:(CGRect)theFrame starBackName:(NSString *)theBackStarNameStr starWidth:(CGFloat)theStarWidth;
 
 

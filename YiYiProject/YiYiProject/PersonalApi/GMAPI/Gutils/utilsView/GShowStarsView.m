@@ -35,6 +35,8 @@
 
 
 -(void)updateStartNum{
+    
+    //星星如果底层是带边框的虚星 就把下面代码注释掉
 //    for (UIView *view in self.subviews) {
 //        [view removeFromSuperview];
 //    }
