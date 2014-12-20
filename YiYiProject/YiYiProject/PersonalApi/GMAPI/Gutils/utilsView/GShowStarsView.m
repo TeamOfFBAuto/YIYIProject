@@ -14,6 +14,8 @@
     self = [super initWithFrame:theFrame];
     if (self) {
         
+        self.starWidth = theStarWidth;
+        
         CGFloat kuan = theStarWidth;
         
         for (int i = 0; i<num; i++) {
