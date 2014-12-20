@@ -20,14 +20,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    GShowStarsView *sd =[[GShowStarsView alloc]initWithStartNum:5 Frame:CGRectMake(100, 100, 100, 40)];
-    sd.backgroundColor = [UIColor grayColor];
-    sd.maxStartNum = 5;
-    sd.starWidth = 20;
-    sd.startNum = 4.0;
-    [sd updateStartNum];
     
-    [self.view addSubview:sd];
     
     
 }
