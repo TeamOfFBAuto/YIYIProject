@@ -11,7 +11,9 @@
  *  注册
  */
 
-@interface RegisterViewController : UIViewController
+#import "MyViewController.h"
+
+@interface RegisterViewController : MyViewController
 @property (strong, nonatomic) IBOutlet UITextField *phoneTF;
 @property (strong, nonatomic) IBOutlet UITextField *securityTF;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTF;

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13681C711A4527A200671D07 /* navigationBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C701A4527A200671D07 /* navigationBarBackground@2x.png */; };
+		13681C7A1A452AEA00671D07 /* shareweibo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C751A452AEA00671D07 /* shareweibo@2x.png */; };
+		13681C7B1A452AEA00671D07 /* shareweixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C761A452AEA00671D07 /* shareweixin@2x.png */; };
 		13684A6B1A37583E00A508FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A6A1A37583E00A508FB /* main.m */; };
 		13684A6E1A37583E00A508FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A6D1A37583E00A508FB /* AppDelegate.m */; };
 		13684A711A37583E00A508FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A701A37583E00A508FB /* ViewController.m */; };
@@ -114,6 +117,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13681C701A4527A200671D07 /* navigationBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarBackground@2x.png"; sourceTree = "<group>"; };
+		13681C751A452AEA00671D07 /* shareweibo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shareweibo@2x.png"; sourceTree = "<group>"; };
+		13681C761A452AEA00671D07 /* shareweixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shareweixin@2x.png"; sourceTree = "<group>"; };
 		13684A651A37583E00A508FB /* YiYiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YiYiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13684A691A37583E00A508FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13684A6A1A37583E00A508FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -394,6 +400,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		13681C6F1A4527A200671D07 /* AllImages */ = {
+			isa = PBXGroup;
+			children = (
+				13681C721A452AEA00671D07 /* ShareImages */,
+				13681C701A4527A200671D07 /* navigationBarBackground@2x.png */,
+			);
+			path = AllImages;
+			sourceTree = "<group>";
+		};
+		13681C721A452AEA00671D07 /* ShareImages */ = {
+			isa = PBXGroup;
+			children = (
+				13681C751A452AEA00671D07 /* shareweibo@2x.png */,
+				13681C761A452AEA00671D07 /* shareweixin@2x.png */,
+			);
+			path = ShareImages;
+			sourceTree = "<group>";
+		};
 		13684A5C1A37583E00A508FB = {
 			isa = PBXGroup;
 			children = (
@@ -417,9 +441,9 @@
 		13684A671A37583E00A508FB /* YiYiProject */ = {
 			isa = PBXGroup;
 			children = (
+				13681C6F1A4527A200671D07 /* AllImages */,
 				138C2C1A1A39E68900EA59F5 /* ApiHeader.h */,
 				138C2BC91A39E08500EA59F5 /* UMengShare */,
-				13A3894E1A38768400ABBACB /* AllImages */,
 				13A389501A38768400ABBACB /* PersonalApi */,
 				13A389511A38768400ABBACB /* PublicClasses */,
 				13A3894F1A38768400ABBACB /* Controllers */,
@@ -601,13 +625,6 @@
 				13CD36351A3C51BE0068C12A /* ForgetPwdController.xib */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		13A3894E1A38768400ABBACB /* AllImages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AllImages;
 			sourceTree = "<group>";
 		};
 		13A3894F1A38768400ABBACB /* Controllers */ = {
@@ -1074,6 +1091,7 @@
 				138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */,
 				139562C41A3BF41B007BB183 /* LoginViewController.xib in Resources */,
 				13684A791A37583E00A508FB /* LaunchScreen.xib in Resources */,
+				13681C7A1A452AEA00671D07 /* shareweibo@2x.png in Resources */,
 				138C2BFA1A39E09200EA59F5 /* UMShareEditViewControlleriPad.xib in Resources */,
 				138C2BF61A39E09200EA59F5 /* UMSCommentDetailController.xib in Resources */,
 				13CD36631A3C782D0068C12A /* 3.jpeg in Resources */,
@@ -1082,8 +1100,10 @@
 				139562CC1A3C11EC007BB183 /* RegisterViewController.xib in Resources */,
 				13CD36681A3C782D0068C12A /* 8.jpeg in Resources */,
 				138C2BFB1A39E09200EA59F5 /* UMSLoginViewController.xib in Resources */,
+				13681C7B1A452AEA00671D07 /* shareweixin@2x.png in Resources */,
 				13CD36671A3C782D0068C12A /* 7.jpeg in Resources */,
 				138C2BF71A39E09200EA59F5 /* UMSCommentInputController.xib in Resources */,
+				13681C711A4527A200671D07 /* navigationBarBackground@2x.png in Resources */,
 				13CD36641A3C782D0068C12A /* 4.jpeg in Resources */,
 				13A389971A3893D000ABBACB /* TTaiViewController.xib in Resources */,
 				13684A761A37583E00A508FB /* Images.xcassets in Resources */,

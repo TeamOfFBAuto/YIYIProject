@@ -22,6 +22,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.myTitleLabel.text = @"登陆";
+    self.myTitleLabel.textColor = [UIColor whiteColor];
+    self.rightString = @"注册";
+
+    [self setMyViewControllerLeftButtonType:MyViewControllerLeftbuttonTypeNull WithRightButtonType:MyViewControllerRightbuttonTypeText];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,6 +36,11 @@
 }
 
 #pragma mark - 事件处理
+
+-(void)rightButtonTap:(UIButton *)sender
+{
+    [self clickToRegister:sender];
+}
 
 /**
  *  忘记密码
@@ -58,13 +69,13 @@
     
     if (![LTools isValidateMobile:self.phoneTF.text]) {
         
-        [LTools alertText:ALERT_ERRO_PHONE];
+        [LTools alertText:ALERT_ERRO_PHONE viewController:self];
         return;
     }
     
     if (![LTools isValidatePwd:self.pwdTF.text]) {
         
-        [LTools alertText:ALERT_ERRO_PASSWORD];
+        [LTools alertText:ALERT_ERRO_PASSWORD viewController:self];
         return;
     }
     

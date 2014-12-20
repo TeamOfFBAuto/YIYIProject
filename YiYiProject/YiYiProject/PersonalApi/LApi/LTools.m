@@ -714,6 +714,31 @@
     return YES;
 }
 
+
++ (void)alertText:(NSString *)text viewController:(UIViewController *)vc
+{
+    id obj=NSClassFromString(@"UIAlertController");
+    if (obj) {
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:text preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            
+        }];
+        [alertController addAction:cancelAction];
+        
+        [vc presentViewController:alertController animated:YES completion:^{
+            
+        }];
+        
+    }else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:text delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+}
+
+
 //alert 提示
 
 + (void)alertText:(NSString *)text
@@ -728,7 +753,7 @@
         [alertController addAction:cancelAction];
         
         
-        UIViewController *viewC = [UIApplication sharedApplication].keyWindow.rootViewController;
+        UIViewController *viewC = ((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController;
         
         [viewC presentViewController:alertController animated:YES completion:^{
             

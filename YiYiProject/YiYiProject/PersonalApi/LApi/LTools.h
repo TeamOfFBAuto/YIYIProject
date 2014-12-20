@@ -108,6 +108,9 @@ typedef void(^versionBlock)(BOOL isNewVersion,NSString *updateUrl,NSString *upda
 + (NSString *)stringHeadNoSpace:(NSString *)string;
 
 + (NSString *) md5:(NSString *) text;
+
++ (void)alertText:(NSString *)text viewController:(UIViewController *)vc;
+
 + (void)alertText:(NSString *)text;
 +(NSString *)timechange:(NSString *)placetime;
 +(NSString *)timechange2:(NSString *)placetime;
