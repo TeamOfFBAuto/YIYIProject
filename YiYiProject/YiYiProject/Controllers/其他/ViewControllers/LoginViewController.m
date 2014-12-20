@@ -84,11 +84,11 @@
     
 }
 
-
-- (IBAction)clickToClose:(id)sender {
-    
+-(void)leftButtonTap:(UIButton *)sender
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (IBAction)clickToSina:(id)sender {
     

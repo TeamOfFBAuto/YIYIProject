@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		13681C711A4527A200671D07 /* navigationBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C701A4527A200671D07 /* navigationBarBackground@2x.png */; };
-		13681C7A1A452AEA00671D07 /* shareweibo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C751A452AEA00671D07 /* shareweibo@2x.png */; };
-		13681C7B1A452AEA00671D07 /* shareweixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C761A452AEA00671D07 /* shareweixin@2x.png */; };
+		13681C811A453B3200671D07 /* share_QQ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C7E1A453B3200671D07 /* share_QQ@2x.png */; };
+		13681C821A453B3200671D07 /* share_sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C7F1A453B3200671D07 /* share_sina@2x.png */; };
+		13681C831A453B3200671D07 /* share_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C801A453B3200671D07 /* share_weixin@2x.png */; };
+		13681C851A453B9700671D07 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C841A453B9700671D07 /* back@2x.png */; };
+		13681C891A453DE600671D07 /* login_phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C871A453DE600671D07 /* login_phone@2x.png */; };
+		13681C8A1A453DE600671D07 /* login_suo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C881A453DE600671D07 /* login_suo@2x.png */; };
+		13681C8C1A453ECB00671D07 /* login_xinfeng@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13681C8B1A453ECB00671D07 /* login_xinfeng@2x.png */; };
 		13684A6B1A37583E00A508FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A6A1A37583E00A508FB /* main.m */; };
 		13684A6E1A37583E00A508FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A6D1A37583E00A508FB /* AppDelegate.m */; };
 		13684A711A37583E00A508FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A701A37583E00A508FB /* ViewController.m */; };
@@ -118,8 +123,13 @@
 
 /* Begin PBXFileReference section */
 		13681C701A4527A200671D07 /* navigationBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarBackground@2x.png"; sourceTree = "<group>"; };
-		13681C751A452AEA00671D07 /* shareweibo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shareweibo@2x.png"; sourceTree = "<group>"; };
-		13681C761A452AEA00671D07 /* shareweixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shareweixin@2x.png"; sourceTree = "<group>"; };
+		13681C7E1A453B3200671D07 /* share_QQ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_QQ@2x.png"; sourceTree = "<group>"; };
+		13681C7F1A453B3200671D07 /* share_sina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_sina@2x.png"; sourceTree = "<group>"; };
+		13681C801A453B3200671D07 /* share_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_weixin@2x.png"; sourceTree = "<group>"; };
+		13681C841A453B9700671D07 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		13681C871A453DE600671D07 /* login_phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_phone@2x.png"; sourceTree = "<group>"; };
+		13681C881A453DE600671D07 /* login_suo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_suo@2x.png"; sourceTree = "<group>"; };
+		13681C8B1A453ECB00671D07 /* login_xinfeng@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_xinfeng@2x.png"; sourceTree = "<group>"; };
 		13684A651A37583E00A508FB /* YiYiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YiYiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13684A691A37583E00A508FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13684A6A1A37583E00A508FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -403,19 +413,32 @@
 		13681C6F1A4527A200671D07 /* AllImages */ = {
 			isa = PBXGroup;
 			children = (
-				13681C721A452AEA00671D07 /* ShareImages */,
+				13681C861A453DE600671D07 /* Login_images */,
+				13681C841A453B9700671D07 /* back@2x.png */,
+				13681C7D1A453B3200671D07 /* ShareImages */,
 				13681C701A4527A200671D07 /* navigationBarBackground@2x.png */,
 			);
 			path = AllImages;
 			sourceTree = "<group>";
 		};
-		13681C721A452AEA00671D07 /* ShareImages */ = {
+		13681C7D1A453B3200671D07 /* ShareImages */ = {
 			isa = PBXGroup;
 			children = (
-				13681C751A452AEA00671D07 /* shareweibo@2x.png */,
-				13681C761A452AEA00671D07 /* shareweixin@2x.png */,
+				13681C7E1A453B3200671D07 /* share_QQ@2x.png */,
+				13681C7F1A453B3200671D07 /* share_sina@2x.png */,
+				13681C801A453B3200671D07 /* share_weixin@2x.png */,
 			);
 			path = ShareImages;
+			sourceTree = "<group>";
+		};
+		13681C861A453DE600671D07 /* Login_images */ = {
+			isa = PBXGroup;
+			children = (
+				13681C8B1A453ECB00671D07 /* login_xinfeng@2x.png */,
+				13681C871A453DE600671D07 /* login_phone@2x.png */,
+				13681C881A453DE600671D07 /* login_suo@2x.png */,
+			);
+			path = Login_images;
 			sourceTree = "<group>";
 		};
 		13684A5C1A37583E00A508FB = {
@@ -1080,18 +1103,21 @@
 			files = (
 				13CD36661A3C782D0068C12A /* 6.jpeg in Resources */,
 				13CD36621A3C782D0068C12A /* 2.jpeg in Resources */,
+				13681C8C1A453ECB00671D07 /* login_xinfeng@2x.png in Resources */,
+				13681C831A453B3200671D07 /* share_weixin@2x.png in Resources */,
 				138C2BFC1A39E09200EA59F5 /* UMSnsAccountViewController.xib in Resources */,
 				13CD36691A3C782D0068C12A /* 9.jpeg in Resources */,
 				13CD36611A3C782D0068C12A /* 10.jpeg in Resources */,
 				13CD36651A3C782D0068C12A /* 5.jpeg in Resources */,
 				138C2BF91A39E09200EA59F5 /* UMShareEditViewController.xib in Resources */,
+				13681C851A453B9700671D07 /* back@2x.png in Resources */,
 				13CD36371A3C51BE0068C12A /* ForgetPwdController.xib in Resources */,
 				13684A741A37583E00A508FB /* Main.storyboard in Resources */,
 				13A389A31A38942D00ABBACB /* MineViewController.xib in Resources */,
 				138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */,
 				139562C41A3BF41B007BB183 /* LoginViewController.xib in Resources */,
+				13681C811A453B3200671D07 /* share_QQ@2x.png in Resources */,
 				13684A791A37583E00A508FB /* LaunchScreen.xib in Resources */,
-				13681C7A1A452AEA00671D07 /* shareweibo@2x.png in Resources */,
 				138C2BFA1A39E09200EA59F5 /* UMShareEditViewControlleriPad.xib in Resources */,
 				138C2BF61A39E09200EA59F5 /* UMSCommentDetailController.xib in Resources */,
 				13CD36631A3C782D0068C12A /* 3.jpeg in Resources */,
@@ -1100,7 +1126,6 @@
 				139562CC1A3C11EC007BB183 /* RegisterViewController.xib in Resources */,
 				13CD36681A3C782D0068C12A /* 8.jpeg in Resources */,
 				138C2BFB1A39E09200EA59F5 /* UMSLoginViewController.xib in Resources */,
-				13681C7B1A452AEA00671D07 /* shareweixin@2x.png in Resources */,
 				13CD36671A3C782D0068C12A /* 7.jpeg in Resources */,
 				138C2BF71A39E09200EA59F5 /* UMSCommentInputController.xib in Resources */,
 				13681C711A4527A200671D07 /* navigationBarBackground@2x.png in Resources */,
@@ -1110,6 +1135,9 @@
 				13A389B81A38974F00ABBACB /* bluedown1@2x.png in Resources */,
 				138C2BFE1A39E09200EA59F5 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				13CD36601A3C782D0068C12A /* 1.jpeg in Resources */,
+				13681C891A453DE600671D07 /* login_phone@2x.png in Resources */,
+				13681C8A1A453DE600671D07 /* login_suo@2x.png in Resources */,
+				13681C821A453B3200671D07 /* share_sina@2x.png in Resources */,
 				13A3898C1A38937600ABBACB /* HomeViewController.xib in Resources */,
 				138C2BF81A39E09200EA59F5 /* UMSCommentInputControlleriPad.xib in Resources */,
 				E3E3E8461A3C6724001A1DD6 /* mapapi.bundle in Resources */,

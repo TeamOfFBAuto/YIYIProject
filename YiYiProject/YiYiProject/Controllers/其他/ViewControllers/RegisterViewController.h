@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *secondsLabel;
 
+@property (strong, nonatomic) IBOutlet UIButton *codeButton;
+@property (strong, nonatomic) IBOutlet UILabel *codeLabel;
 
 - (IBAction)clickToSecurityCode:(id)sender;
 - (IBAction)clickToRegister:(id)sender;

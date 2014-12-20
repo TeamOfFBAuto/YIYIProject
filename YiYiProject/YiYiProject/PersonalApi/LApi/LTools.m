@@ -205,12 +205,18 @@
         }else
         {
             NSLog(@"-----------解析数据为空");
+            
+            NSDictionary *failDic = @{RESULT_INFO:@"解析数据为空",RESULT_CODE:[NSString stringWithFormat:@"%d",1000000]};
+            failBlock(failDic,0);
         }
         
     }else
     {
         
         NSLog(@"-----------请求数据为空");
+        
+        NSDictionary *failDic = @{RESULT_INFO:@"请求数据为空",RESULT_CODE:[NSString stringWithFormat:@"%d",1000000]};
+        failBlock(failDic,0);
     }
     
     
