@@ -11,6 +11,13 @@
 /**
  *  搭配师
  */
+
+
+typedef enum{
+    HomeMatchRequestTypeMy = 0,
+    HomeMatchRequestTypeHot
+}HomeMatchRequestType;
+
 @interface HomeMatchController : UIViewController
 
 @property(nonatomic,assign)UIViewController *rootViewController;

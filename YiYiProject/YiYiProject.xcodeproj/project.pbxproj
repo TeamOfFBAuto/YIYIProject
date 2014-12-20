@@ -85,6 +85,8 @@
 		13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D1D1A3B2682002AF7D6 /* HomeBuyController.m */; };
 		13EA3D211A3B2DC1002AF7D6 /* HomeClothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D201A3B2DC1002AF7D6 /* HomeClothController.m */; };
 		13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */; };
+		569722291A407DAE004B6641 /* HomeMatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 569722281A407DAE004B6641 /* HomeMatchModel.m */; };
+		5697222C1A408040004B6641 /* HomeMatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5697222B1A408040004B6641 /* HomeMatchView.m */; };
 		AB9102ED706793EE205C4D50 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F47272E4C36CD60C81CD9A79 /* libPods.a */; };
 		E3E3E8451A3C6724001A1DD6 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8431A3C6724001A1DD6 /* libbaidumapapi.a */; };
 		E3E3E8461A3C6724001A1DD6 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3E3E8441A3C6724001A1DD6 /* mapapi.bundle */; };
@@ -248,6 +250,10 @@
 		13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMatchController.m; sourceTree = "<group>"; };
 		316989CEF30908957578BF60 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		454167C7D51D19BFE1D2B4D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		569722271A407DAE004B6641 /* HomeMatchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMatchModel.h; sourceTree = "<group>"; };
+		569722281A407DAE004B6641 /* HomeMatchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMatchModel.m; sourceTree = "<group>"; };
+		5697222A1A408040004B6641 /* HomeMatchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMatchView.h; sourceTree = "<group>"; };
+		5697222B1A408040004B6641 /* HomeMatchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMatchView.m; sourceTree = "<group>"; };
 		E3E3E8061A3C6724001A1DD6 /* BMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMapKit.h; sourceTree = "<group>"; };
 		E3E3E8071A3C6724001A1DD6 /* BMKActionPaopaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKActionPaopaoView.h; sourceTree = "<group>"; };
 		E3E3E8081A3C6724001A1DD6 /* BMKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKAnnotation.h; sourceTree = "<group>"; };
@@ -638,6 +644,7 @@
 		13A389771A3877C800ABBACB /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				569722261A407D95004B6641 /* Models */,
 				13CD364B1A3C6BD10068C12A /* Views */,
 				13A3897B1A3878C000ABBACB /* ViewControllers */,
 			);
@@ -801,6 +808,8 @@
 				13CD364D1A3C6BD90068C12A /* TMPhotoQuiltViewCell.m */,
 				13CD36521A3C732D0068C12A /* LWaterflowView.h */,
 				13CD36531A3C732D0068C12A /* LWaterflowView.m */,
+				5697222A1A408040004B6641 /* HomeMatchView.h */,
+				5697222B1A408040004B6641 /* HomeMatchView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -820,6 +829,15 @@
 				13CD365F1A3C782D0068C12A /* 9.jpeg */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		569722261A407D95004B6641 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				569722271A407DAE004B6641 /* HomeMatchModel.h */,
+				569722281A407DAE004B6641 /* HomeMatchModel.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A4EEE0A5DD44AE3600B84D25 /* Pods */ = {
@@ -1158,9 +1176,11 @@
 				13CD36411A3C69860068C12A /* TMQuiltViewCell.m in Sources */,
 				13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */,
 				E3E3E84F1A3C68EA001A1DD6 /* GMapViewController.m in Sources */,
+				569722291A407DAE004B6641 /* HomeMatchModel.m in Sources */,
 				13CD36491A3C6A870068C12A /* EGORefreshTableFooterView.m in Sources */,
 				13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */,
 				13EA3D211A3B2DC1002AF7D6 /* HomeClothController.m in Sources */,
+				5697222C1A408040004B6641 /* HomeMatchView.m in Sources */,
 				13A389A21A38942D00ABBACB /* MineViewController.m in Sources */,
 				E3FC8DE21A3C494A0025525D /* MLImageCrop.m in Sources */,
 				13A389861A387A8800ABBACB /* UIColor+ConvertColor.m in Sources */,

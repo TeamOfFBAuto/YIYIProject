@@ -96,4 +96,19 @@ typedef enum{
 //个人信息相关
 #define PERSON_CHANGEUSERBANNER @"http://182.92.158.32/index.php?d=api&c=user_api&m=update_user_banner"
 
+
+
+
+#pragma mark - 搭配师相关接口 ******************************add by sn
+/*
+ action(该参数有两个值，等于my时表示获取我的搭配师，当popu时表示获取人气搭配师，默认为my)
+ authcode(uid加密串，当action参数为my时需要该参数，不是my时不用传)
+ tagid(搭配师标签的id，当action参数为popu时并需要做筛选时需要该参数，不是popu时不用传 ，当不做筛选时刻不传该参数或者传0)
+ page(页数 默认1)
+ perpage(每页显示数量 默认10)
+ */
+#define GET_DAPEISHI_URL @"http://182.92.158.32/index.php?d=api&c=division_t&m=get_division_teachers&action=%@&authcode=%@&tagid=%@&page=%d&perpage=%d"
+
+
+
 #endif
