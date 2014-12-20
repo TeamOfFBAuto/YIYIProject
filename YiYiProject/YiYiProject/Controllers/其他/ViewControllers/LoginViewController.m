@@ -218,7 +218,7 @@
         
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN object:nil];
         
-        [self performSelector:@selector(clickToClose:) withObject:nil afterDelay:0.2];
+        [self performSelector:@selector(leftButtonTap:) withObject:nil afterDelay:0.2];
         
         
     } failBlock:^(NSDictionary *failDic, NSError *erro) {

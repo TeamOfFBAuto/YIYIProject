@@ -132,6 +132,7 @@ typedef enum {
 //    [LTools alertText:aMode.product_name];
     
     ProductDetailController *detail = [[ProductDetailController alloc]init];
+    detail.product_id = aMode.product_id;
     detail.hidesBottomBarWhenPushed = YES;
     [self.rootViewController.navigationController pushViewController:detail animated:YES];
     

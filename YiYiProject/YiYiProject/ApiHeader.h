@@ -98,7 +98,9 @@ typedef enum{
 //首页--值得买
 #define HOME_DESERVE_BUY @"http://182.92.158.32/?d=api&c=products&m=listWorthBuy&long=%@&lat=%@&sex=%d&discount=%d&page=%d&count=%d"
 
+//单品详情
 
+#define HOME_PRODUCT_DETAIL @"http://182.92.158.32/api/products/getProductInfo?product_id=%@&authcode=%@"
 
 
 

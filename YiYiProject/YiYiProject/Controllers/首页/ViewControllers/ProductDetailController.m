@@ -31,8 +31,9 @@
     self.bugButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.bugButton.layer.borderWidth = 1.f;
     
-//    self.shopNameLabel.layer.borderWidth
-//    self.shopNameLabel.layer.borderColor
+    [self createNavigationbarTools];
+    
+    [self networkForDetail];
     
 }
 
@@ -44,16 +45,6 @@
 - (void)viewDidLayoutSubviews NS_AVAILABLE_IOS(5_0)
 {
     NSLog(@"viewDidLayoutSubviews");
-    
-//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(100, 100, 100, 30)];
-//    label.backgroundColor = [UIColor orangeColor];
-//    
-//    [self.view addSubview:label];
-//    
-//    label.layer.cornerRadius = 5.f;
-    
-//    self.shopNameLabel.layer.cornerRadius = 10.f;
-//    self.shopNameLabel.clipsToBounds = YES;
 }
 
 
@@ -62,15 +53,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - 网络请求
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)networkForDetail
+{
+    NSString *url = [NSString stringWithFormat:HOME_PRODUCT_DETAIL,self.product_id,[GMAPI getAuthkey]];
+    LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
+    [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"result %@",result);
+        
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        
+        NSLog(@"failBlock == %@",failDic[RESULT_INFO]);
+        
+    }];
 }
-*/
+
+
+#pragma mark - 事件处理
 
 - (IBAction)clickToDaPeiShi:(id)sender {
 }
@@ -88,6 +90,10 @@
     UIButton *heartButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
     [heartButton addTarget:self action:@selector(dianzan:) forControlEvents:UIControlEventTouchUpInside];
     
+    [heartButton setTitle:@"喜欢" forState:UIControlStateNormal];
+    
+    [heartButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
     [heartButton setImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
     
     [heartButton setImage:[UIImage imageNamed:nil] forState:UIControlStateSelected];
@@ -95,29 +101,25 @@
     
     //收藏的
     
-    UIButton *collectButton=[[UIButton alloc]initWithFrame:CGRectMake(74,0, 44/2,42.5)];
+    UIButton *collectButton=[[UIButton alloc]initWithFrame:CGRectMake(74,0, 44,42.5)];
     [collectButton addTarget:self action:@selector(shoucang:) forControlEvents:UIControlEventTouchUpInside];
     [collectButton setImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+    [collectButton setTitle:@"收藏" forState:UIControlStateNormal];
+    [collectButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    
-    
-    
-    UIButton *  button_comment=[[UIButton alloc]initWithFrame:CGRectMake(MY_MACRO_NAME?140: 25-3,0, 43/2,44)];
-    button_comment.tag=26;
-    
-    //[button_comment setTitle:@"评论" forState:UIControlStateNormal];
+    UIButton *  button_comment=[[UIButton alloc]initWithFrame:CGRectMake(MY_MACRO_NAME?140: 25-3,0, 44,44)];
+    [button_comment setTitle:@"评论" forState:UIControlStateNormal];
     button_comment.titleLabel.font=[UIFont systemFontOfSize:14];
     [button_comment addTarget:self action:@selector(ShareMore) forControlEvents:UIControlEventTouchUpInside];
     [button_comment setImage:[UIImage imageNamed:@"zhuanfa_image.png"] forState:UIControlStateNormal];
-    // button_comment.userInteractionEnabled=NO;
+    [button_comment setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     UIButton *    rightView=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 160, 44)];
     // [rightView addTarget:self action:@selector(ShareMore) forControlEvents:UIControlEventTouchUpInside];
     [rightView addSubview:button_comment];
     
     rightView.backgroundColor=[UIColor clearColor];
-    
-    
+
     [rightView addSubview:heartButton];
     [rightView addSubview:collectButton];
     

@@ -10,6 +10,8 @@
 
 @interface ProductDetailController : MyViewController
 
+@property (nonatomic,retain)NSString *product_id;//产品id
+
 @property (strong, nonatomic) IBOutlet UILabel *shopNameLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *bigImageView;
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
