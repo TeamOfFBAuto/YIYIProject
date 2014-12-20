@@ -7,7 +7,7 @@
 //
 
 #import "HomeMatchView.h"
-#import "GStarsView.h"
+#import "GShowStarsView.h"
 
 @implementation HomeMatchView
 
@@ -55,8 +55,13 @@
 //        [content_view addSubview:stars_view];
         
         
-        GStarsView * start_view = [[GStarsView alloc] initWithFrame:CGRectMake(5,header_imageView.height+28,70,15) numberOfStar:5];
-        [content_view addSubview:start_view];
+//        GStarsView * start_view = [[GStarsView alloc] initWithFrame:CGRectMake(5,header_imageView.height+28,70,15) numberOfStar:5];
+//        [content_view addSubview:start_view];
+        
+        GShowStarsView * show_stars_view = [[GShowStarsView alloc] initWithStartNum:5 Frame:CGRectMake(5,header_imageView.height+28,70,15) starBackName:@"stars_unselected_image.png" starWidth:12];
+        show_stars_view.maxStartNum = 5;
+        show_stars_view.startNum = [model.grade intValue];
+        [content_view addSubview:show_stars_view];
     }
     
     
