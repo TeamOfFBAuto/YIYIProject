@@ -15,6 +15,7 @@
     if (self) {
         
         self.starWidth = theStarWidth;
+        self.maxStartNum = num;
         
         CGFloat kuan = theStarWidth;
         
