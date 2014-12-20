@@ -6,6 +6,9 @@
 //  Copyright (c) 2014年 lcw. All rights reserved.
 //
 
+
+//显示星星的自定义view
+
 #import <UIKit/UIKit.h>
 
 @interface GShowStarsView : UIView
