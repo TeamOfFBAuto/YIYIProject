@@ -154,7 +154,7 @@ const CGFloat kTMPhotoQuiltViewMargin = 0;
     if (aModel.imagelist.count >= 1) {
         
         NSDictionary *imageDic = aModel.imagelist[0];
-        NSDictionary *middleImage = imageDic[@"504Middle"];
+        NSDictionary *middleImage = imageDic[@"540Middle"];
         imageurl = middleImage[@"src"];
     }
 

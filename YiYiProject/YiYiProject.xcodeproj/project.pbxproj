@@ -55,6 +55,9 @@
 		139562C71A3BF42E007BB183 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C61A3BF42E007BB183 /* UserInfo.m */; };
 		139562CB1A3C11EC007BB183 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C91A3C11EC007BB183 /* RegisterViewController.m */; };
 		139562CC1A3C11EC007BB183 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139562CA1A3C11EC007BB183 /* RegisterViewController.xib */; };
+		139886A51A45673500241962 /* ProductDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139886A31A45673500241962 /* ProductDetailController.m */; };
+		139886A61A45673500241962 /* ProductDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139886A41A45673500241962 /* ProductDetailController.xib */; };
+		139886A81A45880B00241962 /* navigationBarColor_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 139886A71A45880B00241962 /* navigationBarColor_black@2x.png */; };
 		13A3897E1A3878FE00ABBACB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3897D1A3878FE00ABBACB /* MyViewController.m */; };
 		13A389861A387A8800ABBACB /* UIColor+ConvertColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A389821A387A8800ABBACB /* UIColor+ConvertColor.m */; };
 		13A389871A387A8800ABBACB /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A389851A387A8800ABBACB /* UIView+Frame.m */; };
@@ -211,6 +214,10 @@
 		139562C81A3C11EC007BB183 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		139562C91A3C11EC007BB183 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		139562CA1A3C11EC007BB183 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		139886A21A45673500241962 /* ProductDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailController.h; sourceTree = "<group>"; };
+		139886A31A45673500241962 /* ProductDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailController.m; sourceTree = "<group>"; };
+		139886A41A45673500241962 /* ProductDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailController.xib; sourceTree = "<group>"; };
+		139886A71A45880B00241962 /* navigationBarColor_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarColor_black@2x.png"; sourceTree = "<group>"; };
 		13A3897C1A3878FE00ABBACB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		13A3897D1A3878FE00ABBACB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		13A3897F1A38796D00ABBACB /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -445,6 +452,7 @@
 				13681C841A453B9700671D07 /* back@2x.png */,
 				13681C7D1A453B3200671D07 /* ShareImages */,
 				13681C701A4527A200671D07 /* navigationBarBackground@2x.png */,
+				139886A71A45880B00241962 /* navigationBarColor_black@2x.png */,
 			);
 			path = AllImages;
 			sourceTree = "<group>";
@@ -762,6 +770,9 @@
 				13EA3D201A3B2DC1002AF7D6 /* HomeClothController.m */,
 				13EA3D221A3B2E13002AF7D6 /* HomeMatchController.h */,
 				13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */,
+				139886A21A45673500241962 /* ProductDetailController.h */,
+				139886A31A45673500241962 /* ProductDetailController.m */,
+				139886A41A45673500241962 /* ProductDetailController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1178,6 +1189,7 @@
 				13CD36691A3C782D0068C12A /* 9.jpeg in Resources */,
 				13CD36611A3C782D0068C12A /* 10.jpeg in Resources */,
 				13CD36651A3C782D0068C12A /* 5.jpeg in Resources */,
+				139886A81A45880B00241962 /* navigationBarColor_black@2x.png in Resources */,
 				138C2BF91A39E09200EA59F5 /* UMShareEditViewController.xib in Resources */,
 				13681C851A453B9700671D07 /* back@2x.png in Resources */,
 				13CD36371A3C51BE0068C12A /* ForgetPwdController.xib in Resources */,
@@ -1200,6 +1212,7 @@
 				13CD36671A3C782D0068C12A /* 7.jpeg in Resources */,
 				138C2BF71A39E09200EA59F5 /* UMSCommentInputController.xib in Resources */,
 				13681C711A4527A200671D07 /* navigationBarBackground@2x.png in Resources */,
+				139886A61A45673500241962 /* ProductDetailController.xib in Resources */,
 				13CD36641A3C782D0068C12A /* 4.jpeg in Resources */,
 				13A389971A3893D000ABBACB /* TTaiViewController.xib in Resources */,
 				13684A761A37583E00A508FB /* Images.xcassets in Resources */,
@@ -1298,6 +1311,7 @@
 				E3E3E84F1A3C68EA001A1DD6 /* GMapViewController.m in Sources */,
 				569722291A407DAE004B6641 /* HomeMatchModel.m in Sources */,
 				13CD36491A3C6A870068C12A /* EGORefreshTableFooterView.m in Sources */,
+				139886A51A45673500241962 /* ProductDetailController.m in Sources */,
 				13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */,
 				13EA3D211A3B2DC1002AF7D6 /* HomeClothController.m in Sources */,
 				5697222C1A408040004B6641 /* HomeMatchView.m in Sources */,

@@ -17,6 +17,8 @@
 
 #import "ProductModel.h"
 
+#import "ProductDetailController.h"
+
 typedef enum {
     
     Sort_Sex_No = 0,//0 不按照性别 默认为0
@@ -127,7 +129,11 @@ typedef enum {
 {
     ProductModel *aMode = waterFlow.dataArray[indexPath.row];
     
-    [LTools alertText:aMode.product_name];
+//    [LTools alertText:aMode.product_name];
+    
+    ProductDetailController *detail = [[ProductDetailController alloc]init];
+    detail.hidesBottomBarWhenPushed = YES;
+    [self.rootViewController.navigationController pushViewController:detail animated:YES];
     
 }
 
@@ -138,7 +144,7 @@ typedef enum {
     if (aMode.imagelist.count >= 1) {
         
         NSDictionary *imageDic = aMode.imagelist[0];
-        NSDictionary *middleImage = imageDic[@"504Middle"];
+        NSDictionary *middleImage = imageDic[@"540Middle"];
 //        CGFloat aWidth = [middleImage[@"width"]floatValue];
         aHeight = [middleImage[@"height"]floatValue];
     }

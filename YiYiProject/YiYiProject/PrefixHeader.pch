@@ -55,6 +55,10 @@ alpha:(a)]
 #define MY_MACRO_NAME ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 #define IOS7DAOHANGLANBEIJING @"sliderBBSNavigationBarImage_ios7.png"
 #define IOS7DAOHANGLANBEIJING_PUSH @"navigationBarBackground"
+
+#define IOS7DAOHANGLANBEIJING_PUSH2 @"navigationBarColor_black" //黑色背景
+
+
 #define IOS6DAOHANGLANBEIJING @"sliderBBSNavigationBarImage_ios6.png"
 #define TheNavigationBarBackgroundImg MY_MACRO_NAME?[UIImage imageNamed:IOS7DAOHANGLANBEIJING]:[UIImage imageNamed:@"ios7eva320_44.png"]
 
