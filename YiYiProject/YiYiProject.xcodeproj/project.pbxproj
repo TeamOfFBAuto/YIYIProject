@@ -55,6 +55,9 @@
 		139562C71A3BF42E007BB183 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C61A3BF42E007BB183 /* UserInfo.m */; };
 		139562CB1A3C11EC007BB183 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139562C91A3C11EC007BB183 /* RegisterViewController.m */; };
 		139562CC1A3C11EC007BB183 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139562CA1A3C11EC007BB183 /* RegisterViewController.xib */; };
+		139607B61A46A0BB00AACAC4 /* product_like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 139607B31A46A0BB00AACAC4 /* product_like@2x.png */; };
+		139607B71A46A0BB00AACAC4 /* product_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 139607B41A46A0BB00AACAC4 /* product_share@2x.png */; };
+		139607B81A46A0BB00AACAC4 /* product_shoucang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 139607B51A46A0BB00AACAC4 /* product_shoucang@2x.png */; };
 		139886A51A45673500241962 /* ProductDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139886A31A45673500241962 /* ProductDetailController.m */; };
 		139886A61A45673500241962 /* ProductDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139886A41A45673500241962 /* ProductDetailController.xib */; };
 		139886A81A45880B00241962 /* navigationBarColor_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 139886A71A45880B00241962 /* navigationBarColor_black@2x.png */; };
@@ -214,6 +217,9 @@
 		139562C81A3C11EC007BB183 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		139562C91A3C11EC007BB183 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		139562CA1A3C11EC007BB183 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		139607B31A46A0BB00AACAC4 /* product_like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "product_like@2x.png"; sourceTree = "<group>"; };
+		139607B41A46A0BB00AACAC4 /* product_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "product_share@2x.png"; sourceTree = "<group>"; };
+		139607B51A46A0BB00AACAC4 /* product_shoucang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "product_shoucang@2x.png"; sourceTree = "<group>"; };
 		139886A21A45673500241962 /* ProductDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailController.h; sourceTree = "<group>"; };
 		139886A31A45673500241962 /* ProductDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailController.m; sourceTree = "<group>"; };
 		139886A41A45673500241962 /* ProductDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailController.xib; sourceTree = "<group>"; };
@@ -447,6 +453,7 @@
 		13681C6F1A4527A200671D07 /* AllImages */ = {
 			isa = PBXGroup;
 			children = (
+				139607B21A46A0BB00AACAC4 /* ProductDetailImages */,
 				56A8A81F1A456DF400E85F6B /* homeMatchImages */,
 				13681C861A453DE600671D07 /* Login_images */,
 				13681C841A453B9700671D07 /* back@2x.png */,
@@ -684,6 +691,16 @@
 				13CD36351A3C51BE0068C12A /* ForgetPwdController.xib */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		139607B21A46A0BB00AACAC4 /* ProductDetailImages */ = {
+			isa = PBXGroup;
+			children = (
+				139607B31A46A0BB00AACAC4 /* product_like@2x.png */,
+				139607B41A46A0BB00AACAC4 /* product_share@2x.png */,
+				139607B51A46A0BB00AACAC4 /* product_shoucang@2x.png */,
+			);
+			path = ProductDetailImages;
 			sourceTree = "<group>";
 		};
 		13A3894F1A38768400ABBACB /* Controllers */ = {
@@ -1199,9 +1216,11 @@
 				138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */,
 				E3B2DC6B1A45209400607B11 /* gpin@2x.png in Resources */,
 				139562C41A3BF41B007BB183 /* LoginViewController.xib in Resources */,
+				139607B71A46A0BB00AACAC4 /* product_share@2x.png in Resources */,
 				13681C811A453B3200671D07 /* share_QQ@2x.png in Resources */,
 				13684A791A37583E00A508FB /* LaunchScreen.xib in Resources */,
 				138C2BFA1A39E09200EA59F5 /* UMShareEditViewControlleriPad.xib in Resources */,
+				139607B81A46A0BB00AACAC4 /* product_shoucang@2x.png in Resources */,
 				138C2BF61A39E09200EA59F5 /* UMSCommentDetailController.xib in Resources */,
 				13CD36631A3C782D0068C12A /* 3.jpeg in Resources */,
 				138C2C021A39E09200EA59F5 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
@@ -1216,6 +1235,7 @@
 				13CD36641A3C782D0068C12A /* 4.jpeg in Resources */,
 				13A389971A3893D000ABBACB /* TTaiViewController.xib in Resources */,
 				13684A761A37583E00A508FB /* Images.xcassets in Resources */,
+				139607B61A46A0BB00AACAC4 /* product_like@2x.png in Resources */,
 				13A389B81A38974F00ABBACB /* bluedown1@2x.png in Resources */,
 				56A8A8251A4571CD00E85F6B /* stars_unselected_image@2x.png in Resources */,
 				138C2BFE1A39E09200EA59F5 /* UMSocialSDKResourcesNew.bundle in Resources */,

@@ -26,12 +26,13 @@
     {
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:IOS7DAOHANGLANBEIJING_PUSH2] forBarMetrics: UIBarMetricsDefault];
     }
+
     
     [self setMyViewControllerLeftButtonType:MyViewControllerLeftbuttonTypeBack WithRightButtonType:MyViewControllerRightbuttonTypeNull];
     
     self.shopNameLabel.text = @"  店铺的名字会很长的  ";
     
-    self.bugButton.layer.cornerRadius = 10.0f;
+    self.bugButton.layer.cornerRadius = 5.0f;
     self.bugButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.bugButton.layer.borderWidth = 1.f;
     
@@ -61,6 +62,8 @@
 
 - (void)networkForDetail
 {
+    
+    __weak typeof(self)weakSelf = self;
     NSString *url = [NSString stringWithFormat:HOME_PRODUCT_DETAIL,self.product_id,[GMAPI getAuthkey]];
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
     [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
@@ -72,6 +75,8 @@
             NSDictionary *dic = result[@"pinfo"];
             
             aModel = [[ProductModel alloc]initWithDictionary:dic];
+            
+            [weakSelf prepareViewWithModel:aModel];
         }
         
         
@@ -84,6 +89,32 @@
 
 
 #pragma mark - 事件处理
+
+/*
+   是否喜欢
+ */
+- (void)clickToLike:(UIButton *)sender
+{
+    
+}
+
+/*
+   是否收藏
+*/
+
+- (void)clickToCollect:(UIButton *)sender
+{
+    
+}
+
+/*
+  分享
+ */
+
+- (void)clickToShare:(UIButton *)sender
+{
+    
+}
 
 - (IBAction)clickToDaPeiShi:(id)sender {
     
@@ -98,9 +129,62 @@
     
 }
 
-- (void)prepareViewWithModel:(ProductModel *)aModel
+/*
+ 原图
+*/
+- (NSString *)originalImageForArr:(NSArray *)imagesArr
 {
+    if (imagesArr.count >= 1) {
+        
+        NSDictionary *imageDic = imagesArr[0];
+        NSDictionary *originalImage = imageDic[@"original"];
+        
+        
+        return originalImage[@"src"];
+    }
     
+    return @"";
+}
+
+- (NSString *)thumbImageForArr:(NSArray *)imagesArr
+{
+    if (imagesArr.count >= 1) {
+        
+        NSDictionary *imageDic = imagesArr[0];
+        NSDictionary *originalImage = imageDic[@"540Middle"];
+        
+        
+        return originalImage[@"src"];
+    }
+    
+    return @"";
+}
+
+/**
+ *  给view 赋值
+ *
+ *  @param aProductModel
+ */
+- (void)prepareViewWithModel:(ProductModel *)aProductModel
+{
+    NSString *brandName = aProductModel.brand_info[@"brand_name"];
+    self.brandName.text = [NSString stringWithFormat:@" %@ ",brandName];
+    
+    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:[self thumbImageForArr:aProductModel.images]] placeholderImage:[UIImage imageNamed:nil]];
+    
+    self.priceLabel.text = [NSString stringWithFormat:@" %.2f  ",[aProductModel.product_price floatValue]];
+    self.discountLabel.text = [NSString stringWithFormat:@"%.f折",aProductModel.discount_num * 10];
+    
+    self.titleLabel.text = aProductModel.product_name;
+    self.xingHaoLabel.text = [NSString stringWithFormat:@"型号: %@",aProductModel.product_sku];
+    self.biaoQianLabel.text = [NSString stringWithFormat:@"标签: %@",aProductModel.product_tag];
+    
+    NSString *mallName = aProductModel.mall_info[@"mall_name"];
+    self.shangChangLabel.text = [NSString stringWithFormat:@"商场: %@",mallName];
+    
+    NSString *address = aProductModel.mall_info[@"street"];
+    self.addressLabel.text = [NSString stringWithFormat:@"地址: %@",address];
+
 }
 
 
@@ -108,46 +192,43 @@
 
 - (void)createNavigationbarTools
 {
+    
+    UIButton *rightView=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 190, 44)];
+    rightView.backgroundColor=[UIColor clearColor];
+    
     UIButton *heartButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
-    [heartButton addTarget:self action:@selector(dianzan:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [heartButton setTitle:@"喜欢" forState:UIControlStateNormal];
-    
+    [heartButton addTarget:self action:@selector(clickToLike:) forControlEvents:UIControlEventTouchUpInside];
+//    [heartButton setTitle:@"喜欢" forState:UIControlStateNormal];
     [heartButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    [heartButton setImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-    
+    [heartButton setImage:[UIImage imageNamed:@"product_like"] forState:UIControlStateNormal];
     [heartButton setImage:[UIImage imageNamed:nil] forState:UIControlStateSelected];
-    
+    [heartButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     
     //收藏的
     
-    UIButton *collectButton=[[UIButton alloc]initWithFrame:CGRectMake(74,0, 44,42.5)];
-    [collectButton addTarget:self action:@selector(shoucang:) forControlEvents:UIControlEventTouchUpInside];
-    [collectButton setImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-    [collectButton setTitle:@"收藏" forState:UIControlStateNormal];
+    UIButton *collectButton =[[UIButton alloc]initWithFrame:CGRectMake(74,0, 44,42.5)];
+    [collectButton addTarget:self action:@selector(clickToCollect:) forControlEvents:UIControlEventTouchUpInside];
+    [collectButton setImage:[UIImage imageNamed:@"product_shoucang"] forState:UIControlStateNormal];
+//    [collectButton setTitle:@"收藏" forState:UIControlStateNormal];
     [collectButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    collectButton.center = CGPointMake(rightView.width / 2.f, collectButton.center.y);
+    [collectButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     
-    UIButton *  button_comment=[[UIButton alloc]initWithFrame:CGRectMake(MY_MACRO_NAME?140: 25-3,0, 44,44)];
-    [button_comment setTitle:@"评论" forState:UIControlStateNormal];
-    button_comment.titleLabel.font=[UIFont systemFontOfSize:14];
-    [button_comment addTarget:self action:@selector(ShareMore) forControlEvents:UIControlEventTouchUpInside];
-    [button_comment setImage:[UIImage imageNamed:@"zhuanfa_image.png"] forState:UIControlStateNormal];
-    [button_comment setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    UIButton *    rightView=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 160, 44)];
-    // [rightView addTarget:self action:@selector(ShareMore) forControlEvents:UIControlEventTouchUpInside];
-    [rightView addSubview:button_comment];
-    
-    rightView.backgroundColor=[UIColor clearColor];
+    UIButton *shareButton =[[UIButton alloc]initWithFrame:CGRectMake(rightView.width - 44,0, 44,44)];
+//    [shareButton setTitle:@"评论" forState:UIControlStateNormal];
+    shareButton.titleLabel.font=[UIFont systemFontOfSize:14];
+    [shareButton addTarget:self action:@selector(clickToShare:) forControlEvents:UIControlEventTouchUpInside];
+    [shareButton setImage:[UIImage imageNamed:@"product_share"] forState:UIControlStateNormal];
+    [shareButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [shareButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
 
+    [rightView addSubview:shareButton];
     [rightView addSubview:heartButton];
     [rightView addSubview:collectButton];
     
-    
     UIBarButtonItem *comment_item=[[UIBarButtonItem alloc]initWithCustomView:rightView];
     
-    self.navigationItem.rightBarButtonItem=comment_item;
+    self.navigationItem.rightBarButtonItem = comment_item;
 }
 
 
