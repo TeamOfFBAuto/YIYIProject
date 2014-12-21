@@ -19,6 +19,10 @@
 
 #import "ProductDetailController.h"
 
+#import "FilterViewController.h"
+
+#import "FilterView.h"
+
 typedef enum {
     
     Sort_Sex_No = 0,//0 不按照性别 默认为0
@@ -65,6 +69,7 @@ typedef enum {
     [filterButton.titleLabel setFont:[UIFont systemFontOfSize:12]];
     [filterButton setTitle:@"筛选" forState:UIControlStateNormal];
     [self.view addSubview:filterButton];
+    [filterButton addTarget:self action:@selector(clickToFilter:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -74,6 +79,13 @@ typedef enum {
 }
 
 #pragma mark 事件处理
+
+- (void)clickToFilter:(UIButton *)sender
+{
+    
+    [[FilterView shareInstance] show];
+    
+}
 
 /**
  *  long 经度 非空
