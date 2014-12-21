@@ -27,7 +27,7 @@
 #import "JSONKit.h"
 
 #import "UIImageView+WebCache.h"
-
+#import "ZSNApi.h"
 
 #pragma mark - 自定义的宏，方便调动
 ///颜色

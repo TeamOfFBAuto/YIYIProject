@@ -11,8 +11,11 @@
 #import "JSONKit.h"
 #import "HomeMatchModel.h"
 #import "HomeMatchView.h"
+#import "MatchTopicModel.h"
+#import "MatchTopicCell.h"
+#import "SNRefreshTableView.h"
 
-@interface HomeMatchController ()<UITableViewDataSource,UITableViewDelegate>
+@interface HomeMatchController ()<SNRefreshDelegate,UITableViewDataSource>
 {
     MBProgressHUD * hud;
     UIView * section_view;
@@ -24,7 +27,10 @@
 ///人气搭配师数据容器
 @property(nonatomic,strong)NSMutableArray * hotMatch_array;
 
-@property(nonatomic,strong)UITableView * myTableView;
+@property(nonatomic,strong)SNRefreshTableView * myTableView;
+
+///话题数据
+@property(nonatomic,strong)NSMutableArray * array_topic;
 
 @end
 
@@ -34,17 +40,21 @@
     [super viewDidLoad];
     _myMatch_array = [NSMutableArray array];
     _hotMatch_array = [NSMutableArray array];
+    _array_topic = [NSMutableArray array];
     
-    
-    _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,DEVICE_HEIGHT-64) style:UITableViewStylePlain];
-    _myTableView.delegate = self;
+    _myTableView = [[SNRefreshTableView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,DEVICE_HEIGHT-64-49) showLoadMore:YES];
+    _myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _myTableView.dataSource = self;
+    _myTableView.refreshDelegate = self;
     [self.view addSubview:_myTableView];
     
     hud = [LTools MBProgressWithText:@"正在加载..." addToView:self.view];
     
     [self getDapeishiDataWithType:HomeMatchRequestTypeHot];
     [self getDapeishiDataWithType:HomeMatchRequestTypeMy];
+    
+    ///获取搭配师话题数据
+    [self getTopicData];
 }
 
 
@@ -92,6 +102,38 @@
         }
         @finally {
             
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+    
+    [request start];
+}
+///获取话题数据
+-(void)getTopicData
+{
+    NSString * fullUrl = [NSString stringWithFormat:GET_TOPIC_DATA_URL,@"",_myTableView.pageNum,10];
+    
+    AFHTTPRequestOperation * request = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:fullUrl]]];
+    __weak typeof(self) bself = self;
+    [request setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary * allDic = [operation.responseString objectFromJSONString];
+        NSString * errorcode = [allDic objectForKey:@"errorcode"];
+        if ([errorcode intValue] == 0)
+        {
+            if (bself.myTableView.pageNum == 1)
+            {
+                [bself.array_topic removeAllObjects];
+            }
+            
+            NSArray * array = [allDic objectForKey:@"topics"];
+            for (NSDictionary * dic in array) {
+                MatchTopicModel * model = [[MatchTopicModel alloc] initWithDictionary:dic];
+                [bself.array_topic addObject:model];
+            }
+            
+            [bself.myTableView finishReloadigData];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -222,18 +264,50 @@
 #pragma mark - UITabelView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    if (tableView == _myTableView) {
+        return _array_topic.count;
+    }else
+    {
+        return 0;
+    }
+    
 }
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * identifier = @"identifier";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    MatchTopicCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"MatchTopicCell" owner:nil options:nil] objectAtIndex:0];
     }
+    
+    [cell setInfoWith:[_array_topic objectAtIndex:indexPath.row]];
     
     return cell;
 }
+
+
+#pragma mark - Refresh Delegate
+- (void)loadNewData
+{
+    
+}
+- (void)loadMoreData
+{
+    
+}
+- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+- (CGFloat)heightForRowIndexPath:(NSIndexPath *)indexPath
+{
+    return 89;
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

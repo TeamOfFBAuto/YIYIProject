@@ -25,6 +25,7 @@
 -(void)setupWithArray:(NSMutableArray *)array WithTitle:(NSString *)aTitle WithShowApplyView:(BOOL)show WithMyBlock:(HomeMatchViewBlock)aBlock
 {
     UIScrollView * myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,self.height)];
+    myScrollView.showsHorizontalScrollIndicator = NO;
     myScrollView.contentSize = CGSizeMake(20+(80+13)*array.count,0);
     [self addSubview:myScrollView];
     
@@ -49,19 +50,12 @@
         user_name_label.font = [UIFont systemFontOfSize:14];
         [content_view addSubview:user_name_label];
         
-        
-//        GStarsView * view = [[GStarsView alloc] initWithFrame:CGRectMake(5,header_imageView.height+28,70,15)];
-//        stars_view.backgroundColor = [UIColor redColor];
-//        [content_view addSubview:stars_view];
-        
-        
-//        GStarsView * start_view = [[GStarsView alloc] initWithFrame:CGRectMake(5,header_imageView.height+28,70,15) numberOfStar:5];
-//        [content_view addSubview:start_view];
-        
-        GShowStarsView * show_stars_view = [[GShowStarsView alloc] initWithStartNum:5 Frame:CGRectMake(5,header_imageView.height+28,70,15) starBackName:@"stars_unselected_image.png" starWidth:12];
-        show_stars_view.maxStartNum = 5;
+        GShowStarsView * show_stars_view = [[GShowStarsView alloc] initWithStartNum:5 Frame:CGRectMake(5,header_imageView.height+28,70,12) starBackName:@"stars_unselected_image.png" starWidth:12];
         show_stars_view.startNum = [model.grade intValue];
+        show_stars_view.starNameStr = @"stars_selected_image.png";
         [content_view addSubview:show_stars_view];
+        ///重置星星
+        [show_stars_view updateStartNum];
     }
     
     
