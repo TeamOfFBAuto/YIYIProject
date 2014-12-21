@@ -160,6 +160,23 @@
     return @"";
 }
 
+- (CGFloat)thumbImageHeightForArr:(NSArray *)imagesArr
+{
+    CGFloat aHeight = 0.f;
+    CGFloat aWidth = 0.f;
+    if (imagesArr.count >= 1) {
+        
+        NSDictionary *imageDic = imagesArr[0];
+        NSDictionary *originalImage = imageDic[@"540Middle"];
+        
+        aHeight = [originalImage[@"height"] floatValue];
+        aWidth = [originalImage[@"width"] floatValue];
+    }
+    //
+    
+    return aHeight * (DEVICE_WIDTH / aWidth);
+}
+
 /**
  *  给view 赋值
  *
@@ -170,6 +187,15 @@
     NSString *brandName = aProductModel.brand_info[@"brand_name"];
     self.brandName.text = [NSString stringWithFormat:@" %@ ",brandName];
     
+    
+    CGFloat aHeight = [self thumbImageHeightForArr:aProductModel.images];
+    
+    self.bigImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, aHeight)];
+    [self.view addSubview:_bigImageView];
+    
+    [self.view insertSubview:_bigImageView atIndex:0];
+    
+//    self.bigImageView.height = aHeight;
     [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:[self thumbImageForArr:aProductModel.images]] placeholderImage:[UIImage imageNamed:nil]];
     
     self.priceLabel.text = [NSString stringWithFormat:@" %.2f  ",[aProductModel.product_price floatValue]];
