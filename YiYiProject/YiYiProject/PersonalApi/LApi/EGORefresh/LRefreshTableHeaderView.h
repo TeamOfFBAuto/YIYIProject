@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "EGOViewCommon.h"
 @class SCGIFImageView;
 
 typedef enum{
@@ -16,10 +17,10 @@ typedef enum{
 	L_EGOOPullRefreshLoading,
 } L_EGOPullRefreshState;
 
-typedef enum{
-    EGORefreshHeader = 0,
-    EGORefreshFooter
-} EGORefreshPos;
+//typedef enum{
+//    EGORefreshHeader = 0,
+//    EGORefreshFooter
+//} EGORefreshPos;
 
 @protocol L_EGORefreshTableDelegate
 - (void)egoRefreshTableDidTriggerRefresh:(EGORefreshPos)aRefreshPos;
