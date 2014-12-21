@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 /**
  *  搭配师
  */
@@ -18,7 +17,15 @@ typedef enum{
     HomeMatchRequestTypeHot
 }HomeMatchRequestType;
 
+typedef enum{
+    MatchSelectedTypeTopic = 0,
+    MatchSelectedTypeMatch
+}MatchSelectedType;
+
 @interface HomeMatchController : UIViewController
+{
+    MatchSelectedType selected_type;
+}
 
 @property(nonatomic,assign)UIViewController *rootViewController;
 

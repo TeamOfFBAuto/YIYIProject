@@ -16,9 +16,9 @@
 @protocol WaterFlowDelegate <NSObject>
 
 @optional
-- (void)loadNewData;
-- (void)loadMoreData;
-- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)waterLoadNewData;
+- (void)waterLoadMoreData;
+- (void)waterDidSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)waterHeightForCellIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)waterViewNumberOfColumns;
 

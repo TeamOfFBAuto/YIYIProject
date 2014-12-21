@@ -14,12 +14,15 @@
 #import "MatchTopicModel.h"
 #import "MatchTopicCell.h"
 #import "SNRefreshTableView.h"
+#import "LWaterflowView.h"
 
-@interface HomeMatchController ()<SNRefreshDelegate,UITableViewDataSource>
+@interface HomeMatchController ()<SNRefreshDelegate,UITableViewDataSource,TMQuiltViewDataSource,WaterFlowDelegate>
 {
     MBProgressHUD * hud;
     UIView * section_view;
     NSInteger current_page;
+    ///瀑布流
+    LWaterflowView * waterFlow;
 }
 
 ///我的搭配师数据容器
@@ -264,11 +267,11 @@
 #pragma mark - UITabelView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == _myTableView) {
+    if (selected_type == MatchSelectedTypeTopic) {
         return _array_topic.count;
     }else
     {
-        return 0;
+        return 1;
     }
     
 }
@@ -276,15 +279,38 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * identifier = @"identifier";
-    MatchTopicCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"MatchTopicCell" owner:nil options:nil] objectAtIndex:0];
+    if (selected_type == MatchSelectedTypeTopic)
+    {
+        static NSString * identifier = @"identifier";
+        MatchTopicCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"MatchTopicCell" owner:nil options:nil] objectAtIndex:0];
+        }
+        
+        [cell setInfoWith:[_array_topic objectAtIndex:indexPath.row]];
+        
+        return cell;
+    }else
+    {
+        NSString * identifier = @"cell";
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        
+        [waterFlow removeFromSuperview];
+        
+        waterFlow = [[LWaterflowView alloc]initWithFrame:CGRectMake(0, 0, ALL_FRAME_WIDTH, ALL_FRAME_HEIGHT - 49 - 44) waterDelegate:self waterDataSource:self];
+        waterFlow.backgroundColor = RGBCOLOR(240, 230, 235);
+        [cell.contentView addSubview:waterFlow];
+        
+        [waterFlow showRefreshHeader:YES];
+
+        return cell;
     }
     
-    [cell setInfoWith:[_array_topic objectAtIndex:indexPath.row]];
     
-    return cell;
 }
 
 
@@ -303,9 +329,70 @@
 }
 - (CGFloat)heightForRowIndexPath:(NSIndexPath *)indexPath
 {
-    return 89;
+    if (selected_type == MatchSelectedTypeTopic) {
+        return 89;
+    }else
+    {
+        return DEVICE_HEIGHT-64-49;
+    }
 }
 
+
+#pragma mark - WaterFlowDelegate
+
+- (void)waterLoadNewData
+{
+    
+}
+- (void)waterLoadMoreData
+{
+    
+}
+
+- (void)waterDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+}
+
+- (CGFloat)waterHeightForCellIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat aHeight = 0.f;
+    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
+    if (aMode.imagelist.count >= 1) {
+        
+        NSDictionary *imageDic = aMode.imagelist[0];
+        NSDictionary *middleImage = imageDic[@"504Middle"];
+        //        CGFloat aWidth = [middleImage[@"width"]floatValue];
+        aHeight = [middleImage[@"height"]floatValue];
+    }
+    
+    return aHeight / 2.f + 50;
+}
+- (CGFloat)waterViewNumberOfColumns
+{
+    
+    return 2;
+}
+
+#pragma mark - TMQuiltViewDataSource
+
+- (NSInteger)quiltViewNumberOfCells:(TMQuiltView *)TMQuiltView {
+    return [waterFlow.dataArray count];
+}
+
+- (TMQuiltViewCell *)quiltView:(TMQuiltView *)quiltView cellAtIndexPath:(NSIndexPath *)indexPath {
+    TMPhotoQuiltViewCell *cell = (TMPhotoQuiltViewCell *)[quiltView dequeueReusableCellWithReuseIdentifier:@"PhotoCell"];
+    if (!cell) {
+        cell = [[TMPhotoQuiltViewCell alloc] initWithReuseIdentifier:@"PhotoCell"];
+    }
+    
+    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
+    [cell setCellWithModel:aMode];
+    
+    
+    return cell;
+}
 
 
 

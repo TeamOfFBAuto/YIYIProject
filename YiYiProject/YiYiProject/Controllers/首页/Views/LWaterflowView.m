@@ -227,8 +227,8 @@
 //刷新调用的方法
 -(void)refreshView
 {
-    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(loadNewData)]) {
-        [_waterDelegate loadNewData];
+    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(waterLoadNewData)]) {
+        [_waterDelegate waterLoadNewData];
     }
     
 //    NSLog(@"刷新完成");
@@ -238,8 +238,8 @@
 //加载调用的方法
 -(void)getNextPageView
 {
-    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(loadMoreData)]) {
-        [_waterDelegate loadMoreData];
+    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(waterLoadMoreData)]) {
+        [_waterDelegate waterLoadMoreData];
         
     }
     
@@ -354,9 +354,9 @@
 {
     NSLog(@"index:%d",(int)indexPath.row);
     
-    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:)]) {
+    if (_waterDelegate && [_waterDelegate respondsToSelector:@selector(waterDidSelectRowAtIndexPath:)]) {
         
-        [_waterDelegate didSelectRowAtIndexPath:indexPath];
+        [_waterDelegate waterDidSelectRowAtIndexPath:indexPath];
     }
 }
 
