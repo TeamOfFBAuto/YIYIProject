@@ -7,9 +7,13 @@
 //
 
 #import "HomeClothController.h"
+#import "GCycleScrollView.h"
 
-@interface HomeClothController ()
-
+@interface HomeClothController ()<UITableViewDataSource,UITableViewDelegate,GCycleScrollViewDatasource,GCycleScrollViewDelegate>
+{
+    UITableView *_tableView;
+    GCycleScrollView *_gscrollView;
+}
 @end
 
 @implementation HomeClothController
@@ -17,6 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64-44) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    
+    
+    
+    [self.view addSubview:_tableView];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +42,79 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    if (indexPath.row == 0) {
+        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 180)];
+        headerView.backgroundColor = [UIColor orangeColor];
+        _gscrollView = [[GCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 180)];
+        _gscrollView.backgroundColor = [UIColor orangeColor];
+        _gscrollView.delegate = self;
+        _gscrollView.datasource = self;
+        [headerView addSubview:_gscrollView];
+        [cell.contentView addSubview:_gscrollView];
+    }
+    
+    return cell;
+    
 }
-*/
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 3;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 180;
+}
+
+
+
+#pragma mark - 循环滚动的scrollView
+
+- (NSInteger)numberOfPages
+{
+    
+    return 3;
+}
+
+- (UIView *)pageAtIndex:(NSInteger)index
+{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 180)];
+    
+
+    if (index == 0) {
+        view.backgroundColor = [UIColor purpleColor];
+    }else if (index == 1){
+        view.backgroundColor = [UIColor orangeColor];
+    }else if (index == 2){
+        view.backgroundColor = [UIColor yellowColor];
+    }
+    
+    return view;
+    
+}
+
+- (void)didClickPage:(GCycleScrollView *)csView atIndex:(NSInteger)index
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:[NSString stringWithFormat:@"当前点击第%ld个页面",index]
+                                                   delegate:self
+                                          cancelButtonTitle:@"确定"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+
+
+
 
 @end

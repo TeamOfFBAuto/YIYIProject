@@ -109,7 +109,6 @@
                 [self.view addSubview:cloth_viewcontroller.view];
             }
             
-            cloth_viewcontroller.view.backgroundColor = [UIColor greenColor];
             [self controlViewController:cloth_viewcontroller];
             
             

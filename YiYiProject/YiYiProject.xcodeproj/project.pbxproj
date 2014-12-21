@@ -120,6 +120,8 @@
 		E3B37D8B1A457A18009835A5 /* GmyMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37D8A1A457A18009835A5 /* GmyMainViewController.m */; };
 		E3B37D8E1A457C34009835A5 /* gstart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B37D8C1A457C34009835A5 /* gstart@2x.png */; };
 		E3B37D8F1A457C34009835A5 /* gstart_half@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B37D8D1A457C34009835A5 /* gstart_half@2x.png */; };
+		E3B37DFF1A469D54009835A5 /* GSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37DFE1A469D54009835A5 /* GSettingViewController.m */; };
+		E3B37E081A46C7C1009835A5 /* GCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37E071A46C7C1009835A5 /* GCycleScrollView.m */; };
 		E3E3E8451A3C6724001A1DD6 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8431A3C6724001A1DD6 /* libbaidumapapi.a */; };
 		E3E3E8461A3C6724001A1DD6 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3E3E8441A3C6724001A1DD6 /* mapapi.bundle */; };
 		E3E3E8481A3C6772001A1DD6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8471A3C6772001A1DD6 /* CoreLocation.framework */; };
@@ -327,6 +329,10 @@
 		E3B37D8A1A457A18009835A5 /* GmyMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GmyMainViewController.m; sourceTree = "<group>"; };
 		E3B37D8C1A457C34009835A5 /* gstart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gstart@2x.png"; sourceTree = "<group>"; };
 		E3B37D8D1A457C34009835A5 /* gstart_half@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gstart_half@2x.png"; sourceTree = "<group>"; };
+		E3B37DFD1A469D54009835A5 /* GSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSettingViewController.h; sourceTree = "<group>"; };
+		E3B37DFE1A469D54009835A5 /* GSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSettingViewController.m; sourceTree = "<group>"; };
+		E3B37E061A46C7C1009835A5 /* GCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCycleScrollView.h; sourceTree = "<group>"; };
+		E3B37E071A46C7C1009835A5 /* GCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCycleScrollView.m; sourceTree = "<group>"; };
 		E3E3E8061A3C6724001A1DD6 /* BMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMapKit.h; sourceTree = "<group>"; };
 		E3E3E8071A3C6724001A1DD6 /* BMKActionPaopaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKActionPaopaoView.h; sourceTree = "<group>"; };
 		E3E3E8081A3C6724001A1DD6 /* BMKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKAnnotation.h; sourceTree = "<group>"; };
@@ -1008,6 +1014,8 @@
 				E3B37D801A4569CA009835A5 /* GStarsView.m */,
 				E3B37D861A457888009835A5 /* GShowStarsView.h */,
 				E3B37D871A457888009835A5 /* GShowStarsView.m */,
+				E3B37E061A46C7C1009835A5 /* GCycleScrollView.h */,
+				E3B37E071A46C7C1009835A5 /* GCycleScrollView.m */,
 			);
 			path = utilsView;
 			sourceTree = "<group>";
@@ -1110,6 +1118,8 @@
 				E3E3E84E1A3C68EA001A1DD6 /* GMapViewController.m */,
 				E3B37D891A457A18009835A5 /* GmyMainViewController.h */,
 				E3B37D8A1A457A18009835A5 /* GmyMainViewController.m */,
+				E3B37DFD1A469D54009835A5 /* GSettingViewController.h */,
+				E3B37DFE1A469D54009835A5 /* GSettingViewController.m */,
 			);
 			path = Gcontrollers;
 			sourceTree = "<group>";
@@ -1346,6 +1356,7 @@
 				E3FC8DDE1A3C494A0025525D /* GViewController.mm in Sources */,
 				E3FC8DE11A3C494A0025525D /* GMAPI.m in Sources */,
 				138C2C1D1A39E77300EA59F5 /* BaseModel.m in Sources */,
+				E3B37DFF1A469D54009835A5 /* GSettingViewController.m in Sources */,
 				E3B37D881A457888009835A5 /* GShowStarsView.m in Sources */,
 				139562C71A3BF42E007BB183 /* UserInfo.m in Sources */,
 				13CD36421A3C69860068C12A /* TMQuiltViewController.m in Sources */,
@@ -1354,6 +1365,7 @@
 				E3FC8DDF1A3C494A0025525D /* Gmodel.m in Sources */,
 				56A8A8351A45BB1300E85F6B /* MatchTopicCell.m in Sources */,
 				139558D61A40781C00CABC9E /* ProductModel.m in Sources */,
+				E3B37E081A46C7C1009835A5 /* GCycleScrollView.m in Sources */,
 				13A389BD1A38974F00ABBACB /* RefreshTableView.m in Sources */,
 				E3B37D8B1A457A18009835A5 /* GmyMainViewController.m in Sources */,
 				13684A901A37585200A508FB /* RootViewController.m in Sources */,

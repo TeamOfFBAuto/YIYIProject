@@ -17,6 +17,8 @@
 
 #import "GmyMainViewController.h"//我的主页
 
+#import "GSettingViewController.h"
+
 typedef enum{
     USERFACE = 0,//头像
     USERBANNER,//banner
@@ -119,8 +121,11 @@ typedef enum{
     [self.userBannerImv addSubview:titleLabel];
     
     //小齿轮设置按钮
-    UIImageView *chilunImv = [[UIImageView alloc]initWithFrame:CGRectMake(DEVICE_WIDTH - 40, 30, 25, 25)];
-    chilunImv.backgroundColor = RGBCOLOR_ONE;
+    UIButton *chilunBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [chilunBtn setFrame:CGRectMake(DEVICE_WIDTH - 40, 30, 25, 25)];
+    chilunBtn.backgroundColor = RGBCOLOR_ONE;
+    [chilunBtn addTarget:self action:@selector(xiaochilun) forControlEvents:UIControlEventTouchUpInside];
+    
     
     
     
@@ -170,10 +175,20 @@ typedef enum{
     [backView addSubview:self.userNameLabel];
     [backView addSubview:self.userScoreLabel];
     [backView addSubview:editBtn];
-    [backView addSubview:chilunImv];
+    [backView addSubview:chilunBtn];
     
     return backView;
 }
+
+
+
+//跳转个人设置界面
+-(void)xiaochilun{
+    GSettingViewController *gg = [[GSettingViewController alloc]init];
+    gg.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:gg animated:YES];
+}
+
 
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
