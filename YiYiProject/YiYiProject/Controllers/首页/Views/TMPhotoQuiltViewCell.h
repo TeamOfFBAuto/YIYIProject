@@ -22,6 +22,8 @@
 #import "ProductModel.h"
 @interface TMPhotoQuiltViewCell : TMQuiltViewCell
 
+@property(nonatomic,retain)UIView *backGroudView;//背景view
+
 @property (nonatomic, retain) UIImageView *photoView;
 @property (nonatomic, retain) UILabel *titleLabel;
 

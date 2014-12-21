@@ -59,6 +59,13 @@ typedef enum {
         
     [waterFlow showRefreshHeader:YES];
     
+    UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    filterButton.frame = CGRectMake(17, 17, 38, 38);
+    [filterButton setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
+    [filterButton.titleLabel setFont:[UIFont systemFontOfSize:12]];
+    [filterButton setTitle:@"筛选" forState:UIControlStateNormal];
+    [self.view addSubview:filterButton];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,16 +123,16 @@ typedef enum {
 
 #pragma mark - WaterFlowDelegate
 
-- (void)loadNewData
+- (void)waterLoadNewData
 {
     [self deserveBuyForSex:sex_type discount:discount_type page:waterFlow.pageNum];
 }
-- (void)loadMoreData
+- (void)waterLoadMoreData
 {
     [self deserveBuyForSex:sex_type discount:discount_type page:waterFlow.pageNum];
 }
 
-- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)waterDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductModel *aMode = waterFlow.dataArray[indexPath.row];
     
@@ -150,7 +157,7 @@ typedef enum {
         aHeight = [middleImage[@"height"]floatValue];
     }
     
-    return aHeight / 2.f + 50;
+    return aHeight / 2.f + 33;
 }
 - (CGFloat)waterViewNumberOfColumns
 {
@@ -169,6 +176,8 @@ typedef enum {
     if (!cell) {
         cell = [[TMPhotoQuiltViewCell alloc] initWithReuseIdentifier:@"PhotoCell"];
     }
+    
+    cell.layer.cornerRadius = 3.f;
     
     ProductModel *aMode = waterFlow.dataArray[indexPath.row];
     [cell setCellWithModel:aMode];
