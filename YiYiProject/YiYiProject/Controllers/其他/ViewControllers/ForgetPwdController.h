@@ -17,6 +17,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *securityTF;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTF;
 @property (strong, nonatomic) IBOutlet UITextField *secondPassword;
+@property (strong, nonatomic) IBOutlet UIButton *codeButton;
+@property (strong, nonatomic) IBOutlet UILabel *codeLabel;
+
+
 - (IBAction)clickToCommit:(id)sender;
 
 @end

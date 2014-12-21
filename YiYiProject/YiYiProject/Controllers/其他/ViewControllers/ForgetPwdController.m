@@ -8,7 +8,12 @@
 
 #import "ForgetPwdController.h"
 
+static int seconds = 60;//计时60s
+
 @interface ForgetPwdController ()
+{
+    NSTimer *timer;
+}
 
 @end
 
@@ -27,9 +32,53 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)dealloc
+{
+    [timer invalidate];
+    timer = nil;
+}
 
 #pragma mark - 事件处理
+
+#pragma mark - 事件处理
+
+- (void)startTimer
+{
+    [self.codeButton setTitle:@"" forState:UIControlStateNormal];
+    
+    self.codeLabel.hidden = NO;
+    
+    seconds = 60;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(calculateTime) userInfo:Nil repeats:YES];
+    _codeButton.userInteractionEnabled = NO;
+}
+
+//计算时间
+- (void)calculateTime
+{
+    NSString *title = [NSString stringWithFormat:@"%d秒",seconds];
+    
+    self.codeLabel.text = title;
+    
+    if (seconds != 0) {
+        seconds --;
+    }else
+    {
+        [self renewTimer];
+    }
+    
+}
+//计时器归零
+- (void)renewTimer
+{
+    [timer invalidate];//计时器停止
+    _codeButton.userInteractionEnabled = YES;
+    [_codeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+    _codeLabel.hidden = YES;
+    seconds = 60;
+}
+
 
 #pragma mark - 网络请求
 
@@ -52,9 +101,13 @@
     
     if (![LTools isValidateMobile:mobile]) {
         
-        [LTools alertText:ALERT_ERRO_PHONE];
+        [LTools alertText:ALERT_ERRO_PHONE viewController:self];
         return;
     }
+    
+    [self startTimer];
+    
+    __weak typeof(self)weakSelf = self;
     
     NSString *url = [NSString stringWithFormat:USER_GET_SECURITY_CODE,mobile,type];
     
@@ -70,6 +123,8 @@
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
         
         NSLog(@"failDic %@ erro %@",failDic,erro);
+        
+        [weakSelf renewTimer];
         
         [LTools showMBProgressWithText:failDic[RESULT_INFO] addToView:self.view];
     }];
@@ -94,19 +149,19 @@
     
     if (![LTools isValidateMobile:mobile]) {
         
-        [LTools alertText:ALERT_ERRO_PHONE];
+        [LTools alertText:ALERT_ERRO_PHONE viewController:self];
         return;
     }
     
     if (![LTools isValidatePwd:password]) {
         
-        [LTools alertText:ALERT_ERRO_PASSWORD];
+        [LTools alertText:ALERT_ERRO_PASSWORD viewController:self];
         return;
     }
     
     if (![self.passwordTF.text isEqualToString:self.secondPassword.text]) {
         
-        [LTools alertText:ALERT_ERRO_SECURITYCODE];
+        [LTools alertText:ALERT_ERRO_SECURITYCODE viewController:self];
         
         return;
     }
