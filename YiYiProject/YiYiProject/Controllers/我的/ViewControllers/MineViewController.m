@@ -42,12 +42,18 @@ typedef enum{
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    
+    self.navigationController.navigationBarHidden = YES;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.myTitleLabel.text = @"我的";
+    
+    
     
     //判断是否登录
     if ([LTools cacheBoolForKey:USER_LONGIN] == NO) {
@@ -62,10 +68,15 @@ typedef enum{
     //初始化相关
     _changeImageType = USERIMAGENULL;
     
-    _tabelViewCellTitleArray = @[@"我的主页",@"我的收藏",@"我的搭配",@"我的衣橱",@"我的体型",@"穿衣日记",@"我的关注",@"我是店主,申请衣+衣小店",@"邀请好友"];
+    _tabelViewCellTitleArray = @[@[@"我的主页"]
+                                 ,@[@"我的收藏",@"我的搭配"]
+                                 ,@[@"我的衣橱",@"我的体型",@"穿衣日记"]
+                                 ,@[@"我的关注"]
+                                 ,@[@"我是店主，申请衣+衣店铺"]
+                                 ,@[@"邀请好友"]];
     
     
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-49-64)];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-49) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.tableHeaderView = [self creatTableViewHeaderView];
@@ -91,33 +102,54 @@ typedef enum{
     self.userBannerImv = [[UIImageView alloc]initWithFrame:backView.frame];
     self.userBannerImv.backgroundColor = RGBCOLOR_ONE;
     //模糊效果
-    self.userBannerImv.layer.masksToBounds = NO;
-    self.userBannerImv.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.userBannerImv.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
-    self.userBannerImv.layer.shadowOpacity = 0.5f;//阴影透明度，默认0
-    self.userBannerImv.layer.shadowRadius = 4;//阴影半径，默认3
+//    self.userBannerImv.layer.masksToBounds = NO;
+//    self.userBannerImv.layer.shadowColor = [UIColor blackColor].CGColor;
+//    self.userBannerImv.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
+//    self.userBannerImv.layer.shadowOpacity = 0.5f;//阴影透明度，默认0
+//    self.userBannerImv.layer.shadowRadius = 4;//阴影半径，默认3
+    
+    
+    
+    //标题
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake((DEVICE_WIDTH-33.00)*0.5, 33, 33, 17)];
+//    titleLabel.backgroundColor = [UIColor redColor];
+    titleLabel.font = [UIFont systemFontOfSize:16];
+    titleLabel.text = @"我的";
+    titleLabel.textColor = [UIColor whiteColor];
+    [self.userBannerImv addSubview:titleLabel];
+    
+    //小齿轮设置按钮
+    UIImageView *chilunImv = [[UIImageView alloc]initWithFrame:CGRectMake(DEVICE_WIDTH - 40, 30, 25, 25)];
+    chilunImv.backgroundColor = RGBCOLOR_ONE;
+    
+    
+    
     
     //头像
-    self.userFaceImv = [[UIImageView alloc]initWithFrame:CGRectMake(40*GscreenRatio_320, 70.00*GscreenRatio_320, 60, 60)];
+    self.userFaceImv = [[UIImageView alloc]initWithFrame:CGRectMake(30*GscreenRatio_320, 75.00*GscreenRatio_320, 50, 50)];
     self.userFaceImv.backgroundColor = RGBCOLOR_ONE;
-    self.userFaceImv.layer.cornerRadius = 30*GscreenRatio_320;
+    self.userFaceImv.layer.cornerRadius = 25*GscreenRatio_320;
     self.userFaceImv.layer.masksToBounds = YES;
     
     //昵称
-    self.userNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.userFaceImv.frame)+5, self.userFaceImv.frame.origin.y+10, 120*GscreenRatio_320, 17)];
+    self.userNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.userFaceImv.frame)+10, self.userFaceImv.frame.origin.y+6, 120*GscreenRatio_320, 14)];
     self.userNameLabel.text = @"昵称";
-    self.userNameLabel.backgroundColor = [UIColor lightGrayColor];
+    self.userNameLabel.font = [UIFont systemFontOfSize:14];
+    self.userNameLabel.textColor = [UIColor whiteColor];
+//    self.userNameLabel.backgroundColor = [UIColor lightGrayColor];
     
     //积分
     self.userScoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.userNameLabel.frame.origin.x, CGRectGetMaxY(self.userNameLabel.frame)+10, self.userNameLabel.frame.size.width, self.userNameLabel.frame.size.height)];
+    self.userScoreLabel.font = [UIFont systemFontOfSize:14];
     self.userScoreLabel.text = @"积分：2000";
-    self.userScoreLabel.backgroundColor = [UIColor orangeColor];
+    self.userScoreLabel.textColor = [UIColor whiteColor];
+//    self.userScoreLabel.backgroundColor = [UIColor orangeColor];
     
     //编辑按钮
     UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [editBtn setFrame:CGRectMake(CGRectGetMaxX(self.userNameLabel.frame)+25, self.userFaceImv.frame.origin.y+5, 55, 44)];
-    editBtn.backgroundColor = [UIColor purpleColor];
-    editBtn.layer.cornerRadius = 8;
+    [editBtn setFrame:CGRectMake(CGRectGetMaxX(self.userNameLabel.frame)+35, self.userFaceImv.frame.origin.y+20, 55, 44)];
+//    editBtn.backgroundColor = [UIColor purpleColor];
+    editBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [editBtn addTarget:self action:@selector(goToEdit) forControlEvents:UIControlEventTouchUpInside];
     [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
     
@@ -138,19 +170,57 @@ typedef enum{
     [backView addSubview:self.userNameLabel];
     [backView addSubview:self.userScoreLabel];
     [backView addSubview:editBtn];
+    [backView addSubview:chilunImv];
     
     return backView;
 }
 
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 6;
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 9;
+    
+    NSInteger num = 0;
+    
+    if (section == 0) {
+        num = 1;
+    }else if (section == 1){
+        num = 2;
+    }else if (section == 2){
+        num = 3;
+    }else if (section == 3){
+        num = 1;
+    }else if (section == 4){
+        num = 1;
+    }else if (section == 5){
+        num = 1;
+    }
+    
+    
+    return num;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
+    return 56;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 10;
+}
+
+
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 10)];
+    view.backgroundColor = RGBCOLOR(242, 242, 242);
+    return view;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -163,7 +233,12 @@ typedef enum{
         [view removeFromSuperview];
     }
     
-    [cell creatCustomViewWithGcellType:GPERSON indexPath:indexPath customObject:_tabelViewCellTitleArray];
+    
+    
+    NSLog(@"indexpath.section:%ld row:%ld",(long)indexPath.section,(long)indexPath.row);
+    NSLog(@"%@",_tabelViewCellTitleArray[indexPath.section][indexPath.row]);
+    
+    [cell creatCustomViewWithGcellType:GPERSON indexPath:indexPath customObject:_tabelViewCellTitleArray[indexPath.section][indexPath.row]];
     
     return cell;
 }

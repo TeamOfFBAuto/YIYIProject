@@ -104,7 +104,7 @@
             
             content_height += 50;
         }
-        content_height += 100;
+        content_height += 30;
         
         _content_view.frame = CGRectMake(0,DEVICE_HEIGHT,DEVICE_WIDTH,content_height);
     }
