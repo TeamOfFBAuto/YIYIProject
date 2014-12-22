@@ -9,10 +9,13 @@
 #import "HomeClothController.h"
 #import "GCycleScrollView.h"
 
-@interface HomeClothController ()<UITableViewDataSource,UITableViewDelegate,GCycleScrollViewDatasource,GCycleScrollViewDelegate>
+@interface HomeClothController ()<GCycleScrollViewDatasource,GCycleScrollViewDelegate,UIScrollViewDelegate>
 {
     UITableView *_tableView;
-    GCycleScrollView *_gscrollView;
+    GCycleScrollView *_gscrollView;//循环滚动的scrollview
+    UIView *_nearByView;//附近的view
+    UIView *_pinpaiView;//品牌的view
+    
 }
 @end
 
@@ -25,14 +28,28 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64-44) style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
+    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT -  64 - 44)];
+    scrollView.delegate = self;
+    scrollView.backgroundColor = [UIColor whiteColor];
+    scrollView.contentSize = CGSizeMake(DEVICE_WIDTH, 1000);
     
     
     
     
-    [self.view addSubview:_tableView];
+    [scrollView addSubview:[self creatGscrollView]];//循环滚动幻灯片
+    
+    [scrollView addSubview:[self creatNearbyView]];//附近
+    
+    [scrollView addSubview:[self creatPinpaiView]];
+    
+    
+    [self.view addSubview:scrollView];
+    
+    
+    
+    
+//    [self.view addSubview:[self creatGscrollView]];
+//    [self.view addSubview:[self creatNearbyView]];
     
     
 }
@@ -44,36 +61,28 @@
 
 
 
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"identifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    
-    if (indexPath.row == 0) {
-        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 180)];
-        headerView.backgroundColor = [UIColor orangeColor];
-        _gscrollView = [[GCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 180)];
-        _gscrollView.backgroundColor = [UIColor orangeColor];
-        _gscrollView.delegate = self;
-        _gscrollView.datasource = self;
-        [headerView addSubview:_gscrollView];
-        [cell.contentView addSubview:_gscrollView];
-    }
-    
-    return cell;
-    
+///创建循环滚动的scrollview
+-(UIView*)creatGscrollView{
+    _gscrollView = [[GCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 180)];
+    _gscrollView.backgroundColor = [UIColor orangeColor];
+    _gscrollView.delegate = self;
+    _gscrollView.datasource = self;
+    return _gscrollView;
 }
 
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+//创建附近的view
+-(UIView*)creatNearbyView{
+    _nearByView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_gscrollView.frame), DEVICE_WIDTH, 218)];
+    _nearByView.backgroundColor = [UIColor purpleColor];
+    return _nearByView;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 180;
+//品牌
+-(UIView *)creatPinpaiView{
+    _pinpaiView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_nearByView.frame), DEVICE_HEIGHT, 218)];
+    _pinpaiView.backgroundColor = [UIColor blueColor];
+    return _pinpaiView;
+    
 }
 
 
@@ -92,7 +101,7 @@
     
 
     if (index == 0) {
-        view.backgroundColor = [UIColor purpleColor];
+        view.backgroundColor = [UIColor yellowColor];
     }else if (index == 1){
         view.backgroundColor = [UIColor orangeColor];
     }else if (index == 2){
