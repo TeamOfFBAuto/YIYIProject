@@ -152,6 +152,7 @@
 - (void)didUpdateUserLocation:(BMKUserLocation *)userLocation
 {
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
     [_mapView updateLocationData:userLocation];
 }
 
