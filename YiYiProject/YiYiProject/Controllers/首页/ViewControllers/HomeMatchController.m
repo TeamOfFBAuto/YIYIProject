@@ -127,7 +127,7 @@
 -(void)getTopicData
 {
     NSString * fullUrl = [NSString stringWithFormat:GET_TOPIC_DATA_URL,@"",topic_data_page,20];
-    
+    NSLog(@"获取话题数据接口 -----   %@",fullUrl);
     AFHTTPRequestOperation * request = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:fullUrl]]];
     __weak typeof(self) bself = self;
     [request setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -222,7 +222,8 @@
             if (index == 0)///我要申请搭配师
             {
                 ApplyForViewController * applyVC = [[ApplyForViewController alloc] init];
-                [bself.navigationController pushViewController:applyVC animated:YES];
+                applyVC.hidesBottomBarWhenPushed = YES;
+                [bself.rootViewController.navigationController pushViewController:applyVC animated:YES];
             }
             
         }];

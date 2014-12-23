@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ApplyForViewController : UIViewController
+@interface ApplyForViewController : MyViewController
 {
     
 }
