@@ -112,6 +112,10 @@
 		56A8A8361A45BB1300E85F6B /* MatchTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A8A8341A45BB1300E85F6B /* MatchTopicCell.xib */; };
 		56DAB20D1A46A35F00273140 /* ZSNApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DAB20C1A46A35F00273140 /* ZSNApi.m */; };
 		56DAB2101A46A8E100273140 /* SNRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DAB20F1A46A8E100273140 /* SNRefreshTableView.m */; };
+		56DAB2131A46C66E00273140 /* MatchCaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DAB2121A46C66E00273140 /* MatchCaseModel.m */; };
+		56DAB2171A46C86B00273140 /* MatchCaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DAB2151A46C86B00273140 /* MatchCaseCell.m */; };
+		56DAB2181A46C86B00273140 /* MatchCaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DAB2161A46C86B00273140 /* MatchCaseCell.xib */; };
+		56DAB21B1A46DB6000273140 /* ApplyForViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DAB21A1A46DB6000273140 /* ApplyForViewController.m */; };
 		AB9102ED706793EE205C4D50 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F47272E4C36CD60C81CD9A79 /* libPods.a */; };
 		E3B2DC6B1A45209400607B11 /* gpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B2DC6A1A45209400607B11 /* gpin@2x.png */; };
 		E3B37D811A4569CA009835A5 /* GcustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37D7E1A4569CA009835A5 /* GcustomActionSheet.m */; };
@@ -316,6 +320,13 @@
 		56DAB20C1A46A35F00273140 /* ZSNApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSNApi.m; sourceTree = "<group>"; };
 		56DAB20E1A46A8E100273140 /* SNRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNRefreshTableView.h; sourceTree = "<group>"; };
 		56DAB20F1A46A8E100273140 /* SNRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNRefreshTableView.m; sourceTree = "<group>"; };
+		56DAB2111A46C66E00273140 /* MatchCaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCaseModel.h; sourceTree = "<group>"; };
+		56DAB2121A46C66E00273140 /* MatchCaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCaseModel.m; sourceTree = "<group>"; };
+		56DAB2141A46C86B00273140 /* MatchCaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCaseCell.h; sourceTree = "<group>"; };
+		56DAB2151A46C86B00273140 /* MatchCaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCaseCell.m; sourceTree = "<group>"; };
+		56DAB2161A46C86B00273140 /* MatchCaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchCaseCell.xib; sourceTree = "<group>"; };
+		56DAB2191A46DB5F00273140 /* ApplyForViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyForViewController.h; sourceTree = "<group>"; };
+		56DAB21A1A46DB6000273140 /* ApplyForViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyForViewController.m; sourceTree = "<group>"; };
 		E3B2DC6A1A45209400607B11 /* gpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gpin@2x.png"; sourceTree = "<group>"; };
 		E3B37D7D1A4569CA009835A5 /* GcustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcustomActionSheet.h; sourceTree = "<group>"; };
 		E3B37D7E1A4569CA009835A5 /* GcustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcustomActionSheet.m; sourceTree = "<group>"; };
@@ -809,6 +820,8 @@
 				139886A21A45673500241962 /* ProductDetailController.h */,
 				139886A31A45673500241962 /* ProductDetailController.m */,
 				139886A41A45673500241962 /* ProductDetailController.xib */,
+				56DAB2191A46DB5F00273140 /* ApplyForViewController.h */,
+				56DAB21A1A46DB6000273140 /* ApplyForViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -935,6 +948,9 @@
 				56A8A8321A45BB1300E85F6B /* MatchTopicCell.h */,
 				56A8A8331A45BB1300E85F6B /* MatchTopicCell.m */,
 				56A8A8341A45BB1300E85F6B /* MatchTopicCell.xib */,
+				56DAB2141A46C86B00273140 /* MatchCaseCell.h */,
+				56DAB2151A46C86B00273140 /* MatchCaseCell.m */,
+				56DAB2161A46C86B00273140 /* MatchCaseCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -963,6 +979,8 @@
 				569722281A407DAE004B6641 /* HomeMatchModel.m */,
 				56A8A82F1A45946000E85F6B /* MatchTopicModel.h */,
 				56A8A8301A45946000E85F6B /* MatchTopicModel.m */,
+				56DAB2111A46C66E00273140 /* MatchCaseModel.h */,
+				56DAB2121A46C66E00273140 /* MatchCaseModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1288,6 +1306,7 @@
 				138C2BF81A39E09200EA59F5 /* UMSCommentInputControlleriPad.xib in Resources */,
 				E3E3E8461A3C6724001A1DD6 /* mapapi.bundle in Resources */,
 				13A389B91A38974F00ABBACB /* blueup1@2x.png in Resources */,
+				56DAB2181A46C86B00273140 /* MatchCaseCell.xib in Resources */,
 				138C2BFD1A39E09200EA59F5 /* UMSShareListController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1341,11 +1360,14 @@
 			files = (
 				13CD364A1A3C6A870068C12A /* EGORefreshTableHeaderView.m in Sources */,
 				E3FC8DE41A3C494A0025525D /* Gview.m in Sources */,
+				56DAB2131A46C66E00273140 /* MatchCaseModel.m in Sources */,
 				13684A711A37583E00A508FB /* ViewController.m in Sources */,
 				13684A6E1A37583E00A508FB /* AppDelegate.m in Sources */,
 				E3FC8DDE1A3C494A0025525D /* GViewController.mm in Sources */,
 				E3FC8DE11A3C494A0025525D /* GMAPI.m in Sources */,
+				56DAB2171A46C86B00273140 /* MatchCaseCell.m in Sources */,
 				138C2C1D1A39E77300EA59F5 /* BaseModel.m in Sources */,
+				56DAB21B1A46DB6000273140 /* ApplyForViewController.m in Sources */,
 				E3B37D881A457888009835A5 /* GShowStarsView.m in Sources */,
 				139562C71A3BF42E007BB183 /* UserInfo.m in Sources */,
 				13CD36421A3C69860068C12A /* TMQuiltViewController.m in Sources */,

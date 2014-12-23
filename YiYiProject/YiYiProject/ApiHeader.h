@@ -136,6 +136,17 @@ typedef enum{
 #define GET_DAPEISHI_URL @"http://182.92.158.32/index.php?d=api&c=division_t&m=get_division_teachers&action=%@&authcode=%@&tagid=%@&page=%d&perpage=%d"
 ///搭配师界面获取话题接口
 #define GET_TOPIC_DATA_URL @"http://182.92.158.32/index.php?d=api&c=topic&m=get_topics&uid=%@&page=%d&per_page=%d"
-
+///搭配师界面获取搭配师搭配接口
+/*
+ t_uid（搭配师uid，若传该参数表示获取该搭配师的搭配列表，若不传则返回所有搭配师的搭配列表）
+ page(页数 默认1)
+ per_page(每页显示数量 默认10)
+ */
+#define GET_MATCH_DATA_URL @"http://182.92.158.32/index.php?d=api&c=division_t&m=get_division_tts&t_uid=%@&page=%d&per_page=%d"
 
 #endif
+
+
+
+
+

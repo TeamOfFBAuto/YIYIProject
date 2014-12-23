@@ -24,6 +24,8 @@
 
 -(void)setupWithArray:(NSMutableArray *)array WithTitle:(NSString *)aTitle WithShowApplyView:(BOOL)show WithMyBlock:(HomeMatchViewBlock)aBlock
 {
+    home_match_view_block = aBlock;
+    
     UIScrollView * myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,self.height)];
     myScrollView.showsHorizontalScrollIndicator = NO;
     myScrollView.contentSize = CGSizeMake(20+(80+13)*array.count,0);
@@ -78,11 +80,15 @@
         button.layer.borderColor = RGBCOLOR(235,77,104).CGColor;
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         button.layer.borderWidth = 1;
+        [button addTarget:self action:@selector(applyMatchTap:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
     }
 }
 
-
+-(void)applyMatchTap:(UIButton *)button
+{
+    home_match_view_block(0);
+}
 
 
 

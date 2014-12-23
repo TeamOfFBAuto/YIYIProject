@@ -15,6 +15,9 @@
 #import "MatchTopicCell.h"
 #import "SNRefreshTableView.h"
 #import "LWaterflowView.h"
+#import "MatchCaseModel.h"
+#import "MatchCaseCell.h"
+#import "ApplyForViewController.h"
 
 @interface HomeMatchController ()<SNRefreshDelegate,UITableViewDataSource,TMQuiltViewDataSource,WaterFlowDelegate>
 {
@@ -23,6 +26,9 @@
     NSInteger current_page;
     ///瀑布流
     LWaterflowView * waterFlow;
+    
+    int match_data_page;
+    int topic_data_page;
 }
 
 ///我的搭配师数据容器
@@ -34,6 +40,8 @@
 
 ///话题数据
 @property(nonatomic,strong)NSMutableArray * array_topic;
+///搭配数据
+@property(nonatomic,strong)NSMutableArray * array_matchCase;
 
 @end
 
@@ -44,6 +52,9 @@
     _myMatch_array = [NSMutableArray array];
     _hotMatch_array = [NSMutableArray array];
     _array_topic = [NSMutableArray array];
+    _array_matchCase = [NSMutableArray array];
+    topic_data_page = 1;
+    match_data_page = 1;
     
     _myTableView = [[SNRefreshTableView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,DEVICE_HEIGHT-64-49) showLoadMore:YES];
     _myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -115,7 +126,7 @@
 ///获取话题数据
 -(void)getTopicData
 {
-    NSString * fullUrl = [NSString stringWithFormat:GET_TOPIC_DATA_URL,@"",_myTableView.pageNum,10];
+    NSString * fullUrl = [NSString stringWithFormat:GET_TOPIC_DATA_URL,@"",topic_data_page,20];
     
     AFHTTPRequestOperation * request = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:fullUrl]]];
     __weak typeof(self) bself = self;
@@ -125,7 +136,7 @@
         NSString * errorcode = [allDic objectForKey:@"errorcode"];
         if ([errorcode intValue] == 0)
         {
-            if (bself.myTableView.pageNum == 1)
+            if (topic_data_page == 1)
             {
                 [bself.array_topic removeAllObjects];
             }
@@ -137,12 +148,61 @@
             }
             
             [bself.myTableView finishReloadigData];
+        }else
+        {
+            if (topic_data_page !=1) {
+                topic_data_page--;
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (topic_data_page !=1) {
+            topic_data_page--;
+        }
+    }];
+    
+    [request start];
+}
+///获取搭配数据
+-(void)getMatchData
+{
+    NSString * fullUrl = [NSString stringWithFormat:GET_MATCH_DATA_URL,@"",match_data_page,20];
+    NSLog(@"获取搭配接口 ------  %@",fullUrl);
+    AFHTTPRequestOperation * request = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:fullUrl]]];
+    __weak typeof(self)bself = self;
+    [request setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        @try {
+            NSDictionary * allDic = [operation.responseString objectFromJSONString];
+            
+            NSLog(@"allDic -------  %@",allDic);
+            NSString * errcode = [allDic objectForKey:@"errorcode"];
+            if ([errcode intValue] == 0)
+            {
+                if (match_data_page == 1) {
+                    [bself.array_matchCase removeAllObjects];
+                }
+                
+                NSArray * array = [allDic objectForKey:@"tt_list"];
+                
+                for (NSDictionary * dic in array) {
+                    MatchCaseModel * model = [[MatchCaseModel alloc] initWithDictionary:dic];
+                    [bself.array_matchCase addObject:model];
+                }
+                [bself.myTableView finishReloadigData];
+            }
+        }
+        @catch (NSException *exception) {
+            
+        }
+        @finally {
+            
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
     
     [request start];
+    
 }
 
 #pragma mark - UITableView Section View
@@ -153,10 +213,17 @@
     
     CGFloat height = 0;
     
-    if (self.myMatch_array.count)
+    if (self.hotMatch_array.count)
     {
+        __weak typeof(self)bself = self;
         HomeMatchView * my_view = [[HomeMatchView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,165)];
         [my_view setupWithArray:_myMatch_array WithTitle:@"我的搭配师" WithShowApplyView:YES WithMyBlock:^(int index) {
+            
+            if (index == 0)///我要申请搭配师
+            {
+                ApplyForViewController * applyVC = [[ApplyForViewController alloc] init];
+                [bself.navigationController pushViewController:applyVC animated:YES];
+            }
             
         }];
         [section_view addSubview:my_view];
@@ -248,18 +315,22 @@
         return;
     }
     
-    for (int i = 0;i<2;i++)
+    UIButton * aButton;
+    
+    if (button.tag == 1000)///点击的话题
     {
-        UIButton * aButton = (UIButton *)[section_view viewWithTag:i+1000];
-        
-        if (aButton.tag == button.tag)
-        {
-            button.selected = YES;
-        }else
-        {
-            aButton.selected = NO;
-        }
+        aButton = (UIButton *)[section_view viewWithTag:1001];
+        [self getTopicData];
+        selected_type = MatchSelectedTypeTopic;
+    }else///点击的搭配
+    {
+        aButton = (UIButton *)[section_view viewWithTag:1000];
+        [self getMatchData];
+        selected_type = MatchSelectedTypeMatch;
     }
+    
+    aButton.selected = NO;
+    button.selected = YES;
     
     current_page = button.tag;
 }
@@ -299,13 +370,13 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
-        [waterFlow removeFromSuperview];
-        
         waterFlow = [[LWaterflowView alloc]initWithFrame:CGRectMake(0, 0, ALL_FRAME_WIDTH, ALL_FRAME_HEIGHT - 49 - 44) waterDelegate:self waterDataSource:self];
         waterFlow.backgroundColor = RGBCOLOR(240, 230, 235);
         [cell.contentView addSubview:waterFlow];
         
-        [waterFlow showRefreshHeader:YES];
+        [waterFlow showRefreshHeader:NO];
+        
+        [waterFlow reloadData:_array_matchCase total:100];
 
         return cell;
     }
@@ -357,39 +428,51 @@
 
 - (CGFloat)waterHeightForCellIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat aHeight = 0.f;
-    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
-    if (aMode.imagelist.count >= 1) {
-        
-        NSDictionary *imageDic = aMode.imagelist[0];
-        NSDictionary *middleImage = imageDic[@"504Middle"];
-        //        CGFloat aWidth = [middleImage[@"width"]floatValue];
-        aHeight = [middleImage[@"height"]floatValue];
-    }
+//    CGFloat aHeight = 0.f;
+//    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
+//    if (aMode.imagelist.count >= 1) {
+//        
+//        NSDictionary *imageDic = aMode.imagelist[0];
+//        NSDictionary *middleImage = imageDic[@"504Middle"];
+//        //        CGFloat aWidth = [middleImage[@"width"]floatValue];
+//        aHeight = [middleImage[@"height"]floatValue];
+//    }
     
-    return aHeight / 2.f + 50;
+    
+    MatchCaseModel * model = waterFlow.dataArray[indexPath.row];
+    
+    return [model.tt_img_height floatValue] / 2.f + 50;
 }
 - (CGFloat)waterViewNumberOfColumns
 {
-    
     return 2;
 }
 
 #pragma mark - TMQuiltViewDataSource
 
 - (NSInteger)quiltViewNumberOfCells:(TMQuiltView *)TMQuiltView {
+    
     return [waterFlow.dataArray count];
 }
 
 - (TMQuiltViewCell *)quiltView:(TMQuiltView *)quiltView cellAtIndexPath:(NSIndexPath *)indexPath {
-    TMPhotoQuiltViewCell *cell = (TMPhotoQuiltViewCell *)[quiltView dequeueReusableCellWithReuseIdentifier:@"PhotoCell"];
-    if (!cell) {
-        cell = [[TMPhotoQuiltViewCell alloc] initWithReuseIdentifier:@"PhotoCell"];
+//    TMPhotoQuiltViewCell *cell = (TMPhotoQuiltViewCell *)[quiltView dequeueReusableCellWithReuseIdentifier:@"PhotoCell"];
+//    if (!cell) {
+//        cell = [[TMPhotoQuiltViewCell alloc] initWithReuseIdentifier:@"PhotoCell"];
+//    }
+//    
+//    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
+//    [cell setCellWithModel:aMode];
+    
+    MatchCaseCell * cell = (MatchCaseCell *)[quiltView dequeueReusableCellWithReuseIdentifier:@"identifier"];
+    if (!cell)
+    {
+        cell = [[MatchCaseCell alloc] initWithReuseIdentifier:@"identifier"];
     }
     
-    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
-    [cell setCellWithModel:aMode];
+    MatchCaseModel * model = waterFlow.dataArray[indexPath.row];
     
+    [cell setContentWithModel:model];
     
     return cell;
 }
