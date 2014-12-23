@@ -1,19 +1,19 @@
 //
-//  GmyMainViewController.m
+//  GSettingViewController.m
 //  YiYiProject
 //
-//  Created by gaomeng on 14/12/20.
+//  Created by gaomeng on 14/12/21.
 //  Copyright (c) 2014年 lcw. All rights reserved.
 //
 
-#import "GmyMainViewController.h"
-#import "GShowStarsView.h"
+#import "GSettingViewController.h"
 
-@interface GmyMainViewController ()
+@interface GSettingViewController ()
 
 @end
 
-@implementation GmyMainViewController
+@implementation GSettingViewController
+
 
 
 
@@ -26,9 +26,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    
-    
     
 }
 
