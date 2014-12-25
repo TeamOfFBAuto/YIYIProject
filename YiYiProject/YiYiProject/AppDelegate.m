@@ -47,6 +47,21 @@
 //腾讯开放平台：2451479286
 //密码：mobile2014
 
+//boundlid com.fblife.yijiayi
+
+//新浪
+
+//#define SinaAppKey @"2208620241"
+//#define SinaAppSecret @"fe596bc4ac8c92316ad5f255fbc49432"
+
+//#define QQAPPID @"1103196390" //十六进制:41C170E6; 生成方法:echo 'ibase=10;obase=16;1103196390'|bc
+//#define QQAPPKEY @"zc8ykXXrvWjKpyuh"
+
+//#define WXAPPID @"wx47f54e431de32846"
+//#define WXAPPSECRET @"a71699732e3bef01aefdaf324e2f522c"
+//
+//#define RedirectUrl @"http://sns.whalecloud.com/sina2/callback" //回调地址
+
 @interface AppDelegate ()<BMKGeneralDelegate>
 {
     BMKMapManager* _mapManager;

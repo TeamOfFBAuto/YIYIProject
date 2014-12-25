@@ -8,6 +8,7 @@
 
 #import "ProductDetailController.h"
 #import "ProductModel.h"
+#import "LShareSheetView.h"
 
 @interface ProductDetailController ()
 {
@@ -113,7 +114,7 @@
 
 - (void)clickToShare:(UIButton *)sender
 {
-    
+    [[LShareSheetView shareInstance] show];
 }
 
 - (IBAction)clickToDaPeiShi:(id)sender {

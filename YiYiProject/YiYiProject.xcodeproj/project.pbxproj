@@ -23,6 +23,13 @@
 		13684A791A37583E00A508FB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13684A771A37583E00A508FB /* LaunchScreen.xib */; };
 		13684A851A37583E00A508FB /* YiYiProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A841A37583E00A508FB /* YiYiProjectTests.m */; };
 		13684A901A37585200A508FB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A8F1A37585200A508FB /* RootViewController.m */; };
+		137E0AC11A4C559500B59F64 /* LShareSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 137E0AC01A4C559500B59F64 /* LShareSheetView.m */; };
+		137E0AD81A4C567500B59F64 /* pengyouquan72_7222x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD21A4C567500B59F64 /* pengyouquan72_7222x.png */; };
+		137E0AD91A4C567500B59F64 /* QQ72_72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD31A4C567500B59F64 /* QQ72_72@2x.png */; };
+		137E0ADA1A4C567500B59F64 /* qqzone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD41A4C567500B59F64 /* qqzone@2x.png */; };
+		137E0ADB1A4C567500B59F64 /* quxiao_button600_90@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD51A4C567500B59F64 /* quxiao_button600_90@2x.png */; };
+		137E0ADC1A4C567500B59F64 /* weibo90_72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD61A4C567500B59F64 /* weibo90_72@2x.png */; };
+		137E0ADD1A4C567500B59F64 /* weixin72_72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD71A4C567500B59F64 /* weixin72_72@2x.png */; };
 		138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 138C2BCB1A39E09200EA59F5 /* UMSocialLocalizable.strings */; };
 		138C2BF51A39E09200EA59F5 /* libUMSocial_Sdk_4.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C2BD91A39E09200EA59F5 /* libUMSocial_Sdk_4.2.1.a */; };
 		138C2BF61A39E09200EA59F5 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138C2BDB1A39E09200EA59F5 /* UMSCommentDetailController.xib */; };
@@ -169,6 +176,14 @@
 		13684A841A37583E00A508FB /* YiYiProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YiYiProjectTests.m; sourceTree = "<group>"; };
 		13684A8E1A37585200A508FB /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		13684A8F1A37585200A508FB /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		137E0ABF1A4C559500B59F64 /* LShareSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LShareSheetView.h; sourceTree = "<group>"; };
+		137E0AC01A4C559500B59F64 /* LShareSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LShareSheetView.m; sourceTree = "<group>"; };
+		137E0AD21A4C567500B59F64 /* pengyouquan72_7222x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pengyouquan72_7222x.png; sourceTree = "<group>"; };
+		137E0AD31A4C567500B59F64 /* QQ72_72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QQ72_72@2x.png"; sourceTree = "<group>"; };
+		137E0AD41A4C567500B59F64 /* qqzone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qqzone@2x.png"; sourceTree = "<group>"; };
+		137E0AD51A4C567500B59F64 /* quxiao_button600_90@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quxiao_button600_90@2x.png"; sourceTree = "<group>"; };
+		137E0AD61A4C567500B59F64 /* weibo90_72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weibo90_72@2x.png"; sourceTree = "<group>"; };
+		137E0AD71A4C567500B59F64 /* weixin72_72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weixin72_72@2x.png"; sourceTree = "<group>"; };
 		138C2BCC1A39E09200EA59F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		138C2BCE1A39E09200EA59F5 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		138C2BCF1A39E09200EA59F5 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -478,6 +493,7 @@
 		13681C6F1A4527A200671D07 /* AllImages */ = {
 			isa = PBXGroup;
 			children = (
+				137E0AD11A4C567500B59F64 /* UM_share */,
 				139607B21A46A0BB00AACAC4 /* ProductDetailImages */,
 				56A8A81F1A456DF400E85F6B /* homeMatchImages */,
 				13681C861A453DE600671D07 /* Login_images */,
@@ -577,6 +593,19 @@
 				13684A831A37583E00A508FB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		137E0AD11A4C567500B59F64 /* UM_share */ = {
+			isa = PBXGroup;
+			children = (
+				137E0AD21A4C567500B59F64 /* pengyouquan72_7222x.png */,
+				137E0AD31A4C567500B59F64 /* QQ72_72@2x.png */,
+				137E0AD41A4C567500B59F64 /* qqzone@2x.png */,
+				137E0AD51A4C567500B59F64 /* quxiao_button600_90@2x.png */,
+				137E0AD61A4C567500B59F64 /* weibo90_72@2x.png */,
+				137E0AD71A4C567500B59F64 /* weixin72_72@2x.png */,
+			);
+			path = UM_share;
 			sourceTree = "<group>";
 		};
 		138C2BC91A39E08500EA59F5 /* UMengShare */ = {
@@ -937,6 +966,8 @@
 		13CD364B1A3C6BD10068C12A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				137E0ABF1A4C559500B59F64 /* LShareSheetView.h */,
+				137E0AC01A4C559500B59F64 /* LShareSheetView.m */,
 				13CD364C1A3C6BD90068C12A /* TMPhotoQuiltViewCell.h */,
 				13CD364D1A3C6BD90068C12A /* TMPhotoQuiltViewCell.m */,
 				13CD36521A3C732D0068C12A /* LWaterflowView.h */,
@@ -1240,6 +1271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13681C8C1A453ECB00671D07 /* login_xinfeng@2x.png in Resources */,
+				137E0AD81A4C567500B59F64 /* pengyouquan72_7222x.png in Resources */,
 				E3B37D8E1A457C34009835A5 /* gstart@2x.png in Resources */,
 				13681C831A453B3200671D07 /* share_weixin@2x.png in Resources */,
 				138C2BFC1A39E09200EA59F5 /* UMSnsAccountViewController.xib in Resources */,
@@ -1249,6 +1281,7 @@
 				13681C851A453B9700671D07 /* back@2x.png in Resources */,
 				13CD36371A3C51BE0068C12A /* ForgetPwdController.xib in Resources */,
 				13684A741A37583E00A508FB /* Main.storyboard in Resources */,
+				137E0ADA1A4C567500B59F64 /* qqzone@2x.png in Resources */,
 				E3B37D8F1A457C34009835A5 /* gstart_half@2x.png in Resources */,
 				13A389A31A38942D00ABBACB /* MineViewController.xib in Resources */,
 				138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */,
@@ -1263,6 +1296,7 @@
 				138C2C021A39E09200EA59F5 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				13A3899D1A3893FC00ABBACB /* MessageViewController.xib in Resources */,
 				139562CC1A3C11EC007BB183 /* RegisterViewController.xib in Resources */,
+				137E0ADD1A4C567500B59F64 /* weixin72_72@2x.png in Resources */,
 				138C2BFB1A39E09200EA59F5 /* UMSLoginViewController.xib in Resources */,
 				56A8A8361A45BB1300E85F6B /* MatchTopicCell.xib in Resources */,
 				138C2BF71A39E09200EA59F5 /* UMSCommentInputController.xib in Resources */,
@@ -1276,6 +1310,7 @@
 				56A8A8251A4571CD00E85F6B /* stars_unselected_image@2x.png in Resources */,
 				138C2BFE1A39E09200EA59F5 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				56A8A82E1A458FF200E85F6B /* match_pinglun_image@2x.png in Resources */,
+				137E0ADB1A4C567500B59F64 /* quxiao_button600_90@2x.png in Resources */,
 				56A8A8211A456E0100E85F6B /* match_line_image@2x.png in Resources */,
 				139607BD1A46D82400AACAC4 /* FilterViewController.xib in Resources */,
 				13681C891A453DE600671D07 /* login_phone@2x.png in Resources */,
@@ -1284,6 +1319,8 @@
 				56A8A82D1A458FF200E85F6B /* clock_image@2x.png in Resources */,
 				13A3898C1A38937600ABBACB /* HomeViewController.xib in Resources */,
 				138C2BF81A39E09200EA59F5 /* UMSCommentInputControlleriPad.xib in Resources */,
+				137E0ADC1A4C567500B59F64 /* weibo90_72@2x.png in Resources */,
+				137E0AD91A4C567500B59F64 /* QQ72_72@2x.png in Resources */,
 				E3E3E8461A3C6724001A1DD6 /* mapapi.bundle in Resources */,
 				13A389B91A38974F00ABBACB /* blueup1@2x.png in Resources */,
 				56DAB2181A46C86B00273140 /* MatchCaseCell.xib in Resources */,
@@ -1357,6 +1394,7 @@
 				E3FC8DDF1A3C494A0025525D /* Gmodel.m in Sources */,
 				56A8A8351A45BB1300E85F6B /* MatchTopicCell.m in Sources */,
 				139558D61A40781C00CABC9E /* ProductModel.m in Sources */,
+				137E0AC11A4C559500B59F64 /* LShareSheetView.m in Sources */,
 				E3B37E081A46C7C1009835A5 /* GCycleScrollView.m in Sources */,
 				13A389BD1A38974F00ABBACB /* RefreshTableView.m in Sources */,
 				E3B37D8B1A457A18009835A5 /* GmyMainViewController.m in Sources */,
