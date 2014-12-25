@@ -102,9 +102,11 @@ typedef enum{
 
 #define HOME_PRODUCT_DETAIL @"http://182.92.158.32/api/products/getProductInfo?product_id=%@&authcode=%@"
 
+//单品 - 添加赞
+#define HOME_PRODUCT_ZAN_ADD @"http://182.92.158.32/?d=api&c=products&m=like"
 
-
-
+//单品 - 添加收藏
+#define HOME_PRODUCT_COLLECT_ADD @"http://182.92.158.32/?d=api&c=products&m=favor&product_id=%@&authcode=%@"
 
 
 

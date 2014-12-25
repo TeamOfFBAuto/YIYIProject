@@ -8,6 +8,15 @@
 
 #import "MyViewController.h"
 
+typedef enum {
+    
+    Action_like_yes = 0,//添加赞
+    Action_like_no,//取消赞
+    Action_Collect_yes,//添加收藏
+    Action_Collect_no//取消收藏
+    
+}ACTION_TYPE; //网络请求类型
+
 @interface ProductDetailController : MyViewController
 
 @property (nonatomic,retain)NSString *product_id;//产品id

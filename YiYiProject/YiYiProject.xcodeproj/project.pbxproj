@@ -30,6 +30,8 @@
 		137E0ADB1A4C567500B59F64 /* quxiao_button600_90@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD51A4C567500B59F64 /* quxiao_button600_90@2x.png */; };
 		137E0ADC1A4C567500B59F64 /* weibo90_72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD61A4C567500B59F64 /* weibo90_72@2x.png */; };
 		137E0ADD1A4C567500B59F64 /* weixin72_72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD71A4C567500B59F64 /* weixin72_72@2x.png */; };
+		137E0ADF1A4C65D000B59F64 /* product_like_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0ADE1A4C65D000B59F64 /* product_like_cancel@2x.png */; };
+		137E0AE11A4C66F200B59F64 /* product_shoucang_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AE01A4C66F200B59F64 /* product_shoucang_cancel@2x.png */; };
 		138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 138C2BCB1A39E09200EA59F5 /* UMSocialLocalizable.strings */; };
 		138C2BF51A39E09200EA59F5 /* libUMSocial_Sdk_4.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C2BD91A39E09200EA59F5 /* libUMSocial_Sdk_4.2.1.a */; };
 		138C2BF61A39E09200EA59F5 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138C2BDB1A39E09200EA59F5 /* UMSCommentDetailController.xib */; };
@@ -184,6 +186,8 @@
 		137E0AD51A4C567500B59F64 /* quxiao_button600_90@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quxiao_button600_90@2x.png"; sourceTree = "<group>"; };
 		137E0AD61A4C567500B59F64 /* weibo90_72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weibo90_72@2x.png"; sourceTree = "<group>"; };
 		137E0AD71A4C567500B59F64 /* weixin72_72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weixin72_72@2x.png"; sourceTree = "<group>"; };
+		137E0ADE1A4C65D000B59F64 /* product_like_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "product_like_cancel@2x.png"; sourceTree = "<group>"; };
+		137E0AE01A4C66F200B59F64 /* product_shoucang_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "product_shoucang_cancel@2x.png"; sourceTree = "<group>"; };
 		138C2BCC1A39E09200EA59F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		138C2BCE1A39E09200EA59F5 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		138C2BCF1A39E09200EA59F5 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -750,6 +754,8 @@
 		139607B21A46A0BB00AACAC4 /* ProductDetailImages */ = {
 			isa = PBXGroup;
 			children = (
+				137E0AE01A4C66F200B59F64 /* product_shoucang_cancel@2x.png */,
+				137E0ADE1A4C65D000B59F64 /* product_like_cancel@2x.png */,
 				139607B31A46A0BB00AACAC4 /* product_like@2x.png */,
 				139607B41A46A0BB00AACAC4 /* product_share@2x.png */,
 				139607B51A46A0BB00AACAC4 /* product_shoucang@2x.png */,
@@ -1271,6 +1277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13681C8C1A453ECB00671D07 /* login_xinfeng@2x.png in Resources */,
+				137E0ADF1A4C65D000B59F64 /* product_like_cancel@2x.png in Resources */,
 				137E0AD81A4C567500B59F64 /* pengyouquan72_7222x.png in Resources */,
 				E3B37D8E1A457C34009835A5 /* gstart@2x.png in Resources */,
 				13681C831A453B3200671D07 /* share_weixin@2x.png in Resources */,
@@ -1283,6 +1290,7 @@
 				13684A741A37583E00A508FB /* Main.storyboard in Resources */,
 				137E0ADA1A4C567500B59F64 /* qqzone@2x.png in Resources */,
 				E3B37D8F1A457C34009835A5 /* gstart_half@2x.png in Resources */,
+				137E0AE11A4C66F200B59F64 /* product_shoucang_cancel@2x.png in Resources */,
 				13A389A31A38942D00ABBACB /* MineViewController.xib in Resources */,
 				138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */,
 				E3B2DC6B1A45209400607B11 /* gpin@2x.png in Resources */,

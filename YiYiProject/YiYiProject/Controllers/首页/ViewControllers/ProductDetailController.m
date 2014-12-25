@@ -13,6 +13,10 @@
 @interface ProductDetailController ()
 {
     ProductModel *aModel;
+    
+    UIButton *heartButton;//赞 与 取消赞
+    
+    UIButton *collectButton;//收藏 与 取消收藏
 }
 
 @end
@@ -31,13 +35,11 @@
     
     [self setMyViewControllerLeftButtonType:MyViewControllerLeftbuttonTypeBack WithRightButtonType:MyViewControllerRightbuttonTypeNull];
     
-    self.shopNameLabel.text = @"  店铺的名字会很长的  ";
+    [self createNavigationbarTools];
     
     self.bugButton.layer.cornerRadius = 5.0f;
     self.bugButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.bugButton.layer.borderWidth = 1.f;
-    
-    [self createNavigationbarTools];
     
     [self networkForDetail];
     
@@ -88,6 +90,65 @@
     }];
 }
 
+/**
+ *  赞 取消赞 收藏 取消收藏
+ *
+ *  @param action_type
+ */
+- (void)networkForActionType:(ACTION_TYPE)action_type
+{
+    
+    __weak typeof(self)weakSelf = self;
+    
+    NSString *api;
+    if (action_type == Action_like_yes) {
+        api = HOME_PRODUCT_ZAN_ADD;
+    }else if (action_type == Action_Collect_yes){
+        api = HOME_PRODUCT_COLLECT_ADD;
+    }else if (action_type == Action_like_no){
+        api = @"";
+    }else if (action_type == Action_Collect_no){
+        
+        api = @"";
+    }    
+    
+    NSString *post = [NSString stringWithFormat:@"product_id=%@&authcode=%@",self.product_id,[GMAPI getAuthkey]];
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    
+    NSString *url = api;
+    
+    LTools *tool = [[LTools alloc]initWithUrl:url isPost:YES postData:postData];
+    [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"result %@",result);
+        
+//        [LTools alertText:result[@"msg"] viewController:self];
+        
+        if (action_type == Action_like_yes) {
+            
+            heartButton.selected = YES;
+            
+        }else if (action_type == Action_Collect_yes){
+            
+            collectButton.selected = YES;
+            
+        }else if (action_type == Action_like_no){
+            
+            heartButton.selected = NO;
+            
+        }else if (action_type == Action_Collect_no){
+            
+            collectButton.selected = NO;
+        }
+        
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        
+        NSLog(@"failBlock == %@",failDic[RESULT_INFO]);
+        
+    }];
+}
+
 
 #pragma mark - 事件处理
 
@@ -96,7 +157,13 @@
  */
 - (void)clickToLike:(UIButton *)sender
 {
-    
+    if (sender.selected) {
+        
+        [self networkForActionType:Action_like_no];
+    }else
+    {
+        [self networkForActionType:Action_like_yes];
+    }
 }
 
 /*
@@ -105,7 +172,13 @@
 
 - (void)clickToCollect:(UIButton *)sender
 {
-    
+    if (sender.selected) {
+        
+        [self networkForActionType:Action_Collect_no];
+    }else
+    {
+        [self networkForActionType:Action_Collect_yes];
+    }
 }
 
 /*
@@ -185,6 +258,14 @@
  */
 - (void)prepareViewWithModel:(ProductModel *)aProductModel
 {
+    
+    //赞 与 收藏 状态
+    
+    heartButton.selected = aProductModel.is_like == 1 ? YES : NO;
+    
+    collectButton.selected = aProductModel.is_favor ==  1 ? YES : NO;
+    
+    
     NSString *brandName = aProductModel.brand_info[@"brand_name"];
     self.brandName.text = [NSString stringWithFormat:@" %@ ",brandName];
     
@@ -223,20 +304,20 @@
     UIButton *rightView=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 190, 44)];
     rightView.backgroundColor=[UIColor clearColor];
     
-    UIButton *heartButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+    heartButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
     [heartButton addTarget:self action:@selector(clickToLike:) forControlEvents:UIControlEventTouchUpInside];
 //    [heartButton setTitle:@"喜欢" forState:UIControlStateNormal];
     [heartButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [heartButton setImage:[UIImage imageNamed:@"product_like"] forState:UIControlStateNormal];
-    [heartButton setImage:[UIImage imageNamed:nil] forState:UIControlStateSelected];
+    [heartButton setImage:[UIImage imageNamed:@"product_like_cancel"] forState:UIControlStateSelected];
     [heartButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     
     //收藏的
     
-    UIButton *collectButton =[[UIButton alloc]initWithFrame:CGRectMake(74,0, 44,42.5)];
+    collectButton =[[UIButton alloc]initWithFrame:CGRectMake(74,0, 44,42.5)];
     [collectButton addTarget:self action:@selector(clickToCollect:) forControlEvents:UIControlEventTouchUpInside];
     [collectButton setImage:[UIImage imageNamed:@"product_shoucang"] forState:UIControlStateNormal];
-//    [collectButton setTitle:@"收藏" forState:UIControlStateNormal];
+    [collectButton setImage:[UIImage imageNamed:@"product_shoucang_cancel"] forState:UIControlStateSelected];
     [collectButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     collectButton.center = CGPointMake(rightView.width / 2.f, collectButton.center.y);
     [collectButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
