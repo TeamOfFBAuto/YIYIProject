@@ -8,7 +8,7 @@
 
 #import "ApplyForViewController.h"
 
-@interface ApplyForViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface ApplyForViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIActionSheetDelegate>
 {
     NSString * phone_num_string;///手机号
     NSString * verification_string;//验证码
@@ -163,7 +163,7 @@
 #pragma mark - 选取身份证照片
 -(void)chooseIdCardTap:(UIButton *)button
 {
-    
+    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"" otherButtonTitles:@"相机",@"相册", nil];
 }
 
 #pragma mark - 提交申请

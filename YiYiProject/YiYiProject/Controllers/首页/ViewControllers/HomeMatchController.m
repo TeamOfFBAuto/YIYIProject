@@ -14,7 +14,7 @@
 #import "MatchTopicModel.h"
 #import "MatchTopicCell.h"
 #import "SNRefreshTableView.h"
-#import "LWaterflowView.h"
+#import "MatchWaterflowView.h"
 #import "MatchCaseModel.h"
 #import "MatchCaseCell.h"
 #import "ApplyForViewController.h"
@@ -25,7 +25,7 @@
     UIView * section_view;
     NSInteger current_page;
     ///瀑布流
-    LWaterflowView * waterFlow;
+    MatchWaterflowView * waterFlow;
     
     int match_data_page;
     int topic_data_page;
@@ -107,7 +107,6 @@
                         [bself.myMatch_array addObject:model];
                     }
                 }
-                
                 [bself setSectionView];
             }
         }
@@ -359,6 +358,8 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"MatchTopicCell" owner:nil options:nil] objectAtIndex:0];
         }
         
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         [cell setInfoWith:[_array_topic objectAtIndex:indexPath.row]];
         
         return cell;
@@ -371,18 +372,14 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
-        waterFlow = [[LWaterflowView alloc]initWithFrame:CGRectMake(0, 0, ALL_FRAME_WIDTH, ALL_FRAME_HEIGHT - 49 - 44) waterDelegate:self waterDataSource:self];
+        waterFlow = [[MatchWaterflowView alloc]initWithFrame:CGRectMake(0, 0, ALL_FRAME_WIDTH, ALL_FRAME_HEIGHT - 49 - 44) waterDelegate:self waterDataSource:self];
         waterFlow.backgroundColor = RGBCOLOR(240, 230, 235);
         [cell.contentView addSubview:waterFlow];
         
         [waterFlow showRefreshHeader:NO];
-        
         [waterFlow reloadData:_array_matchCase total:100];
-
         return cell;
     }
-    
-    
 }
 
 
@@ -441,7 +438,6 @@
     
     
     MatchCaseModel * model = waterFlow.dataArray[indexPath.row];
-    
     return [model.tt_img_height floatValue] / 2.f + 50;
 }
 - (CGFloat)waterViewNumberOfColumns
@@ -452,18 +448,10 @@
 #pragma mark - TMQuiltViewDataSource
 
 - (NSInteger)quiltViewNumberOfCells:(TMQuiltView *)TMQuiltView {
-    
     return [waterFlow.dataArray count];
 }
 
 - (TMQuiltViewCell *)quiltView:(TMQuiltView *)quiltView cellAtIndexPath:(NSIndexPath *)indexPath {
-//    TMPhotoQuiltViewCell *cell = (TMPhotoQuiltViewCell *)[quiltView dequeueReusableCellWithReuseIdentifier:@"PhotoCell"];
-//    if (!cell) {
-//        cell = [[TMPhotoQuiltViewCell alloc] initWithReuseIdentifier:@"PhotoCell"];
-//    }
-//    
-//    ProductModel *aMode = waterFlow.dataArray[indexPath.row];
-//    [cell setCellWithModel:aMode];
     
     MatchCaseCell * cell = (MatchCaseCell *)[quiltView dequeueReusableCellWithReuseIdentifier:@"identifier"];
     if (!cell)

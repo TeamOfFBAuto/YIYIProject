@@ -13,20 +13,18 @@
 #import "TMPhotoQuiltViewCell.h"
 #import "MatchCaseModel.h"
 
+
+///图片宽度
+#define PIC_WIDTH DEVICE_WIDTH/2.0f-20
+
 @interface MatchCaseCell : TMQuiltViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *header_imageView;
-
-@property (strong, nonatomic) IBOutlet UILabel *userName_label;
-
-
-@property (strong, nonatomic) IBOutlet UIImageView *pic_imageView;
-
-
-
-
-
-
+///用户头像
+@property (strong, nonatomic) UIImageView *header_imageView;
+///用户昵称
+@property (strong, nonatomic) UILabel *userName_label;
+///搭配图片
+@property (strong, nonatomic) UIImageView *pic_imageView;
 
 
 -(void)setContentWithModel:(MatchCaseModel *)model;
