@@ -39,6 +39,7 @@ alpha:(a)]
 #define USRR_AUTHKEY @"authkey"
 #define USER_DEVICE_TOKEN @"DEVICE_TOKEN"
 
+#define RONGCLOUD_TOKEN @"rongCloudToken"//融云对应的token
 
 #define LOGIN_SUCCESS @"login_success"//登录状态
 

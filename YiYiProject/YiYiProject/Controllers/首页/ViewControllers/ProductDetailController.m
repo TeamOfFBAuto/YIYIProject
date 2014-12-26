@@ -9,6 +9,7 @@
 #import "ProductDetailController.h"
 #import "ProductModel.h"
 #import "LShareSheetView.h"
+#import "YIYIChatViewController.h"
 
 @interface ProductDetailController ()
 {
@@ -194,8 +195,21 @@
     
 }
 
+/**
+ *  联系商家
+ *
+ *  @param sender
+ */
 - (IBAction)clickToContact:(id)sender {
     
+    YIYIChatViewController *contact = [[YIYIChatViewController alloc]init];
+    contact.currentTarget = @"1";
+    contact.currentTargetName = @"RNail";
+    contact.portraitStyle = RCUserAvatarCycle;
+    contact.enableSettings = NO;
+    contact.conversationType = ConversationType_PRIVATE;
+    
+    [self.navigationController pushViewController:contact animated:YES];
 }
 
 - (IBAction)clickToBuy:(id)sender {

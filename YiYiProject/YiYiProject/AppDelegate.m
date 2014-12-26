@@ -18,8 +18,18 @@
 //#import "UMSocialTencentWeiboHandler.h"
 #import "BMapKit.h"
 
+#import "RCIM.h"
+
+//融云cloud
+
+#define RONGCLOUD_IM_APPKEY    @"x18ywvqf82x0c"
+#define RONGCLOUD_IM_APPSECRET @"qaOLno5Zgm"
 
 #define UmengAppkey @"5423e48cfd98c58eed00664f"
+
+
+
+
 /**
  *  先用骑叭的做测试
  */
@@ -66,8 +76,8 @@
 {
     BMKMapManager* _mapManager;
     CLLocationManager *_locationManager;
-
 }
+
 @end
 
 @implementation AppDelegate
@@ -75,6 +85,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
+    
+    [self rondCloudDefaultLogin];
     
 #ifdef __IPHONE_8_0
     // 在 iOS 8 下注册苹果推送，申请推送权限。
@@ -106,15 +120,12 @@
     RootViewController *root = [[RootViewController alloc]init];
     
     
-    
-    
-    
     if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=8.0)) {
         _locationManager = [[CLLocationManager alloc] init];
         [_locationManager requestAlwaysAuthorization];
         [_locationManager startUpdatingLocation];
     }
-#pragma mark - 百度地图相关
+#pragma mark 百度地图相关
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
     // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
@@ -137,8 +148,8 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [[RCIM sharedRCIM] getTotalUnreadCount];//融云
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -220,6 +231,8 @@
 {
     NSLog(@"My token is: %@", deviceToken);
     
+    [[RCIM sharedRCIM]setDeviceToken:deviceToken];//融云
+    
     NSString *string_pushtoken=[NSString stringWithFormat:@"%@",deviceToken];
     
     while ([string_pushtoken rangeOfString:@"<"].length||[string_pushtoken rangeOfString:@">"].length||[string_pushtoken rangeOfString:@" "].length) {
@@ -244,41 +257,33 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     
-    NSLog(@" 收到推送消息： %@",[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]);
-    
-    //    UIApplicationStateInactive {
-    //        aps =     {
-    //            alert = "\U60a8\U6536\U5230\U4e00\U6761\U79bb\U7ebf\U6d88\U606f";
-    //            badge = 1;
-    //            headimg = "http://bbs.fblife.com/ucenter/avatar.php?uid=1&type=virtual&size=middle";
-    //            sound = default;
-    //            tophone = 18612389982;
-    //            type = 1;
-    //        };
-    //    }
-    
-    //正在前台,获取推送时，此处可以获取
-    //后台，点击进入,此处可以获取
-    UIApplicationState state = [application applicationState];
-    if (state == UIApplicationStateInactive){
-        NSLog(@"UIApplicationStateInactive %@",userInfo);
-        
-        //通过消息进入程序
-        
-        
-    }
-    if (state == UIApplicationStateActive) {
-        NSLog(@"UIApplicationStateActive %@",userInfo);
-        //程序就在前台
-        //弹框
-    }
-    if (state == UIApplicationStateBackground)
-    {
-        NSLog(@"UIApplicationStateBackground %@",userInfo);
-        
-        [LTools showMBProgressWithText:@"backgroud" addToView:self.window];
-    }
 }
 
+
+#pragma mark 事件处理
+
+- (void)rondCloudDefaultLogin
+{
+    //测试token
+    
+    [LTools cache:@"Z+v61ga3tUUkgHbgG6eFblki5ktT/tK95honsc0yvtV+p7lzHFE9Vop/XwArqiec9DnDrmeC0is=" ForKey:RONGCLOUD_TOKEN];
+    
+    NSString *loginToken = [LTools cacheForKey:RONGCLOUD_TOKEN];
+    
+    //默认测试
+    
+    if (loginToken.length > 0) {
+        
+        [RCIM connectWithToken:loginToken completion:^(NSString *userId) {
+            
+            NSLog(@"------> rongCloud success %@",userId);
+            
+        } error:^(RCConnectErrorCode status) {
+           
+            NSLog(@"------> rongCloud fail %d",(int)status);
+            
+        }];
+    }
+}
 
 @end

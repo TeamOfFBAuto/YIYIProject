@@ -32,6 +32,20 @@
 		137E0ADD1A4C567500B59F64 /* weixin72_72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AD71A4C567500B59F64 /* weixin72_72@2x.png */; };
 		137E0ADF1A4C65D000B59F64 /* product_like_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0ADE1A4C65D000B59F64 /* product_like_cancel@2x.png */; };
 		137E0AE11A4C66F200B59F64 /* product_shoucang_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137E0AE01A4C66F200B59F64 /* product_shoucang_cancel@2x.png */; };
+		137FC2A01A4DADB80039E3FF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC29F1A4DADB80039E3FF /* AudioToolbox.framework */; };
+		137FC2A21A4DADFE0039E3FF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2A11A4DADFE0039E3FF /* AVFoundation.framework */; };
+		137FC2A41A4DAE070039E3FF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2A31A4DAE070039E3FF /* CFNetwork.framework */; };
+		137FC2A61A4DAE0F0039E3FF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2A51A4DAE0F0039E3FF /* CoreAudio.framework */; };
+		137FC2A81A4DAE1F0039E3FF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2A71A4DAE1F0039E3FF /* CoreImage.framework */; };
+		137FC2AA1A4DAE320039E3FF /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2A91A4DAE320039E3FF /* CoreMedia.framework */; };
+		137FC2AC1A4DAE410039E3FF /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2AB1A4DAE410039E3FF /* CoreVideo.framework */; };
+		137FC2AE1A4DAE4A0039E3FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2AD1A4DAE4A0039E3FF /* Foundation.framework */; };
+		137FC2B01A4DAE550039E3FF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2AF1A4DAE550039E3FF /* libc++.dylib */; };
+		137FC2B21A4DAE780039E3FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2B11A4DAE780039E3FF /* MapKit.framework */; };
+		137FC2B41A4DAE980039E3FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2B31A4DAE980039E3FF /* UIKit.framework */; };
+		137FC2DD1A4DB2DC0039E3FF /* libiOS_IMKit_v1_2_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FC2DB1A4DB2DC0039E3FF /* libiOS_IMKit_v1_2_7.a */; };
+		137FC2DE1A4DB2DC0039E3FF /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 137FC2DC1A4DB2DC0039E3FF /* RongCloud.bundle */; };
+		137FC2E11A4DB6A60039E3FF /* YIYIChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137FC2E01A4DB6A60039E3FF /* YIYIChatViewController.m */; };
 		138C2BF41A39E09200EA59F5 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 138C2BCB1A39E09200EA59F5 /* UMSocialLocalizable.strings */; };
 		138C2BF51A39E09200EA59F5 /* libUMSocial_Sdk_4.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 138C2BD91A39E09200EA59F5 /* libUMSocial_Sdk_4.2.1.a */; };
 		138C2BF61A39E09200EA59F5 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138C2BDB1A39E09200EA59F5 /* UMSCommentDetailController.xib */; };
@@ -189,6 +203,56 @@
 		137E0AD71A4C567500B59F64 /* weixin72_72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weixin72_72@2x.png"; sourceTree = "<group>"; };
 		137E0ADE1A4C65D000B59F64 /* product_like_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "product_like_cancel@2x.png"; sourceTree = "<group>"; };
 		137E0AE01A4C66F200B59F64 /* product_shoucang_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "product_shoucang_cancel@2x.png"; sourceTree = "<group>"; };
+		137FC29F1A4DADB80039E3FF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		137FC2A11A4DADFE0039E3FF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		137FC2A31A4DAE070039E3FF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		137FC2A51A4DAE0F0039E3FF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		137FC2A71A4DAE1F0039E3FF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		137FC2A91A4DAE320039E3FF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		137FC2AB1A4DAE410039E3FF /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		137FC2AD1A4DAE4A0039E3FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		137FC2AF1A4DAE550039E3FF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		137FC2B11A4DAE780039E3FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		137FC2B31A4DAE980039E3FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		137FC2B81A4DB2DC0039E3FF /* AmrDataConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmrDataConverter.h; sourceTree = "<group>"; };
+		137FC2B91A4DB2DC0039E3FF /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		137FC2BA1A4DB2DC0039E3FF /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		137FC2BB1A4DB2DC0039E3FF /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		137FC2BC1A4DB2DC0039E3FF /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		137FC2BD1A4DB2DC0039E3FF /* RCBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBasicViewController.h; sourceTree = "<group>"; };
+		137FC2BE1A4DB2DC0039E3FF /* RCChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatListViewController.h; sourceTree = "<group>"; };
+		137FC2BF1A4DB2DC0039E3FF /* RCChatSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatSettingViewController.h; sourceTree = "<group>"; };
+		137FC2C01A4DB2DC0039E3FF /* RCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatViewController.h; sourceTree = "<group>"; };
+		137FC2C11A4DB2DC0039E3FF /* RCClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCClientDelegate.h; sourceTree = "<group>"; };
+		137FC2C21A4DB2DC0039E3FF /* RCConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConversation.h; sourceTree = "<group>"; };
+		137FC2C31A4DB2DC0039E3FF /* RCDiscussion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDiscussion.h; sourceTree = "<group>"; };
+		137FC2C41A4DB2DC0039E3FF /* RCDiscussionNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDiscussionNotification.h; sourceTree = "<group>"; };
+		137FC2C51A4DB2DC0039E3FF /* RCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCGroup.h; sourceTree = "<group>"; };
+		137FC2C61A4DB2DC0039E3FF /* RCGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCGroupListViewController.h; sourceTree = "<group>"; };
+		137FC2C71A4DB2DC0039E3FF /* RCHandShakeMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHandShakeMessage.h; sourceTree = "<group>"; };
+		137FC2C81A4DB2DC0039E3FF /* RCIM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCIM.h; sourceTree = "<group>"; };
+		137FC2C91A4DB2DC0039E3FF /* RCImageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCImageMessage.h; sourceTree = "<group>"; };
+		137FC2CA1A4DB2DC0039E3FF /* RCIMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCIMClient.h; sourceTree = "<group>"; };
+		137FC2CB1A4DB2DC0039E3FF /* RCIMClientHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCIMClientHeader.h; sourceTree = "<group>"; };
+		137FC2CC1A4DB2DC0039E3FF /* RCLocationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLocationMessage.h; sourceTree = "<group>"; };
+		137FC2CD1A4DB2DC0039E3FF /* RCLocationPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLocationPickerViewController.h; sourceTree = "<group>"; };
+		137FC2CE1A4DB2DC0039E3FF /* RCLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLocationViewController.h; sourceTree = "<group>"; };
+		137FC2CF1A4DB2DC0039E3FF /* RCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMessage.h; sourceTree = "<group>"; };
+		137FC2D01A4DB2DC0039E3FF /* RCMessageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMessageContent.h; sourceTree = "<group>"; };
+		137FC2D11A4DB2DC0039E3FF /* RCNotificationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNotificationMessage.h; sourceTree = "<group>"; };
+		137FC2D21A4DB2DC0039E3FF /* RCPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPreviewViewController.h; sourceTree = "<group>"; };
+		137FC2D31A4DB2DC0039E3FF /* RCRenameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRenameViewController.h; sourceTree = "<group>"; };
+		137FC2D41A4DB2DC0039E3FF /* RCRichContentMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRichContentMessage.h; sourceTree = "<group>"; };
+		137FC2D51A4DB2DC0039E3FF /* RCSelectPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSelectPersonViewController.h; sourceTree = "<group>"; };
+		137FC2D61A4DB2DC0039E3FF /* RCStatusDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCStatusDefine.h; sourceTree = "<group>"; };
+		137FC2D71A4DB2DC0039E3FF /* RCTextMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTextMessage.h; sourceTree = "<group>"; };
+		137FC2D81A4DB2DC0039E3FF /* RCThemeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCThemeDefine.h; sourceTree = "<group>"; };
+		137FC2D91A4DB2DC0039E3FF /* RCUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserInfo.h; sourceTree = "<group>"; };
+		137FC2DA1A4DB2DC0039E3FF /* RCVoiceMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCVoiceMessage.h; sourceTree = "<group>"; };
+		137FC2DB1A4DB2DC0039E3FF /* libiOS_IMKit_v1_2_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiOS_IMKit_v1_2_7.a; sourceTree = "<group>"; };
+		137FC2DC1A4DB2DC0039E3FF /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
+		137FC2DF1A4DB6A60039E3FF /* YIYIChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIYIChatViewController.h; sourceTree = "<group>"; };
+		137FC2E01A4DB6A60039E3FF /* YIYIChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIYIChatViewController.m; sourceTree = "<group>"; };
 		138C2BCC1A39E09200EA59F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		138C2BCE1A39E09200EA59F5 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		138C2BCF1A39E09200EA59F5 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -446,17 +510,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				138C2C061A39E22700EA59F5 /* Security.framework in Frameworks */,
-				138C2C0C1A39E24600EA59F5 /* CoreGraphics.framework in Frameworks */,
+				137FC2B41A4DAE980039E3FF /* UIKit.framework in Frameworks */,
 				138C2C0A1A39E23E00EA59F5 /* SystemConfiguration.framework in Frameworks */,
-				E3E3E84C1A3C678C001A1DD6 /* OpenGLES.framework in Frameworks */,
 				E3E3E84A1A3C6780001A1DD6 /* QuartzCore.framework in Frameworks */,
-				E3E3E8481A3C6772001A1DD6 /* CoreLocation.framework in Frameworks */,
+				E3E3E84C1A3C678C001A1DD6 /* OpenGLES.framework in Frameworks */,
+				137FC2B21A4DAE780039E3FF /* MapKit.framework in Frameworks */,
+				137FC2DD1A4DB2DC0039E3FF /* libiOS_IMKit_v1_2_7.a in Frameworks */,
 				138C2C141A39E46B00EA59F5 /* libz.dylib in Frameworks */,
 				138C2C121A39E45E00EA59F5 /* libstdc++.dylib in Frameworks */,
-				E3E3E8451A3C6724001A1DD6 /* libbaidumapapi.a in Frameworks */,
-				138C2C101A39E3FF00EA59F5 /* CoreTelephony.framework in Frameworks */,
 				138C2C0E1A39E25000EA59F5 /* libsqlite3.dylib in Frameworks */,
+				137FC2B01A4DAE550039E3FF /* libc++.dylib in Frameworks */,
+				137FC2AE1A4DAE4A0039E3FF /* Foundation.framework in Frameworks */,
+				137FC2AC1A4DAE410039E3FF /* CoreVideo.framework in Frameworks */,
+				138C2C101A39E3FF00EA59F5 /* CoreTelephony.framework in Frameworks */,
+				137FC2AA1A4DAE320039E3FF /* CoreMedia.framework in Frameworks */,
+				E3E3E8481A3C6772001A1DD6 /* CoreLocation.framework in Frameworks */,
+				137FC2A81A4DAE1F0039E3FF /* CoreImage.framework in Frameworks */,
+				138C2C0C1A39E24600EA59F5 /* CoreGraphics.framework in Frameworks */,
+				137FC2A61A4DAE0F0039E3FF /* CoreAudio.framework in Frameworks */,
+				137FC2A41A4DAE070039E3FF /* CFNetwork.framework in Frameworks */,
+				137FC2A21A4DADFE0039E3FF /* AVFoundation.framework in Frameworks */,
+				137FC2A01A4DADB80039E3FF /* AudioToolbox.framework in Frameworks */,
+				138C2C061A39E22700EA59F5 /* Security.framework in Frameworks */,
+				E3E3E8451A3C6724001A1DD6 /* libbaidumapapi.a in Frameworks */,
 				138C2C081A39E23200EA59F5 /* libiconv.dylib in Frameworks */,
 				138C2C041A39E09200EA59F5 /* libWeChatSDK.a in Frameworks */,
 				138C2C011A39E09200EA59F5 /* TencentOpenAPI.framework in Frameworks */,
@@ -481,6 +557,17 @@
 		12A83EACEAF04194B6F77679 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				137FC2B31A4DAE980039E3FF /* UIKit.framework */,
+				137FC2B11A4DAE780039E3FF /* MapKit.framework */,
+				137FC2AF1A4DAE550039E3FF /* libc++.dylib */,
+				137FC2AD1A4DAE4A0039E3FF /* Foundation.framework */,
+				137FC2AB1A4DAE410039E3FF /* CoreVideo.framework */,
+				137FC2A91A4DAE320039E3FF /* CoreMedia.framework */,
+				137FC2A71A4DAE1F0039E3FF /* CoreImage.framework */,
+				137FC2A51A4DAE0F0039E3FF /* CoreAudio.framework */,
+				137FC2A31A4DAE070039E3FF /* CFNetwork.framework */,
+				137FC2A11A4DADFE0039E3FF /* AVFoundation.framework */,
+				137FC29F1A4DADB80039E3FF /* AudioToolbox.framework */,
 				E3E3E84B1A3C678C001A1DD6 /* OpenGLES.framework */,
 				E3E3E8491A3C6780001A1DD6 /* QuartzCore.framework */,
 				E3E3E8471A3C6772001A1DD6 /* CoreLocation.framework */,
@@ -555,6 +642,7 @@
 		13684A671A37583E00A508FB /* YiYiProject */ = {
 			isa = PBXGroup;
 			children = (
+				137FC2B51A4DB2C90039E3FF /* RongCloud */,
 				13681C6F1A4527A200671D07 /* AllImages */,
 				138C2C1A1A39E68900EA59F5 /* ApiHeader.h */,
 				138C2BC91A39E08500EA59F5 /* UMengShare */,
@@ -613,6 +701,66 @@
 				137E0AD71A4C567500B59F64 /* weixin72_72@2x.png */,
 			);
 			path = UM_share;
+			sourceTree = "<group>";
+		};
+		137FC2B51A4DB2C90039E3FF /* RongCloud */ = {
+			isa = PBXGroup;
+			children = (
+				137FC2B61A4DB2DC0039E3FF /* IMKit */,
+			);
+			path = RongCloud;
+			sourceTree = "<group>";
+		};
+		137FC2B61A4DB2DC0039E3FF /* IMKit */ = {
+			isa = PBXGroup;
+			children = (
+				137FC2B71A4DB2DC0039E3FF /* Headers */,
+				137FC2DB1A4DB2DC0039E3FF /* libiOS_IMKit_v1_2_7.a */,
+				137FC2DC1A4DB2DC0039E3FF /* RongCloud.bundle */,
+			);
+			path = IMKit;
+			sourceTree = "<group>";
+		};
+		137FC2B71A4DB2DC0039E3FF /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				137FC2B81A4DB2DC0039E3FF /* AmrDataConverter.h */,
+				137FC2B91A4DB2DC0039E3FF /* dec_if.h */,
+				137FC2BA1A4DB2DC0039E3FF /* if_rom.h */,
+				137FC2BB1A4DB2DC0039E3FF /* interf_dec.h */,
+				137FC2BC1A4DB2DC0039E3FF /* interf_enc.h */,
+				137FC2BD1A4DB2DC0039E3FF /* RCBasicViewController.h */,
+				137FC2BE1A4DB2DC0039E3FF /* RCChatListViewController.h */,
+				137FC2BF1A4DB2DC0039E3FF /* RCChatSettingViewController.h */,
+				137FC2C01A4DB2DC0039E3FF /* RCChatViewController.h */,
+				137FC2C11A4DB2DC0039E3FF /* RCClientDelegate.h */,
+				137FC2C21A4DB2DC0039E3FF /* RCConversation.h */,
+				137FC2C31A4DB2DC0039E3FF /* RCDiscussion.h */,
+				137FC2C41A4DB2DC0039E3FF /* RCDiscussionNotification.h */,
+				137FC2C51A4DB2DC0039E3FF /* RCGroup.h */,
+				137FC2C61A4DB2DC0039E3FF /* RCGroupListViewController.h */,
+				137FC2C71A4DB2DC0039E3FF /* RCHandShakeMessage.h */,
+				137FC2C81A4DB2DC0039E3FF /* RCIM.h */,
+				137FC2C91A4DB2DC0039E3FF /* RCImageMessage.h */,
+				137FC2CA1A4DB2DC0039E3FF /* RCIMClient.h */,
+				137FC2CB1A4DB2DC0039E3FF /* RCIMClientHeader.h */,
+				137FC2CC1A4DB2DC0039E3FF /* RCLocationMessage.h */,
+				137FC2CD1A4DB2DC0039E3FF /* RCLocationPickerViewController.h */,
+				137FC2CE1A4DB2DC0039E3FF /* RCLocationViewController.h */,
+				137FC2CF1A4DB2DC0039E3FF /* RCMessage.h */,
+				137FC2D01A4DB2DC0039E3FF /* RCMessageContent.h */,
+				137FC2D11A4DB2DC0039E3FF /* RCNotificationMessage.h */,
+				137FC2D21A4DB2DC0039E3FF /* RCPreviewViewController.h */,
+				137FC2D31A4DB2DC0039E3FF /* RCRenameViewController.h */,
+				137FC2D41A4DB2DC0039E3FF /* RCRichContentMessage.h */,
+				137FC2D51A4DB2DC0039E3FF /* RCSelectPersonViewController.h */,
+				137FC2D61A4DB2DC0039E3FF /* RCStatusDefine.h */,
+				137FC2D71A4DB2DC0039E3FF /* RCTextMessage.h */,
+				137FC2D81A4DB2DC0039E3FF /* RCThemeDefine.h */,
+				137FC2D91A4DB2DC0039E3FF /* RCUserInfo.h */,
+				137FC2DA1A4DB2DC0039E3FF /* RCVoiceMessage.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		138C2BC91A39E08500EA59F5 /* UMengShare */ = {
@@ -859,6 +1007,8 @@
 				139607B91A46D82400AACAC4 /* FilterViewController.h */,
 				139607BA1A46D82400AACAC4 /* FilterViewController.m */,
 				139607BB1A46D82400AACAC4 /* FilterViewController.xib */,
+				137FC2DF1A4DB6A60039E3FF /* YIYIChatViewController.h */,
+				137FC2E01A4DB6A60039E3FF /* YIYIChatViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1316,6 +1466,7 @@
 				13681C711A4527A200671D07 /* navigationBarBackground@2x.png in Resources */,
 				139886A61A45673500241962 /* ProductDetailController.xib in Resources */,
 				13A389971A3893D000ABBACB /* TTaiViewController.xib in Resources */,
+				137FC2DE1A4DB2DC0039E3FF /* RongCloud.bundle in Resources */,
 				13684A761A37583E00A508FB /* Images.xcassets in Resources */,
 				139607B61A46A0BB00AACAC4 /* product_like@2x.png in Resources */,
 				139607C21A46DC7900AACAC4 /* FilterView.xib in Resources */,
@@ -1400,6 +1551,7 @@
 				56DAB21B1A46DB6000273140 /* ApplyForViewController.m in Sources */,
 				E3B37DFF1A469D54009835A5 /* GSettingViewController.m in Sources */,
 				E3B37D881A457888009835A5 /* GShowStarsView.m in Sources */,
+				137FC2E11A4DB6A60039E3FF /* YIYIChatViewController.m in Sources */,
 				139562C71A3BF42E007BB183 /* UserInfo.m in Sources */,
 				13CD36421A3C69860068C12A /* TMQuiltViewController.m in Sources */,
 				13A389BC1A38974F00ABBACB /* NSString+Emoji.m in Sources */,
@@ -1600,6 +1752,8 @@
 					"$(PROJECT_DIR)/YiYiProject/UMengShare/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/YiYiProject/UMengShare/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/YiYiProject/PersonalApi/GMAPI/Gutils/BaiduMap_IOSSDK_v2.5.0_Lib",
+					"$(PROJECT_DIR)/YiYiProject/IMLib",
+					"$(PROJECT_DIR)/YiYiProject/RongCloud/IMKit",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1631,6 +1785,8 @@
 					"$(PROJECT_DIR)/YiYiProject/UMengShare/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/YiYiProject/UMengShare/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/YiYiProject/PersonalApi/GMAPI/Gutils/BaiduMap_IOSSDK_v2.5.0_Lib",
+					"$(PROJECT_DIR)/YiYiProject/IMLib",
+					"$(PROJECT_DIR)/YiYiProject/RongCloud/IMKit",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

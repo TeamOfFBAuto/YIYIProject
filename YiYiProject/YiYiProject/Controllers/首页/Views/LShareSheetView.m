@@ -129,7 +129,11 @@
     //0,1,2
     
     if (button.tag - 100 < items.count) {
-        actionBlock(button.tag,[items objectAtIndex:button.tag - 100]);
+        
+        if (actionBlock) {
+            actionBlock(button.tag,[items objectAtIndex:button.tag - 100]);
+        }
+        
     }
     
     [self hidden];
