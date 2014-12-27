@@ -11,10 +11,21 @@
 /**
  *  值得买筛选view
  */
+
+typedef void(^FilterBlcok)(SORT_SEX_TYPE sextType,SORT_Discount_TYPE discountType);
+
 @interface FilterView : UIView
+{
+    UIView *bgView;
+    
+    SORT_SEX_TYPE sex_type;
+    SORT_Discount_TYPE discount_type;
+    
+    FilterBlcok filterBlock;
+}
 
 + (id)shareInstance;
 
-- (void)show;
+- (void)showFilterBlock:(FilterBlcok)aBlock;
 
 @end

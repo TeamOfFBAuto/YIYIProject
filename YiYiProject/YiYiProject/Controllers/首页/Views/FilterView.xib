@@ -128,13 +128,13 @@
                                     <exclude reference="EVi-VQ-aCW"/>
                                     <exclude reference="jmC-Y9-uD6"/>
                                     <exclude reference="rzm-F3-toL"/>
-                                    <exclude reference="J3o-cv-7dR"/>
-                                    <exclude reference="nP1-eo-XXH"/>
-                                    <exclude reference="tH0-pA-MQ0"/>
                                     <exclude reference="Fni-C7-Ehc"/>
                                     <exclude reference="KsE-cP-ZGd"/>
                                     <exclude reference="SfF-nx-CiA"/>
                                     <exclude reference="kbr-Sc-aQc"/>
+                                    <exclude reference="J3o-cv-7dR"/>
+                                    <exclude reference="nP1-eo-XXH"/>
+                                    <exclude reference="tH0-pA-MQ0"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
@@ -149,13 +149,13 @@
                                     <include reference="EVi-VQ-aCW"/>
                                     <include reference="jmC-Y9-uD6"/>
                                     <include reference="rzm-F3-toL"/>
-                                    <include reference="J3o-cv-7dR"/>
-                                    <include reference="nP1-eo-XXH"/>
-                                    <include reference="tH0-pA-MQ0"/>
                                     <include reference="Fni-C7-Ehc"/>
                                     <include reference="KsE-cP-ZGd"/>
                                     <include reference="SfF-nx-CiA"/>
                                     <include reference="kbr-Sc-aQc"/>
+                                    <include reference="J3o-cv-7dR"/>
+                                    <include reference="nP1-eo-XXH"/>
+                                    <include reference="tH0-pA-MQ0"/>
                                 </mask>
                             </variation>
                         </view>
@@ -394,23 +394,23 @@
                             <exclude reference="2Y9-b1-tqd"/>
                             <exclude reference="DY2-5H-2Hj"/>
                             <exclude reference="GwZ-QA-rJI"/>
-                            <exclude reference="TDB-Qw-v1G"/>
-                            <exclude reference="fle-9z-Sqs"/>
-                            <exclude reference="i4i-b3-eAV"/>
                             <exclude reference="6oz-Jv-NVd"/>
                             <exclude reference="svu-gw-Wsm"/>
-                            <exclude reference="3OJ-z4-2Zd"/>
-                            <exclude reference="ZM9-t5-7by"/>
-                            <exclude reference="qNK-gd-IQc"/>
+                            <exclude reference="25b-vB-UwM"/>
+                            <exclude reference="PdU-AK-XlX"/>
                             <exclude reference="0Fx-Ie-j3A"/>
                             <exclude reference="8wJ-L2-02N"/>
                             <exclude reference="xxa-79-n6h"/>
+                            <exclude reference="3OJ-z4-2Zd"/>
+                            <exclude reference="ZM9-t5-7by"/>
+                            <exclude reference="qNK-gd-IQc"/>
+                            <exclude reference="TDB-Qw-v1G"/>
+                            <exclude reference="fle-9z-Sqs"/>
+                            <exclude reference="i4i-b3-eAV"/>
                             <exclude reference="9gy-3S-ehD"/>
                             <exclude reference="EYg-ZU-gCD"/>
                             <exclude reference="pQm-gg-XeS"/>
                             <exclude reference="whl-AY-Hhb"/>
-                            <exclude reference="25b-vB-UwM"/>
-                            <exclude reference="PdU-AK-XlX"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -427,23 +427,23 @@
                             <include reference="2Y9-b1-tqd"/>
                             <include reference="DY2-5H-2Hj"/>
                             <include reference="GwZ-QA-rJI"/>
-                            <include reference="TDB-Qw-v1G"/>
-                            <include reference="fle-9z-Sqs"/>
-                            <include reference="i4i-b3-eAV"/>
                             <include reference="6oz-Jv-NVd"/>
                             <include reference="svu-gw-Wsm"/>
-                            <include reference="3OJ-z4-2Zd"/>
-                            <include reference="ZM9-t5-7by"/>
-                            <include reference="qNK-gd-IQc"/>
+                            <include reference="25b-vB-UwM"/>
+                            <include reference="PdU-AK-XlX"/>
                             <include reference="0Fx-Ie-j3A"/>
                             <include reference="8wJ-L2-02N"/>
                             <include reference="xxa-79-n6h"/>
+                            <include reference="3OJ-z4-2Zd"/>
+                            <include reference="ZM9-t5-7by"/>
+                            <include reference="qNK-gd-IQc"/>
+                            <include reference="TDB-Qw-v1G"/>
+                            <include reference="fle-9z-Sqs"/>
+                            <include reference="i4i-b3-eAV"/>
                             <include reference="9gy-3S-ehD"/>
                             <include reference="EYg-ZU-gCD"/>
                             <include reference="pQm-gg-XeS"/>
                             <include reference="whl-AY-Hhb"/>
-                            <include reference="25b-vB-UwM"/>
-                            <include reference="PdU-AK-XlX"/>
                         </mask>
                     </variation>
                 </view>

@@ -85,6 +85,21 @@ typedef enum{
     SecurityCode_Match
 }SecurityCode_Type;
 
+typedef enum {
+    
+    Sort_Sex_No = 0,//0 不按照性别 默认为0
+    Sort_Sex_Women,//女
+    Sort_Sex_Man  //男
+    
+}SORT_SEX_TYPE; //排序方式
+
+typedef enum {
+    
+    Sort_Discount_No = 0,// discount 折扣排序 1 是 0 否 默认为0
+    Sort_Discount_Yes
+    
+}SORT_Discount_TYPE; //排序方式
+
 //接口地址
 
 //登录
@@ -97,7 +112,7 @@ typedef enum{
 #define USER_GETBACK_PASSWORD @"http://182.92.158.32/index.php?d=api&c=user_api&m=get_back_password&mobile=%@&code=%d&new_password=%@"
 
 //首页--值得买
-#define HOME_DESERVE_BUY @"http://182.92.158.32/?d=api&c=products&m=listWorthBuy&long=%@&lat=%@&sex=%d&discount=%d&page=%d&count=%d"
+#define HOME_DESERVE_BUY @"http://182.92.158.32/?d=api&c=products&m=listWorthBuy&long=%@&lat=%@&sex=%d&discount=%d&page=%d&count=%d&authcode=%@"
 
 //首页--衣加衣 顶部scrollview图片
 #define HOME_CLOTH_TOPSCROLLVIEW @"http://182.92.158.32/index.php?d=api&c=advertisement&m=get_advertisement"
@@ -110,8 +125,14 @@ typedef enum{
 //单品 - 添加赞
 #define HOME_PRODUCT_ZAN_ADD @"http://182.92.158.32/?d=api&c=products&m=like"
 
+//单品 - 取消赞
+#define HOME_PRODUCT_ZAN_Cancel @"http://182.92.158.32/?d=api&c=products&m=cancelLike"
+
 //单品 - 添加收藏
-#define HOME_PRODUCT_COLLECT_ADD @"http://182.92.158.32/?d=api&c=products&m=favor&product_id=%@&authcode=%@"
+#define HOME_PRODUCT_COLLECT_ADD @"http://182.92.158.32/?d=api&c=products&m=favor&product_id=%@"
+
+//单品 - 取消收藏
+#define HOME_PRODUCT_COLLECT_Cancel @"http://182.92.158.32/?d=api&c=products&m=cancelFavor&product_id=%@"
 
 
 

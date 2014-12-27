@@ -82,7 +82,9 @@
         selectImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         item.selectedImage = selectImage;
         
-        item.title = [item_names objectAtIndex:i];
+        if (i != 2) {
+            item.title = [item_names objectAtIndex:i];
+        }
         
         //中间特殊按钮
         

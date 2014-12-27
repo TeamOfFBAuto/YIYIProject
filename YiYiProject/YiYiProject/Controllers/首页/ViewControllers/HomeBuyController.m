@@ -23,20 +23,6 @@
 
 #import "FilterView.h"
 
-typedef enum {
-    
-    Sort_Sex_No = 0,//0 不按照性别 默认为0
-    Sort_Sex_Women,//女
-    Sort_Sex_Man  //男
-    
-}SORT_SEX_TYPE; //排序方式
-
-typedef enum {
-    
-    Sort_Discount_No = 0,// discount 折扣排序 1 是 0 否 默认为0
-    Sort_Discount_Yes
-    
-}SORT_Discount_TYPE; //排序方式
 
 @interface HomeBuyController ()<TMQuiltViewDataSource,WaterFlowDelegate>
 {
@@ -83,8 +69,14 @@ typedef enum {
 
 - (void)clickToFilter:(UIButton *)sender
 {
-    
-    [[FilterView shareInstance] show];
+    __weak typeof(waterFlow)weakFlow = waterFlow;
+    [[FilterView shareInstance] showFilterBlock:^(SORT_SEX_TYPE sextType1, SORT_Discount_TYPE discountType1) {
+        sex_type = sextType1;
+        discount_type = discountType1;
+        
+        [weakFlow showRefreshHeader:NO];
+        
+    }];
     
 }
 
@@ -100,7 +92,7 @@ typedef enum {
 {
     NSString *longtitud = @"116.42111721";
     NSString *latitude = @"39.90304099";
-    NSString *url = [NSString stringWithFormat:HOME_DESERVE_BUY,longtitud,latitude,sortType,discountType,pageNum,L_PAGE_SIZE];
+    NSString *url = [NSString stringWithFormat:HOME_DESERVE_BUY,longtitud,latitude,sortType,discountType,pageNum,L_PAGE_SIZE,[GMAPI getAuthkey]];
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
     [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
         

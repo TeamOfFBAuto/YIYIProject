@@ -49,9 +49,12 @@
     CGFloat aWidth = (ALL_FRAME_WIDTH - 166)/ 3.f;
     menu_view = [[UIView alloc]initWithFrame:CGRectMake(0, 20, aWidth * 3, 30)];
     menu_view.clipsToBounds = YES;
+    menu_view.layer.cornerRadius = 15.f;
+    
     self.navigationItem.titleView = menu_view;
 
     NSArray *titles = @[@"值得买",@"衣+衣",@"搭配师"];
+    
     NSArray *selectedImages = @[@"zhidemai_botton_up",@"1+1_botton_up",@"dapeishi_botton_up"];
     NSArray *normalImages = @[@"zhidemai_botton",@"1+1_botton",@"dapeishi_botton"];
     
@@ -59,18 +62,17 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(aWidth * i + 0.5 * i, 0, aWidth, 30);
         
-        if (i == 1) {
-            btn.height -= 0.5;
-            btn.top = 0.5;
-        }
-        
         [btn setTitle:titles[i] forState:UIControlStateNormal];
         btn.backgroundColor = [UIColor clearColor];
         [btn setHighlighted:NO];
         [btn.titleLabel setFont:[UIFont systemFontOfSize:13]];
         btn.tag = 100 + i;
-        [btn setBackgroundImage:[UIImage imageNamed:normalImages[i]] forState:UIControlStateNormal];
-        [btn setBackgroundImage:[UIImage imageNamed:selectedImages[i]] forState:UIControlStateSelected];
+//        [btn setBackgroundImage:[UIImage imageNamed:normalImages[i]] forState:UIControlStateNormal];
+//        [btn setBackgroundImage:[UIImage imageNamed:selectedImages[i]] forState:UIControlStateSelected];
+        
+//        [btn setBackgroundImage:[UIImage imageNamed:normalImages[i]] forState:UIControlStateNormal];
+//        [btn setBackgroundImage:[UIImage imageNamed:selectedImages[i]] forState:UIControlStateSelected];
+
         
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor colorWithHexString:@"d7425c"] forState:UIControlStateSelected];
@@ -165,9 +167,16 @@
     cloth_viewcontroller.view.hidden = [vc isKindOfClass:[HomeClothController class]] ? NO : YES;//商家介绍
     match_viewcontroller.view.hidden = [vc isKindOfClass:[HomeMatchController class]] ? NO : YES;//商家服务
     
-    ((UIButton *)[menu_view viewWithTag:100]).selected = [vc isKindOfClass:[HomeBuyController class]] ? NO : YES;//服务介绍;
-    ((UIButton *)[menu_view viewWithTag:101]).selected = [vc isKindOfClass:[HomeClothController class]] ? NO : YES;//服务介绍;
-    ((UIButton *)[menu_view viewWithTag:102]).selected = [vc isKindOfClass:[HomeMatchController class]] ? NO : YES;//服务介绍;
+//    ((UIButton *)[menu_view viewWithTag:100]).selected = [vc isKindOfClass:[HomeBuyController class]] ? NO : YES;//服务介绍;
+//    ((UIButton *)[menu_view viewWithTag:101]).selected = [vc isKindOfClass:[HomeClothController class]] ? NO : YES;//服务介绍;
+//    ((UIButton *)[menu_view viewWithTag:102]).selected = [vc isKindOfClass:[HomeMatchController class]] ? NO : YES;//服务介绍;
+    
+    UIColor *normalColor = [UIColor colorWithHexString:@"f07a8e"];
+    UIColor *selectColor = [UIColor colorWithHexString:@"d43b55"];
+    
+    ((UIButton *)[menu_view viewWithTag:100]).backgroundColor = [vc isKindOfClass:[HomeBuyController class]] ? normalColor : selectColor;//服务介绍;
+    ((UIButton *)[menu_view viewWithTag:101]).backgroundColor = [vc isKindOfClass:[HomeClothController class]] ? normalColor : selectColor;//服务介绍;
+    ((UIButton *)[menu_view viewWithTag:102]).backgroundColor = [vc isKindOfClass:[HomeMatchController class]] ? normalColor : selectColor;//服务介绍;
 }
 
 @end
