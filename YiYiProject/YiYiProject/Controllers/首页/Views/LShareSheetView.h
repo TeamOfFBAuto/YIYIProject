@@ -11,7 +11,19 @@
  *  分享 sheetView
  */
 
-typedef void(^ ActionBlock) (NSInteger buttonIndex,NSString *shareStyle);
+//items = @[@"朋友圈",@"微博",@"QQ空间",@"微信",@"QQ",];
+
+typedef enum {
+    
+    Share_WX_PengYouQuan = 100,
+    Share_WX_HaoYou = 103,
+    Share_WeiBo = 101,
+    Share_QQZone = 102,
+    Share_QQ = 104
+    
+}Share_Type;
+
+typedef void(^ ActionBlock) (NSInteger buttonIndex,Share_Type shareType);
 
 @interface LShareSheetView : UIView
 {

@@ -189,6 +189,31 @@
 - (void)clickToShare:(UIButton *)sender
 {
     [[LShareSheetView shareInstance] show];
+    [[LShareSheetView shareInstance]actionBlock:^(NSInteger buttonIndex, Share_Type shareType) {
+       
+        if (shareType == Share_QQ) {
+            
+            NSLog(@"Share_QQ");
+            
+        }else if (shareType == Share_QQZone){
+            
+             NSLog(@"Share_QQZone");
+            
+        }else if (shareType == Share_WeiBo){
+            
+             NSLog(@"Share_WeiBo");
+            
+        }else if (shareType == Share_WX_HaoYou){
+            
+             NSLog(@"Share_WX_HaoYou");
+            
+        }else if (shareType == Share_WX_PengYouQuan){
+            
+             NSLog(@"Share_WX_PengYouQuan");
+            
+        }
+        
+    }];
 }
 
 - (IBAction)clickToDaPeiShi:(id)sender {

@@ -14,6 +14,17 @@
 
 #define VIEW_HEIGHT 236
 
+@interface CustomButton : UIButton
+
+@property(nonatomic,assign)Share_Type shareType;
+
+@end
+
+@implementation CustomButton
+
+@end
+
+
 @implementation LShareSheetView
 
 + (id)shareInstance
@@ -58,8 +69,11 @@
         [self addSubview:bgView];
         
         
-        items = @[@"微信",@"QQ",@"朋友圈",@"微博",@"QQ空间"];
-        NSArray *images = @[@"weixin72_72",@"QQ72_72",@"pengyouquan72_7222x",@"weibo90_72",@"qqzone"];
+//        items = @[@"微信",@"QQ",@"朋友圈",@"微博",@"QQ空间"];
+//        NSArray *images = @[@"weixin72_72",@"QQ72_72",@"pengyouquan72_7222x",@"weibo90_72",@"qqzone"];
+        
+        items = @[@"朋友圈",@"微博",@"QQ空间",@"微信",@"QQ"];
+        NSArray *images = @[@"pengyouquan72_7222x",@"weibo90_72",@"qqzone",@"weixin72_72",@"QQ72_72"];
         
         CGFloat aWidth = 36.0;
         CGFloat left = (DEVICE_WIDTH - 36 * 3) / 4;
@@ -71,12 +85,13 @@
             
             line = i / 3;
             
-            UIButton *itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            CustomButton *itemBtn = [CustomButton buttonWithType:UIButtonTypeCustom];
 //            itemBtn.backgroundColor = [UIColor orangeColor];
             [itemBtn setFrame:CGRectMake(left + (left + aWidth) * (i % 3), top + (20 + aWidth + 10) * line, aWidth, aHeight)];
             [itemBtn setBackgroundImage:[UIImage imageNamed:[images objectAtIndex:i]] forState:UIControlStateNormal];
             [bgView addSubview:itemBtn];
             itemBtn.tag = 100 + i;
+            itemBtn.shareType = 100 + i;
             
             [itemBtn addTarget:self action:@selector(actionToDo:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -124,14 +139,14 @@
     actionBlock = aBlock;
 }
 
-- (void)actionToDo:(UIButton *)button
+- (void)actionToDo:(CustomButton *)button
 {
     //0,1,2
     
     if (button.tag - 100 < items.count) {
         
         if (actionBlock) {
-            actionBlock(button.tag,[items objectAtIndex:button.tag - 100]);
+            actionBlock(button.tag,button.shareType);
         }
         
     }
