@@ -9,6 +9,7 @@
 #import "GpinpaiDetailViewController.h"
 #import "GmPrepareNetData.h"
 #import "NSDictionary+GJson.h"
+#import "GnearbyStoreViewController.h"
 
 @interface GpinpaiDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -105,6 +106,25 @@
     
     return cell;
 }
+
+
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    GnearbyStoreViewController *cc = [[GnearbyStoreViewController alloc]init];
+    NSDictionary *dic = _dataArray[indexPath.row];
+    cc.storeIdStr = [dic stringValueForKey:@"mall_id"];
+    [self.navigationController pushViewController:cc animated:YES];
+    
+    
+}
+
+
+
+
 
 
 @end
