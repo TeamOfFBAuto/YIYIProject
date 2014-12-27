@@ -67,7 +67,8 @@ typedef enum {
     filterButton.frame = CGRectMake(17, 17, 38, 38);
     [filterButton setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
     [filterButton.titleLabel setFont:[UIFont systemFontOfSize:12]];
-    [filterButton setTitle:@"筛选" forState:UIControlStateNormal];
+    [filterButton setImage:[UIImage imageNamed:@"shaixuan"] forState:UIControlStateNormal];
+    
     [self.view addSubview:filterButton];
     [filterButton addTarget:self action:@selector(clickToFilter:) forControlEvents:UIControlEventTouchUpInside];
     
