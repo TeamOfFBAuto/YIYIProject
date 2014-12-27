@@ -256,7 +256,7 @@
 		E33FF4781A4E74840060E130 /* GLeadBuyMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FF4771A4E74840060E130 /* GLeadBuyMapViewController.m */; };
 		E33FF47B1A4E86540060E130 /* GLeadbuyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FF47A1A4E86540060E130 /* GLeadbuyTableViewCell.m */; };
 		E33FF47E1A4E871B0060E130 /* UILabel+GautoMatchedText.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FF47D1A4E871B0060E130 /* UILabel+GautoMatchedText.m */; };
-		E392FD481A4E53C200833C06 /* libiOS_IMKit_v1_2_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E392FD471A4E53C200833C06 /* libiOS_IMKit_v1_2_7.a */; };
+		E33FF48C1A4EBB8D0060E130 /* libiOS_IMKit_v1_2_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E33FF48B1A4EBB8D0060E130 /* libiOS_IMKit_v1_2_7.a */; };
 		E3B2DC6B1A45209400607B11 /* gpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B2DC6A1A45209400607B11 /* gpin@2x.png */; };
 		E3B37D811A4569CA009835A5 /* GcustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37D7E1A4569CA009835A5 /* GcustomActionSheet.m */; };
 		E3B37D821A4569CA009835A5 /* GStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B37D801A4569CA009835A5 /* GStarsView.m */; };
@@ -653,7 +653,7 @@
 		E33FF47A1A4E86540060E130 /* GLeadbuyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLeadbuyTableViewCell.m; sourceTree = "<group>"; };
 		E33FF47C1A4E871B0060E130 /* UILabel+GautoMatchedText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+GautoMatchedText.h"; sourceTree = "<group>"; };
 		E33FF47D1A4E871B0060E130 /* UILabel+GautoMatchedText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+GautoMatchedText.m"; sourceTree = "<group>"; };
-		E392FD471A4E53C200833C06 /* libiOS_IMKit_v1_2_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiOS_IMKit_v1_2_7.a; sourceTree = "<group>"; };
+		E33FF48B1A4EBB8D0060E130 /* libiOS_IMKit_v1_2_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiOS_IMKit_v1_2_7.a; sourceTree = "<group>"; };
 		E3B2DC6A1A45209400607B11 /* gpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gpin@2x.png"; sourceTree = "<group>"; };
 		E3B37D7D1A4569CA009835A5 /* GcustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcustomActionSheet.h; sourceTree = "<group>"; };
 		E3B37D7E1A4569CA009835A5 /* GcustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcustomActionSheet.m; sourceTree = "<group>"; };
@@ -764,7 +764,7 @@
 				E3E3E84A1A3C6780001A1DD6 /* QuartzCore.framework in Frameworks */,
 				E3E3E84C1A3C678C001A1DD6 /* OpenGLES.framework in Frameworks */,
 				137FC2B21A4DAE780039E3FF /* MapKit.framework in Frameworks */,
-				E392FD481A4E53C200833C06 /* libiOS_IMKit_v1_2_7.a in Frameworks */,
+				E33FF48C1A4EBB8D0060E130 /* libiOS_IMKit_v1_2_7.a in Frameworks */,
 				138C2C141A39E46B00EA59F5 /* libz.dylib in Frameworks */,
 				138C2C121A39E45E00EA59F5 /* libstdc++.dylib in Frameworks */,
 				138C2C0E1A39E25000EA59F5 /* libsqlite3.dylib in Frameworks */,
@@ -1233,7 +1233,7 @@
 		137FC2B61A4DB2DC0039E3FF /* IMKit */ = {
 			isa = PBXGroup;
 			children = (
-				E392FD471A4E53C200833C06 /* libiOS_IMKit_v1_2_7.a */,
+				E33FF48B1A4EBB8D0060E130 /* libiOS_IMKit_v1_2_7.a */,
 				137FC2B71A4DB2DC0039E3FF /* Headers */,
 				137FC2DC1A4DB2DC0039E3FF /* RongCloud.bundle */,
 			);
