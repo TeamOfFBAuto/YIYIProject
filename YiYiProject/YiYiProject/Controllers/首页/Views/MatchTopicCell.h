@@ -32,6 +32,7 @@
 ///标题
 @property (strong, nonatomic) IBOutlet UILabel *title_label;
 
+@property (strong, nonatomic) IBOutlet UIImageView *jiantou_imageView;
 
 
 

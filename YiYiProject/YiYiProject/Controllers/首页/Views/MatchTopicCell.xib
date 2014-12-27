@@ -62,23 +62,29 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dapei_jiantou@3x.png" id="oXV-W5-XTV">
+                        <rect key="frame" x="298" y="40" width="9" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="date_imageView" destination="CFs-vJ-Nys" id="WJH-8D-nf6"/>
                 <outlet property="date_label" destination="b1b-T1-2fj" id="LWw-IK-dYz"/>
                 <outlet property="header_imageView" destination="Gtm-dj-weR" id="Phv-Op-9Yf"/>
+                <outlet property="jiantou_imageView" destination="oXV-W5-XTV" id="8TI-e9-XtW"/>
                 <outlet property="line_view" destination="Km9-DW-FKr" id="tFC-ik-8F2"/>
                 <outlet property="pinglun_imageView" destination="QrS-OK-n10" id="X0O-Fp-hVA"/>
                 <outlet property="pinglun_label" destination="nbC-IV-9VO" id="h6N-Tg-08T"/>
                 <outlet property="title_label" destination="vW6-wC-Akv" id="2je-Ci-Qoq"/>
                 <outlet property="user_name_label" destination="aH8-ue-2Tx" id="v1n-oP-fCz"/>
             </connections>
-            <point key="canvasLocation" x="79" y="253"/>
+            <point key="canvasLocation" x="-89" y="217"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="clock_image.png" width="12" height="12"/>
+        <image name="dapei_jiantou@3x.png" width="27" height="48"/>
         <image name="match_pinglun_image.png" width="12" height="12"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
