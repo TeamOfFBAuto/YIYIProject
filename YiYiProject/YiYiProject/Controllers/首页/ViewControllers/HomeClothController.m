@@ -13,6 +13,7 @@
 #import "NSDictionary+GJson.h"
 #import "GScrollView.h"
 #import "GpinpaiDetailViewController.h"
+#import "GnearbyStoreViewController.h"
 
 @interface HomeClothController ()<GCycleScrollViewDatasource,GCycleScrollViewDelegate,UIScrollViewDelegate>
 {
@@ -23,7 +24,7 @@
     
     //第二行
     UIView *_nearbyView;//附近的view
-    UIScrollView *_scrollview_nearbyView;//附近的view上面的scrollview
+    GScrollView *_scrollview_nearbyView;//附近的view上面的scrollview
     
     //第三行
     UIView *_pinpaiView;//品牌的view
@@ -49,7 +50,7 @@
     
     [scrollView addSubview:[self creatGscrollView]];//循环滚动幻灯片
     
-    [scrollView addSubview:[self creatNearbyView]];//附近
+    [scrollView addSubview:[self creatNearbyView]];//附近的商场
     
     [scrollView addSubview:[self creatPinpaiView]];//品牌
     
@@ -57,11 +58,14 @@
     
     
     
+    
+    //网络请求
     //请求顶部滚动广告栏
     [self prepareTopScrollViewIms];
-    
     //请求附近的品牌
     [self prepareNearbyPinpai];
+    //请求附近的商店
+    [self prepareNearbyStore];
     
 }
 
@@ -89,6 +93,7 @@
     
 }
 
+//请求附近的品牌
 -(void)prepareNearbyPinpai{
     NSString *api = HOME_CLOTH_NEARBYPINPAI;
     GmPrepareNetData *gg = [[GmPrepareNetData alloc]initWithUrl:api isPost:NO postData:nil];
@@ -102,6 +107,23 @@
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
         
     }];
+}
+
+//请求附近的商店
+-(void)prepareNearbyStore{
+    NSString *api = [NSString stringWithFormat:@"%@&page=1&count=100",HOME_CLOTH_NEARBYSTORE];
+    GmPrepareNetData *dd = [[GmPrepareNetData alloc]initWithUrl:api isPost:YES postData:nil];
+    [dd requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"%@",result);
+        _scrollview_nearbyView.dataArray = [result objectForKey:@"list"];
+        
+        [_scrollview_nearbyView gReloadData];
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        
+    }];
+    
 }
 
 
@@ -132,11 +154,13 @@
     
     
     //滚动界面
-    _scrollview_nearbyView = [[UIScrollView alloc]initWithFrame:CGRectMake(15, 30, DEVICE_WIDTH-15-40, 218-30-14)];
+    _scrollview_nearbyView = [[GScrollView alloc]initWithFrame:CGRectMake(15, 30, DEVICE_WIDTH-15-40, 218-30-14)];
     _scrollview_nearbyView.backgroundColor = [UIColor whiteColor];
     _scrollview_nearbyView.contentSize = CGSizeMake(1000, 218-30-14);
     _scrollview_nearbyView.tag = 10;
+    _scrollview_nearbyView.gtype = 10;
     _scrollview_nearbyView.delegate = self;
+    _scrollview_nearbyView.delegate1 = self;
     _scrollview_nearbyView.showsHorizontalScrollIndicator = NO;
     [_nearbyView addSubview:_scrollview_nearbyView];
     
@@ -291,8 +315,8 @@
     CGFloat xx = _scrollview_nearbyView.contentOffset.x;
     CGFloat yy = _scrollview_nearbyView.contentOffset.y;
     xx+=100;
-    if (xx>_scrollview_nearbyView.contentSize.width) {
-        xx = _scrollview_nearbyView.contentSize.width;
+    if (xx>_scrollview_nearbyView.contentSize.width*0.5) {
+        xx = _scrollview_nearbyView.contentSize.width*0.5;
     }
     
     
@@ -427,6 +451,15 @@
     cc.pinpaiIdStr = theID;
     [self.rootViewController.navigationController pushViewController:cc animated:YES];
     
+}
+
+
+
+-(void)pushToNearbyStoreVCWithIdStr:(NSString *)theID{
+    GnearbyStoreViewController *dd = [[GnearbyStoreViewController alloc]init];
+    dd.storeIdStr = theID;
+    dd.hidesBottomBarWhenPushed = YES;
+    [self.rootViewController.navigationController pushViewController:dd animated:YES];
 }
 
 

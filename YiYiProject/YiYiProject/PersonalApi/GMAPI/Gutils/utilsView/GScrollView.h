@@ -12,10 +12,7 @@
 typedef void (^pinpaiViewBlock)(NSInteger index);//定义block
 
 @interface GScrollView : UIScrollView
-{
-    
 
-}
 
 @property(nonatomic,strong)NSMutableArray *dataArray;//数据源数组
 @property(nonatomic,assign)NSInteger gtype;

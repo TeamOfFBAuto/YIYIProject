@@ -23,6 +23,9 @@
 
 
 -(void)gReloadData{
+    
+    
+    
     if (self.gtype == 11) {//附近的品牌
         
         
@@ -74,10 +77,58 @@
             
         }
         
+    }else if (self.gtype == 10){//附近的商店
+
+        for (UIView *view in self.subviews) {
+            [view removeFromSuperview];
+        }
+        
+        NSInteger countNum = self.dataArray.count;
+        
+        self.contentSize = CGSizeMake(countNum *77, self.contentSize.height);
+        
+        for (int i = 0; i<countNum; i++) {
+            
+            NSDictionary *dic = self.dataArray[i];
+            
+            UIView *nearStoreView = [[UIView alloc]initWithFrame:CGRectMake(0+i*77, 0, 70, 218-30-14)];
+            nearStoreView.backgroundColor = [UIColor lightGrayColor];
+            nearStoreView.tag = [[dic stringValueForKey:@"mall_id"]integerValue];
+            
+            //商家名称
+            UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 70, 70)];
+            nameLabel.numberOfLines = 3;
+            nameLabel.text = [dic stringValueForKey:@"mall_name"];
+            [nearStoreView addSubview:nameLabel];
+            //商家距离
+            UILabel *distanceLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(nameLabel.frame)+5, 70, 15)];
+            distanceLabel.text = [dic stringValueForKey:@"distance"];
+            [nearStoreView addSubview:distanceLabel];
+            
+            
+            //手势
+            UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goNearbyStoreVC:)];
+            [nearStoreView addGestureRecognizer:tap];
+           
+            
+            [self addSubview:nearStoreView];
+        }
     }
+    
+    
+    
+    
+    
+    
 }
 
 
+
+
+-(void)goNearbyStoreVC:(UITapGestureRecognizer*)sender{
+    NSString *ssidStr = [NSString stringWithFormat:@"%ld",sender.view.tag];
+    [self.delegate1 pushToNearbyStoreVCWithIdStr:ssidStr];
+}
 
 
 

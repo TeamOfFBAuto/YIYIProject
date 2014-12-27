@@ -7,9 +7,14 @@
 //
 
 #import "GpinpaiDetailViewController.h"
+#import "GmPrepareNetData.h"
+#import "NSDictionary+GJson.h"
 
-@interface GpinpaiDetailViewController ()
-
+@interface GpinpaiDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView *_tableView;
+    NSArray *_dataArray;
+}
 @end
 
 @implementation GpinpaiDetailViewController
@@ -33,6 +38,18 @@
     label.text = self.pinpaiIdStr;
     [self.view addSubview:label];
     
+    
+    
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-44) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+    
+    
+    [self prepareNetData];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,14 +57,54 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)prepareNetData{
+    
+    NSString *api = [NSString stringWithFormat:@"%@&brand_id=%@&page=1&per_page=100",HOME_CLOTH_PINPAI_STORELIST,self.pinpaiIdStr];
+    
+    NSLog(@"%@",api);
+    
+    GmPrepareNetData *cc = [[GmPrepareNetData alloc]initWithUrl:api isPost:NO postData:nil];
+    
+    [cc requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"%@",result);
+        _dataArray = [result objectForKey:@"mall_list"];
+        
+        [_tableView reloadData];
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        NSLog(@"失败");
+    }];
 }
-*/
+
+
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _dataArray.count;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 67;
+}
+
+
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    }
+    
+    NSDictionary *dic = _dataArray[indexPath.row];
+    cell.textLabel.text = [dic stringValueForKey:@"mall_name"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"距离:%@",[dic stringValueForKey:@"distance"]];
+    
+    return cell;
+}
+
 
 @end

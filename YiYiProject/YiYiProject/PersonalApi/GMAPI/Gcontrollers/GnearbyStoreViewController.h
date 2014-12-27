@@ -13,4 +13,7 @@
 
 @interface GnearbyStoreViewController : UIViewController
 
+
+@property(nonatomic,strong)NSString *storeIdStr;
+
 @end
