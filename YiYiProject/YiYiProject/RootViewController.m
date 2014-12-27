@@ -38,13 +38,20 @@
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:5];
     for (int i = 0; i < 5;i ++) {
         
-        NSString *className = classNames[i];
-        UIViewController *vc = [[NSClassFromString(className) alloc]init];
+        if (i == 0) {
+            
+            HomeViewController *home = [[HomeViewController alloc]init];
+            UINavigationController *unvc = [[UINavigationController alloc]initWithRootViewController:home];
+            [items addObject:unvc];
+        }else
+        {
+            
+            NSString *className = classNames[i];
+            UIViewController *vc = [[NSClassFromString(className) alloc]init];
+            UINavigationController *unvc = [[UINavigationController alloc]initWithRootViewController:vc];
+            [items addObject:unvc];
+        }
         
-        vc.view.backgroundColor = [UIColor colorWithRed:arc4random() % (255)/256.f green:arc4random() % 255/256.f blue:arc4random() % 255/256.f alpha:1];
-        UINavigationController *unvc = [[UINavigationController alloc]initWithRootViewController:vc];
-        
-        [items addObject:unvc];
     }
     
     self.viewControllers = [NSArray arrayWithArray:items];

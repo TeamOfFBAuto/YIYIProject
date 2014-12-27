@@ -22,6 +22,9 @@
 
 //融云cloud
 
+//18600912932
+//cocos2d
+
 #define RONGCLOUD_IM_APPKEY    @"x18ywvqf82x0c"
 #define RONGCLOUD_IM_APPSECRET @"qaOLno5Zgm"
 

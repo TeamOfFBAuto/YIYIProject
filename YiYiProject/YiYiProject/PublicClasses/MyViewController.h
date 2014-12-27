@@ -56,6 +56,8 @@ typedef enum
 ///是否添加滑动到侧边栏手势
 @property(nonatomic,assign)BOOL isAddGestureRecognizer;
 
+@property(nonatomic,assign)BOOL customNavigationTitleView;//是否自定义导航栏view
+
 
 -(void)setMyViewControllerLeftButtonType:(MyViewControllerLeftbuttonType)theType WithRightButtonType:(MyViewControllerRightbuttonType)rightType;
 
