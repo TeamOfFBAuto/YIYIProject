@@ -99,6 +99,10 @@ typedef enum{
 //首页--值得买
 #define HOME_DESERVE_BUY @"http://182.92.158.32/?d=api&c=products&m=listWorthBuy&long=%@&lat=%@&sex=%d&discount=%d&page=%d&count=%d"
 
+//首页--衣加衣 顶部scrollview图片
+#define HOME_CLOTH_TOPSCROLLVIEW @"http://182.92.158.32/index.php?d=api&c=advertisement&m=get_advertisement"
+#define HOME_CLOTH_NEARBYPINPAI @"http://182.92.158.32/index.php?d=api&c=brand&m=get_nearby_brands"
+
 //单品详情
 
 #define HOME_PRODUCT_DETAIL @"http://182.92.158.32/api/products/getProductInfo?product_id=%@&authcode=%@"

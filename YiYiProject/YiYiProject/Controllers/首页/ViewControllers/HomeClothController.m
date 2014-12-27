@@ -9,17 +9,27 @@
 #import "HomeClothController.h"
 #import "GCycleScrollView.h"
 #import "GnearbyStoreViewController.h"
+#import "GmPrepareNetData.h"
+#import "NSDictionary+GJson.h"
+#import "GScrollView.h"
+#import "GpinpaiDetailViewController.h"
 
 @interface HomeClothController ()<GCycleScrollViewDatasource,GCycleScrollViewDelegate,UIScrollViewDelegate>
 {
-    GCycleScrollView *_gscrollView;//上方循环滚动的scrollview
-    UIView *_pinpaiView;//品牌的view
     
+    //第一行
+    GCycleScrollView *_gscrollView;//上方循环滚动的scrollview
+    NSMutableArray *_topScrollviewImvInfoArray;//顶部广告scrollview图片数组
+    
+    //第二行
     UIView *_nearbyView;//附近的view
     UIScrollView *_scrollview_nearbyView;//附近的view上面的scrollview
     
-    UIScrollView *_scrollView_pinpai;//品牌的scrollview
-    
+    //第三行
+    UIView *_pinpaiView;//品牌的view
+    GScrollView *_scrollView_pinpai;//品牌的scrollview
+    NSMutableArray *_pinpaiScrollViewModelInfoArray;//品牌信息数组
+
 }
 @end
 
@@ -46,11 +56,52 @@
     [self.view addSubview:scrollView];
     
     
+    
+    //请求顶部滚动广告栏
+    [self prepareTopScrollViewIms];
+    
+    //请求附近的品牌
+    [self prepareNearbyPinpai];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+
+//请求顶部scrollview一组图片
+-(void)prepareTopScrollViewIms{
+    NSString *api = HOME_CLOTH_TOPSCROLLVIEW;
+    GmPrepareNetData *gg = [[GmPrepareNetData alloc]initWithUrl:api isPost:NO postData:nil];
+    [gg requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"%@",result);
+        _topScrollviewImvInfoArray = [result objectForKey:@"advertisements_data"];
+        [_gscrollView reloadData];
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        
+    }];
+    
+}
+
+-(void)prepareNearbyPinpai{
+    NSString *api = HOME_CLOTH_NEARBYPINPAI;
+    GmPrepareNetData *gg = [[GmPrepareNetData alloc]initWithUrl:api isPost:NO postData:nil];
+    [gg requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"%@",result);
+        _pinpaiScrollViewModelInfoArray = [result objectForKey:@"brand_data"];
+        _scrollView_pinpai.dataArray = _pinpaiScrollViewModelInfoArray;
+        [_scrollView_pinpai gReloadData];
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        
+    }];
 }
 
 
@@ -151,15 +202,17 @@
     
     
     //滚动界面
-    _scrollView_pinpai = [[UIScrollView alloc]initWithFrame:CGRectMake(15, 30, DEVICE_WIDTH-15-15, 155-30-14)];
+    _scrollView_pinpai = [[GScrollView alloc]initWithFrame:CGRectMake(15, 30, DEVICE_WIDTH-15-15, 155-30-14)];
     _scrollView_pinpai.backgroundColor = RGBCOLOR(242, 242, 242);
     _scrollView_pinpai.contentSize = CGSizeMake(1000, 155-30-14);
     _scrollView_pinpai.tag = 11;
+    _scrollView_pinpai.gtype = 11;
     _scrollView_pinpai.delegate = self;
+    _scrollView_pinpai.delegate1 = self;
     [_pinpaiView addSubview:_scrollView_pinpai];
     
     
-    for (int i = 0; i<20; i++) {
+    for (int i = 0; i<_scrollView_pinpai.dataArray.count; i++) {
         UIView *pinpaiView = [[UIView alloc]initWithFrame:CGRectMake(0+i*77, 0, 70, 120)];
         pinpaiView.backgroundColor = [UIColor orangeColor];
         
@@ -171,7 +224,7 @@
         yuan.layer.borderColor = RGBCOLOR(212, 212, 212).CGColor;
         [pinpaiView addSubview:yuan];
         
-        UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(yuan.frame)+7, 70, 13)];
+        UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(yuan.frame)+10, 70, 13)];
         nameLabel.font = [UIFont systemFontOfSize:13];
         nameLabel.text = @"ONLY";
         nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -274,9 +327,10 @@
     
     CGFloat xx = _scrollView_pinpai.contentOffset.x;
     CGFloat yy = _scrollView_pinpai.contentOffset.y;
+    NSLog(@"%f",xx);
     xx+=100;
-    if (xx>_scrollView_pinpai.contentSize.width) {
-        xx = _scrollView_pinpai.contentSize.width;
+    if (xx>_scrollView_pinpai.contentSize.width*0.5) {
+        xx = _scrollView_pinpai.contentSize.width*0.5;
     }
     
     
@@ -297,24 +351,27 @@
 - (NSInteger)numberOfPages
 {
     
-    return 3;
+    return _topScrollviewImvInfoArray.count;
 }
 
 //每一页
 - (UIView *)pageAtIndex:(NSInteger)index
 {
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 180)];
+    UIImageView *imv = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 180)];
+    imv.userInteractionEnabled = YES;
     
-
-    if (index == 0) {
-        view.backgroundColor = [UIColor yellowColor];
-    }else if (index == 1){
-        view.backgroundColor = [UIColor orangeColor];
-    }else if (index == 2){
-        view.backgroundColor = [UIColor greenColor];
+    NSDictionary *dic = _topScrollviewImvInfoArray[index];
+    NSString *str = nil;
+    if ([dic isKindOfClass:[NSDictionary class]]) {
+        str = [dic stringValueForKey:@"img_url"];
     }
     
-    return view;
+    [imv sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:nil];
+    
+    
+    
+    
+    return imv;
     
 }
 
@@ -356,6 +413,22 @@
     
     
 }
+
+
+
+
+
+
+
+-(void)pushToPinpaiDetailVCWithIdStr:(NSString *)theID{
+    
+    GpinpaiDetailViewController *cc = [[GpinpaiDetailViewController alloc]init];
+    cc.hidesBottomBarWhenPushed = YES;
+    cc.pinpaiIdStr = theID;
+    [self.rootViewController.navigationController pushViewController:cc animated:YES];
+    
+}
+
 
 
 

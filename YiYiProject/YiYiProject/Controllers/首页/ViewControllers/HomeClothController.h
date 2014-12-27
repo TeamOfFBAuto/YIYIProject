@@ -15,4 +15,7 @@
 
 @property(nonatomic,assign)UIViewController *rootViewController;
 
+
+//跳转到品牌详细界面
+-(void)pushToPinpaiDetailVCWithIdStr:(NSString *)theID;
 @end
