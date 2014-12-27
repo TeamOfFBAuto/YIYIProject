@@ -47,6 +47,13 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
+    {
+        //iOS 5 new UINavigationBar custom background
+        
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:MY_MACRO_NAME?IOS7DAOHANGLANBEIJING_PUSH:IOS6DAOHANGLANBEIJING] forBarMetrics: UIBarMetricsDefault];
+    }
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -65,27 +72,23 @@
     if (MY_MACRO_NAME) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
-    {
-        //iOS 5 new UINavigationBar custom background
-        
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:MY_MACRO_NAME?IOS7DAOHANGLANBEIJING_PUSH:IOS6DAOHANGLANBEIJING] forBarMetrics: UIBarMetricsDefault];
-    }
-    
-    
-//    [self.navigationController.navigationBar setBarTintColor:RGBCOLOR(255, 79, 106)];
-    
-    _myTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,100,44)];
-    _myTitleLabel.textAlignment = NSTextAlignmentCenter;
-    _myTitleLabel.text = _myTitle;
-    _myTitleLabel.textColor = [UIColor whiteColor];
-    _myTitleLabel.font = [UIFont systemFontOfSize:17];
-    self.navigationItem.titleView = _myTitleLabel;
     
     spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    spaceButton.width = MY_MACRO_NAME?-5:5;
+    //        spaceButton.width = MY_MACRO_NAME?-5:5;
+//    if (self.customNavigationTitleView == NO) {
+//        
+        _myTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,100,44)];
+        _myTitleLabel.textAlignment = NSTextAlignmentCenter;
+        _myTitleLabel.text = _myTitle;
+        _myTitleLabel.textColor = [UIColor whiteColor];
+        _myTitleLabel.font = [UIFont systemFontOfSize:17];
+        self.navigationItem.titleView = _myTitleLabel;
+//
+//
+//        
+//    }
     
-    self.navigationController.navigationBarHidden=NO;
+//    self.navigationController.navigationBarHidden=NO;
 
 }
 

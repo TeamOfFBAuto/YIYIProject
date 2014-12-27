@@ -19,6 +19,8 @@
 
 #import "GSettingViewController.h"
 
+#import "MyYiChuViewController.h"//我的衣橱
+
 typedef enum{
     USERFACE = 0,//头像
     USERBANNER,//banner
@@ -193,29 +195,31 @@ typedef enum{
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 6;
+    return _tabelViewCellTitleArray.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    NSInteger num = 0;
+//    NSInteger num = 0;
+//    
+//    if (section == 0) {
+//        num = 1;
+//    }else if (section == 1){
+//        num = 2;
+//    }else if (section == 2){
+//        num = 3;
+//    }else if (section == 3){
+//        num = 1;
+//    }else if (section == 4){
+//        num = 1;
+//    }else if (section == 5){
+//        num = 1;
+//    }
+//    
+    return [[_tabelViewCellTitleArray objectAtIndex:section] count];
     
-    if (section == 0) {
-        num = 1;
-    }else if (section == 1){
-        num = 2;
-    }else if (section == 2){
-        num = 3;
-    }else if (section == 3){
-        num = 1;
-    }else if (section == 4){
-        num = 1;
-    }else if (section == 5){
-        num = 1;
-    }
     
-    
-    return num;
+    //return num;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -248,8 +252,6 @@ typedef enum{
         [view removeFromSuperview];
     }
     
-    
-    
     NSLog(@"indexpath.section:%ld row:%ld",(long)indexPath.section,(long)indexPath.row);
     NSLog(@"%@",_tabelViewCellTitleArray[indexPath.section][indexPath.row]);
     
@@ -261,12 +263,93 @@ typedef enum{
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == 0) {
-        GmyMainViewController *dd = [[GmyMainViewController alloc]init];
-        dd.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:dd animated:YES];
+    switch (indexPath.section) {
+        case 0:
+        {
+            GmyMainViewController *dd = [[GmyMainViewController alloc]init];
+            dd.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:dd animated:YES];
+
         
+        
+        }
+            break;
+            
+        case 1:
+        {
+            
+            
+            
+            
+        }
+            break;
+            
+        case 2:
+        {
+            
+            if (indexPath.row==0) {
+                
+                MyYiChuViewController *_myyichuVC=[[MyYiChuViewController alloc]init];
+                
+                [self.navigationController pushViewController:_myyichuVC animated:YES];
+                
+                NSLog(@"我的衣橱");
+                
+                
+            }else if(indexPath.row==1){
+                
+                NSLog(@"我的体型");
+
+            
+            }else if(indexPath.row==2){
+                
+                NSLog(@"穿衣日记");
+
+                
+            }
+            
+            
+        }
+            break;
+            
+        case 3:
+        {
+            
+            
+        }
+            break;
+            
+        case 4:
+        {
+            
+            
+        }
+            break;
+            
+        case 5:
+        {
+            
+            
+        }
+            break;
+            
+        default:
+            break;
     }
+    
+    
+    
+    
+    
+//    if (indexPath.row == 0) {
+//        GmyMainViewController *dd = [[GmyMainViewController alloc]init];
+//        dd.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:dd animated:YES];
+//    }
+    
+    
+    
+    NSLog(@"xxxx==%ld=row=%ld=",indexPath.section,indexPath.row);
     
     NSLog(@"在这里进行跳转");
 }

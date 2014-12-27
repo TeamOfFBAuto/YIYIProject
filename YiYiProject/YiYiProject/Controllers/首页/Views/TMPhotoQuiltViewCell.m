@@ -109,6 +109,8 @@ const CGFloat kTMPhotoQuiltViewMargin = 0;
         
         self.like_btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_like_btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [_like_btn setImage:[UIImage imageNamed:@"love_up"] forState:UIControlStateNormal];
+        [_like_btn setImage:[UIImage imageNamed:@"love_down"] forState:UIControlStateSelected];
         [_infoView addSubview:_like_btn];
     }
     return self;
@@ -196,7 +198,10 @@ const CGFloat kTMPhotoQuiltViewMargin = 0;
     [self.discount_label setTitle:discount forState:UIControlStateNormal];
     self.discount_label.layer.cornerRadius = 10;
     
-    [self.like_btn setTitle:@"心" forState:UIControlStateNormal];
+    self.like_btn.selected = aModel.is_like == 1 ? YES : NO;
+    
+    NSLog(@"like ---- > %d",(int)aModel.is_like);
+    
     self.like_label.text = aModel.product_like_num;
     
     _like_label.width = [LTools widthForText:aModel.product_like_num font:12.f];

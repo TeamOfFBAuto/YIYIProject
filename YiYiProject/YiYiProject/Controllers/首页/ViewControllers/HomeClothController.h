@@ -15,4 +15,13 @@
 
 @property(nonatomic,assign)UIViewController *rootViewController;
 
+
+//跳转到品牌详细界面
+-(void)pushToPinpaiDetailVCWithIdStr:(NSString *)theID;
+
+
+//跳转到附近的商场界面
+-(void)pushToNearbyStoreVCWithIdStr:(NSString *)theID;
+
+
 @end

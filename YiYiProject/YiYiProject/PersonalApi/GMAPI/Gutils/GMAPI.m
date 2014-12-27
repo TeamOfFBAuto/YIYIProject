@@ -225,4 +225,29 @@
 
 
 
+
+
+
+
+
+//信息处理
++(NSString *)exchangeStringForDeleteNULL:(id)sender
+{
+    NSString * temp = [NSString stringWithFormat:@"%@",sender];
+    
+    if (temp.length == 0 || [temp isEqualToString:@"<null>"] || [temp isEqualToString:@"null"] || [temp isEqualToString:@"(null)"])
+    {
+        temp = @"暂无";
+    }
+    
+    return temp;
+}
+
+
+
+
+
+
+
+
 @end

@@ -9,6 +9,10 @@
 #import "ProductDetailController.h"
 #import "ProductModel.h"
 #import "LShareSheetView.h"
+#import "YIYIChatViewController.h"
+#import "GLeadBuyMapViewController.h"
+
+
 
 @interface ProductDetailController ()
 {
@@ -23,15 +27,20 @@
 
 @implementation ProductDetailController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
     {
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:IOS7DAOHANGLANBEIJING_PUSH2] forBarMetrics: UIBarMetricsDefault];
     }
+}
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
     
     [self setMyViewControllerLeftButtonType:MyViewControllerLeftbuttonTypeBack WithRightButtonType:MyViewControllerRightbuttonTypeNull];
     
@@ -106,10 +115,10 @@
     }else if (action_type == Action_Collect_yes){
         api = HOME_PRODUCT_COLLECT_ADD;
     }else if (action_type == Action_like_no){
-        api = @"";
+        api = HOME_PRODUCT_ZAN_Cancel;
     }else if (action_type == Action_Collect_no){
         
-        api = @"";
+        api = HOME_PRODUCT_COLLECT_Cancel;
     }    
     
     NSString *post = [NSString stringWithFormat:@"product_id=%@&authcode=%@",self.product_id,[GMAPI getAuthkey]];
@@ -187,20 +196,59 @@
 
 - (void)clickToShare:(UIButton *)sender
 {
-    [[LShareSheetView shareInstance] show];
+    [[LShareSheetView shareInstance] showShareContent:@"分享的内容" shareUrl:@"http://www.baidu.com" shareImage:[UIImage imageNamed:@"product_like_cancel"] targetViewController:self];
+    [[LShareSheetView shareInstance]actionBlock:^(NSInteger buttonIndex, Share_Type shareType) {
+       
+        if (shareType == Share_QQ) {
+            
+            NSLog(@"Share_QQ");
+            
+        }else if (shareType == Share_QQZone){
+            
+             NSLog(@"Share_QQZone");
+            
+        }else if (shareType == Share_WeiBo){
+            
+             NSLog(@"Share_WeiBo");
+            
+        }else if (shareType == Share_WX_HaoYou){
+            
+             NSLog(@"Share_WX_HaoYou");
+            
+        }else if (shareType == Share_WX_PengYouQuan){
+            
+             NSLog(@"Share_WX_PengYouQuan");
+            
+        }
+        
+    }];
 }
 
 - (IBAction)clickToDaPeiShi:(id)sender {
     
 }
 
+/**
+ *  联系商家
+ *
+ *  @param sender
+ */
 - (IBAction)clickToContact:(id)sender {
     
+    YIYIChatViewController *contact = [[YIYIChatViewController alloc]init];
+    contact.currentTarget = @"1";
+    contact.currentTargetName = @"RNail";
+    contact.portraitStyle = RCUserAvatarCycle;
+    contact.enableSettings = NO;
+    contact.conversationType = ConversationType_PRIVATE;
+    
+    [self.navigationController pushViewController:contact animated:YES];
 }
 
 - (IBAction)clickToBuy:(id)sender {
     
-    
+    GLeadBuyMapViewController *ll = [[GLeadBuyMapViewController alloc]init];
+    [self.navigationController pushViewController:ll animated:YES];
 }
 
 /*
@@ -308,16 +356,16 @@
     [heartButton addTarget:self action:@selector(clickToLike:) forControlEvents:UIControlEventTouchUpInside];
 //    [heartButton setTitle:@"喜欢" forState:UIControlStateNormal];
     [heartButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [heartButton setImage:[UIImage imageNamed:@"product_like"] forState:UIControlStateNormal];
-    [heartButton setImage:[UIImage imageNamed:@"product_like_cancel"] forState:UIControlStateSelected];
+    [heartButton setImage:[UIImage imageNamed:@"xihuanb"] forState:UIControlStateNormal];
+    [heartButton setImage:[UIImage imageNamed:@"xihuanb_down"] forState:UIControlStateSelected];
     [heartButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     
     //收藏的
     
     collectButton =[[UIButton alloc]initWithFrame:CGRectMake(74,0, 44,42.5)];
     [collectButton addTarget:self action:@selector(clickToCollect:) forControlEvents:UIControlEventTouchUpInside];
-    [collectButton setImage:[UIImage imageNamed:@"product_shoucang"] forState:UIControlStateNormal];
-    [collectButton setImage:[UIImage imageNamed:@"product_shoucang_cancel"] forState:UIControlStateSelected];
+    [collectButton setImage:[UIImage imageNamed:@"shoucangb"] forState:UIControlStateNormal];
+    [collectButton setImage:[UIImage imageNamed:@"shoucangb_down"] forState:UIControlStateSelected];
     [collectButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     collectButton.center = CGPointMake(rightView.width / 2.f, collectButton.center.y);
     [collectButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];

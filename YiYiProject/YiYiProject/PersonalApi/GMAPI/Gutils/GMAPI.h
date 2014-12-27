@@ -81,4 +81,13 @@
 
 
 
+
+
+//信息处理
++(NSString *)exchangeStringForDeleteNULL:(id)sender;
+
+
+
+
+
 @end
