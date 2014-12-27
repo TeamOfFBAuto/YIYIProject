@@ -19,6 +19,8 @@
 
 #import "GSettingViewController.h"
 
+#import "MyYiChuViewController.h"//我的衣橱
+
 typedef enum{
     USERFACE = 0,//头像
     USERBANNER,//banner
@@ -261,11 +263,91 @@ typedef enum{
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == 0) {
-        GmyMainViewController *dd = [[GmyMainViewController alloc]init];
-        dd.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:dd animated:YES];
+    switch (indexPath.section) {
+        case 0:
+        {
+            GmyMainViewController *dd = [[GmyMainViewController alloc]init];
+            dd.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:dd animated:YES];
+
+        
+        
+        }
+            break;
+            
+        case 1:
+        {
+            
+            
+            
+            
+        }
+            break;
+            
+        case 2:
+        {
+            
+            if (indexPath.row==0) {
+                
+                MyYiChuViewController *_myyichuVC=[[MyYiChuViewController alloc]init];
+                
+                [self.navigationController pushViewController:_myyichuVC animated:YES];
+                
+                NSLog(@"我的衣橱");
+                
+                
+            }else if(indexPath.row==1){
+                
+                NSLog(@"我的体型");
+
+            
+            }else if(indexPath.row==2){
+                
+                NSLog(@"穿衣日记");
+
+                
+            }
+            
+            
+        }
+            break;
+            
+        case 3:
+        {
+            
+            
+        }
+            break;
+            
+        case 4:
+        {
+            
+            
+        }
+            break;
+            
+        case 5:
+        {
+            
+            
+        }
+            break;
+            
+        default:
+            break;
     }
+    
+    
+    
+    
+    
+//    if (indexPath.row == 0) {
+//        GmyMainViewController *dd = [[GmyMainViewController alloc]init];
+//        dd.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:dd animated:YES];
+//    }
+    
+    
     
     NSLog(@"xxxx==%ld=row=%ld=",indexPath.section,indexPath.row);
     

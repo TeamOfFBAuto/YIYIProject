@@ -241,6 +241,7 @@
 		13CD36541A3C732D0068C12A /* LWaterflowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CD36531A3C732D0068C12A /* LWaterflowView.m */; };
 		13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D1D1A3B2682002AF7D6 /* HomeBuyController.m */; };
 		13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */; };
+		19D0C0D21A4EDA6D00BEC10D /* MyYiChuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D0C0D11A4EDA6D00BEC10D /* MyYiChuViewController.m */; };
 		5658C79A1A4C486E00DC86F8 /* MatchWaterflowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5658C7991A4C486E00DC86F8 /* MatchWaterflowView.m */; };
 		569722291A407DAE004B6641 /* HomeMatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 569722281A407DAE004B6641 /* HomeMatchModel.m */; };
 		5697222C1A408040004B6641 /* HomeMatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5697222B1A408040004B6641 /* HomeMatchView.m */; };
@@ -633,6 +634,8 @@
 		13EA3D1D1A3B2682002AF7D6 /* HomeBuyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBuyController.m; sourceTree = "<group>"; };
 		13EA3D221A3B2E13002AF7D6 /* HomeMatchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMatchController.h; sourceTree = "<group>"; };
 		13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMatchController.m; sourceTree = "<group>"; };
+		19D0C0D01A4EDA6D00BEC10D /* MyYiChuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyYiChuViewController.h; sourceTree = "<group>"; };
+		19D0C0D11A4EDA6D00BEC10D /* MyYiChuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyYiChuViewController.m; sourceTree = "<group>"; };
 		316989CEF30908957578BF60 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		454167C7D51D19BFE1D2B4D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5658C7981A4C486D00DC86F8 /* MatchWaterflowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchWaterflowView.h; sourceTree = "<group>"; };
@@ -1629,6 +1632,8 @@
 				E3FC8DE61A3C4B430025525D /* GeditUserInfoViewController.m */,
 				13A3899F1A38942D00ABBACB /* MineViewController.h */,
 				13A389A01A38942D00ABBACB /* MineViewController.m */,
+				19D0C0D01A4EDA6D00BEC10D /* MyYiChuViewController.h */,
+				19D0C0D11A4EDA6D00BEC10D /* MyYiChuViewController.m */,
 				13A389A11A38942D00ABBACB /* MineViewController.xib */,
 			);
 			path = ViewControllers;
@@ -2311,6 +2316,7 @@
 				E33FF5051A4EBC810060E130 /* GpinpaiDetailViewController.m in Sources */,
 				139607BC1A46D82400AACAC4 /* FilterViewController.m in Sources */,
 				13A3899C1A3893FC00ABBACB /* MessageViewController.m in Sources */,
+				19D0C0D21A4EDA6D00BEC10D /* MyYiChuViewController.m in Sources */,
 				13684A6B1A37583E00A508FB /* main.m in Sources */,
 				13CD36541A3C732D0068C12A /* LWaterflowView.m in Sources */,
 				13A3897E1A3878FE00ABBACB /* MyViewController.m in Sources */,
