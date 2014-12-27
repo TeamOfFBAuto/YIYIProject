@@ -10,6 +10,9 @@
 #import "ProductModel.h"
 #import "LShareSheetView.h"
 #import "YIYIChatViewController.h"
+#import "GLeadBuyMapViewController.h"
+
+
 
 @interface ProductDetailController ()
 {
@@ -239,7 +242,8 @@
 
 - (IBAction)clickToBuy:(id)sender {
     
-    
+    GLeadBuyMapViewController *ll = [[GLeadBuyMapViewController alloc]init];
+    [self.navigationController pushViewController:ll animated:YES];
 }
 
 /*

@@ -8,6 +8,7 @@
 
 #import "HomeClothController.h"
 #import "GCycleScrollView.h"
+#import "GnearbyStoreViewController.h"
 
 @interface HomeClothController ()<GCycleScrollViewDatasource,GCycleScrollViewDelegate,UIScrollViewDelegate>
 {
@@ -85,7 +86,32 @@
     _scrollview_nearbyView.contentSize = CGSizeMake(1000, 218-30-14);
     _scrollview_nearbyView.tag = 10;
     _scrollview_nearbyView.delegate = self;
+    _scrollview_nearbyView.showsHorizontalScrollIndicator = NO;
     [_nearbyView addSubview:_scrollview_nearbyView];
+    
+    
+    for (int i = 0; i<20; i++) {
+//        UIView *pinpaiView = [[UIView alloc]initWithFrame:CGRectMake(0+i*77, 0, 70, 218-30-14)];
+//        pinpaiView.backgroundColor = [UIColor lightGrayColor];
+//        pinpaiView.userInteractionEnabled = YES;
+//        
+//        UITapGestureRecognizer *tt = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goNearbyStoreVC)];
+//        [pinpaiView addGestureRecognizer:tt];
+//        [_scrollview_nearbyView addSubview:pinpaiView];
+        
+        
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn addTarget:self action:@selector(goNearbyStoreVC) forControlEvents:UIControlEventTouchUpInside];
+        [btn setFrame:CGRectMake(0+i*77, 0, 70, 218-30-14)];
+        btn.backgroundColor = [UIColor lightGrayColor];
+        [_scrollview_nearbyView addSubview:btn];
+        
+    }
+    
+    
+    
+    
     
     
     //标题下面的分割线
@@ -128,9 +154,40 @@
     _scrollView_pinpai = [[UIScrollView alloc]initWithFrame:CGRectMake(15, 30, DEVICE_WIDTH-15-15, 155-30-14)];
     _scrollView_pinpai.backgroundColor = RGBCOLOR(242, 242, 242);
     _scrollView_pinpai.contentSize = CGSizeMake(1000, 155-30-14);
-    _scrollView_pinpai.tag = 10;
+    _scrollView_pinpai.tag = 11;
     _scrollView_pinpai.delegate = self;
     [_pinpaiView addSubview:_scrollView_pinpai];
+    
+    
+    for (int i = 0; i<20; i++) {
+        UIView *pinpaiView = [[UIView alloc]initWithFrame:CGRectMake(0+i*77, 0, 70, 120)];
+        pinpaiView.backgroundColor = [UIColor orangeColor];
+        
+        
+        UIView *yuan = [[UIView alloc]initWithFrame:CGRectMake(2, 15, 66, 66)];
+        yuan.layer.cornerRadius = 33;
+        yuan.backgroundColor = [UIColor whiteColor];
+        yuan.layer.borderWidth = 1;
+        yuan.layer.borderColor = RGBCOLOR(212, 212, 212).CGColor;
+        [pinpaiView addSubview:yuan];
+        
+        UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(yuan.frame)+7, 70, 13)];
+        nameLabel.font = [UIFont systemFontOfSize:13];
+        nameLabel.text = @"ONLY";
+        nameLabel.textAlignment = NSTextAlignmentCenter;
+        nameLabel.textColor = RGBCOLOR(114, 114, 114);
+        [pinpaiView addSubview:nameLabel];
+        
+        
+        
+        [_scrollView_pinpai addSubview:pinpaiView];
+        
+    }
+    
+    
+    
+    
+    
     
     
     //标题下面的分割线
@@ -146,7 +203,7 @@
     [leftBtn setFrame:CGRectMake(15, CGRectGetMaxY(downTitleLine.frame)+40, 22, 22)];
     leftBtn.layer.cornerRadius = 4;
     leftBtn.backgroundColor = RGBCOLOR(195, 195, 195);
-    [leftBtn addTarget:self action:@selector(nearGoRight) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn addTarget:self action:@selector(pinpaiGoleft) forControlEvents:UIControlEventTouchUpInside];
     [_pinpaiView addSubview:leftBtn];
     
     
@@ -155,13 +212,24 @@
     [rightBtn setFrame:CGRectMake(DEVICE_WIDTH-37, CGRectGetMaxY(downTitleLine.frame)+40, 22, 22)];
     rightBtn.layer.cornerRadius = 4;
     rightBtn.backgroundColor = RGBCOLOR(195, 195, 195);
-    [rightBtn addTarget:self action:@selector(nearGoRight) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn addTarget:self action:@selector(pinpaiGoRight) forControlEvents:UIControlEventTouchUpInside];
     [_pinpaiView addSubview:rightBtn];
     
     
     return _pinpaiView;
     
 }
+
+
+
+-(void)goNearbyStoreVC{
+    
+    GnearbyStoreViewController *nn = [[GnearbyStoreViewController alloc]init];
+    nn.hidesBottomBarWhenPushed = YES;
+    [self.rootViewController.navigationController pushViewController:nn animated:YES];
+    
+}
+
 
 
 
@@ -177,6 +245,43 @@
     
     [UIView animateWithDuration:0.2 animations:^{
         _scrollview_nearbyView.contentOffset = CGPointMake(xx, yy);
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+
+-(void)pinpaiGoleft{
+    
+    CGFloat xx = _scrollView_pinpai.contentOffset.x;
+    CGFloat yy = _scrollView_pinpai.contentOffset.y;
+    xx-=100;
+    if (xx<0) {
+        xx = 0;
+    }
+    [UIView animateWithDuration:0.2 animations:^{
+        _scrollView_pinpai.contentOffset = CGPointMake(xx, yy);
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+    
+    
+}
+
+
+-(void)pinpaiGoRight{
+    
+    CGFloat xx = _scrollView_pinpai.contentOffset.x;
+    CGFloat yy = _scrollView_pinpai.contentOffset.y;
+    xx+=100;
+    if (xx>_scrollView_pinpai.contentSize.width) {
+        xx = _scrollView_pinpai.contentSize.width;
+    }
+    
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        _scrollView_pinpai.contentOffset = CGPointMake(xx, yy);
     } completion:^(BOOL finished) {
         
     }];
@@ -244,7 +349,9 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (scrollView.tag == 10) {
-        NSLog(@"x:%f,y:%f",scrollView.contentOffset.x,scrollView.contentOffset.y);
+        NSLog(@"附近 x:%f,y:%f",scrollView.contentOffset.x,scrollView.contentOffset.y);
+    }else if (scrollView.tag == 11){
+        NSLog(@"品牌 x:%f,y:%f",scrollView.contentOffset.x,scrollView.contentOffset.y);
     }
     
     
