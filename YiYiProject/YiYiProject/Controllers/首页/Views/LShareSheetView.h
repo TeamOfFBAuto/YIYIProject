@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "UMSocial.h"
+
+#import <TencentOpenAPI/QQApi.h>
+
+#import "WXApi.h"
+
 /**
  *  分享 sheetView
  */
@@ -25,16 +32,28 @@ typedef enum {
 
 typedef void(^ ActionBlock) (NSInteger buttonIndex,Share_Type shareType);
 
-@interface LShareSheetView : UIView
+@interface LShareSheetView : UIView<UMSocialUIDelegate>
+
 {
     ActionBlock actionBlock;
     UIView *bgView;
     NSArray *items;
+   
+    //分享内容
+    NSString *_shareContent;
+    NSString *_shareUrl;
+    UIImage *_shareImage;
+    
+    UIViewController *_targetViewController;
 }
 
 + (id)shareInstance;
+
 - (void)actionBlock:(ActionBlock)aBlock;
 
-- (void)show;
+- (void)showShareContent:(NSString *)content
+                shareUrl:(NSString *)url
+              shareImage:(UIImage *)aImage
+    targetViewController:(UIViewController *)targetViewController;
 
 @end

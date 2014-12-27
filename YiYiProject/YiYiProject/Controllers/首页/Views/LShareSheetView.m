@@ -7,6 +7,7 @@
 //
 
 #import "LShareSheetView.h"
+
 #define KLEFT 20
 #define KTOP 20
 #define DIS_SMALL 10
@@ -18,6 +19,8 @@
 
 @property(nonatomic,assign)Share_Type shareType;
 
+@property(nonatomic,retain)NSString *umShareType;//友盟分享类型
+
 @end
 
 @implementation CustomButton
@@ -26,7 +29,6 @@
 
 
 @implementation LShareSheetView
-
 + (id)shareInstance
 {
     static dispatch_once_t once_t;
@@ -68,12 +70,10 @@
         bgView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.95];
         [self addSubview:bgView];
         
-        
-//        items = @[@"微信",@"QQ",@"朋友圈",@"微博",@"QQ空间"];
-//        NSArray *images = @[@"weixin72_72",@"QQ72_72",@"pengyouquan72_7222x",@"weibo90_72",@"qqzone"];
-        
         items = @[@"朋友圈",@"微博",@"QQ空间",@"微信",@"QQ"];
         NSArray *images = @[@"pengyouquan72_7222x",@"weibo90_72",@"qqzone",@"weixin72_72",@"QQ72_72"];
+        
+        NSArray *shareType = @[UMShareToWechatTimeline,UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToQQ];
         
         CGFloat aWidth = 36.0;
         CGFloat left = (DEVICE_WIDTH - 36 * 3) / 4;
@@ -92,6 +92,7 @@
             [bgView addSubview:itemBtn];
             itemBtn.tag = 100 + i;
             itemBtn.shareType = 100 + i;
+            itemBtn.umShareType = shareType[i];
             
             [itemBtn addTarget:self action:@selector(actionToDo:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -119,8 +120,16 @@
     return self;
 }
 
-- (void)show
+- (void)showShareContent:(NSString *)content
+                shareUrl:(NSString *)url
+              shareImage:(UIImage *)aImage
+    targetViewController:(UIViewController *)targetViewController
 {
+    _shareContent = content;
+    _shareUrl = url;
+    _shareImage = aImage;
+    _targetViewController = targetViewController;
+    
     UIView *root = [UIApplication sharedApplication].keyWindow;
     [root addSubview:self];
     
@@ -142,6 +151,8 @@
 - (void)actionToDo:(CustomButton *)button
 {
     //0,1,2
+    
+    [self autoShareTo:button.umShareType];//分享
     
     if (button.tag - 100 < items.count) {
         
@@ -176,6 +187,112 @@
     if ([touch.view isKindOfClass:[LShareSheetView class]]) {
         [self hidden];
         
+    }
+}
+
+
+#pragma mark - 分享处理
+
+- (void)autoShareTo:(NSString *)type
+{
+    if ([type isEqualToString:UMShareToQQ] || [type isEqualToString:UMShareToQzone]) {
+        
+        if (![QQApi isQQInstalled] || ![QQApi isQQSupportApi]) {
+            
+            [LTools alertText:@"抱歉,没有安装QQ客户端"];
+            
+            return;
+        }
+    }
+    
+    if ([type isEqualToString:UMShareToWechatSession] || [type isEqualToString:UMShareToWechatTimeline]) {
+        
+        if (![WXApi isWXAppInstalled] || ![WXApi isWXAppSupportApi]) {
+            
+            [LTools alertText:@"您的设备没有安装微信客户端"];
+            
+            return;
+        }
+    }
+    
+    
+    NSString *content = _shareContent;
+    
+    NSString *url = _shareUrl;
+    
+    UIImage *shareImage = _shareImage;
+    
+    UIViewController *root = _targetViewController;
+    
+    if ([type isEqualToString:UMShareToQQ]) {
+        
+        [UMSocialData defaultData].extConfig.qqData.url = url; //设置你自己的url地址;
+        
+        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[type] content:content image:shareImage location:nil urlResource:nil presentedController:root completion:^(UMSocialResponseEntity *shareResponse){
+            if (shareResponse.responseCode == UMSResponseCodeSuccess) {
+                
+                NSLog(@"QQ分享成功");
+                
+            }else{
+                
+                NSLog(@"分享失败");
+            }
+        }];
+        
+        
+    }else if ([type isEqualToString:UMShareToSina]){
+        
+        [[UMSocialControllerService defaultControllerService] setShareText:[NSString stringWithFormat:@"%@%@",content,url] shareImage:shareImage socialUIDelegate:self];
+        [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina].snsClickHandler(root,[UMSocialControllerService defaultControllerService],YES);
+        
+    }else if ([type isEqualToString:UMShareToQzone]){
+        
+        //qqzone
+        [UMSocialData defaultData].extConfig.qzoneData.url = url; //设置你自己的url地址;
+        
+        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[type] content:content image:shareImage location:nil urlResource:nil presentedController:root completion:^(UMSocialResponseEntity *shareResponse){
+            if (shareResponse.responseCode == UMSResponseCodeSuccess) {
+                
+                NSLog(@"QQ空间分享成功");
+                
+            }else{
+                
+                NSLog(@"QQ空间分享失败");
+            }
+        }];
+        
+        
+    }else if ([type isEqualToString:UMShareToWechatSession]){
+        
+        [UMSocialData defaultData].extConfig.wechatSessionData.url = url; //设置你自己的url地址;
+        
+        [[UMSocialControllerService defaultControllerService] setShareText:content shareImage:shareImage socialUIDelegate:self];
+        UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
+        snsPlatform.snsClickHandler(root,[UMSocialControllerService defaultControllerService],YES);
+        
+    }else if ([type isEqualToString:UMShareToWechatTimeline]){ //朋友圈
+        
+        [UMSocialData defaultData].extConfig.wechatTimelineData.url = url; //设置你自己的url地址;
+        
+        [[UMSocialControllerService defaultControllerService] setShareText:content shareImage:shareImage socialUIDelegate:self];
+        [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatTimeline].snsClickHandler(root,[UMSocialControllerService defaultControllerService],YES);
+    }
+}
+
+#pragma mark - 分享 delegate
+
+
+//实现回调方法（可选）：
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        //得到分享到的微博平台名
+        NSLog(@"share to sns name is %@ 成功",[[response.data allKeys] objectAtIndex:0]);
+    }else
+    {
+        NSLog(@"share to sns name is %@ 失败",[[response.data allKeys] objectAtIndex:0]);
     }
 }
 

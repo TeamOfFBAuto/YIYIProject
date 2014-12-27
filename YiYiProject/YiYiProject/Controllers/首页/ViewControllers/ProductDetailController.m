@@ -188,7 +188,7 @@
 
 - (void)clickToShare:(UIButton *)sender
 {
-    [[LShareSheetView shareInstance] show];
+    [[LShareSheetView shareInstance] showShareContent:@"分享的内容" shareUrl:@"http://www.baidu.com" shareImage:[UIImage imageNamed:@"product_like_cancel"] targetViewController:self];
     [[LShareSheetView shareInstance]actionBlock:^(NSInteger buttonIndex, Share_Type shareType) {
        
         if (shareType == Share_QQ) {
