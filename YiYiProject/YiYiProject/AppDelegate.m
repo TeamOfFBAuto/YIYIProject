@@ -97,7 +97,10 @@
     
     [self rondCloudDefaultLoginWithToken:[LTools cacheForKey:RONGCLOUD_TOKEN]];
     
-    
+    if (IOS7_OR_LATER) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    }
     
 #ifdef __IPHONE_8_0
     // 在 iOS 8 下注册苹果推送，申请推送权限。

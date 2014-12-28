@@ -64,7 +64,9 @@ typedef enum{
         
         LoginViewController *login = [[LoginViewController alloc]init];
         
-        [self presentViewController:login animated:YES completion:nil];
+        UINavigationController *unVc = [[UINavigationController alloc]initWithRootViewController:login];
+        
+        [self presentViewController:unVc animated:YES completion:nil];
         
     }
     
