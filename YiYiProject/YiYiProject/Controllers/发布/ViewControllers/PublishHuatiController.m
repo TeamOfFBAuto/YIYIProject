@@ -85,6 +85,12 @@
     [fabuButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     
     
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(44 + 8, 7 + 5, 0.5, 20)];
+    line.backgroundColor = [UIColor whiteColor];
+    [rightView addSubview:line];
+
+    
+    
     [rightView addSubview:insertButton];
     [rightView addSubview:fabuButton];
     

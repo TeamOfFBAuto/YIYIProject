@@ -7,6 +7,7 @@
 //
 
 #import "LEditor.h"
+#import "AFNetworking.h"
 
 @implementation LEditor
 
@@ -729,17 +730,18 @@
         
         //        [self addNewImage:image];
         
-        if (isReplaceImage) {
-            
-            replaceImageView.image = image;
-            
-            isReplaceImage = NO;
-            
-        }else
-        {
-            [self insertImage:image];
-        }
+//        if (isReplaceImage) {
+//            
+//            replaceImageView.image = image;
+//            
+//            isReplaceImage = NO;
+//            
+//        }else
+//        {
+//            [self insertImage:image];
+//        }
         
+        [self upLoadImage:image];
         
         [picker dismissViewControllerAnimated:YES completion:nil];
     }
@@ -769,6 +771,87 @@
     UIGraphicsEndImageContext();
     // 返回新的改变大小后的图片
     return scaledImage;
+}
+
+
+#pragma mark 图片上传
+
+//上传
+-(void)upLoadImage:(UIImage *)aImage{
+    
+    //上传的url
+    NSString *uploadImageUrlStr = UPLOAD_IMAGE_URL;
+    
+    //设置接收响应类型为标准HTTP类型(默认为响应类型为JSON)
+    AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    AFHTTPRequestOperation  * o2= [manager
+                                   POST:uploadImageUrlStr
+                                   parameters:@{
+                                                @"action":@"topic_pic"
+                                                }
+                                   constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+                                   {
+                                       //开始拼接表单
+                                       //获取图片的二进制形式
+                                       NSData * data= UIImageJPEGRepresentation(aImage, 0.5);
+                                       
+                                       NSLog(@"---> 大小 %ld",(unsigned long)data.length);
+                                       
+                                       //将得到的二进制图片拼接到表单中
+                                       /**
+                                        *  data,指定上传的二进制流
+                                        *  name,服务器端所需参数名
+                                        *  fileName,指定文件名
+                                        *  mimeType,指定文件格式
+                                        */
+                                       [formData appendPartWithFileData:data name:@"pic" fileName:@"icon.jpg" mimeType:@"image/jpg"];
+                                       //多用途互联网邮件扩展（MIME，Multipurpose Internet Mail Extensions）
+                                   }
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
+                                   {
+                                       
+                                       NSLog(@"success %@",responseObject);
+                                       
+                                       NSError * myerr;
+                                       
+                                       NSDictionary *mydic=[NSJSONSerialization JSONObjectWithData:(NSData *)responseObject options:0 error:&myerr];
+                                       
+                                       
+                                       NSLog(@"mydic == %@ err0 = %@",mydic,myerr);
+                                       
+//                                       {
+//                                           errorcode = 0;
+//                                           msg = "\U4e0a\U4f20\U6210\U529f";
+//                                           pics =     (
+//                                                       {
+//                                                           "image_height" = 200;
+//                                                           "image_resize_height" = 200;
+//                                                           "image_resize_url" = "http://182.92.158.32:83/topic/2014/1228/549fde214c89c.jpg_180x200.jpg";
+//                                                           "image_resize_width" = 180;
+//                                                           "image_url" = "http://182.92.158.32:83/topic/2014/1228/549fde214c89c.jpg";
+//                                                           "image_width" = 180;
+//                                                       }
+//                                                       );
+//                                       }
+                                    
+                                       
+                                   }
+                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       
+                                       
+                                       
+                                       NSLog(@"失败 : %@",error);
+                                       
+
+                                   }];
+    
+    //设置上传操作的进度
+    [o2 setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        
+    }];
+    
+    
 }
 
 
