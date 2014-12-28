@@ -12,6 +12,8 @@
 #import "UMSocial.h"
 #import "UserInfo.h"
 
+#import "RCIM.h"
+
 @interface LoginViewController ()
 
 @end
@@ -210,9 +212,14 @@
         
         UserInfo *user = [[UserInfo alloc]initWithDictionary:result];
         
+        //保存用户信息
+        
         [LTools cache:user.user_name ForKey:USER_NAME];
-        [LTools cache:user.id ForKey:USER_UID];
+        [LTools cache:user.uid ForKey:USER_UID];
         [LTools cache:user.authcode ForKey:USER_AUTHOD];
+        [LTools cache:user.photo ForKey:USER_HEAD_IMAGEURL];
+        
+        //保存登录状态 yes
         
         [LTools cacheBool:YES ForKey:USER_LONGIN];
         
@@ -220,9 +227,7 @@
         
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN object:nil];
         
-        [self performSelector:@selector(leftButtonTap:) withObject:nil afterDelay:0.2];
-        
-//        [weakSelf loginToRoncloudUserId:user.id userName:user.user_name userHeadImage:user.photo];
+        [weakSelf performSelector:@selector(leftButtonTap:) withObject:nil afterDelay:0.2];
         
         
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
@@ -230,38 +235,6 @@
         NSLog(@"failDic %@ erro %@",failDic,erro);
         
         [LTools showMBProgressWithText:failDic[RESULT_INFO] addToView:self.view];
-    }];
-}
-
-//获取融云token
-
-- (void)loginToRoncloudUserId:(NSString *)userId
-                     userName:(NSString *)userName
-                userHeadImage:(NSString *)headImage
-{
-    NSString *url = [NSString stringWithFormat:RONCLOUD_GET_TOKEN,userId,userName,headImage];
-    LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
-    [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
-        
-        NSLog(@"result %@",result);
-        
-        [LTools cache:result[@"token"] ForKey:RONGCLOUD_TOKEN];
-        
-        [LTools showMBProgressWithText:result[RESULT_INFO] addToView:self.view];
-        
-        [[LTools appDelegate]rondCloudDefaultLogin];
-        
-        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN object:nil];
-        
-        [self performSelector:@selector(leftButtonTap:) withObject:nil afterDelay:0.2];
-
-        
-    } failBlock:^(NSDictionary *result, NSError *erro) {
-        
-        NSLog(@"result %@",result);
-        
-        [LTools showMBProgressWithText:result[RESULT_INFO] addToView:self.view];
-
     }];
 }
 

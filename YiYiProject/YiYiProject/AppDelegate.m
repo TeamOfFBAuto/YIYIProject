@@ -27,12 +27,10 @@
 //18600912932
 //cocos2d
 
-#define RONGCLOUD_IM_APPKEY    @"x18ywvqf82x0c"
-#define RONGCLOUD_IM_APPSECRET @"qaOLno5Zgm"
+#define RONGCLOUD_IM_APPKEY    @"kj7swf8o7zaf2"
+#define RONGCLOUD_IM_APPSECRET @"2cCSWhaLcCm37"
 
 #define UmengAppkey @"5423e48cfd98c58eed00664f"
-
-
 
 
 /**
@@ -93,7 +91,13 @@
     
     [RCIM initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:nil];
     
-    [self rondCloudDefaultLogin];
+    //系统登录成功通知 登录融云
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginToRongCloud) name:NOTIFICATION_LOGIN object:nil];
+    
+    [self rondCloudDefaultLoginWithToken:[LTools cacheForKey:RONGCLOUD_TOKEN]];
+    
+    
     
 #ifdef __IPHONE_8_0
     // 在 iOS 8 下注册苹果推送，申请推送权限。
@@ -267,13 +271,71 @@
 
 #pragma mark 事件处理
 
-- (void)rondCloudDefaultLogin
+#pragma - mark - 获取融云token -
+
+- (void)loginToRongCloud
+{
+    [self loginToRoncloudUserId:[GMAPI getUid] userName:[GMAPI getUsername] userHeadImage:[GMAPI getUerHeadImageUrl]];
+}
+
+- (void)loginToRoncloudUserId:(NSString *)userId
+                     userName:(NSString *)userName
+                userHeadImage:(NSString *)headImage
+{
+    
+    NSString *url = [NSString stringWithFormat:RONCLOUD_GET_TOKEN,userId,userName,headImage];
+    LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
+    [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"result %@",result);
+        
+        [LTools cache:result[@"token"] ForKey:RONGCLOUD_TOKEN];
+        
+        [RCIM connectWithToken:result[@"token"] completion:^(NSString *userId) {
+            
+            NSLog(@"------> rongCloud success %@",userId);
+            
+//            [LTools showMBProgressWithText:@"聊天登录成功!" addToView:self.window];
+
+            
+        } error:^(RCConnectErrorCode status) {
+            
+            NSString *errInfo = @"融云错误";
+            
+            if (status == ConnectErrorCode_TOKEN_INCORRECT) {
+                
+                errInfo = @"融云token无效";
+            }
+            
+            NSLog(@"------> rongCloud fail %@",errInfo);
+            
+        }];
+        
+        
+    } failBlock:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"获取融云token失败 %@",result);
+        
+        [LTools showMBProgressWithText:result[RESULT_INFO] addToView:self.window];
+        
+    }];
+}
+
+/**
+ *  聊天登录失败
+ */
+- (void)chatLoginFailInfo:(NSString *)errInfo
+{
+    UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"" message:errInfo delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"确定",nil];
+    alert.tag = 2001;
+    [alert show];
+}
+
+- (void)rondCloudDefaultLoginWithToken:(NSString *)loginToken
 {
     //测试token
     
 //    [LTools cache:@"Z+v61ga3tUUkgHbgG6eFblki5ktT/tK95honsc0yvtV+p7lzHFE9Vop/XwArqiec9DnDrmeC0is=" ForKey:RONGCLOUD_TOKEN];
-    
-    NSString *loginToken = [LTools cacheForKey:RONGCLOUD_TOKEN];
     
     //默认测试
     
@@ -283,9 +345,13 @@
             
             NSLog(@"------> rongCloud success %@",userId);
             
+            [LTools cacheBool:YES ForKey:USER_LONGIN];
+            
         } error:^(RCConnectErrorCode status) {
            
             NSLog(@"------> rongCloud fail %d",(int)status);
+            
+            [LTools cacheBool:NO ForKey:USER_LONGIN];
             
         }];
     }
@@ -342,7 +408,7 @@
  */
 - (void)responseConnectSuccess:(NSString*)userId{
     
-    NSLog(@"userId %@ 登录成功",userId);
+    NSLog(@"userId %@ rongCloud登录成功",userId);
 }
 
 /**
@@ -352,7 +418,7 @@
  */
 - (void)responseConnectError:(RCConnectErrorCode)errorCode
 {
-    NSLog(@"重新连接失败--- %d",(int)errorCode);
+    NSLog(@"rongCloud重新连接失败--- %d",(int)errorCode);
 }
 
 @end

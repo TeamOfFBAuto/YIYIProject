@@ -24,6 +24,11 @@ alpha:(a)]
 //版本判断相关
 #define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
 
+//int 转 string
+
+#define NSStringFromFloat(float) [NSString stringWithFormat:@"%f",(float)]
+#define NSStringFromInt(int) [NSString stringWithFormat:@"%d",(int)]
+
 //保存用户信息设备信息相关
 
 #define USER_INFO @"userInfo"//用户信息
@@ -34,6 +39,7 @@ alpha:(a)]
 #define USER_LONGIN @"user_in" //no是未登陆  yes是已登陆
 #define USER_AUTHOD @"user_authod"
 #define USER_CHECKUSER @"checkfbuser"
+#define USER_HEAD_IMAGEURL @"userHeadImageUrl"//头像url
 
 #define USER_AUTHKEY_OHTER @"otherKey"//第三方key
 #define USRR_AUTHKEY @"authkey"
