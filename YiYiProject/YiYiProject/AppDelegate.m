@@ -20,6 +20,8 @@
 
 #import "RCIM.h"
 
+#import "RCIMClient.h"
+
 //融云cloud
 
 //18600912932
@@ -75,7 +77,7 @@
 //
 //#define RedirectUrl @"http://sns.whalecloud.com/sina2/callback" //回调地址
 
-@interface AppDelegate ()<BMKGeneralDelegate>
+@interface AppDelegate ()<BMKGeneralDelegate,RCIMConnectionStatusDelegate,RCConnectDelegate>
 {
     BMKMapManager* _mapManager;
     CLLocationManager *_locationManager;
@@ -269,7 +271,7 @@
 {
     //测试token
     
-    [LTools cache:@"Z+v61ga3tUUkgHbgG6eFblki5ktT/tK95honsc0yvtV+p7lzHFE9Vop/XwArqiec9DnDrmeC0is=" ForKey:RONGCLOUD_TOKEN];
+//    [LTools cache:@"Z+v61ga3tUUkgHbgG6eFblki5ktT/tK95honsc0yvtV+p7lzHFE9Vop/XwArqiec9DnDrmeC0is=" ForKey:RONGCLOUD_TOKEN];
     
     NSString *loginToken = [LTools cacheForKey:RONGCLOUD_TOKEN];
     
@@ -287,6 +289,70 @@
             
         }];
     }
+}
+
+/**
+ *  监测融云连接状态
+ */
+-(void)rongCloudConnectionState{
+    
+    [[RCIM sharedRCIM]setConnectionStatusDelegate:self];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[RCIM sharedRCIM] setConnectionStatusDelegate:nil];
+}
+
+-(void)responseConnectionStatus:(RCConnectionStatus)status{
+    if (ConnectionStatus_KICKED_OFFLINE_BY_OTHER_CLIENT == status) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"" message:@"您已下线，重新连接？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"确定",nil];
+            alert.tag = 2000;
+            [alert show];
+        });
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (2000 == alertView.tag) {
+        
+        if (0 == buttonIndex) {
+            
+            NSLog(@"NO");
+        }
+        
+        if (1 == buttonIndex) {
+            
+            NSLog(@"YES");
+            
+            [RCIMClient reconnect:self];
+        }
+    }
+    
+}
+
+#pragma mark - ReConnectDelegate
+/**
+ *  回调成功。
+ *
+ *  @param userId 当前登录的用户 Id，既换取登录 Token 时，App 服务器传递给融云服务器的用户 Id。
+ */
+- (void)responseConnectSuccess:(NSString*)userId{
+    
+    NSLog(@"userId %@ 登录成功",userId);
+}
+
+/**
+ *  回调出错。
+ *
+ *  @param errorCode 连接错误代码。
+ */
+- (void)responseConnectError:(RCConnectErrorCode)errorCode
+{
+    NSLog(@"重新连接失败--- %d",(int)errorCode);
 }
 
 @end

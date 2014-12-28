@@ -31,7 +31,7 @@ alpha:(a)]
 #define USER_NAME @"username"
 #define USER_PWD @"userPw"
 #define USER_UID @"useruid"
-#define USER_LONGIN @"user_in" //0是未登陆  1是已登陆
+#define USER_LONGIN @"user_in" //no是未登陆  yes是已登陆
 #define USER_AUTHOD @"user_authod"
 #define USER_CHECKUSER @"checkfbuser"
 
@@ -41,7 +41,6 @@ alpha:(a)]
 
 #define RONGCLOUD_TOKEN @"rongCloudToken"//融云对应的token
 
-#define LOGIN_SUCCESS @"login_success"//登录状态
 
 //通知 信息相关
 
@@ -102,8 +101,13 @@ typedef enum {
 
 //接口地址
 
+//融云 token
+
+#define RONCLOUD_GET_TOKEN @"http://182.92.158.32/index.php?d=api&c=chat&m=get_token&user_id=%@&name=%@&portrait_uri=%@"//获取融云 token
+
 //登录
 #define USER_LOGIN_ACTION @"http://182.92.158.32/index.php?d=api&c=user_api&m=login&type=%@&password=%@&thirdid=%@&nickname=%@&thirdphoto=%@&gender=%d&devicetoken=%@&mobile=%@"
+
 //注册
 #define USER_REGISTER_ACTION @"http://182.92.158.32/index.php?d=api&c=user_api&m=register&username=%@&password=%@&gender=%d&type=%d&code=%d&mobile=%@"
 //获取验证码

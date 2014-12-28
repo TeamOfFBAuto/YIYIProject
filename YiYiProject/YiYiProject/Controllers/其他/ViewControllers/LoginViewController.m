@@ -199,6 +199,8 @@
             break;
     }
     
+    __weak typeof(self)weakSelf = self;
+    
     NSString *url = [NSString stringWithFormat:USER_LOGIN_ACTION,type,password,thirdId,nickName,thirdphoto,gender,@"test",mobile];
     
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
@@ -212,13 +214,15 @@
         [LTools cache:user.id ForKey:USER_UID];
         [LTools cache:user.authcode ForKey:USER_AUTHOD];
         
-        [LTools cacheBool:YES ForKey:LOGIN_SUCCESS];
+        [LTools cacheBool:YES ForKey:USER_LONGIN];
         
         [LTools showMBProgressWithText:result[RESULT_INFO] addToView:self.view];
         
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN object:nil];
         
         [self performSelector:@selector(leftButtonTap:) withObject:nil afterDelay:0.2];
+        
+//        [weakSelf loginToRoncloudUserId:user.id userName:user.user_name userHeadImage:user.photo];
         
         
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
@@ -229,6 +233,37 @@
     }];
 }
 
+//获取融云token
+
+- (void)loginToRoncloudUserId:(NSString *)userId
+                     userName:(NSString *)userName
+                userHeadImage:(NSString *)headImage
+{
+    NSString *url = [NSString stringWithFormat:RONCLOUD_GET_TOKEN,userId,userName,headImage];
+    LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
+    [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"result %@",result);
+        
+        [LTools cache:result[@"token"] ForKey:RONGCLOUD_TOKEN];
+        
+        [LTools showMBProgressWithText:result[RESULT_INFO] addToView:self.view];
+        
+        [[LTools appDelegate]rondCloudDefaultLogin];
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN object:nil];
+        
+        [self performSelector:@selector(leftButtonTap:) withObject:nil afterDelay:0.2];
+
+        
+    } failBlock:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"result %@",result);
+        
+        [LTools showMBProgressWithText:result[RESULT_INFO] addToView:self.view];
+
+    }];
+}
 
 
 @end

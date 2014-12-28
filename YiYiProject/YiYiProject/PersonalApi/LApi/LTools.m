@@ -28,6 +28,11 @@
     return dataBlock;
 }
 
++ (AppDelegate *)appDelegate
+{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
 #pragma - mark MD5 加密
 
 + (NSString *) md5:(NSString *) text
