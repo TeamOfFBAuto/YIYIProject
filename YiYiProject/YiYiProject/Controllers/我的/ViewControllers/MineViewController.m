@@ -270,16 +270,11 @@ typedef enum{
             dd.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:dd animated:YES];
 
-        
-        
         }
             break;
             
         case 1:
         {
-            
-            
-            
             
         }
             break;
@@ -291,6 +286,8 @@ typedef enum{
                 
                 MyYiChuViewController *_myyichuVC=[[MyYiChuViewController alloc]init];
                 
+                _myyichuVC.hidesBottomBarWhenPushed = YES;
+
                 [self.navigationController pushViewController:_myyichuVC animated:YES];
                 
                 NSLog(@"我的衣橱");

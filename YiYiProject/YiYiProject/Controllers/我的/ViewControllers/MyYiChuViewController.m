@@ -14,8 +14,20 @@
 
 @implementation MyYiChuViewController
 
+
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:YES];
+    
+    self.navigationController.navigationBarHidden=NO;
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setMyViewControllerLeftButtonType:MyViewControllerLeftbuttonTypeBack WithRightButtonType:MyViewControllerRightbuttonTypeNull];
+    
     // Do any additional setup after loading the view.
 }
 
