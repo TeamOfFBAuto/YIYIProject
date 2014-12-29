@@ -190,6 +190,16 @@ typedef enum {
 #define GET_TOPIC_DETAIL_URL @"http://182.92.158.32/index.php?d=api&c=topic&m=get_topic_info&topic_id=%@"
 ///获取话题评论接口
 #define GET_TOPIC_COMMENTS_URL @"http://182.92.158.32/index.php?d=api&c=topic&m=get_replies&topic_id=%@&page=%d&per_page=20"
+
+
+
+
+#pragma mark--我的衣橱接口
+
+
+#define GET_MYYICHU_LIST_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=get_my_wardrobe&authcode=%@"
+
+
 #endif
 
 

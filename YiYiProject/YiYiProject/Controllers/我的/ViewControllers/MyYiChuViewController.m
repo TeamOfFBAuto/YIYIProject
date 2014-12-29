@@ -8,6 +8,7 @@
 
 #import "MyYiChuViewController.h"
 
+
 @interface MyYiChuViewController ()
 
 @end
@@ -28,8 +29,46 @@
     
     [self setMyViewControllerLeftButtonType:MyViewControllerLeftbuttonTypeBack WithRightButtonType:MyViewControllerRightbuttonTypeNull];
     
+    self.myTitle=@"我的衣橱";
+    
+    self.view.backgroundColor=[UIColor whiteColor];
+    
+    
+
+    
+    
+    
+    
+    
+    [self prepareMyYiChuListData];
+    
     // Do any additional setup after loading the view.
 }
+
+
+
+
+#pragma mark--获取整体数据
+
+-(void)prepareMyYiChuListData{
+    NSString *api = [NSString stringWithFormat:GET_MYYICHU_LIST_URL,[GMAPI getAuthkey]];
+    
+    NSLog(@"api===%@",api);
+    GmPrepareNetData *gg = [[GmPrepareNetData alloc]initWithUrl:api isPost:NO postData:nil];
+    [gg requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"%@",result);
+
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        NSLog(@"%@",failDic);
+        
+    }];
+    
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
