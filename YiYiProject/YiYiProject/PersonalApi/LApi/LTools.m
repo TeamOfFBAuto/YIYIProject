@@ -247,7 +247,8 @@
             break;
     }
     
-    NSDictionary *failDic = @{RESULT_INFO: errInfo};
+    //- 11 代表网络问题
+    NSDictionary *failDic = @{RESULT_INFO: errInfo,RESULT_CODE:NSStringFromInt(-11)};
     failBlock(failDic,error);
     
 }

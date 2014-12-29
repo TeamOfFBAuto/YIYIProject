@@ -36,10 +36,12 @@
 +(NSString *)getAuthkey{
     
     NSString *str_authkey=[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:USER_AUTHOD]];
-    if (str_authkey.length==0) {
-        str_authkey=[NSString stringWithFormat:@"failtogetauthkey"];
-    }
+
+   
     
+    if (str_authkey.length == 0 || [str_authkey isEqualToString:@"(null)"]) {
+        return @"";
+    }
     return str_authkey;
     
 }
@@ -60,6 +62,12 @@
     return str_password;
 }
 
+//头像url
++ (NSString *)getUerHeadImageUrl
+{
+    NSString *url = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:USER_HEAD_IMAGEURL]];
+    return url;
+}
 
 #pragma mark - 弹出提示框
 + (MBProgressHUD *)showMBProgressWithText:(NSString *)text addToView:(UIView *)aView{

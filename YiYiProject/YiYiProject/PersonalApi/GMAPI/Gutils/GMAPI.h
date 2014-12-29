@@ -29,6 +29,8 @@
 
 +(NSString *)getUserPassWord;
 
++ (NSString *)getUerHeadImageUrl;//头像url
+
 
 + (MBProgressHUD *)showMBProgressWithText:(NSString *)text addToView:(UIView *)aView;
 
