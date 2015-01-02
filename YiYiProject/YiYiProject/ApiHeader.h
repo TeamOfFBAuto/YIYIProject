@@ -155,7 +155,8 @@ typedef enum {
 #define HOME_PRODUCT_COLLECT_Cancel @"http://182.92.158.32/?d=api&c=products&m=cancelFavor&product_id=%@"
 
 
-
+//T 台
+#define TTAI_LIST @"http://182.92.158.32/?d=api&c=tplat&m=listT&page=%d&count=%d&authcode=%@"
 
 
 

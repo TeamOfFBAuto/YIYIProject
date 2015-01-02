@@ -44,4 +44,6 @@
 
 - (void)setFirstResponder;
 
+- (NSArray *)content;
+
 @end

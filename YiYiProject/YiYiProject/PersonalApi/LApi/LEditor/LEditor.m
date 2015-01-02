@@ -45,8 +45,6 @@
         _tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
         [self addSubview:_tableView];
         
-//        self.tableView.layer.borderWidth = 0.5f;
-//        self.tableView.layer.borderColor = [UIColor grayColor].CGColor;
         
         height_arr = [NSMutableArray array];
         
@@ -81,6 +79,12 @@
 }
 
 #pragma mark 事件处理
+
+- (NSArray *)content
+{
+    return height_arr;
+}
+
 
 //第一个textView成为第一响应者
 - (void)setFirstResponder
@@ -730,18 +734,18 @@
         
         //        [self addNewImage:image];
         
-//        if (isReplaceImage) {
-//            
-//            replaceImageView.image = image;
-//            
-//            isReplaceImage = NO;
-//            
-//        }else
-//        {
-//            [self insertImage:image];
-//        }
+        if (isReplaceImage) {
+            
+            replaceImageView.image = image;
+            
+            isReplaceImage = NO;
+            
+        }else
+        {
+            [self insertImage:image];
+        }
         
-        [self upLoadImage:image];
+//        [self upLoadImage:image];
         
         [picker dismissViewControllerAnimated:YES completion:nil];
     }
