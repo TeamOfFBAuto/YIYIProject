@@ -90,7 +90,7 @@
 -(void)creatUpStoreInfoView{
     
     _upStoreInfoView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 185)];
-    _upStoreInfoView.backgroundColor = [UIColor orangeColor];
+//    _upStoreInfoView.backgroundColor = [UIColor orangeColor];
     
     //商城名称
     _mallNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 30, DEVICE_WIDTH-15-15, 18)];
@@ -135,8 +135,8 @@
     
     UIView *floorView = [[UIView alloc]initWithFrame:CGRectMake(0, 185, 320, 300)];
     
-    GtopScrollView *topScrollView = [[GtopScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 28)];
-    GRootScrollView *rootScrollView = [[GRootScrollView alloc]initWithFrame:CGRectMake(0, 28, 320, 300)];
+    GtopScrollView *topScrollView = [[GtopScrollView alloc]initWithFrame:CGRectMake(7, 0, DEVICE_WIDTH-12-7, 28)];
+    GRootScrollView *rootScrollView = [[GRootScrollView alloc]initWithFrame:CGRectMake(0, 28, topScrollView.frame.size.width, DEVICE_HEIGHT-_upStoreInfoView.frame.size.height-topScrollView.frame.size.height)];
     topScrollView.myRootScrollView = rootScrollView;
     rootScrollView.myTopScrollView = topScrollView;
     

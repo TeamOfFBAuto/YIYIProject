@@ -63,7 +63,7 @@
     
     
     for (int i = 0; i<[self.myTopScrollView.nameArray count]; i++) {
-        UITableView *tab = [[UITableView alloc]initWithFrame:CGRectMake(0+320*i, 0, 320, GrootScrollViewHeight) style:UITableViewStylePlain];
+        UITableView *tab = [[UITableView alloc]initWithFrame:CGRectMake(7+self.frame.size.width*i, 0, self.frame.size.width, self.frame.size.height) style:UITableViewStylePlain];
         tab.tag = 200+i;
         tab.delegate = self;
         tab.dataSource = self;
@@ -74,7 +74,7 @@
         [self addSubview:tab];
         
     }
-    self.contentSize = CGSizeMake(320*[self.myTopScrollView.nameArray count], GrootScrollViewHeight);
+    self.contentSize = CGSizeMake(320*[self.myTopScrollView.nameArray count], self.frame.size.height);
     
     
     
@@ -137,7 +137,8 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataArray.count;
+//    return self.dataArray.count;
+    return 10;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -148,6 +149,11 @@
     }
     
     return cell;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 90.0f;
 }
 
 
