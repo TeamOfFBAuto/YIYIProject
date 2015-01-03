@@ -146,9 +146,9 @@
         NSLog(@"manager start failed!");
     }
     
-    
-    
-    self.window.rootViewController = root;
+    UINavigationController *unVc = [[UINavigationController alloc]initWithRootViewController:root];
+    unVc.navigationBarHidden = YES;
+    self.window.rootViewController = unVc;
     self.window.backgroundColor = [UIColor whiteColor];
     
     return YES;

@@ -198,7 +198,7 @@ typedef enum {
 ///获取话题评论接口
 #define GET_TOPIC_COMMENTS_URL @"http://182.92.158.32/index.php?d=api&c=topic&m=get_replies&topic_id=%@&page=%d&per_page=20"
 
-
+#define GET_MY_CILLECTION @"http://182.92.158.32/?d=api&c=products&m=listFavors&long=%@&lat=%@&page=%d&count=%d&authcode=%@"//我的收藏（只有单品）
 
 
 #pragma mark--我的衣橱接口
@@ -207,6 +207,10 @@ typedef enum {
 #define GET_MYYICHU_LIST_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=get_my_wardrobe&authcode=%@"
 
 #define UPLOAD_IMAGE_URL @"http://182.92.158.32/index.php?d=api&c=upload&m=upload_pic"//action(等于topic_pic为上传话题图片，等于ttinfo为上传T台图片)
+
+#define MY_CONCERN_BRAND @"http://182.92.158.32/index.php?d=api&c=brand&m=get_attend_brands&authcode=%@&page=%d"//我关注品牌
+#define MY_CONCERN_SHOP @"http://182.92.158.32/?d=api&c=friendship&m=listMall&authcode=%@&page=%d&count=%d"//我关注商家
+
 
 #endif
 

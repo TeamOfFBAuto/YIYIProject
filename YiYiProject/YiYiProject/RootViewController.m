@@ -14,6 +14,8 @@
 
 #import "CHTumblrMenuView.h"
 
+#import "MyCollectionController.h"
+
 @interface RootViewController ()<UITabBarControllerDelegate>
 
 @end
@@ -170,6 +172,9 @@
         }];
         [menuView addMenuItemWithTitle:@"收藏" andIcon:[UIImage imageNamed:@"t_shoucang"] andSelectedBlock:^{
             NSLog(@"Chat selected");
+            
+            MyCollectionController *collection = [[MyCollectionController alloc]init];
+            [self.navigationController pushViewController:collection animated:YES];
             
         }];
         [menuView addMenuItemWithTitle:@"日记" andIcon:[UIImage imageNamed:@"t_rizhi"] andSelectedBlock:^{

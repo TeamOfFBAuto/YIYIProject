@@ -21,6 +21,8 @@
 
 #import "MyYiChuViewController.h"//我的衣橱
 
+#import "MyConcernController.h"//我的关注
+
 typedef enum{
     USERFACE = 0,//头像
     USERBANNER,//banner
@@ -313,8 +315,9 @@ typedef enum{
             
         case 3:
         {
-            
-            
+            MyConcernController *concern = [[MyConcernController alloc]init];
+            concern.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:concern animated:YES];
         }
             break;
             

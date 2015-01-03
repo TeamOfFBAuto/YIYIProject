@@ -18,6 +18,11 @@
 - (void)loadMoreData;
 - (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)heightForRowIndexPath:(NSIndexPath *)indexPath;
+
+//新加
+- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView;
+- (CGFloat)heightForRowIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView;
+
 - (UIView *)viewForHeaderInSection:(NSInteger)section;
 - (CGFloat)heightForHeaderInSection:(NSInteger)section;
 

@@ -10,6 +10,8 @@
 #import "LoginViewController.h"
 #import "PublishHuatiController.h"
 
+#import "TTPublishViewController.h"
+
 #import "LWaterflowView.h"
 #import "TPlatModel.h"
 #import "TPlatCell.h"
@@ -51,6 +53,15 @@
 //    [btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 //    [btn2 addTarget:self action:@selector(clickToPublish:) forControlEvents:UIControlEventTouchUpInside];
 //    [self.view addSubview:btn2];
+}
+
+#pragma mark 事件处理
+
+- (void)clickToPhoto:(UIButton *)sender
+{
+    TTPublishViewController *publishT = [[TTPublishViewController alloc]init];
+    publishT.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:publishT animated:YES];
 }
 
 - (void)clickToPush:(UIButton *)sender
@@ -137,14 +148,6 @@
         [waterFlow loadFail];
         
     }];
-}
-
-
-#pragma mark 事件处理
-
-- (void)clickToPhoto:(UIButton *)sender
-{
-    
 }
 
 #pragma mark - WaterFlowDelegate
