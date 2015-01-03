@@ -288,6 +288,15 @@
 		E33FF5191A4EBC810060E130 /* GTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FF4FE1A4EBC810060E130 /* GTableViewCell.m */; };
 		E33FF51A1A4EBC810060E130 /* Gview.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FF5001A4EBC810060E130 /* Gview.m */; };
 		E33FF51D1A4EBCD80060E130 /* HomeClothController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FF51C1A4EBCD80060E130 /* HomeClothController.m */; };
+		E3881BD51A4FB55D00C338AC /* GEditPersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881BD41A4FB55D00C338AC /* GEditPersonInfoViewController.m */; };
+		E3881C011A4FDF2800C338AC /* CWSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881BFD1A4FDF2800C338AC /* CWSegmentedControl.m */; };
+		E3881C021A4FDF2800C338AC /* red_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E3881BFE1A4FDF2800C338AC /* red_background.png */; };
+		E3881C031A4FDF2800C338AC /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881C001A4FDF2800C338AC /* UIViewAdditions.m */; };
+		E3881C0F1A4FECEE00C338AC /* SVGloble.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881C0A1A4FECEE00C338AC /* SVGloble.m */; };
+		E3881C101A4FECEE00C338AC /* SVRootScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881C0C1A4FECEE00C338AC /* SVRootScrollView.m */; };
+		E3881C111A4FECEE00C338AC /* SVTopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881C0E1A4FECEE00C338AC /* SVTopScrollView.m */; };
+		E3881C1C1A50182700C338AC /* gs_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3881C1A1A50182700C338AC /* gs_gray@2x.png */; };
+		E3881C1D1A50182700C338AC /* gs_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3881C1B1A50182700C338AC /* gs_red@2x.png */; };
 		E3E3E8481A3C6772001A1DD6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8471A3C6772001A1DD6 /* CoreLocation.framework */; };
 		E3E3E84A1A3C6780001A1DD6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8491A3C6780001A1DD6 /* QuartzCore.framework */; };
 		E3E3E84C1A3C678C001A1DD6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E84B1A3C678C001A1DD6 /* OpenGLES.framework */; };
@@ -776,6 +785,21 @@
 		E33FF5001A4EBC810060E130 /* Gview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gview.m; sourceTree = "<group>"; };
 		E33FF51B1A4EBCD80060E130 /* HomeClothController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeClothController.h; sourceTree = "<group>"; };
 		E33FF51C1A4EBCD80060E130 /* HomeClothController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeClothController.m; sourceTree = "<group>"; };
+		E3881BD31A4FB55D00C338AC /* GEditPersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEditPersonInfoViewController.h; sourceTree = "<group>"; };
+		E3881BD41A4FB55D00C338AC /* GEditPersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEditPersonInfoViewController.m; sourceTree = "<group>"; };
+		E3881BFC1A4FDF2800C338AC /* CWSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSegmentedControl.h; sourceTree = "<group>"; };
+		E3881BFD1A4FDF2800C338AC /* CWSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSegmentedControl.m; sourceTree = "<group>"; };
+		E3881BFE1A4FDF2800C338AC /* red_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_background.png; sourceTree = "<group>"; };
+		E3881BFF1A4FDF2800C338AC /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
+		E3881C001A4FDF2800C338AC /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
+		E3881C091A4FECEE00C338AC /* SVGloble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGloble.h; sourceTree = "<group>"; };
+		E3881C0A1A4FECEE00C338AC /* SVGloble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGloble.m; sourceTree = "<group>"; };
+		E3881C0B1A4FECEE00C338AC /* SVRootScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRootScrollView.h; sourceTree = "<group>"; };
+		E3881C0C1A4FECEE00C338AC /* SVRootScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRootScrollView.m; sourceTree = "<group>"; };
+		E3881C0D1A4FECEE00C338AC /* SVTopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVTopScrollView.h; sourceTree = "<group>"; };
+		E3881C0E1A4FECEE00C338AC /* SVTopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVTopScrollView.m; sourceTree = "<group>"; };
+		E3881C1A1A50182700C338AC /* gs_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gs_gray@2x.png"; sourceTree = "<group>"; };
+		E3881C1B1A50182700C338AC /* gs_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gs_red@2x.png"; sourceTree = "<group>"; };
 		E3E3E8471A3C6772001A1DD6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E3E3E8491A3C6780001A1DD6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E3E3E84B1A3C678C001A1DD6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1797,6 +1821,8 @@
 				E33FF49A1A4EBC810060E130 /* GSettingViewController.m */,
 				E33FF49B1A4EBC810060E130 /* GViewController.h */,
 				E33FF49C1A4EBC810060E130 /* GViewController.mm */,
+				E3881BD31A4FB55D00C338AC /* GEditPersonInfoViewController.h */,
+				E3881BD41A4FB55D00C338AC /* GEditPersonInfoViewController.m */,
 			);
 			path = Gcontrollers;
 			sourceTree = "<group>";
@@ -1804,6 +1830,8 @@
 		E33FF49D1A4EBC810060E130 /* Gmodels */ = {
 			isa = PBXGroup;
 			children = (
+				E3881C1A1A50182700C338AC /* gs_gray@2x.png */,
+				E3881C1B1A50182700C338AC /* gs_red@2x.png */,
 				E33FF49E1A4EBC810060E130 /* Gmodel.h */,
 				E33FF49F1A4EBC810060E130 /* Gmodel.m */,
 				E33FF4A01A4EBC810060E130 /* gpin@2x.png */,
@@ -1816,6 +1844,8 @@
 		E33FF4A31A4EBC810060E130 /* Gutils */ = {
 			isa = PBXGroup;
 			children = (
+				E3881C081A4FECEE00C338AC /* GupDownScrollview */,
+				E3881BFB1A4FDF2800C338AC /* CWSegmentControl */,
 				E33FF4A41A4EBC810060E130 /* BaiduMap_IOSSDK_v2.5.0_Lib */,
 				E33FF4E51A4EBC810060E130 /* GMAPI.h */,
 				E33FF4E61A4EBC810060E130 /* GMAPI.m */,
@@ -1940,6 +1970,31 @@
 			path = Gviews;
 			sourceTree = "<group>";
 		};
+		E3881BFB1A4FDF2800C338AC /* CWSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				E3881BFC1A4FDF2800C338AC /* CWSegmentedControl.h */,
+				E3881BFD1A4FDF2800C338AC /* CWSegmentedControl.m */,
+				E3881BFE1A4FDF2800C338AC /* red_background.png */,
+				E3881BFF1A4FDF2800C338AC /* UIViewAdditions.h */,
+				E3881C001A4FDF2800C338AC /* UIViewAdditions.m */,
+			);
+			path = CWSegmentControl;
+			sourceTree = "<group>";
+		};
+		E3881C081A4FECEE00C338AC /* GupDownScrollview */ = {
+			isa = PBXGroup;
+			children = (
+				E3881C091A4FECEE00C338AC /* SVGloble.h */,
+				E3881C0A1A4FECEE00C338AC /* SVGloble.m */,
+				E3881C0B1A4FECEE00C338AC /* SVRootScrollView.h */,
+				E3881C0C1A4FECEE00C338AC /* SVRootScrollView.m */,
+				E3881C0D1A4FECEE00C338AC /* SVTopScrollView.h */,
+				E3881C0E1A4FECEE00C338AC /* SVTopScrollView.m */,
+			);
+			path = GupDownScrollview;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2023,6 +2078,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3881C1D1A50182700C338AC /* gs_red@2x.png in Resources */,
 				137B084E1A4E8D6700DE7DCC /* 1+1_botton_up@3x.png in Resources */,
 				137B080E1A4E6FDF00DE7DCC /* love_down@3x.png in Resources */,
 				E33FF5091A4EBC810060E130 /* gpin@2x.png in Resources */,
@@ -2118,6 +2174,7 @@
 				137B08571A4E993C00DE7DCC /* shaixuan@2x.png in Resources */,
 				137B08681A4EAC9900DE7DCC /* ttai_down@2x.png in Resources */,
 				137B07E91A4E6FDF00DE7DCC /* sh_jiantou_left@3x.png in Resources */,
+				E3881C021A4FDF2800C338AC /* red_background.png in Resources */,
 				137B08391A4E716700DE7DCC /* quxian_left@2x.png in Resources */,
 				137B08551A4E993C00DE7DCC /* love_down@2x.png in Resources */,
 				56A8A8361A45BB1300E85F6B /* MatchTopicCell.xib in Resources */,
@@ -2147,6 +2204,7 @@
 				13684A761A37583E00A508FB /* Images.xcassets in Resources */,
 				137B08651A4EAC9900DE7DCC /* my_up@2x.png in Resources */,
 				139607B61A46A0BB00AACAC4 /* product_like@2x.png in Resources */,
+				E3881C1C1A50182700C338AC /* gs_gray@2x.png in Resources */,
 				137B083B1A4E716700DE7DCC /* sh_jiantou_left@2x.png in Resources */,
 				137B08691A4EAC9900DE7DCC /* ttai_up@2x.png in Resources */,
 				137B07E11A4E6FDF00DE7DCC /* dian_xiaojiantou@3x.png in Resources */,
@@ -2268,6 +2326,7 @@
 				138C2C1D1A39E77300EA59F5 /* BaseModel.m in Sources */,
 				E33FF5181A4EBC810060E130 /* GLeadbuyTableViewCell.m in Sources */,
 				56DAB21B1A46DB6000273140 /* ApplyForViewController.m in Sources */,
+				E3881C031A4FDF2800C338AC /* UIViewAdditions.m in Sources */,
 				137FC2E11A4DB6A60039E3FF /* YIYIChatViewController.m in Sources */,
 				E33FF5101A4EBC810060E130 /* MLImageCrop.m in Sources */,
 				139562C71A3BF42E007BB183 /* UserInfo.m in Sources */,
@@ -2281,7 +2340,11 @@
 				E33FF50F1A4EBC810060E130 /* GmPrepareNetData.m in Sources */,
 				137E0AC11A4C559500B59F64 /* LShareSheetView.m in Sources */,
 				13A389BD1A38974F00ABBACB /* RefreshTableView.m in Sources */,
+				E3881C111A4FECEE00C338AC /* SVTopScrollView.m in Sources */,
+				E3881C0F1A4FECEE00C338AC /* SVGloble.m in Sources */,
 				E33FF5011A4EBC810060E130 /* GLeadBuyMapViewController.m in Sources */,
+				E3881BD51A4FB55D00C338AC /* GEditPersonInfoViewController.m in Sources */,
+				E3881C011A4FDF2800C338AC /* CWSegmentedControl.m in Sources */,
 				13684A901A37585200A508FB /* RootViewController.m in Sources */,
 				13CD36361A3C51BE0068C12A /* ForgetPwdController.m in Sources */,
 				13A389BB1A38974F00ABBACB /* LTools.m in Sources */,
@@ -2297,6 +2360,7 @@
 				13CD36401A3C69860068C12A /* TMQuiltView.m in Sources */,
 				13CD36411A3C69860068C12A /* TMQuiltViewCell.m in Sources */,
 				13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */,
+				E3881C101A4FECEE00C338AC /* SVRootScrollView.m in Sources */,
 				E33FF5021A4EBC810060E130 /* GMapViewController.m in Sources */,
 				E33FF5071A4EBC810060E130 /* GViewController.mm in Sources */,
 				E33FF5151A4EBC810060E130 /* GScrollView.m in Sources */,
