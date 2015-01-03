@@ -340,11 +340,12 @@
 		E3881C011A4FDF2800C338AC /* CWSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881BFD1A4FDF2800C338AC /* CWSegmentedControl.m */; };
 		E3881C021A4FDF2800C338AC /* red_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E3881BFE1A4FDF2800C338AC /* red_background.png */; };
 		E3881C031A4FDF2800C338AC /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881C001A4FDF2800C338AC /* UIViewAdditions.m */; };
-		E3881C0F1A4FECEE00C338AC /* SVGloble.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881C0A1A4FECEE00C338AC /* SVGloble.m */; };
-		E3881C101A4FECEE00C338AC /* SVRootScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881C0C1A4FECEE00C338AC /* SVRootScrollView.m */; };
-		E3881C111A4FECEE00C338AC /* SVTopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3881C0E1A4FECEE00C338AC /* SVTopScrollView.m */; };
 		E3881C1C1A50182700C338AC /* gs_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3881C1A1A50182700C338AC /* gs_gray@2x.png */; };
 		E3881C1D1A50182700C338AC /* gs_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3881C1B1A50182700C338AC /* gs_red@2x.png */; };
+		E3B1F7201A5876F800004CCF /* GtopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B1F71F1A5876F800004CCF /* GtopScrollView.m */; };
+		E3B1F7231A588AAC00004CCF /* GRootScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B1F7221A588AAC00004CCF /* GRootScrollView.m */; };
+		E3B1F7261A5890D900004CCF /* gRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B1F7241A5890D900004CCF /* gRed@2x.png */; };
+		E3B1F7271A5890D900004CCF /* gGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B1F7251A5890D900004CCF /* gGray@2x.png */; };
 		E3E3E8481A3C6772001A1DD6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8471A3C6772001A1DD6 /* CoreLocation.framework */; };
 		E3E3E84A1A3C6780001A1DD6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E8491A3C6780001A1DD6 /* QuartzCore.framework */; };
 		E3E3E84C1A3C678C001A1DD6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E3E84B1A3C678C001A1DD6 /* OpenGLES.framework */; };
@@ -907,14 +908,14 @@
 		E3881BFE1A4FDF2800C338AC /* red_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_background.png; sourceTree = "<group>"; };
 		E3881BFF1A4FDF2800C338AC /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
 		E3881C001A4FDF2800C338AC /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
-		E3881C091A4FECEE00C338AC /* SVGloble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGloble.h; sourceTree = "<group>"; };
-		E3881C0A1A4FECEE00C338AC /* SVGloble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGloble.m; sourceTree = "<group>"; };
-		E3881C0B1A4FECEE00C338AC /* SVRootScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRootScrollView.h; sourceTree = "<group>"; };
-		E3881C0C1A4FECEE00C338AC /* SVRootScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRootScrollView.m; sourceTree = "<group>"; };
-		E3881C0D1A4FECEE00C338AC /* SVTopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVTopScrollView.h; sourceTree = "<group>"; };
-		E3881C0E1A4FECEE00C338AC /* SVTopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVTopScrollView.m; sourceTree = "<group>"; };
 		E3881C1A1A50182700C338AC /* gs_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gs_gray@2x.png"; sourceTree = "<group>"; };
 		E3881C1B1A50182700C338AC /* gs_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gs_red@2x.png"; sourceTree = "<group>"; };
+		E3B1F71E1A5876F800004CCF /* GtopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GtopScrollView.h; sourceTree = "<group>"; };
+		E3B1F71F1A5876F800004CCF /* GtopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GtopScrollView.m; sourceTree = "<group>"; };
+		E3B1F7211A588AAC00004CCF /* GRootScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRootScrollView.h; sourceTree = "<group>"; };
+		E3B1F7221A588AAC00004CCF /* GRootScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRootScrollView.m; sourceTree = "<group>"; };
+		E3B1F7241A5890D900004CCF /* gRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gRed@2x.png"; sourceTree = "<group>"; };
+		E3B1F7251A5890D900004CCF /* gGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gGray@2x.png"; sourceTree = "<group>"; };
 		E3E3E8471A3C6772001A1DD6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E3E3E8491A3C6780001A1DD6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E3E3E84B1A3C678C001A1DD6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2122,7 +2123,7 @@
 		E33FF4A31A4EBC810060E130 /* Gutils */ = {
 			isa = PBXGroup;
 			children = (
-				E3881C081A4FECEE00C338AC /* GupDownScrollview */,
+				E3B1F71D1A5876D600004CCF /* GupDownScrollview */,
 				E3881BFB1A4FDF2800C338AC /* CWSegmentControl */,
 				E33FF4A41A4EBC810060E130 /* BaiduMap_IOSSDK_v2.5.0_Lib */,
 				E33FF4E51A4EBC810060E130 /* GMAPI.h */,
@@ -2260,15 +2261,15 @@
 			path = CWSegmentControl;
 			sourceTree = "<group>";
 		};
-		E3881C081A4FECEE00C338AC /* GupDownScrollview */ = {
+		E3B1F71D1A5876D600004CCF /* GupDownScrollview */ = {
 			isa = PBXGroup;
 			children = (
-				E3881C091A4FECEE00C338AC /* SVGloble.h */,
-				E3881C0A1A4FECEE00C338AC /* SVGloble.m */,
-				E3881C0B1A4FECEE00C338AC /* SVRootScrollView.h */,
-				E3881C0C1A4FECEE00C338AC /* SVRootScrollView.m */,
-				E3881C0D1A4FECEE00C338AC /* SVTopScrollView.h */,
-				E3881C0E1A4FECEE00C338AC /* SVTopScrollView.m */,
+				E3B1F7241A5890D900004CCF /* gRed@2x.png */,
+				E3B1F7251A5890D900004CCF /* gGray@2x.png */,
+				E3B1F71E1A5876F800004CCF /* GtopScrollView.h */,
+				E3B1F71F1A5876F800004CCF /* GtopScrollView.m */,
+				E3B1F7211A588AAC00004CCF /* GRootScrollView.h */,
+				E3B1F7221A588AAC00004CCF /* GRootScrollView.m */,
 			);
 			path = GupDownScrollview;
 			sourceTree = "<group>";
@@ -2477,6 +2478,7 @@
 				13963F5A1A4FE3B8007BE68B /* fabu_shous@2x.png in Resources */,
 				137B08111A4E6FDF00DE7DCC /* shaixuan_boy@3x.png in Resources */,
 				137B080C1A4E6FDF00DE7DCC /* back.png in Resources */,
+				E3B1F7271A5890D900004CCF /* gGray@2x.png in Resources */,
 				137B07E61A4E6FDF00DE7DCC /* quxian@3x.png in Resources */,
 				13B6905D1A566A4A007FE152 /* Ttai_pinglun@2x.png in Resources */,
 				137B08561A4E993C00DE7DCC /* love_up@2x.png in Resources */,
@@ -2502,11 +2504,8 @@
 				137B08651A4EAC9900DE7DCC /* my_up@2x.png in Resources */,
 				13B690541A564EBF007FE152 /* t_xiangce@3x.png in Resources */,
 				139607B61A46A0BB00AACAC4 /* product_like@2x.png in Resources */,
-
 				E3881C1C1A50182700C338AC /* gs_gray@2x.png in Resources */,
-
 				13B690521A564BF6007FE152 /* tianjia_down@2x.png in Resources */,
-
 				137B083B1A4E716700DE7DCC /* sh_jiantou_left@2x.png in Resources */,
 				13B690511A564BF6007FE152 /* t_yichu@2x.png in Resources */,
 				137B08691A4EAC9900DE7DCC /* ttai_up@2x.png in Resources */,
@@ -2543,6 +2542,7 @@
 				13681C821A453B3200671D07 /* share_sina@2x.png in Resources */,
 				137B07D01A4E6FDF00DE7DCC /* xihuanb@3x.png in Resources */,
 				56A8A82D1A458FF200E85F6B /* clock_image@2x.png in Resources */,
+				E3B1F7261A5890D900004CCF /* gRed@2x.png in Resources */,
 				137B07D61A4E6FDF00DE7DCC /* share_qqkongjian@3x.png in Resources */,
 				137B08781A4EADFE00DE7DCC /* my_down@3x.png in Resources */,
 				137B08921A4ECDD100DE7DCC /* shaixuan_boy@2x.png in Resources */,
@@ -2655,12 +2655,7 @@
 				137E0AC11A4C559500B59F64 /* LShareSheetView.m in Sources */,
 				13B690801A580B76007FE152 /* MailModel.m in Sources */,
 				13A389BD1A38974F00ABBACB /* RefreshTableView.m in Sources */,
-
-				E3881C111A4FECEE00C338AC /* SVTopScrollView.m in Sources */,
-				E3881C0F1A4FECEE00C338AC /* SVGloble.m in Sources */,
-
 				13963F4C1A4FC5FB007BE68B /* PublishHuatiController.m in Sources */,
-
 				E33FF5011A4EBC810060E130 /* GLeadBuyMapViewController.m in Sources */,
 				E3881BD51A4FB55D00C338AC /* GEditPersonInfoViewController.m in Sources */,
 				E3881C011A4FDF2800C338AC /* CWSegmentedControl.m in Sources */,
@@ -2679,15 +2674,16 @@
 				19D5E6B51A4FE8E1008401E0 /* YichuListTableViewCell.m in Sources */,
 				13A389961A3893D000ABBACB /* TTaiViewController.m in Sources */,
 				5658C79A1A4C486E00DC86F8 /* MatchWaterflowView.m in Sources */,
+				E3B1F7201A5876F800004CCF /* GtopScrollView.m in Sources */,
 				13CD36401A3C69860068C12A /* TMQuiltView.m in Sources */,
 				13CD36411A3C69860068C12A /* TMQuiltViewCell.m in Sources */,
 				13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */,
-				E3881C101A4FECEE00C338AC /* SVRootScrollView.m in Sources */,
 				E33FF5021A4EBC810060E130 /* GMapViewController.m in Sources */,
 				E33FF5071A4EBC810060E130 /* GViewController.mm in Sources */,
 				13963F431A4FC54D007BE68B /* LEditor.m in Sources */,
 				E33FF5151A4EBC810060E130 /* GScrollView.m in Sources */,
 				13B6906A1A5694C5007FE152 /* MyCollectionController.m in Sources */,
+				E3B1F7231A588AAC00004CCF /* GRootScrollView.m in Sources */,
 				569722291A407DAE004B6641 /* HomeMatchModel.m in Sources */,
 				13CD36491A3C6A870068C12A /* EGORefreshTableFooterView.m in Sources */,
 				139886A51A45673500241962 /* ProductDetailController.m in Sources */,

@@ -12,9 +12,10 @@
 #import "GLeadBuyMapViewController.h"
 #import "CWSegmentedControl.h"
 #import "UIViewAdditions.h"
-#import "SVGloble.h"
-#import "SVTopScrollView.h"
-#import "SVRootScrollView.h"
+
+#import "GtopScrollView.h"
+#import "GRootScrollView.h"
+
 
 @interface GnearbyStoreViewController ()<CWSegmentDelegate,UIScrollViewDelegate>
 {
@@ -31,9 +32,7 @@
     
     UITableView *_tabelView;
     
-    
-    SVTopScrollView *_topScrollView;
-    SVRootScrollView *_rootScrollView;
+
     
 }
 
@@ -44,6 +43,7 @@
 
 
 -(void)dealloc{
+    
     NSLog(@"%s",__FUNCTION__);
 }
 
@@ -60,13 +60,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    NSLog(@"哪个vc %s",__FUNCTION__);
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64)];
-    [self.view addSubview:_mainScrollView];
-    [self creatUpStoreInfoView];
-    [self creatFloorScrollView];
+//    _mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64)];
+//    _mainScrollView.backgroundColor = [UIColor purpleColor];
+//    _mainScrollView.contentSize = CGSizeMake(DEVICE_WIDTH, DEVICE_HEIGHT);
     
+//    [self.view addSubview:_mainScrollView];
+    
+    //添加商场信息view
+    [self creatUpStoreInfoView];
+    
+    //添加商城楼层view
+//    [self creatFloorScrollView];
+    
+    //请求网络数据
     [self prepareNetData];
     
     
@@ -108,7 +119,6 @@
     [_upStoreInfoView addSubview:_adressLabel];
     [_upStoreInfoView addSubview:btn];
     
-    
     [self.view addSubview:_upStoreInfoView];
     
 }
@@ -116,30 +126,31 @@
 
 
 //创建楼层滚动view
--(void)creatFloorScrollView{
-
-    [SVGloble shareInstance].tableViewHeight = 300.0f;
-    
-    UIView *gUpDownScrollView =[[UIView alloc]initWithFrame:CGRectMake(0, 185, DEVICE_WIDTH, DEVICE_HEIGHT-185)];
-    gUpDownScrollView.backgroundColor = [UIColor whiteColor];
-    
-    
-    _topScrollView = [SVTopScrollView shareInstance];
-    _rootScrollView = [SVRootScrollView shareInstance];
-    
-    _topScrollView.nameArray = @[@"F1",@"F2",@"F3",@"F4",@"F5",@"F6",@"F7",@"F8",@"F9",@"F10",@"F11",@"F12"];
-    _rootScrollView.viewCountNum = _topScrollView.nameArray.count;
-    
-    [_topScrollView initWithNameButtons];
-    [_rootScrollView initWithViews];
-    
-    [gUpDownScrollView addSubview:_topScrollView];
-    [gUpDownScrollView addSubview:_rootScrollView];
-    
-    
-    [_mainScrollView addSubview:gUpDownScrollView];
+-(void)creatFloorScrollViewWithDic:(NSDictionary *)dic{
 
     
+    
+    NSDictionary *brandDic = [dic objectForKey:@"brand"];
+    
+    
+    UIView *floorView = [[UIView alloc]initWithFrame:CGRectMake(0, 185, 320, 300)];
+    
+    GtopScrollView *topScrollView = [[GtopScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 28)];
+    GRootScrollView *rootScrollView = [[GRootScrollView alloc]initWithFrame:CGRectMake(0, 28, 320, 300)];
+    topScrollView.myRootScrollView = rootScrollView;
+    rootScrollView.myTopScrollView = topScrollView;
+    
+    topScrollView.nameArray = @[@"F1",@"F2",@"F3",@"F4",@"F5",@"F6",@"F7",@"F8",@"F9",@"F10",@"F11",@"F12"];
+    rootScrollView.viewNameArray =@[@"F1",@"F2",@"F3",@"F4",@"F5",@"F6",@"F7",@"F8",@"F9",@"F10",@"F11",@"F12"];
+    
+    [topScrollView initWithNameButtons];
+    [rootScrollView initWithViews];
+    
+    
+    [floorView addSubview:topScrollView];
+    [floorView addSubview:rootScrollView];
+    
+    [self.view addSubview:floorView];
     
 }
 
@@ -173,6 +184,13 @@
         _mallNameLabel.text = [NSString stringWithFormat:@"%@",[result stringValueForKey:@"mall_name"]];
 //        _huodongLabel.text = [result stringValueForKey:@""];
         _adressLabel.text = [NSString stringWithFormat:@"地址：%@",[result stringValueForKey:@"address"]];
+        
+        
+        
+        [self creatFloorScrollViewWithDic:result];
+        
+        
+        
 
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
         
