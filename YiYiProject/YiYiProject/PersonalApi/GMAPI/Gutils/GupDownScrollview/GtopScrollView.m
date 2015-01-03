@@ -77,7 +77,7 @@
         [button setBackgroundImage:[UIImage imageNamed:@"gGray.png"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"gRed.png"] forState:UIControlStateSelected];
         [button setTitle:title forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:20.0];
+        button.titleLabel.font = [UIFont systemFontOfSize:12];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //        [button setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
         [button addTarget:self action:@selector(selectNameButton:) forControlEvents:UIControlEventTouchUpInside];
