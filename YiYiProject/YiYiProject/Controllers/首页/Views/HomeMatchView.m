@@ -55,11 +55,19 @@
         GShowStarsView * show_stars_view = [[GShowStarsView alloc] initWithStartNum:5 Frame:CGRectMake(5,header_imageView.height+28,70,12) starBackName:@"stars_unselected_image.png" starWidth:12];
         show_stars_view.startNum = [model.grade intValue];
         show_stars_view.starNameStr = @"stars_selected_image.png";
+        show_stars_view.star_halfNameStr = @"stars_half_image.png";
         [content_view addSubview:show_stars_view];
         ///重置星星
         [show_stars_view updateStartNum];
     }
     
+    
+    ///红色的竖线
+    UIView * ver_view = [[UIView alloc] initWithFrame:CGRectMake(20,17,3,20)];
+    ver_view.backgroundColor = RGBCOLOR(235,77,104);
+    ver_view.layer.masksToBounds = YES;
+    ver_view.layer.cornerRadius = 1;
+    [self addSubview:ver_view];
     
     
     UILabel * title_label = [[UILabel alloc] initWithFrame:CGRectMake(30,17,150,20)];

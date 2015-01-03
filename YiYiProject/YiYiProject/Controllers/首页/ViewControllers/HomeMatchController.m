@@ -18,6 +18,7 @@
 #import "MatchCaseModel.h"
 #import "MatchCaseCell.h"
 #import "ApplyForViewController.h"
+#import "TopicDetailViewController.h"
 
 @interface HomeMatchController ()<SNRefreshDelegate,UITableViewDataSource,TMQuiltViewDataSource,WaterFlowDelegate>
 {
@@ -208,7 +209,7 @@
 -(void)setSectionView
 {
     section_view = [[UIView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,430)];
-    section_view.backgroundColor = [UIColor whiteColor];
+    section_view.backgroundColor = RGBCOLOR(242,242,242);
     
     CGFloat height = 0;
     
@@ -216,7 +217,7 @@
     {
         __weak typeof(self)bself = self;
         HomeMatchView * my_view = [[HomeMatchView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,165)];
-        [my_view setupWithArray:_myMatch_array WithTitle:@"我的搭配师" WithShowApplyView:YES WithMyBlock:^(int index) {
+        [my_view setupWithArray:_hotMatch_array WithTitle:@"我的搭配师" WithShowApplyView:YES WithMyBlock:^(int index) {
             
             if (index == 0)///我要申请搭配师
             {
@@ -394,6 +395,11 @@
 }
 - (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MatchTopicModel * model = [_array_topic objectAtIndex:indexPath.row];
+    TopicDetailViewController * topic_detail = [[TopicDetailViewController alloc] init];
+    topic_detail.hidesBottomBarWhenPushed = YES;
+    topic_detail.topic_model = model;
+    [self.rootViewController.navigationController pushViewController:topic_detail animated:YES];
     
 }
 - (CGFloat)heightForRowIndexPath:(NSIndexPath *)indexPath

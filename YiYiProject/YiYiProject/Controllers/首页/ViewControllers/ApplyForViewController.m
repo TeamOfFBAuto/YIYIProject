@@ -8,7 +8,7 @@
 
 #import "ApplyForViewController.h"
 
-@interface ApplyForViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIActionSheetDelegate>
+@interface ApplyForViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSString * phone_num_string;///手机号
     NSString * verification_string;//验证码
@@ -16,6 +16,11 @@
     NSString * wechat_string;//微信号
     NSMutableArray * string_array;
     NSArray * placeHolder_array;
+    
+    ///上传身份证按钮及展示视图
+    UIButton * idcard_button;
+    ///图标
+    NSArray * image_array;
 }
 
 
@@ -30,11 +35,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGBCOLOR(242,242,242);
-    
+    self.myTitle = @"申请搭配师";
     [self setMyViewControllerLeftButtonType:MyViewControllerLeftbuttonTypeBack WithRightButtonType:MyViewControllerRightbuttonTypeNull];
     
     string_array = [NSMutableArray arrayWithObjects:phone_num_string,verification_string,qq_string,wechat_string,nil];
     placeHolder_array = [NSArray arrayWithObjects:@"",@"请输入手机号",@"请输入短信验证码",@"请输入QQ号",@"请输入微信号",@"",@"",nil];
+    image_array = [NSArray arrayWithObjects:@"",[UIImage imageNamed:@"login_phone"],[UIImage imageNamed:@"login_xinfeng"],[UIImage imageNamed:@"apply_qq_image"],[UIImage imageNamed:@"apply_wechat_image"],@"",@"",nil];
     
     _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,DEVICE_HEIGHT) style:UITableViewStylePlain];
     _myTableView.backgroundColor = [UIColor clearColor];
@@ -45,6 +51,15 @@
     
     UIView * vvvvv = [[UIView alloc] init];
     _myTableView.tableFooterView = vvvvv;
+    
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doTap:)];
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)doTap:(UITapGestureRecognizer *)sender
+{
+    [self.view endEditing:YES];
 }
 
 
@@ -74,6 +89,7 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     for (UIView * view in cell.contentView.subviews) {
@@ -98,9 +114,10 @@
         [cell.contentView addSubview:idcard_label];
         
         
-        UIButton * idcard_button = [UIButton buttonWithType:UIButtonTypeCustom];
+        idcard_button = [UIButton buttonWithType:UIButtonTypeCustom];
         idcard_button.frame = CGRectMake(58,46,108,108);
-        idcard_button.backgroundColor = [UIColor grayColor];
+//        idcard_button.backgroundColor = [UIColor grayColor];
+        [idcard_button setImage:[UIImage imageNamed:@"apply_idcard_image"] forState:UIControlStateNormal];
         [idcard_button addTarget:self action:@selector(chooseIdCardTap:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:idcard_button];
         
@@ -124,8 +141,8 @@
         
     }else if(indexPath.row == 2)
     {
-        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(23,15,20,20)];
-        imageView.backgroundColor = [UIColor grayColor];
+        UIImageView * imageView = [[UIImageView alloc] initWithImage:[image_array objectAtIndex:indexPath.row]];
+        imageView.center = CGPointMake(33,25);
         [cell.contentView addSubview:imageView];
         
         UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(54,0,DEVICE_WIDTH-160,50)];
@@ -146,8 +163,8 @@
         [cell.contentView addSubview:timer_button];
     }else
     {
-        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(23,15,20,20)];
-        imageView.backgroundColor = [UIColor grayColor];
+        UIImageView * imageView = [[UIImageView alloc] initWithImage:[image_array objectAtIndex:indexPath.row]];
+        imageView.center = CGPointMake(33,25);
         [cell.contentView addSubview:imageView];
         
         UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(54,0,DEVICE_WIDTH-160,50)];
@@ -163,8 +180,61 @@
 #pragma mark - 选取身份证照片
 -(void)chooseIdCardTap:(UIButton *)button
 {
-    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"" otherButtonTitles:@"相机",@"相册", nil];
+    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+    [actionSheet showInView:self.view];
 }
+
+#pragma mark - UIActionView Delegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0://拍照
+        {
+            [self choosePicWithCamera:YES];
+        }
+            break;
+        case 1://相册选取
+        {
+            [self choosePicWithCamera:NO];
+        }
+            break;
+        case 2://取消
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - 调用系统相机或相册
+-(void)choosePicWithCamera:(BOOL)isCamera
+{
+    if (isCamera)
+    {
+        //先设定sourceType为相机，然后判断相机是否可用（ipod）没相机，不可用将sourceType设定为相片库
+        UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];//初始化
+        picker.delegate = self;
+        picker.allowsEditing = YES;//设置可编辑
+        picker.sourceType = sourceType;
+        [self presentViewController:picker animated:YES completion:nil];
+    }else
+    {
+        UIImagePickerController *pickerImage = [[UIImagePickerController alloc] init];
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            pickerImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            //pickerImage.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            pickerImage.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:pickerImage.sourceType];
+        }
+        pickerImage.delegate = self;
+        pickerImage.allowsEditing = YES;
+        [self presentViewController:pickerImage animated:YES completion:nil];
+    }
+}
+
 
 #pragma mark - 提交申请
 -(void)doneButtonTap:(UIButton *)button
@@ -185,10 +255,23 @@
     return YES;
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
-
-
+#pragma mark - UIImagePicker Delegate  
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage* image = [info objectForKey: @"UIImagePickerControllerEditedImage"];
+    
+    [idcard_button setImage:image forState:UIControlStateNormal];
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

@@ -16,6 +16,8 @@
     _title_label.width = DEVICE_WIDTH-24;
     _header_imageView.layer.cornerRadius = _header_imageView.width/2.0f;
     _header_imageView.layer.masksToBounds = YES;
+    
+    _jiantou_imageView.left = DEVICE_WIDTH - 27;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

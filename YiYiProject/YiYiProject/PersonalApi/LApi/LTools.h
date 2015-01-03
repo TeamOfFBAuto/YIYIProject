@@ -11,6 +11,8 @@
 
 #import "MBProgressHUD.h"
 
+#import "AppDelegate.h"
+
 #define RESULT_INFO @"msg" //错误信息
 
 #define RESULT_CODE @"errorcode" //错误code
@@ -35,6 +37,8 @@ typedef void(^versionBlock)(BOOL isNewVersion,NSString *updateUrl,NSString *upda
 }
 
 + (id)shareInstance;
+
++ (AppDelegate *)appDelegate;
 
 //@property(nonatomic,retain)
 

@@ -21,6 +21,8 @@
 
 #import "MyYiChuViewController.h"//我的衣橱
 
+#import "MyConcernController.h"//我的关注
+
 typedef enum{
     USERFACE = 0,//头像
     USERBANNER,//banner
@@ -64,7 +66,9 @@ typedef enum{
         
         LoginViewController *login = [[LoginViewController alloc]init];
         
-        [self presentViewController:login animated:YES completion:nil];
+        UINavigationController *unVc = [[UINavigationController alloc]initWithRootViewController:login];
+        
+        [self presentViewController:unVc animated:YES completion:nil];
         
     }
     
@@ -270,16 +274,11 @@ typedef enum{
             dd.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:dd animated:YES];
 
-        
-        
         }
             break;
             
         case 1:
         {
-            
-            
-            
             
         }
             break;
@@ -291,6 +290,8 @@ typedef enum{
                 
                 MyYiChuViewController *_myyichuVC=[[MyYiChuViewController alloc]init];
                 
+                _myyichuVC.hidesBottomBarWhenPushed = YES;
+
                 [self.navigationController pushViewController:_myyichuVC animated:YES];
                 
                 NSLog(@"我的衣橱");
@@ -314,8 +315,9 @@ typedef enum{
             
         case 3:
         {
-            
-            
+            MyConcernController *concern = [[MyConcernController alloc]init];
+            concern.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:concern animated:YES];
         }
             break;
             

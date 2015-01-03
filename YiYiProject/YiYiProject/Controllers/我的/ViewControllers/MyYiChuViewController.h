@@ -10,4 +10,9 @@
 
 @interface MyYiChuViewController : MyViewController
 
+//@property(nonatomic,strong)NSMutableArray *listArray;
+
+@property(nonatomic,strong)UITableView *mainTabV;
+
+
 @end

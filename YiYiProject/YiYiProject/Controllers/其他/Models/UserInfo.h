@@ -14,6 +14,7 @@
 @interface UserInfo : BaseModel
 
 @property(nonatomic,retain)NSString *id;
+@property(nonatomic,retain)NSString *uid;
 @property(nonatomic,retain)NSString *user_name;
 @property(nonatomic,retain)NSString *password;
 @property(nonatomic,retain)NSString *admin_id;
