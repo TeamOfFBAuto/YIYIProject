@@ -11,8 +11,8 @@
 
 
 
-//滑条宽度
-#define CONTENTSIZEX 320
+////滑条宽度
+//#define CONTENTSIZEX 320
 
 //按钮空隙
 #define BUTTONGAP 1
@@ -63,7 +63,7 @@
 
 - (void)initWithNameButtons
 {
-    float xPos = 5.0;
+    float xPos = 0;
     for (int i = 0; i < [self.nameArray count]; i++) {
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -146,7 +146,7 @@
     float originX = [[_buttonOriginXArray objectAtIndex:BUTTONID] floatValue];
     float width = [[_buttonWithArray objectAtIndex:BUTTONID] floatValue];
     
-    if (sender.frame.origin.x - self.contentOffset.x > CONTENTSIZEX-(BUTTONGAP+width)) {
+    if (sender.frame.origin.x - self.contentOffset.x > self.frame.size.width-(BUTTONGAP+width)) {
         [self setContentOffset:CGPointMake(originX - 30, 0)  animated:YES];
     }
     
@@ -190,7 +190,7 @@
     float originX = [[self.buttonOriginXArray objectAtIndex:BUTTONSELECTEDID] floatValue];
     float width = [[self.buttonWithArray objectAtIndex:BUTTONSELECTEDID] floatValue];
 
-    if (originX - self.contentOffset.x > CONTENTSIZEX-(BUTTONGAP+width)) {
+    if (originX - self.contentOffset.x > self.frame.size.width-(BUTTONGAP+width)) {
         [self setContentOffset:CGPointMake(originX - 30, 0)  animated:YES];
     }
 

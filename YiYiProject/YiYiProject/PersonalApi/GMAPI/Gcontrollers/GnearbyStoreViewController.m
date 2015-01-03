@@ -133,9 +133,9 @@
     NSDictionary *brandDic = [dic objectForKey:@"brand"];
     
     
-    UIView *floorView = [[UIView alloc]initWithFrame:CGRectMake(0, 185, 320, 300)];
+    UIView *floorView = [[UIView alloc]initWithFrame:CGRectMake(12, 185, DEVICE_WIDTH-24, DEVICE_HEIGHT-_upStoreInfoView.frame.size.height)];
     
-    GtopScrollView *topScrollView = [[GtopScrollView alloc]initWithFrame:CGRectMake(7, 0, DEVICE_WIDTH-12-7, 28)];
+    GtopScrollView *topScrollView = [[GtopScrollView alloc]initWithFrame:CGRectMake(0, 0, floorView.frame.size.width, 28)];
     GRootScrollView *rootScrollView = [[GRootScrollView alloc]initWithFrame:CGRectMake(0, 28, topScrollView.frame.size.width, DEVICE_HEIGHT-_upStoreInfoView.frame.size.height-topScrollView.frame.size.height)];
     topScrollView.myRootScrollView = rootScrollView;
     rootScrollView.myTopScrollView = topScrollView;

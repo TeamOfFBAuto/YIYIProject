@@ -10,8 +10,8 @@
 #import "GtopScrollView.h"
 
 
-#define POSITIONID (int)(scrollView.contentOffset.x/320)
-#define GrootScrollViewHeight 300
+#define POSITIONID (int)(scrollView.contentOffset.x/self.frame.size.width)
+#define GrootScrollViewHeight self.frame.size.height
 #define GtopHeight 28
 
 
@@ -63,7 +63,7 @@
     
     
     for (int i = 0; i<[self.myTopScrollView.nameArray count]; i++) {
-        UITableView *tab = [[UITableView alloc]initWithFrame:CGRectMake(7+self.frame.size.width*i, 0, self.frame.size.width, self.frame.size.height) style:UITableViewStylePlain];
+        UITableView *tab = [[UITableView alloc]initWithFrame:CGRectMake(0+self.frame.size.width*i, 0, self.frame.size.width, self.frame.size.height) style:UITableViewStylePlain];
         tab.tag = 200+i;
         tab.delegate = self;
         tab.dataSource = self;
@@ -74,7 +74,7 @@
         [self addSubview:tab];
         
     }
-    self.contentSize = CGSizeMake(320*[self.myTopScrollView.nameArray count], self.frame.size.height);
+    self.contentSize = CGSizeMake(self.frame.size.width*[self.myTopScrollView.nameArray count], self.frame.size.height);
     
     
     
