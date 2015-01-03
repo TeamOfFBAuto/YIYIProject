@@ -127,7 +127,7 @@
         } completion:^(BOOL finished) {
             if (finished) {
                 //设置新闻页出现
-                [self.myRootScrollView setContentOffset:CGPointMake(BUTTONID*320, 0) animated:YES];
+                [self.myRootScrollView setContentOffset:CGPointMake(BUTTONID*self.myRootScrollView.frame.size.width, 0) animated:YES];
                 //赋值滑动列表选择频道ID
                 self.scrollViewSelectedChannelID = sender.tag;
             }
