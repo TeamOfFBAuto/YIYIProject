@@ -12,6 +12,10 @@
 #import "MessageViewController.h"
 #import "MineViewController.h"
 
+#import "CHTumblrMenuView.h"
+
+#import "MyCollectionController.h"
+
 @interface RootViewController ()<UITabBarControllerDelegate>
 
 @end
@@ -151,8 +155,39 @@
     if (sender.tag - 100 == 2) {
         NSLog(@"点击加号");
         
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"点击中间按钮" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
+        CHTumblrMenuView *menuView = [[CHTumblrMenuView alloc] init];
+        [menuView addMenuItemWithTitle:@"拍照" andIcon:[UIImage imageNamed:@"t_paizhao"] andSelectedBlock:^{
+            NSLog(@"Text selected");
+        }];
+        [menuView addMenuItemWithTitle:@"相册" andIcon:[UIImage imageNamed:@"t_xiangce"] andSelectedBlock:^{
+            NSLog(@"Photo selected");
+        }];
+        [menuView addMenuItemWithTitle:@"搭配" andIcon:[UIImage imageNamed:@"t_dapei"] andSelectedBlock:^{
+            NSLog(@"Quote selected");
+            
+        }];
+        [menuView addMenuItemWithTitle:@"衣橱" andIcon:[UIImage imageNamed:@"t_yichu"] andSelectedBlock:^{
+            NSLog(@"Link selected");
+            
+        }];
+        [menuView addMenuItemWithTitle:@"收藏" andIcon:[UIImage imageNamed:@"t_shoucang"] andSelectedBlock:^{
+            NSLog(@"Chat selected");
+            
+            MyCollectionController *collection = [[MyCollectionController alloc]init];
+            [self.navigationController pushViewController:collection animated:YES];
+            
+        }];
+        [menuView addMenuItemWithTitle:@"日记" andIcon:[UIImage imageNamed:@"t_rizhi"] andSelectedBlock:^{
+            NSLog(@"Video selected");
+            
+        }];
+        
+        
+        
+        [menuView show];
+        
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"点击中间按钮" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
         
         return;
     }

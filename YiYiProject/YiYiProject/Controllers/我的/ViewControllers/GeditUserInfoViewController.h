@@ -10,4 +10,7 @@
 
 @interface GeditUserInfoViewController : UIViewController
 
+
+
+
 @end

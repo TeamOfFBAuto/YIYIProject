@@ -12,6 +12,8 @@
 #import "UMSocial.h"
 #import "UserInfo.h"
 
+#import "RCIM.h"
+
 @interface LoginViewController ()
 
 @end
@@ -199,6 +201,8 @@
             break;
     }
     
+    __weak typeof(self)weakSelf = self;
+    
     NSString *url = [NSString stringWithFormat:USER_LOGIN_ACTION,type,password,thirdId,nickName,thirdphoto,gender,@"test",mobile];
     
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
@@ -208,17 +212,22 @@
         
         UserInfo *user = [[UserInfo alloc]initWithDictionary:result];
         
-        [LTools cache:user.user_name ForKey:USER_NAME];
-        [LTools cache:user.id ForKey:USER_UID];
-        [LTools cache:user.authcode ForKey:USER_AUTHOD];
+        //保存用户信息
         
-        [LTools cacheBool:YES ForKey:LOGIN_SUCCESS];
+        [LTools cache:user.user_name ForKey:USER_NAME];
+        [LTools cache:user.uid ForKey:USER_UID];
+        [LTools cache:user.authcode ForKey:USER_AUTHOD];
+        [LTools cache:user.photo ForKey:USER_HEAD_IMAGEURL];
+        
+        //保存登录状态 yes
+        
+        [LTools cacheBool:YES ForKey:USER_LONGIN];
         
         [LTools showMBProgressWithText:result[RESULT_INFO] addToView:self.view];
         
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN object:nil];
         
-        [self performSelector:@selector(leftButtonTap:) withObject:nil afterDelay:0.2];
+        [weakSelf performSelector:@selector(leftButtonTap:) withObject:nil afterDelay:0.2];
         
         
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
@@ -228,7 +237,6 @@
         [LTools showMBProgressWithText:failDic[RESULT_INFO] addToView:self.view];
     }];
 }
-
 
 
 @end

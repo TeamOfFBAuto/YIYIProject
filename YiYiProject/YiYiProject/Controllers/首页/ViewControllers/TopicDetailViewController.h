@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "MatchTopicModel.h"
 
-@interface TopicDetailViewController : UIViewController
+@interface TopicDetailViewController : MyViewController
 {
     
 }

@@ -111,7 +111,7 @@
         [cancelButton setBackgroundImage:[UIImage imageNamed:@"quxiao_button600_90"] forState:UIControlStateNormal];
         [bgView addSubview:cancelButton];
         
-        [cancelButton addTarget:self action:@selector(actionToDo:) forControlEvents:UIControlEventTouchUpInside];
+        [cancelButton addTarget:self action:@selector(hidden) forControlEvents:UIControlEventTouchUpInside];
         
 //        [[UIApplication sharedApplication].keyWindow addSubview:self];
         

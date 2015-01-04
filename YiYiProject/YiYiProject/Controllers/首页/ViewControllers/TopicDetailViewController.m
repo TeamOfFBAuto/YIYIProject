@@ -9,6 +9,8 @@
 #import "TopicDetailViewController.h"
 #import "SNRefreshTableView.h"
 #import "MatchTopicModel.h"
+#import "TopicCommentsModel.h"
+#import "TopicCommentsCell.h"
 
 @interface TopicDetailViewController ()<UITableViewDataSource,SNRefreshDelegate>
 {
@@ -28,11 +30,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.myTitle = @"话题详情";
+    [self setMyViewControllerLeftButtonType:MyViewControllerLeftbuttonTypeBack WithRightButtonType:MyViewControllerRightbuttonTypeNull];
+    
     _array_comments = [NSMutableArray array];
     
     _myTableView = [[SNRefreshTableView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,DEVICE_HEIGHT-64) showLoadMore:YES];
     _myTableView.refreshDelegate = self;
     _myTableView.dataSource = self;
+    _myTableView.separatorInset = UIEdgeInsetsMake(0,60,0,0);
     [self.view addSubview:_myTableView];
     
     
@@ -84,18 +90,36 @@
     NSString * fullUrl = [NSString stringWithFormat:GET_TOPIC_COMMENTS_URL,_topic_model.topic_id,_myTableView.pageNum];
     NSLog(@"获取话题评论接口 -----   %@",fullUrl);
     AFHTTPRequestOperation * request = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:fullUrl]]];
-    
+    __weak typeof(self) bself = self;
     [request setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         @try {
             
             NSDictionary * allDic = [operation.responseString objectFromJSONString];
+            NSLog(@"allDic --- - -- - --   %@",allDic);
             
+            if (bself.myTableView.pageNum == 1)
+            {
+                [bself.array_comments removeAllObjects];
+                bself.myTableView.hiddenLoadMore = NO;
+            }
             
-            
-            
-            
-            
+            NSString * errorcode = [allDic objectForKey:@"errorcode"];
+            if ([errorcode intValue] == 0)
+            {
+                NSArray * array = [allDic objectForKey:@"list"];
+                
+                for (NSDictionary * dic in array) {
+                    TopicCommentsModel * model = [[TopicCommentsModel alloc] initWithDictionary:dic];
+                    [bself.array_comments addObject:model];
+                }
+                
+                if (bself.myTableView.pageNum == 1 && array.count < 20) {
+                    bself.myTableView.hiddenLoadMore = YES;
+                }
+                
+                [bself.myTableView finishReloadigData];
+            }            
         }
         @catch (NSException *exception) {
             
@@ -123,10 +147,14 @@
 {
     static NSString * identifier = @"identifier";
     
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    TopicCommentsCell * cell = (TopicCommentsCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"TopicCommentsCell" owner:self options:nil] objectAtIndex:0];
     }
+    
+    TopicCommentsModel * model = [_array_comments objectAtIndex:indexPath.row];
+    
+    [cell setInfoWithCommentsModel:model];
     
     return cell;
 }
@@ -149,17 +177,14 @@
 }
 - (CGFloat)heightForRowIndexPath:(NSIndexPath *)indexPath
 {
-    return 0;
+    
+    TopicCommentsModel * model = [_array_comments objectAtIndex:indexPath.row];
+    NSString * content_string = model.repost_content;
+    
+    CGFloat string_height = [LTools heightForText:content_string width:DEVICE_WIDTH-60-12 font:14];
+        ///数字一次代表距离顶部距离、头像高度、内容离头像距离、底部距离
+    return string_height + 12 + 36 + 10 + 12;
 }
-- (UIView *)viewForHeaderInSection:(NSInteger)section
-{
-    return nil;
-}
-- (CGFloat)heightForHeaderInSection:(NSInteger)section
-{
-    return 0;
-}
-
 
 
 

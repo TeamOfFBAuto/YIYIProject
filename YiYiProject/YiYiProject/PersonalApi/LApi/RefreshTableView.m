@@ -281,6 +281,11 @@
     if (_refreshDelegate && [_refreshDelegate respondsToSelector:@selector(heightForRowIndexPath:)]) {
         aHeight = [_refreshDelegate heightForRowIndexPath:indexPath];
     }
+    
+    if (_refreshDelegate && [_refreshDelegate respondsToSelector:@selector(heightForRowIndexPath:tableView:)]) {
+        aHeight = [_refreshDelegate heightForRowIndexPath:indexPath tableView:tableView];
+    }
+    
     return aHeight;
 }
 
@@ -288,6 +293,10 @@
 {
     if (_refreshDelegate && [_refreshDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:)]) {
         [_refreshDelegate didSelectRowAtIndexPath:indexPath];
+    }
+    
+    if (_refreshDelegate && [_refreshDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:tableView:)]) {
+        [_refreshDelegate didSelectRowAtIndexPath:indexPath tableView:tableView];
     }
 }
 

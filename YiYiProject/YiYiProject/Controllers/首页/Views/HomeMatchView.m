@@ -42,8 +42,13 @@
         header_imageView.backgroundColor = [UIColor grayColor];
         header_imageView.layer.masksToBounds = YES;
         header_imageView.layer.cornerRadius = 35;
+        header_imageView.userInteractionEnabled = YES;
+        header_imageView.tag = 100 + i + 1;
         [header_imageView sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:nil];
         [content_view addSubview:header_imageView];
+        
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doTap:)];
+        [header_imageView addGestureRecognizer:tap];
         
         UILabel * user_name_label = [[UILabel alloc] initWithFrame:CGRectMake(5,header_imageView.height+7,70,18)];
         user_name_label.text = model.name;
@@ -98,6 +103,10 @@
     home_match_view_block(0);
 }
 
+-(void)doTap:(UITapGestureRecognizer *)sender
+{
+    home_match_view_block((int)(sender.view.tag - 100));
+}
 
 
 

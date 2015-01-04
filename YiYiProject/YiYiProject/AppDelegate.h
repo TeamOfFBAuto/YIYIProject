@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)rondCloudDefaultLogin;//融云登录
 
 @end
 

@@ -24,6 +24,11 @@ alpha:(a)]
 //版本判断相关
 #define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
 
+//int 转 string
+
+#define NSStringFromFloat(float) [NSString stringWithFormat:@"%f",(float)]
+#define NSStringFromInt(int) [NSString stringWithFormat:@"%d",(int)]
+
 //保存用户信息设备信息相关
 
 #define USER_INFO @"userInfo"//用户信息
@@ -31,9 +36,10 @@ alpha:(a)]
 #define USER_NAME @"username"
 #define USER_PWD @"userPw"
 #define USER_UID @"useruid"
-#define USER_LONGIN @"user_in" //0是未登陆  1是已登陆
+#define USER_LONGIN @"user_in" //no是未登陆  yes是已登陆
 #define USER_AUTHOD @"user_authod"
 #define USER_CHECKUSER @"checkfbuser"
+#define USER_HEAD_IMAGEURL @"userHeadImageUrl"//头像url
 
 #define USER_AUTHKEY_OHTER @"otherKey"//第三方key
 #define USRR_AUTHKEY @"authkey"
@@ -41,7 +47,6 @@ alpha:(a)]
 
 #define RONGCLOUD_TOKEN @"rongCloudToken"//融云对应的token
 
-#define LOGIN_SUCCESS @"login_success"//登录状态
 
 //通知 信息相关
 
@@ -102,8 +107,13 @@ typedef enum {
 
 //接口地址
 
+//融云 token
+
+#define RONCLOUD_GET_TOKEN @"http://182.92.158.32/index.php?d=api&c=chat&m=get_token&user_id=%@&name=%@&portrait_uri=%@"//获取融云 token
+
 //登录
 #define USER_LOGIN_ACTION @"http://182.92.158.32/index.php?d=api&c=user_api&m=login&type=%@&password=%@&thirdid=%@&nickname=%@&thirdphoto=%@&gender=%d&devicetoken=%@&mobile=%@"
+
 //注册
 #define USER_REGISTER_ACTION @"http://182.92.158.32/index.php?d=api&c=user_api&m=register&username=%@&password=%@&gender=%d&type=%d&code=%d&mobile=%@"
 //获取验证码
@@ -145,7 +155,8 @@ typedef enum {
 #define HOME_PRODUCT_COLLECT_Cancel @"http://182.92.158.32/?d=api&c=products&m=cancelFavor&product_id=%@"
 
 
-
+//T 台
+#define TTAI_LIST @"http://182.92.158.32/?d=api&c=tplat&m=listT&page=%d&count=%d&authcode=%@"
 
 
 
@@ -186,6 +197,56 @@ typedef enum {
 #define GET_TOPIC_DETAIL_URL @"http://182.92.158.32/index.php?d=api&c=topic&m=get_topic_info&topic_id=%@"
 ///获取话题评论接口
 #define GET_TOPIC_COMMENTS_URL @"http://182.92.158.32/index.php?d=api&c=topic&m=get_replies&topic_id=%@&page=%d&per_page=20"
+///获取搭配师个人信息
+#define GET_MATCH_INFOMATION_URL @"http://182.92.158.32/index.php?d=api&c=division_t&m=get_division_t_info&t_uid=%@"
+
+
+
+
+
+#pragma mark--我的衣橱接口
+
+
+#define GET_MYYICHU_LIST_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=get_my_wardrobe&authcode=%@"
+
+
+
+
+#pragma mark--我的衣橱接口
+
+
+#define GET_MYYICHU_LIST_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=get_my_wardrobe&authcode=%@"
+
+
+
+
+#pragma mark--我的衣橱接口
+
+
+#define GET_MYYICHU_LIST_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=get_my_wardrobe&authcode=%@"
+
+
+
+
+#pragma mark--我的衣橱接口
+
+
+#define GET_MYYICHU_LIST_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=get_my_wardrobe&authcode=%@"
+
+#define GET_MY_CILLECTION @"http://182.92.158.32/?d=api&c=products&m=listFavors&long=%@&lat=%@&page=%d&count=%d&authcode=%@"//我的收藏（只有单品）
+
+
+#pragma mark--我的衣橱接口
+
+
+#define GET_MYYICHU_LIST_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=get_my_wardrobe&authcode=%@"
+
+#define UPLOAD_IMAGE_URL @"http://182.92.158.32/index.php?d=api&c=upload&m=upload_pic"//action(等于topic_pic为上传话题图片，等于ttinfo为上传T台图片)
+
+#define MY_CONCERN_BRAND @"http://182.92.158.32/index.php?d=api&c=brand&m=get_attend_brands&authcode=%@&page=%d"//我关注品牌
+#define MY_CONCERN_SHOP @"http://182.92.158.32/?d=api&c=friendship&m=listMall&authcode=%@&page=%d&count=%d"//我关注商家
+
+
 #endif
 
 

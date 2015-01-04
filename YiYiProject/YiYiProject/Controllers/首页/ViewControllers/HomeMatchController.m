@@ -19,6 +19,7 @@
 #import "MatchCaseCell.h"
 #import "ApplyForViewController.h"
 #import "TopicDetailViewController.h"
+#import "MatchInfoViewController.h"
 
 @interface HomeMatchController ()<SNRefreshDelegate,UITableViewDataSource,TMQuiltViewDataSource,WaterFlowDelegate>
 {
@@ -212,10 +213,10 @@
     section_view.backgroundColor = RGBCOLOR(242,242,242);
     
     CGFloat height = 0;
-    
+    __weak typeof(self)bself = self;
     if (self.hotMatch_array.count)
     {
-        __weak typeof(self)bself = self;
+        
         HomeMatchView * my_view = [[HomeMatchView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,165)];
         [my_view setupWithArray:_hotMatch_array WithTitle:@"我的搭配师" WithShowApplyView:YES WithMyBlock:^(int index) {
             
@@ -224,6 +225,10 @@
                 ApplyForViewController * applyVC = [[ApplyForViewController alloc] init];
                 applyVC.hidesBottomBarWhenPushed = YES;
                 [bself.rootViewController.navigationController pushViewController:applyVC animated:YES];
+            }else
+            {
+                HomeMatchModel * model = [bself.hotMatch_array objectAtIndex:index-1];
+                [bself pushToMatchInfoViewControllerWithUid:model.uid];
             }
             
         }];
@@ -238,7 +243,8 @@
     if (self.hotMatch_array.count) {
         HomeMatchView * hot_view = [[HomeMatchView alloc] initWithFrame:CGRectMake(0,height,DEVICE_WIDTH,165)];
         [hot_view setupWithArray:_hotMatch_array WithTitle:@"人气搭配师" WithShowApplyView:NO WithMyBlock:^(int index) {
-            
+            HomeMatchModel * model = [bself.hotMatch_array objectAtIndex:index-1];
+            [bself pushToMatchInfoViewControllerWithUid:model.uid];
         }];
         [section_view addSubview:hot_view];
         height += 165;
@@ -307,6 +313,15 @@
 -(void)buttonTap:(UIButton *)button
 {
     
+}
+
+#pragma mark - 跳转到搭配师界面
+-(void)pushToMatchInfoViewControllerWithUid:(NSString *)aUid
+{
+    MatchInfoViewController * infoVC = [[MatchInfoViewController alloc] init];
+    infoVC.match_uid = aUid;
+    infoVC.hidesBottomBarWhenPushed = YES;
+    [self.rootViewController.navigationController pushViewController:infoVC animated:YES];
 }
 
 #pragma mark - 点击按钮切换搭配、话题
@@ -379,6 +394,19 @@
         
         [waterFlow showRefreshHeader:NO];
         [waterFlow reloadData:_array_matchCase total:100];
+        
+        
+        [waterFlow setWaterBlock:^(float offsetY) {
+            
+            if (offsetY == 0)
+            {
+                
+            }
+            
+            
+        }];
+        
+        
         return cell;
     }
 }
