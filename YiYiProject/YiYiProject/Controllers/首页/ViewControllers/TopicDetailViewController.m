@@ -11,17 +11,21 @@
 #import "MatchTopicModel.h"
 #import "TopicCommentsModel.h"
 #import "TopicCommentsCell.h"
+#import "TopicDetailBottomView.h"
+#import "TopicModel.h"
 
 @interface TopicDetailViewController ()<UITableViewDataSource,SNRefreshDelegate>
 {
-    
+    ///底部view
+    TopicDetailBottomView * bottom_view;
 }
 
 
 @property(nonatomic,strong)SNRefreshTableView * myTableView;
 ///评论数据容器
 @property(nonatomic,strong)NSMutableArray * array_comments;
-
+///话题详情数据
+@property(nonatomic,strong)TopicModel * topic_info;
 
 @end
 
@@ -38,12 +42,43 @@
     _myTableView = [[SNRefreshTableView alloc] initWithFrame:CGRectMake(0,0,DEVICE_WIDTH,DEVICE_HEIGHT-64) showLoadMore:YES];
     _myTableView.refreshDelegate = self;
     _myTableView.dataSource = self;
-    _myTableView.separatorInset = UIEdgeInsetsMake(0,60,0,0);
+    _myTableView.separatorInset = UIEdgeInsetsMake(0,15,0,0);
     [self.view addSubview:_myTableView];
     
-    
+    [self createBottomView];
     
     [self getTopicComments];
+    [self getTopicDetailData];
+}
+
+#pragma mark - 创建底部视图
+-(void)createBottomView
+{
+    bottom_view = [[TopicDetailBottomView alloc] initWithFrame:CGRectMake(0,DEVICE_HEIGHT-50-64,DEVICE_WIDTH,50)];
+    [self.view addSubview:bottom_view];
+    __weak typeof(self)bself = self;
+    [bottom_view setBottomBlock:^(int index) {
+        switch (index) {
+            case 0:///赞
+            {
+                [bself PraiseClick];
+            }
+                break;
+            case 1:///评论
+            {
+                
+            }
+                break;
+            case 2:///转发
+            {
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
 }
 
 
@@ -52,7 +87,7 @@
 -(void)getTopicDetailData
 {
     NSString * fullUrl = [NSString stringWithFormat:GET_TOPIC_DETAIL_URL,_topic_model.topic_id];
-    
+    NSLog(@"话题详情接口 ----   %@",fullUrl);
     AFHTTPRequestOperation * request = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:fullUrl]]];
     __weak typeof(self)bself = self;
     [request setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -65,7 +100,8 @@
             if ([errorcode intValue] == 0)
             {
                 NSDictionary * topic_info = [allDic objectForKey:@"topic_info"];
-                
+                bself.topic_info = [[TopicModel alloc] initWithDictionary:topic_info];
+                [bottom_view setTitleWithTopicModel:bself.topic_info];
             }else
             {
                 [LTools showMBProgressWithText:[allDic objectForKey:@"msg"] addToView:self.view];
@@ -135,6 +171,43 @@
     [request start];
 }
 
+#pragma mark - 话题点赞取消赞
+-(void)PraiseClick
+{
+    BOOL isPraise = [self.topic_info.is_like intValue];
+    NSString * fullUrl;
+    if (isPraise) {
+        fullUrl = [NSString stringWithFormat:TOPIC_DELFAV_URL,_topic_model.topic_id,[GMAPI getAuthkey]];
+    }else
+    {
+        fullUrl = [NSString stringWithFormat:TOPIC_ADDFAV_URL,[GMAPI getAuthkey],_topic_model.topic_id];
+    }
+    
+    NSLog(@"点赞取消点赞接口----  %@",fullUrl);
+    
+    AFHTTPRequestOperation * request = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:fullUrl]]];
+    
+    [request setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary * allDic = [operation.responseString objectFromJSONString];
+        
+        NSString * errocode = [allDic objectForKey:@"errorcode"];
+        if ([errocode intValue] == 0)
+        {
+            [LTools showMBProgressWithText:isPraise?@"取消赞成功":@"已赞" addToView:self.view];
+            self.topic_info.is_like = [NSString stringWithFormat:@"%d",!isPraise];
+        }else
+        {
+            [LTools showMBProgressWithText:[allDic objectForKey:@"msg"] addToView:self.view];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [LTools showMBProgressWithText:@"请求失败，请检查您当前网络" addToView:self.view];
+    }];
+    
+    [request start];
+}
+
 
 
 #pragma mark - UITableView Methods
@@ -182,8 +255,14 @@
     NSString * content_string = model.repost_content;
     
     CGFloat string_height = [LTools heightForText:content_string width:DEVICE_WIDTH-60-12 font:14];
-        ///数字一次代表距离顶部距离、头像高度、内容离头像距离、底部距离
-    return string_height + 12 + 36 + 10 + 12;
+    
+    
+    SecondForwardView * _second_view = [[SecondForwardView alloc] initWithFrame:CGRectMake(60,string_height+46,DEVICE_WIDTH-60-12,0)];
+    CGFloat second_height = [_second_view setupWithArray:model.child_array] + 10;
+
+    
+        ///数字一次代表距离顶部距离、头像高度、内容离头像距离、底部距离、评论的回复高度
+    return string_height + 12 + 36 + 10 + 12 + second_height;
 }
 
 

@@ -9,6 +9,7 @@
  话题详情页底部半透明view
  */
 #import <UIKit/UIKit.h>
+#import "TopicModel.h"
 
 typedef void(^TopicDetailBottomViewBlock)(int index);
 
@@ -18,5 +19,7 @@ typedef void(^TopicDetailBottomViewBlock)(int index);
 }
 
 -(void)setBottomBlock:(TopicDetailBottomViewBlock)aBlock;
+
+-(void)setTitleWithTopicModel:(TopicModel *)model;
 
 @end

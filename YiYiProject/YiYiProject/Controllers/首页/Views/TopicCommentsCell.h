@@ -12,6 +12,20 @@
 
 #import <UIKit/UIKit.h>
 #import "TopicCommentsModel.h"
+#import "OHAttributedLabel.h"
+#import "OHLableHelper.h"
+
+
+
+///对回复进行回复view
+@interface SecondForwardView : UIView<OHAttributedLabelDelegate>
+
+-(CGFloat)setupWithArray:(NSMutableArray *)array;
+
+@end
+
+
+
 
 @interface TopicCommentsCell : UITableViewCell
 
@@ -25,7 +39,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *date_label;
 ///内容
 @property (strong, nonatomic) IBOutlet UILabel *content_label;
-
+///对评论进行回复的内容
+@property(nonatomic,strong)SecondForwardView * second_view;
 
 
 ///填充数据

@@ -199,9 +199,11 @@ typedef enum {
 #define GET_TOPIC_COMMENTS_URL @"http://182.92.158.32/index.php?d=api&c=topic&m=get_replies&topic_id=%@&page=%d&per_page=20"
 ///获取搭配师个人信息
 #define GET_MATCH_INFOMATION_URL @"http://182.92.158.32/index.php?d=api&c=division_t&m=get_division_t_info&t_uid=%@"
-
-
-
+///话题点赞接口
+#define TOPIC_ADDFAV_URL @"http://182.92.158.32/index.php?d=api&c=topic&m=like_topic&authcode=%@&topic_id=%@"
+///话题取消赞接口
+#define TOPIC_DELFAV_URL @"http://182.92.158.32/index.php?d=api&c=topic&m=cancel_like&topic_id=%@&authcode=%@"
+#pragma mark - 搭配师相关接口 ******************************add by sn
 
 
 #pragma mark--我的衣橱接口

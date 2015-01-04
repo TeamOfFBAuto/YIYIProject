@@ -8,6 +8,62 @@
 
 #import "TopicCommentsCell.h"
 
+
+@implementation SecondForwardView
+
+-(id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,0.5)];
+        lineView.backgroundColor = RGBCOLOR(89,89,89);
+        [self addSubview:lineView];
+    }
+    return self;
+}
+
+-(CGFloat)setupWithArray:(NSMutableArray *)array
+{
+    CGFloat height = 5;
+    
+    for (int i = 0;i < array.count;i++)
+    {
+        CGRect labelFrame = CGRectMake(0,height,self.frame.size.width,0);
+        
+        TopicCommentsModel * model = [array objectAtIndex:i];
+        NSString * content = model.repost_content;
+        content = [NSString stringWithFormat:@"%@:%@",model.user_name,content];
+        
+        OHAttributedLabel * label = [[OHAttributedLabel alloc] initWithFrame:labelFrame];
+        label.textColor = RGBCOLOR(3,3,3);
+        label.font = [UIFont systemFontOfSize:12];
+        [self addSubview:label];
+        [OHLableHelper creatAttributedText:content Label:label OHDelegate:self WithWidht:14 WithHeight:14 WithLineBreak:NO];
+        NSRange range = [content rangeOfString:model.user_name];
+        label.underlineLinks = NO;
+        [label addCustomLink:[NSURL URLWithString:model.repost_uid] inRange:range];
+        [label setLinkColor:RGBCOLOR(87,106,154)];
+        //        label.backgroundColor = [UIColor clearColor];
+        height += label.frame.size.height+3;
+    }
+    
+    return height;
+}
+
+#pragma mark - OHAttributedLabelDelegate
+///点击用户名跳转到个人信息界面
+-(BOOL)attributedLabel:(OHAttributedLabel*)attributedLabel shouldFollowLink:(NSTextCheckingResult*)linkInfo
+{
+    NSString * uid = [linkInfo.URL absoluteString];
+
+    return YES;
+}
+
+@end
+
+
+
+
 @implementation TopicCommentsCell
 
 - (void)awakeFromNib
@@ -40,16 +96,22 @@
     _content_label.frame = CGRectMake(60,58,DEVICE_WIDTH-60-12,string_height);
     _content_label.text = model.repost_content;
     
-    
-    
     if (model.child_array.count > 0)
     {
-        
-        
+        _second_view = [[SecondForwardView alloc] initWithFrame:CGRectMake(60,string_height+70,DEVICE_WIDTH-60-12,0)];
+        CGFloat second_height = [_second_view setupWithArray:model.child_array];
+        _second_view.height = second_height;
+        [self.contentView addSubview:_second_view];
     }
     
 }
 
-
-
 @end
+
+
+
+
+
+
+
+
