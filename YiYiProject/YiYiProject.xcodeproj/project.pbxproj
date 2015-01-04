@@ -23,6 +23,7 @@
 		13684A791A37583E00A508FB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13684A771A37583E00A508FB /* LaunchScreen.xib */; };
 		13684A851A37583E00A508FB /* YiYiProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A841A37583E00A508FB /* YiYiProjectTests.m */; };
 		13684A901A37585200A508FB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13684A8F1A37585200A508FB /* RootViewController.m */; };
+		136875B81A598EE40048CB4D /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136875B71A598EE40048CB4D /* BrandModel.m */; };
 		137B07C41A4E6FDF00DE7DCC /* bianji_boy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137B07611A4E6FDF00DE7DCC /* bianji_boy@3x.png */; };
 		137B07C51A4E6FDF00DE7DCC /* bianji_girl@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137B07621A4E6FDF00DE7DCC /* bianji_girl@3x.png */; };
 		137B07C61A4E6FDF00DE7DCC /* dapei_jiantou@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 137B07641A4E6FDF00DE7DCC /* dapei_jiantou@3x.png */; };
@@ -406,6 +407,8 @@
 		13684A841A37583E00A508FB /* YiYiProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YiYiProjectTests.m; sourceTree = "<group>"; };
 		13684A8E1A37585200A508FB /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		13684A8F1A37585200A508FB /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		136875B61A598EE40048CB4D /* BrandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandModel.h; sourceTree = "<group>"; };
+		136875B71A598EE40048CB4D /* BrandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandModel.m; sourceTree = "<group>"; };
 		137B07611A4E6FDF00DE7DCC /* bianji_boy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bianji_boy@3x.png"; sourceTree = "<group>"; };
 		137B07621A4E6FDF00DE7DCC /* bianji_girl@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bianji_girl@3x.png"; sourceTree = "<group>"; };
 		137B07641A4E6FDF00DE7DCC /* dapei_jiantou@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dapei_jiantou@3x.png"; sourceTree = "<group>"; };
@@ -1663,6 +1666,8 @@
 				139562C61A3BF42E007BB183 /* UserInfo.m */,
 				13B6907E1A580B76007FE152 /* MailModel.h */,
 				13B6907F1A580B76007FE152 /* MailModel.m */,
+				136875B61A598EE40048CB4D /* BrandModel.h */,
+				136875B71A598EE40048CB4D /* BrandModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2784,6 +2789,7 @@
 				13A389871A387A8800ABBACB /* UIView+Frame.m in Sources */,
 				13963F471A4FC54D007BE68B /* UIView+Frame.m in Sources */,
 				E33FF5041A4EBC810060E130 /* GnearbyStoreViewController.m in Sources */,
+				136875B81A598EE40048CB4D /* BrandModel.m in Sources */,
 				13CD364E1A3C6BD90068C12A /* TMPhotoQuiltViewCell.m in Sources */,
 				56DAB20D1A46A35F00273140 /* ZSNApi.m in Sources */,
 				566FE24F1A50264A00A96B5F /* TopicDetailBottomView.m in Sources */,

@@ -161,6 +161,20 @@
     // overide, the actual loading data operation is done in the subclass
 }
 
+- (void)reloadData:(NSArray *)data isHaveMore:(BOOL)isHave
+{
+    self.isHaveMoreData = isHave;
+    
+    if (self.isReloadData) {
+        
+        [self.dataArray removeAllObjects];
+        
+    }
+    [self.dataArray addObjectsFromArray:data];
+    
+    [self performSelector:@selector(finishReloadigData) withObject:nil afterDelay:0];
+}
+
 //成功加载
 - (void)reloadData:(NSArray *)data total:(int)totalPage
 {

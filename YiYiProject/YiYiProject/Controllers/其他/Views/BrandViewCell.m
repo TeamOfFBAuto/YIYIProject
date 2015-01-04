@@ -20,4 +20,16 @@
     // Configure the view for the selected state
 }
 
+- (void)setCellWithModel:(BrandModel *)aModel
+{
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:aModel.brand_logo] placeholderImage:nil];
+    self.nameLabel.text = aModel.brand_name;
+    
+    self.cancelButton.layer.cornerRadius = 3.f;
+    self.cancelButton.layer.borderColor = [UIColor colorWithHexString:@"ef7186"].CGColor;
+    self.cancelButton.layer.borderWidth = 1.f;
+    
+    self.iconImageView.layer.cornerRadius = 35.f;
+}
+
 @end
