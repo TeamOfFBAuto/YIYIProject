@@ -206,7 +206,17 @@ typedef enum {
 #define GET_MYYICHU_LIST_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=get_my_wardrobe&authcode=%@"
 
 #define UPLOAD_IMAGE_URL @"http://182.92.158.32/index.php?d=api&c=upload&m=upload_pic"//action(等于topic_pic为上传话题图片，等于ttinfo为上传T台图片)
+//添加分类
+#define GET_ADDCLASSICATION_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=add_sort&sort_name=%@&authcode=%@"
+//删除分类
+#define GET_DELETECLASSICATION_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=del_sort&sort_id=%@&authcode=%@"
 
+//编辑分类
+#define GET_EDITCLASSICATION_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=update_sort&sort_id=%@&sort_name=%@&authcode=%@"
+//获取分类
+#define GET_GETCLASSTCATION_URL @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=get_my_sort&authcode=%@"
+//衣橱里面添加衣服
+#define POST_ADDCLOTHES_URL     @"http://182.92.158.32/index.php?d=api&c=wardrobe&m=add_clothes"
 #endif
 
 

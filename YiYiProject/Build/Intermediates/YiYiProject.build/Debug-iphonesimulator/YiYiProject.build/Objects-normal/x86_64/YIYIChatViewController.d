@@ -1,0 +1,45 @@
+dependencies: \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/Controllers/首页/ViewControllers/YIYIChatViewController.m \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/PrefixHeader.pch \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/PublicClasses/MyViewController.h \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/PersonalApi/LApi/LTools.h \
+  Pods/MBProgressHUD/MBProgressHUD.h \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/AppDelegate.h \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/PersonalApi/LApi/LEditor/UIView+Frame.h \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/PublicClasses/UIColor_ConvertColor/UIColor+ConvertColor.h \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/ApiHeader.h \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/PersonalApi/GMAPI/Gutils/GMAPI.h \
+  Pods/SDWebImage/SDWebImage/UIImageView+WebCache.h \
+  Pods/SDWebImage/SDWebImage/SDWebImageCompat.h \
+  Pods/SDWebImage/SDWebImage/SDWebImageManager.h \
+  Pods/SDWebImage/SDWebImage/SDWebImageOperation.h \
+  Pods/SDWebImage/SDWebImage/SDWebImageDownloader.h \
+  Pods/SDWebImage/SDWebImage/SDImageCache.h Pods/JSONKit/JSONKit.h \
+  Pods/AFNetworking/AFNetworking/AFHTTPRequestOperation.h \
+  Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.h \
+  Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.h \
+  Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.h \
+  Pods/AFNetworking/AFNetworking/AFSecurityPolicy.h \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/PersonalApi/ZSApi/ZSNApi.h \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/PersonalApi/GMAPI/Gutils/GmPrepareNetData.h \
+  YiYiProject/Controllers/首页/ViewControllers/YIYIChatViewController.h \
+  /Users/unisedu/Desktop/YIYIProject/YiYiProject/YiYiProject/RongCloud/IMKit/Headers/RCChatViewController.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCBasicViewController.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCThemeDefine.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCIMClientHeader.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCStatusDefine.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCConversation.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCMessageContent.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCImageMessage.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCIMClient.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCClientDelegate.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCMessage.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCUserInfo.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCDiscussion.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCTextMessage.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCVoiceMessage.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCRichContentMessage.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCDiscussionNotification.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCNotificationMessage.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCLocationMessage.h \
+  YiYiProject/RongCloud/IMKit/Headers/RCLocationPickerViewController.h

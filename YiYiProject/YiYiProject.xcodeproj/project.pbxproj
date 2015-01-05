@@ -254,11 +254,8 @@
 		13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D1D1A3B2682002AF7D6 /* HomeBuyController.m */; };
 		13EA3D241A3B2E13002AF7D6 /* HomeMatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA3D231A3B2E13002AF7D6 /* HomeMatchController.m */; };
 		19D0C0D21A4EDA6D00BEC10D /* MyYiChuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D0C0D11A4EDA6D00BEC10D /* MyYiChuViewController.m */; };
-
 		19D5E6B21A4FE39B008401E0 /* YiChuListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D5E6B11A4FE39B008401E0 /* YiChuListModel.m */; };
 		19D5E6B51A4FE8E1008401E0 /* YichuListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D5E6B41A4FE8E1008401E0 /* YichuListTableViewCell.m */; };
-
-
 		5640317A1A4ED57100680E08 /* TopicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564031791A4ED57100680E08 /* TopicDetailViewController.m */; };
 		5640317E1A4EEBC800680E08 /* stars_half_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640317B1A4EEBC800680E08 /* stars_half_image@3x.png */; };
 		5640317F1A4EEBC800680E08 /* stars_selected_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5640317C1A4EEBC800680E08 /* stars_selected_image@3x.png */; };
@@ -287,6 +284,12 @@
 		56DAB2181A46C86B00273140 /* MatchCaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DAB2161A46C86B00273140 /* MatchCaseCell.xib */; };
 		56DAB21B1A46DB6000273140 /* ApplyForViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DAB21A1A46DB6000273140 /* ApplyForViewController.m */; };
 		AB9102ED706793EE205C4D50 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F47272E4C36CD60C81CD9A79 /* libPods.a */; };
+		DF391AA31A537F8200958BA4 /* libiOS_IMKit_v1_2_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF391AA21A537F8200958BA4 /* libiOS_IMKit_v1_2_7.a */; };
+		DF6855821A592181004D924F /* ZYQAssetPicker.Bundle in Resources */ = {isa = PBXBuildFile; fileRef = DF68557F1A592181004D924F /* ZYQAssetPicker.Bundle */; };
+		DF6855831A592181004D924F /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6855811A592181004D924F /* ZYQAssetPickerController.m */; };
+		DF6855861A592CD2004D924F /* UploadPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6855851A592CD2004D924F /* UploadPicViewController.m */; };
+		DF7467931A57FB0400F0AEC8 /* my_sc_dui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF7467911A57FB0400F0AEC8 /* my_sc_dui@3x.png */; };
+		DF7467941A57FB0400F0AEC8 /* my_sc_guanbi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF7467921A57FB0400F0AEC8 /* my_sc_guanbi@3x.png */; };
 		E33FF48C1A4EBB8D0060E130 /* libiOS_IMKit_v1_2_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E33FF48B1A4EBB8D0060E130 /* libiOS_IMKit_v1_2_7.a */; };
 		E33FF5011A4EBC810060E130 /* GLeadBuyMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FF4901A4EBC810060E130 /* GLeadBuyMapViewController.m */; };
 		E33FF5021A4EBC810060E130 /* GMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FF4921A4EBC810060E130 /* GMapViewController.m */; };
@@ -726,6 +729,14 @@
 		56DAB2161A46C86B00273140 /* MatchCaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchCaseCell.xib; sourceTree = "<group>"; };
 		56DAB2191A46DB5F00273140 /* ApplyForViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyForViewController.h; sourceTree = "<group>"; };
 		56DAB21A1A46DB6000273140 /* ApplyForViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyForViewController.m; sourceTree = "<group>"; };
+		DF391AA21A537F8200958BA4 /* libiOS_IMKit_v1_2_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiOS_IMKit_v1_2_7.a; sourceTree = "<group>"; };
+		DF68557F1A592181004D924F /* ZYQAssetPicker.Bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZYQAssetPicker.Bundle; sourceTree = "<group>"; };
+		DF6855801A592181004D924F /* ZYQAssetPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYQAssetPickerController.h; sourceTree = "<group>"; };
+		DF6855811A592181004D924F /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
+		DF6855841A592CD2004D924F /* UploadPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPicViewController.h; sourceTree = "<group>"; };
+		DF6855851A592CD2004D924F /* UploadPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadPicViewController.m; sourceTree = "<group>"; };
+		DF7467911A57FB0400F0AEC8 /* my_sc_dui@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_sc_dui@3x.png"; sourceTree = "<group>"; };
+		DF7467921A57FB0400F0AEC8 /* my_sc_guanbi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_sc_guanbi@3x.png"; sourceTree = "<group>"; };
 		E33FF48B1A4EBB8D0060E130 /* libiOS_IMKit_v1_2_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiOS_IMKit_v1_2_7.a; sourceTree = "<group>"; };
 		E33FF48F1A4EBC810060E130 /* GLeadBuyMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLeadBuyMapViewController.h; sourceTree = "<group>"; };
 		E33FF4901A4EBC810060E130 /* GLeadBuyMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLeadBuyMapViewController.m; sourceTree = "<group>"; };
@@ -866,6 +877,7 @@
 				E33FF50C1A4EBC810060E130 /* libbaidumapapi.a in Frameworks */,
 				137FC2AA1A4DAE320039E3FF /* CoreMedia.framework in Frameworks */,
 				E3E3E8481A3C6772001A1DD6 /* CoreLocation.framework in Frameworks */,
+				DF391AA31A537F8200958BA4 /* libiOS_IMKit_v1_2_7.a in Frameworks */,
 				137FC2A81A4DAE1F0039E3FF /* CoreImage.framework in Frameworks */,
 				138C2C0C1A39E24600EA59F5 /* CoreGraphics.framework in Frameworks */,
 				137FC2A61A4DAE0F0039E3FF /* CoreAudio.framework in Frameworks */,
@@ -987,6 +999,7 @@
 		13684A671A37583E00A508FB /* YiYiProject */ = {
 			isa = PBXGroup;
 			children = (
+				DF68557E1A592181004D924F /* ZYQAssetPickerController */,
 				13681C6F1A4527A200671D07 /* AllImages */,
 				137B075F1A4E6FB600DE7DCC /* AllImages@3x */,
 				138C2BC91A39E08500EA59F5 /* UMengShare */,
@@ -1203,6 +1216,8 @@
 		137B07AA1A4E6FDF00DE7DCC /* 我的搭配 */ = {
 			isa = PBXGroup;
 			children = (
+				DF7467911A57FB0400F0AEC8 /* my_sc_dui@3x.png */,
+				DF7467921A57FB0400F0AEC8 /* my_sc_guanbi@3x.png */,
 				137B07AB1A4E6FDF00DE7DCC /* chun_down@3x.png */,
 				137B07AC1A4E6FDF00DE7DCC /* chun_up@3x.png */,
 				137B07AD1A4E6FDF00DE7DCC /* dong_down@3x.png */,
@@ -1352,6 +1367,7 @@
 			isa = PBXGroup;
 			children = (
 				E33FF48B1A4EBB8D0060E130 /* libiOS_IMKit_v1_2_7.a */,
+				DF391AA21A537F8200958BA4 /* libiOS_IMKit_v1_2_7.a */,
 				137FC2B71A4DB2DC0039E3FF /* Headers */,
 				137FC2DC1A4DB2DC0039E3FF /* RongCloud.bundle */,
 			);
@@ -1757,6 +1773,8 @@
 				19D0C0D01A4EDA6D00BEC10D /* MyYiChuViewController.h */,
 				19D0C0D11A4EDA6D00BEC10D /* MyYiChuViewController.m */,
 				13A389A11A38942D00ABBACB /* MineViewController.xib */,
+				DF6855841A592CD2004D924F /* UploadPicViewController.h */,
+				DF6855851A592CD2004D924F /* UploadPicViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1910,6 +1928,16 @@
 				316989CEF30908957578BF60 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DF68557E1A592181004D924F /* ZYQAssetPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				DF68557F1A592181004D924F /* ZYQAssetPicker.Bundle */,
+				DF6855801A592181004D924F /* ZYQAssetPickerController.h */,
+				DF6855811A592181004D924F /* ZYQAssetPickerController.m */,
+			);
+			path = ZYQAssetPickerController;
 			sourceTree = "<group>";
 		};
 		E33FF48D1A4EBC810060E130 /* GMAPI */ = {
@@ -2134,9 +2162,11 @@
 				TargetAttributes = {
 					13684A641A37583E00A508FB = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 3SPFDP9HQL;
 					};
 					13684A7D1A37583E00A508FB = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 3SPFDP9HQL;
 						TestTargetID = 13684A641A37583E00A508FB;
 					};
 				};
@@ -2184,6 +2214,7 @@
 				137B08411A4E716700DE7DCC /* xiaodian_d@2x.png in Resources */,
 				137B083D1A4E716700DE7DCC /* shangchang_d@2x.png in Resources */,
 				137B080D1A4E6FDF00DE7DCC /* my_bg@3x.png in Resources */,
+				DF7467931A57FB0400F0AEC8 /* my_sc_dui@3x.png in Resources */,
 				139886A81A45880B00241962 /* navigationBarColor_black@2x.png in Resources */,
 				137B08151A4E6FDF00DE7DCC /* xinxi_icon@3x.png in Resources */,
 				137B08161A4E6FDF00DE7DCC /* love_up@3x.png in Resources */,
@@ -2304,6 +2335,7 @@
 				139607B61A46A0BB00AACAC4 /* product_like@2x.png in Resources */,
 				137B083B1A4E716700DE7DCC /* sh_jiantou_left@2x.png in Resources */,
 				137B08691A4EAC9900DE7DCC /* ttai_up@2x.png in Resources */,
+				DF7467941A57FB0400F0AEC8 /* my_sc_guanbi@3x.png in Resources */,
 				137B07E11A4E6FDF00DE7DCC /* dian_xiaojiantou@3x.png in Resources */,
 				139607C21A46DC7900AACAC4 /* FilterView.xib in Resources */,
 				137B087D1A4EADFE00DE7DCC /* ttai_up@3x.png in Resources */,
@@ -2327,6 +2359,7 @@
 				137B08381A4E716700DE7DCC /* quxian@2x.png in Resources */,
 				137B07DD1A4E6FDF00DE7DCC /* 1+1_botton@3x.png in Resources */,
 				137B08311A4E716700DE7DCC /* dian_shangchang@2x.png in Resources */,
+				DF6855821A592181004D924F /* ZYQAssetPicker.Bundle in Resources */,
 				13681C891A453DE600671D07 /* login_phone@2x.png in Resources */,
 				137B07DC1A4E6FDF00DE7DCC /* sweiixn_icon@3x.png in Resources */,
 				137B08641A4EAC9900DE7DCC /* my_down@2x.png in Resources */,
@@ -2457,6 +2490,7 @@
 				19D5E6B51A4FE8E1008401E0 /* YichuListTableViewCell.m in Sources */,
 				13A389961A3893D000ABBACB /* TTaiViewController.m in Sources */,
 				5658C79A1A4C486E00DC86F8 /* MatchWaterflowView.m in Sources */,
+				DF6855831A592181004D924F /* ZYQAssetPickerController.m in Sources */,
 				13CD36401A3C69860068C12A /* TMQuiltView.m in Sources */,
 				13CD36411A3C69860068C12A /* TMQuiltViewCell.m in Sources */,
 				13EA3D1E1A3B2682002AF7D6 /* HomeBuyController.m in Sources */,
@@ -2482,6 +2516,7 @@
 				139607BC1A46D82400AACAC4 /* FilterViewController.m in Sources */,
 				13A3899C1A3893FC00ABBACB /* MessageViewController.m in Sources */,
 				19D0C0D21A4EDA6D00BEC10D /* MyYiChuViewController.m in Sources */,
+				DF6855861A592CD2004D924F /* UploadPicViewController.m in Sources */,
 				13684A6B1A37583E00A508FB /* main.m in Sources */,
 				13CD36541A3C732D0068C12A /* LWaterflowView.m in Sources */,
 				13A3897E1A3878FE00ABBACB /* MyViewController.m in Sources */,
@@ -2630,7 +2665,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bing Jin (KMZ2AD5LZY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HAO WANG (PWZU4H562Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO WANG (PWZU4H562Q)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YiYiProject/UMengShare/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -2651,7 +2687,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96c93639-ff5c-44ac-ad74-809c23c1de89";
+				PROVISIONING_PROFILE = "8615fc2e-f7a3-4b4a-992d-4d1daf0a25b9";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
@@ -2663,7 +2699,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bing Jin (KMZ2AD5LZY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HAO WANG (PWZU4H562Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HAO WANG (PWZU4H562Q)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YiYiProject/UMengShare/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -2684,7 +2721,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96c93639-ff5c-44ac-ad74-809c23c1de89";
+				PROVISIONING_PROFILE = "8615fc2e-f7a3-4b4a-992d-4d1daf0a25b9";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
@@ -2693,6 +2730,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2704,6 +2743,7 @@
 				INFOPLIST_FILE = YiYiProjectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YiYiProject.app/YiYiProject";
 			};
 			name = Debug;
@@ -2712,6 +2752,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2719,6 +2761,7 @@
 				INFOPLIST_FILE = YiYiProjectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YiYiProject.app/YiYiProject";
 			};
 			name = Release;
