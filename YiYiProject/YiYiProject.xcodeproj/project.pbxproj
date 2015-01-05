@@ -1828,6 +1828,7 @@
 		13A389781A3877C800ABBACB /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				19B9372C1A5ACF5F009B359F /* zkingControl */,
 				19D5E6AF1A4FB4EF008401E0 /* views */,
 				19D5E6AE1A4FB4E0008401E0 /* models */,
 				13A3899E1A38941900ABBACB /* ViewControllers */,
@@ -2084,6 +2085,45 @@
 				566FE24A1A501C4E00A96B5F /* TopicCommentsCell.xib */,
 				566FE24D1A50264A00A96B5F /* TopicDetailBottomView.h */,
 				566FE24E1A50264A00A96B5F /* TopicDetailBottomView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		19B9372C1A5ACF5F009B359F /* zkingControl */ = {
+			isa = PBXGroup;
+			children = (
+				19B9372D1A5ACF93009B359F /* ShenQingDianPuControl */,
+			);
+			path = zkingControl;
+			sourceTree = "<group>";
+		};
+		19B9372D1A5ACF93009B359F /* ShenQingDianPuControl */ = {
+			isa = PBXGroup;
+			children = (
+				19B9372E1A5ACFE0009B359F /* Controllers */,
+				19B9372F1A5ACFE0009B359F /* Models */,
+				19B937301A5ACFE0009B359F /* Views */,
+			);
+			path = ShenQingDianPuControl;
+			sourceTree = "<group>";
+		};
+		19B9372E1A5ACFE0009B359F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		19B9372F1A5ACFE0009B359F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		19B937301A5ACFE0009B359F /* Views */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3037,7 +3077,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8615fc2e-f7a3-4b4a-992d-4d1daf0a25b9";
 				PROVISIONING_PROFILE = "45fc02cd-8f46-413e-9209-08c03c9e32b6";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -3072,7 +3111,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8615fc2e-f7a3-4b4a-992d-4d1daf0a25b9";
 				PROVISIONING_PROFILE = "45fc02cd-8f46-413e-9209-08c03c9e32b6";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
