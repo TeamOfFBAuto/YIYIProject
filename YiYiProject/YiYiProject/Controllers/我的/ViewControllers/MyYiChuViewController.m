@@ -126,7 +126,7 @@
         for(int j = 0 ;j < columnNum ; j++)
         {
             UIImageView *classificationImageView = [[UIImageView alloc] initWithFrame:CGRectMake(sourceX, sourceY, imageViewWindth, imageViewWindth)];
-            classificationImageView.backgroundColor = [UIColor yellowColor];
+            classificationImageView.backgroundColor = RGBCOLOR(180, 180, 180);
             CGColorSpaceRef colorSpace=CGColorSpaceCreateDeviceRGB();
             CGColorRef colorRef=CGColorCreate(colorSpace, (CGFloat[]){204/255.0,204/255.0,204/255.0,1});
             [classificationImageView.layer setCornerRadius:5];//设置矩形是个圆角半径

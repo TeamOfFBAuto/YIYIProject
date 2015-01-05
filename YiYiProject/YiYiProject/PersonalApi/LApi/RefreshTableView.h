@@ -18,6 +18,11 @@
 - (void)loadMoreData;
 - (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)heightForRowIndexPath:(NSIndexPath *)indexPath;
+
+//新加
+- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView;
+- (CGFloat)heightForRowIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView;
+
 - (UIView *)viewForHeaderInSection:(NSInteger)section;
 - (CGFloat)heightForHeaderInSection:(NSInteger)section;
 
@@ -52,6 +57,8 @@
 -(void)showRefreshNoOffset;//无偏移刷新数据
 
 - (void)reloadData:(NSArray *)data total:(int)totalPage;//更新数据
+- (void)reloadData:(NSArray *)data isHaveMore:(BOOL)isHave;
+
 - (void)loadFail;//请求数据失败
 
 -(id)initWithFrame:(CGRect)frame showLoadMore:(BOOL)show;

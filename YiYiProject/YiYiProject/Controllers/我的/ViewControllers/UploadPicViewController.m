@@ -293,6 +293,8 @@
                                    }
                                    success:^(AFHTTPRequestOperation *operation, id responseObject)
                                    {
+                                       
+                                       
                                        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
                                     
                                        NSLog(@"....str = %@",str);

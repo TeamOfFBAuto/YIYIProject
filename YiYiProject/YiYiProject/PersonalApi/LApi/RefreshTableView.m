@@ -161,6 +161,20 @@
     // overide, the actual loading data operation is done in the subclass
 }
 
+- (void)reloadData:(NSArray *)data isHaveMore:(BOOL)isHave
+{
+    self.isHaveMoreData = isHave;
+    
+    if (self.isReloadData) {
+        
+        [self.dataArray removeAllObjects];
+        
+    }
+    [self.dataArray addObjectsFromArray:data];
+    
+    [self performSelector:@selector(finishReloadigData) withObject:nil afterDelay:0];
+}
+
 //成功加载
 - (void)reloadData:(NSArray *)data total:(int)totalPage
 {
@@ -281,6 +295,11 @@
     if (_refreshDelegate && [_refreshDelegate respondsToSelector:@selector(heightForRowIndexPath:)]) {
         aHeight = [_refreshDelegate heightForRowIndexPath:indexPath];
     }
+    
+    if (_refreshDelegate && [_refreshDelegate respondsToSelector:@selector(heightForRowIndexPath:tableView:)]) {
+        aHeight = [_refreshDelegate heightForRowIndexPath:indexPath tableView:tableView];
+    }
+    
     return aHeight;
 }
 
@@ -288,6 +307,10 @@
 {
     if (_refreshDelegate && [_refreshDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:)]) {
         [_refreshDelegate didSelectRowAtIndexPath:indexPath];
+    }
+    
+    if (_refreshDelegate && [_refreshDelegate respondsToSelector:@selector(didSelectRowAtIndexPath:tableView:)]) {
+        [_refreshDelegate didSelectRowAtIndexPath:indexPath tableView:tableView];
     }
 }
 

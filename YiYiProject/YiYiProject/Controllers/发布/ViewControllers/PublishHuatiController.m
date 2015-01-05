@@ -51,7 +51,26 @@
 
 - (void)clickToPub:(UIButton *)sender
 {
-    NSLog(@"发布");
+    NSLog(@"发布 %@",[editor content]);
+    
+    NSArray *contentArr = [NSArray arrayWithArray:[editor content]];
+    
+    NSMutableString *allContent = [[NSMutableString alloc]initWithString:@""];
+    
+    int imageIndex = 0;
+    for (NSDictionary *aDic in contentArr) {
+        
+        NSString *content = aDic[CELL_TEXT];
+        if ([content isKindOfClass:[UIImage class]]) {
+            
+            
+            
+        }else
+        {
+            [allContent appendString:content];
+        }
+    }
+    
 }
 
 - (IBAction)clickToOpenAlbum:(id)sender {
