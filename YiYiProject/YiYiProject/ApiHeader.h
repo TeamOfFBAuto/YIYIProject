@@ -132,7 +132,7 @@ typedef enum {
 //获取附近商铺
 #define HOME_CLOTH_NEARBYSTORE @"http://182.92.158.32/?d=api&c=mall&m=gerNearMalls&long=116.33232544&lat=39.98189909"
 //获取店铺详情
-#define HOME_CLOTH_NEARBYSTORE_DETAIL @"http://182.92.158.32?d=api&c=mall&m=getMallDetail&mall_id=1&authcode=123"
+#define HOME_CLOTH_NEARBYSTORE_DETAIL @"http://182.92.158.32?d=api&c=mall&m=getMallDetail&mall_id=%@&authcode=123"
 
 //点击品牌进入该品牌的商铺列表
 #define HOME_CLOTH_PINPAI_STORELIST @"http://182.92.158.32/index.php?d=api&c=mall&m=get_mall_by_brand"
