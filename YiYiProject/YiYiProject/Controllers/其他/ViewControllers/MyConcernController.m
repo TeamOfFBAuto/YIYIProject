@@ -10,6 +10,7 @@
 #import "RefreshTableView.h"
 
 #import "ShopViewCell.h"
+#import "BrandViewCell.h"
 
 @interface MyConcernController ()<RefreshDelegate,UITableViewDataSource>
 {
@@ -59,12 +60,21 @@
 }
 
 #pragma mark - 网络请求
+
 /**
- *  获取品牌
+ *  取消关注 品牌
  */
-- (void)getBrand
+- (void)cancelConcernBrand:(UIButton *)sender
 {
-    NSString *url = [NSString stringWithFormat:MY_CONCERN_BRAND,[GMAPI getAuthkey],brandTable.pageNum];
+    int index = (int)sender.tag - 100000;
+    BrandModel *aModel = brandTable.dataArray[index];
+    
+    //测试
+    NSString *authkey = [GMAPI getAuthkey];
+    
+    NSString *post = [NSString stringWithFormat:@"brand_id=%@&authcode=%@",aModel.id,authkey];
+    
+    NSString *url = [NSString stringWithFormat:@"%@&%@",MY_CONCERN_MAIL_CANCEL,post];
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
     [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
         
@@ -74,7 +84,73 @@
         
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
         
-        [LTools showMBProgressWithText:failDic[@"errinfo"] addToView:self.view];
+        [LTools showMBProgressWithText:failDic[@"msg"] addToView:self.view];
+    }];
+    
+}
+
+/**
+ *  取消关注 商家
+ */
+- (void)cancelConcernMail:(UIButton *)sender
+{
+    int index = (int)sender.tag - 100;
+    MailModel *aModel = shopTable.dataArray[index];
+    
+    //测试
+    NSString *authkey = [GMAPI getAuthkey];
+    NSString *post = [NSString stringWithFormat:@"mall_id=%@&authcode=%@",aModel.mall_id,authkey];
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        
+    NSString *url = [NSString stringWithFormat:MY_CONCERN_MAIL_CANCEL];
+    LTools *tool = [[LTools alloc]initWithUrl:url isPost:YES postData:postData];
+    [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"-->%@",result);
+        
+        
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        
+        [LTools showMBProgressWithText:failDic[@"msg"] addToView:self.view];
+    }];
+    
+}
+
+/**
+ *  获取品牌
+ */
+- (void)getBrand
+{
+    //关注接口:http://182.92.158.32/index.php?d=api&c=brand&m=attend_brand&authcode=AX4BeFojV7EBulfKVuYJ3lP2V7UB9Ar7Ay5WZ1YzBDJabAAyWzhcZgM1V2RTMgp6BTFWaA==&brand_id=
+    
+    NSString *url = [NSString stringWithFormat:MY_CONCERN_BRAND,[GMAPI getAuthkey],brandTable.pageNum];
+    LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
+    [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
+        
+        NSLog(@"-->%@",result);
+        
+        NSArray *brand_data = result[@"brand_data"];
+        NSMutableArray *arr = [NSMutableArray array];
+        for (NSDictionary *aDic in brand_data) {
+            
+            BrandModel *aModel = [[BrandModel alloc]initWithDictionary:aDic];
+            [arr addObject:aModel];
+        }
+        
+//        [brandTable reloadData:arr total:100];
+        BOOL isHaveMore = YES;
+        
+        if (arr.count >= L_PAGE_SIZE) {
+            
+        }
+        
+        
+    } failBlock:^(NSDictionary *failDic, NSError *erro) {
+        
+//        [LTools showMBProgressWithText:failDic[@"msg"] addToView:self.view];
+        
+        [brandTable loadFail];
     }];
 }
 /**
@@ -82,16 +158,25 @@
  */
 - (void)getShop
 {
-    NSString *url = [NSString stringWithFormat:MY_CONCERN_SHOP,[GMAPI getAuthkey],brandTable.pageNum,L_PAGE_SIZE];
+    NSString *url = [NSString stringWithFormat:MY_CONCERN_SHOP,[GMAPI getAuthkey],shopTable.pageNum,L_PAGE_SIZE];
     
     LTools *tool = [[LTools alloc]initWithUrl:url isPost:NO postData:nil];
     [tool requestCompletion:^(NSDictionary *result, NSError *erro) {
         
         NSLog(@"-->%@",result);
         
-        NSArray *list = result[@"list"];
-        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:list.count];
-        for (NSDictionary *aDic in list) {
+        id list = result[@"list"];
+        NSArray *temp_arr;
+        if ([list isKindOfClass:[NSArray class]]) {
+            
+            temp_arr = [NSArray arrayWithArray:list];
+        }else if([list isKindOfClass:[NSDictionary class]]){
+            
+            temp_arr = [NSArray arrayWithArray:((NSDictionary *)list).allValues];
+        }
+        
+        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:temp_arr.count];
+        for (NSDictionary *aDic in temp_arr) {
             
             MailModel *aModel = [[MailModel alloc]initWithDictionary:aDic];
             [arr addObject:aModel];
@@ -101,7 +186,9 @@
         
     } failBlock:^(NSDictionary *failDic, NSError *erro) {
         
-        [LTools showMBProgressWithText:failDic[@"errinfo"] addToView:self.view];
+//        [LTools showMBProgressWithText:failDic[@"msg"] addToView:self.view];
+        
+        [shopTable loadFail];
     }];
 }
 
@@ -155,7 +242,7 @@
     bgScroll.contentSize = CGSizeMake(DEVICE_WIDTH * 2, bgScroll.height);
     
     //店铺
-    shopTable = [[RefreshTableView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, bgScroll.height)];
+    shopTable = [[RefreshTableView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, bgScroll.height) showLoadMore:NO];
     shopTable.refreshDelegate = self;
     shopTable.dataSource = self;
     [bgScroll addSubview:shopTable];
@@ -163,11 +250,11 @@
     shopTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //品牌
-    brandTable = [[RefreshTableView alloc]initWithFrame:CGRectMake(DEVICE_WIDTH, 0, DEVICE_WIDTH, bgScroll.height)];
+    brandTable = [[RefreshTableView alloc]initWithFrame:CGRectMake(DEVICE_WIDTH, 0, DEVICE_WIDTH, bgScroll.height) showLoadMore:NO];
     brandTable.refreshDelegate = self;
     brandTable.dataSource = self;
     [bgScroll addSubview:brandTable];
-    brandTable.backgroundColor = [UIColor greenColor];
+    brandTable.backgroundColor = [UIColor clearColor];
     brandTable.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
@@ -224,7 +311,17 @@
 }
 - (void)loadMoreData
 {
-    [self loadNewData];
+//    [self loadNewData];
+    
+    if ([self buttonForTag:100]) {
+        
+        [self getShop];
+    }
+    
+    if ([self buttonForTag:101]) {
+        
+        [self getBrand];
+    }
 }
 
 //新加
@@ -235,11 +332,11 @@
 
 - (CGFloat)heightForRowIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
-    if ([self buttonForTag:100]) {
+    if (tableView == shopTable) {
         
         return 60;
     }
-    return 60;
+    return 90;
 }
 
 #pragma - mark UItableViewDataSource
@@ -256,6 +353,9 @@
         
         [cell setCellWithModel:aModel];
         
+        cell.cancelButton.tag = 100 + indexPath.row;
+        
+        [cell.cancelButton addTarget:self action:@selector(cancelConcernMail:) forControlEvents:UIControlEventTouchUpInside];
         
         cell.cancelButton.hidden = !isEditing;
         
@@ -263,23 +363,27 @@
         
     }
     
-    static NSString *identify2 = @"brandCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify2];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify2];
-    }
+    static NSString *identify2 = @"BrandViewCell";
+    BrandViewCell *cell = (BrandViewCell *)[LTools cellForIdentify:identify2 cellName:identify2 forTable:brandTable];
+    BrandModel *aBrand = brandTable.dataArray[indexPath.row];
+
+    [cell setCellWithModel:aBrand];
+    cell.cancelButton.hidden = !isEditing;
+    cell.cancelButton.tag = 100000 + indexPath.row;
+    
+    [cell.cancelButton addTarget:self action:@selector(cancelConcernBrand:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([self buttonForTag:100]) {
+    if (tableView == shopTable) {
         
         return shopTable.dataArray.count;
-    }else
-    {
-        return brandTable.dataArray.count;
     }
+    
+    return brandTable.dataArray.count;
 }
 
 @end

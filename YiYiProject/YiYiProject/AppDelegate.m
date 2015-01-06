@@ -137,6 +137,7 @@
         [_locationManager requestAlwaysAuthorization];
         [_locationManager startUpdatingLocation];
     }
+    
 #pragma mark 百度地图相关
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];

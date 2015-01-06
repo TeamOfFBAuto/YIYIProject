@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BrandModel.h"
 /**
- *  商家cell
+ *  品牌 -- cell
  */
 @interface BrandViewCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
+
+- (void)setCellWithModel:(BrandModel *)aModel;
 
 @end
